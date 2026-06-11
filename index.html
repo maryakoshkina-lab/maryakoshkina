@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Маря Кошкина — Художник</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background-color: #fefef7;
+            color: #1f1e1e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Типографика */
+        h1, h2, h3 {
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Шапка */
+        header {
+            padding: 32px 0 16px;
+            border-bottom: 1px solid #e6e6e0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            color: #5e5e5a;
+            margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c2c28;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #b8a07c;
+        }
+
+        /* Hero секция */
+        .hero {
+            padding: 80px 0 48px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 450;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 680px;
+            margin: 0 auto;
+            color: #4a4a46;
+        }
+
+        /* Галерея */
+        .gallery-section {
+            padding: 40px 0 80px;
+        }
+
+        .gallery-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 4px solid #b8a07c;
+            padding-left: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .caption {
+            padding: 16px 16px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #444;
+            border-top: 1px solid #f0f0ea;
+        }
+
+        .caption strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #1f1e1e;
+        }
+
+        /* Модальное окно (увеличение фото) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.92);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 28px;
+            right: 42px;
+            color: #fff;
+            font-size: 48px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #b8a07c;
+        }
+
+        /* Контакты в футере */
+        footer {
+            background-color: #f5f3ed;
+            padding: 48px 0 36px;
+            margin-top: 40px;
+            border-top: 1px solid #e2dfd7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-info p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #3a3a36;
+            margin-right: 24px;
+            font-size: 0.95rem;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .social-links a:hover {
+            color: #b8a07c;
+            border-bottom-color: #b8a07c;
+        }
+
+        /* Стили для музыкальных карточек */
+        .music-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .music-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .music-card:hover {
+            transform: translateX(4px);
+        }
+
+.music-cover {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+        .music-card h3 {
+            font-size: 1.4rem;
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+
+        .music-card p {
+            margin: 0 0 8px 0;
+            font-size: 0.85rem;
+            color: #5e5e5a;
+        }
+
+        .music-button {
+            display: inline-block;
+            background-color: #b8a07c;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .music-button:hover {
+            background-color: #9a8262;
+        }
+
+        /* Чтобы на телефонах было удобно */
+        @media (max-width: 600px) {
+            .music-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .music-cover {
+                width: 100px;
+                height: 100px;
+            }
+            .music-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>Маря Кошкина</h1>
+<p>музыкант · артист · художник</p>
+        </div>
+<nav>
+    <a href="#">Главная</a>
+    <a href="#musicology">Музыковеденье с Марей</a>
+    <a href="#custom-song">Создание песни по вашим мотивам</a>
+    <a href="#photo">Фото Мари</a>
+    <a href="#contact">Контакты</a>
+</nav>
+    </div>
+</header>
+
+<main>
+<section class="hero">
+    <div class="container">
+        <h2>О себе — Маря это сокращение от Марианна</h2>
+        <p>
+            Я строила дома, мосты и человеческие надежды. Пятнадцать лет в строительстве — от прораба до генерального подрядчика — научили меня главному: любая крепкая конструкция держится на деталях. На доверии, на точных расчётах, на умении слышать, что скрыто за фасадом.
+        </p>
+        <p>
+            Но однажды я поняла: самый сложный объект — это моя душа. И её я тоже хочу построить. Так, чтобы в ней были окна для света, стены для опоры и комната, где звучат песни.
+        </p>
+        <p>
+            Я пишу музыку и стихи. Не для сцены (хотя и для неё тоже), а для тех, кто, как и я, ищет себя между бетоном и звёздами. Мои песни — о любви, о зрелости, о том, как не бояться начинать сначала.
+        </p>
+        <p>
+            Я — мама 11-летнего Богдана. Он — мой главный критик и самый честный слушатель. И он же — причина, почему я не сдаюсь.
+        </p>
+        <p>
+            Сейчас я живу между стройкой, кофейней и студией. И каждое утро выбираю: сегодня я буду заливать фундамент или записывать демку. А иногда — и то, и другое.
+        </p>
+        <p>
+            Приходите послушать. Здесь не будет лишних слов. Будут те, которые держат.
+        </p>
+    </div>
+</section>
+
+<section id="gallery" class="gallery-section">
+    <div class="container">
+        <h2>Мои треки</h2>
+        <div class="music-grid">
+            <!-- Карточка 1: общий профиль -->
+            <div class="music-card">
+                <img src="images/temnie_zvezdi_img.jpg" alt="Маря Кошкина" class="music-cover">
+                <h3>Маря Кошкина</h3>
+                <p>Все мои проекты и соцсети в одном месте</p>
+                <a href="https://band.link/marya_koshkina" class="music-button" target="_blank" rel="noopener noreferrer">Слушать →</a>
+            </div>
+            <!-- Карточка 2: Тёмные звёзды -->
+            <div class="music-card">
+                <img src="images/temnie_zvezdi_img.jpg" alt="Тёмные звёзды" class="music-cover">
+                <h3>Тёмные звёзды</h3>
+                <p>Новый сингл 2025</p>
+                <a href="https://band.link/tyomniye_zvyzdy" class="music-button" target="_blank" rel="noopener noreferrer">Слушать →</a>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer id="contact">
+    <div class="container footer-content">
+        <div class="footer-info">
+            <p><strong>Маря Кошкина</strong></p>
+            <p>hello@maryakoshkina.ru</p>
+            <p>+7 999 123-45-67</p>
+            <p>Москва / Санкт-Петербург</p>
+        </div>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Telegram</a>
+            <a href="#">Behance</a>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 32px; font-size: 0.8rem; text-align: center; color: #7f7f7a;">
+        © 2026 Маря Кошкина — все права защищены
+    </div>
+</footer>
+
+<!-- Модальное окно для увеличения фото -->
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+    // ------------------------------------------------------------
+    // ЗДЕСЬ ВЫ МОЖЕТЕ ЗАМЕНИТЬ ИЗОБРАЖЕНИЯ НА СВОИ
+    // Добавьте свои картинки в папку "images" и укажите пути
+    // ------------------------------------------------------------
+    const artworks = [
+        {
+            src: "https://picsum.photos/id/102/600/800",  // временное фото (замените!)
+            title: "Утренний сад",
+            desc: "холст, масло, 80x100 см, 2025"
+        },
+        {
+            src: "https://picsum.photos/id/104/600/800",
+            title: "Тишина в городе",
+            desc: "акрил, холст, 90x70 см, 2024"
+        },
+        {
+            src: "https://picsum.photos/id/106/600/800",
+            title: "Отражение",
+            desc: "смешанная техника, 60x80 см, 2025"
+        },
+        {
+            src: "https://picsum.photos/id/20/600/800",
+            title: "Весеннее настроение",
+            desc: "пастель, бумага, 50x65 см, 2023"
+        },
+        {
+            src: "https://picsum.photos/id/30/600/800",
+            title: "Ночной диалог",
+            desc: "холст, масло, 100x120 см, 2024"
+        },
+        {
+            src: "https://picsum.photos/id/42/600/800",
+            title: "Поток сознания",
+            desc: "графика, тушь, 40x50 см, 2025"
+        }
+    ];
+
+    // Заполняем галерею
+    const galleryGrid = document.getElementById('galleryGrid');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.querySelector('.close-modal');
+
+    function buildGallery() {
+        galleryGrid.innerHTML = '';
+        artworks.forEach((art, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `
+                <img src="${art.src}" alt="${art.title}" loading="lazy">
+                <div class="caption">
+                    <strong>${art.title}</strong>
+                    <span>${art.desc}</span>
+                </div>
+            `;
+            // Клик по картинке открывает модалку
+            const imgElement = item.querySelector('img');
+            imgElement.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modal.style.display = 'flex';
+                modalImg.src = art.src;
+                modalImg.alt = art.title;
+            });
+            galleryGrid.appendChild(item);
+        });
+    }
+
+    // Закрыть модалку по клику на крестик или фон
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Плавная прокрутка для навигации
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            if (targetId && targetId !== '#') {
+                e.preventDefault();
+                const targetElem = document.querySelector(targetId);
+                if (targetElem) {
+                    targetElem.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else if (targetId === '#') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    });
+
+    buildGallery();
+</script>
+</body>
+</html>

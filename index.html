@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Маря Кошкина — Художник</title>
+  <title>Маря Кошкина — Музыкант</title>
     <style>
         * {
             margin: 0;
@@ -79,18 +79,18 @@
             text-align: center;
         }
 
-        .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 450;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 680px;
-            margin: 0 auto;
-            color: #4a4a46;
-        }
+.hero h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    font-weight: 450;
+}
+.hero p {
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto 12px auto;
+    color: #4a4a46;
+    line-height: 1.5;
+}
 
         /* Галерея */
         .gallery-section {
@@ -297,6 +297,18 @@
                 font-size: 1.2rem;
             }
         }
+/* Стили для выпадающих блоков с ценами */
+.program-details {
+    display: none;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.program-details.show {
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -320,27 +332,56 @@
 <main>
 <section class="hero">
     <div class="container">
-        <h2>О себе — Маря это сокращение от Марианна</h2>
-        <p>
-            Я строила дома, мосты и человеческие надежды. Пятнадцать лет в строительстве — от прораба до генерального подрядчика — научили меня главному: любая крепкая конструкция держится на деталях. На доверии, на точных расчётах, на умении слышать, что скрыто за фасадом.
-        </p>
-        <p>
-            Но однажды я поняла: самый сложный объект — это моя душа. И её я тоже хочу построить. Так, чтобы в ней были окна для света, стены для опоры и комната, где звучат песни.
-        </p>
-        <p>
-            Я пишу музыку и стихи. Не для сцены (хотя и для неё тоже), а для тех, кто, как и я, ищет себя между бетоном и звёздами. Мои песни — о любви, о зрелости, о том, как не бояться начинать сначала.
-        </p>
-        <p>
-            Я — мама 11-летнего Богдана. Он — мой главный критик и самый честный слушатель. И он же — причина, почему я не сдаюсь.
-        </p>
-        <p>
-            Сейчас я живу между стройкой, кофейней и студией. И каждое утро выбираю: сегодня я буду заливать фундамент или записывать демку. А иногда — и то, и другое.
-        </p>
-        <p>
-            Приходите послушать. Здесь не будет лишних слов. Будут те, которые держат.
-        </p>
+        <h2>О себе</h2>
+        <p>Когда-то я возвращала к жизни старинные вещи. Проводила часы в тишине мастерской, вдыхая запах лака и времени, и знала: у каждой трещины есть история, а у каждой вещи — душа, которую можно расслышать, если очень захотеть.</p>
+        <p>Шесть лет назад я начала реставрировать себя — через музыку.</p>
+        <p>Я нырнула в звук с головой и обнаружила внутри такое количество слоёв, что хватило бы на целый оркестр. Теперь я пишу стихи, смыслы, мелодии, сама делаю аранжировки в Ableton, снимаю видео, записываю голос — и с каждым разом звучу всё лучше. Не потому, что стала «правильной», а потому что перестала бояться быть слышимой.</p>
+        <p>Я не выбирала между музыкой и психологией. Я — живой мост между ними.</p>
+        <p>Как реставратор, я видела, как из фрагментов собирается целое. Теперь я помогаю людям собирать себя: находить внутренние опоры, на которые можно опереться, и голос, которым можно петь свою жизнь — свободно, осмысленно, с любовью.</p>
+        <p>Я — Марианна Певроиюльская. Для тех, кто знает меня через музыку — Маря Кошкина.<br>Человек-оркестр, собиратель смыслов и проводник к вашей собственной глубине.</p>
+        <p>Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
     </div>
 </section>
+
+<!-- Блок с предложением проектов -->
+<!-- Блок с предложением проектов (цены скрыты, появляются по кнопке) -->
+<section class="projects-offer">
+    <div class="container">
+        <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Мои проекты</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <h3>🔹 Лаборатория внутренних опор</h3>
+                <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы. Групповые и индивидуальные занятия.</p>
+                <button class="project-button" data-target="lab-details">Программы и цены →</button>
+                <div id="lab-details" class="program-details">
+                    <h4>Программы и цены</h4>
+                    <ul class="price-list">
+                        <li><strong>Базовый курс (4 недели)</strong> — 8 000 ₽<br><span style="font-size:0.9rem;">✔ 4 групповых онлайн-встречи + материалы</span></li>
+                        <li><strong>Индивидуальное сопровождение (месяц)</strong> — 25 000 ₽<br><span style="font-size:0.9rem;">✔ 4 личные сессии + поддержка в мессенджере</span></li>
+                        <li><strong>Разовое занятие</strong> — 3 500 ₽ (60 мин)</li>
+                        <li><strong>Старт нового потока — 15 мая</strong> → запись открыта</li>
+                    </ul>
+                    <p>Для записи напишите: <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Telegram</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>🔹 Поющие круги рефлексии</h3>
+                <p>Песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о светлом.</p>
+                <button class="project-button" data-target="singing-details">Программы и цены →</button>
+                <div id="singing-details" class="program-details">
+                    <h4>Программы и цены</h4>
+                    <ul class="price-list">
+                        <li><strong>Разовый круг</strong> — 1 500 ₽ (2 часа, в Zoom)</li>
+                        <li><strong>Абонемент на 4 круга</strong> — 5 000 ₽ (экономия 1 000 ₽)</li>
+                        <li><strong>Индивидуальная песня-рефлексия</strong> — от 5 000 ₽ (текст + демо)</li>
+                    </ul>
+                    <p>Ближайший круг: 20 апреля в 19:00 мск. <a href="#contact" style="color:#b8a07c;">Связаться</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section id="gallery" class="gallery-section">
     <div class="container">
@@ -364,16 +405,87 @@
     </div>
 </section>
 </main>
+<!-- Раздел: Музыковеденье с Марей -->
+<section id="musicology" class="hero" style="padding: 60px 0; background-color: #faf8f3;">
+    <div class="container">
+        <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Музыковеденье с Марей</h2>
+        <p>Мои заметки и статьи о музыке из ВКонтакте:</p>
 
+        <!-- Подключаем API VK один раз -->
+        <script type="text/javascript" src="https://vk.com/js/api/openapi.js?173"></script>
+
+        <!-- Статья 417 -->
+        <div id="vk_post_-235398281_417"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_417", -235398281, 417, 'nqpJAkTFEh3d5yR59TNxMt7ijA'); }());
+        </script>
+
+        <!-- Статья 411 -->
+        <div id="vk_post_-235398281_411"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_411", -235398281, 411, 'wbx-Wh1fktHZsQAAAa2gEdsF7g'); }());
+        </script>
+
+        <!-- Статья 244 -->
+        <div id="vk_post_-235398281_244"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_244", -235398281, 244, 'KzICEUCTodnEje_styDWLR8rXQ'); }());
+        </script>
+
+        <!-- Статья 241 -->
+        <div id="vk_post_-235398281_241"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_241", -235398281, 241, 'naZAkNkN_-TxWGuMMtRJiDoLgQ'); }());
+        </script>
+
+        <!-- Статья 235 -->
+        <div id="vk_post_-235398281_235"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_235", -235398281, 235, '96hvxf2cyux2O7O5nPGXCXQ43A'); }());
+        </script>
+
+        <!-- Статья 228 -->
+        <div id="vk_post_-235398281_228"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_228", -235398281, 228, 'wulEQnB2rx_wOHACZs5bt0y37g'); }());
+        </script>
+
+        <!-- Статья 216 -->
+        <div id="vk_post_-235398281_216"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_216", -235398281, 216, 'IlLZHZ5F4DYlsSoAVFoTM2FcIA'); }());
+        </script>
+
+        <!-- Статья 165 -->
+        <div id="vk_post_-235398281_165"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_165", -235398281, 165, '5K4EEpUdQ7PeD7OnljoekMHr1Q'); }());
+        </script>
+
+        <!-- Статья 139 -->
+        <div id="vk_post_-235398281_139"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_139", -235398281, 139, '1Gtwbbq3Blquuu6D0IUmiJhl0A'); }());
+        </script>
+
+        <!-- Статья 135 -->
+        <div id="vk_post_-235398281_135"></div>
+        <script type="text/javascript">
+          (function() { VK.Widgets.Post("vk_post_-235398281_135", -235398281, 135, 'ZDKv1KgBwVexC9wHktOVDvRx7g'); }());
+        </script>
+
+        <a href="https://vk.com/marya_koshkina_muz" class="music-button" style="margin-top: 20px; display: inline-block;">Все статьи в VK →</a>
+    </div>
+</section>
 <footer id="contact">
     <div class="container footer-content">
         <div class="footer-info">
             <p><strong>Маря Кошкина</strong></p>
-            <p>hello@maryakoshkina.ru</p>
-            <p>+7 999 123-45-67</p>
-            <p>Москва / Санкт-Петербург</p>
+            <p>marya777koshkina@yandex.ru</p>
+            <p>+7 985 300 87 77</p>
+            <p>Москва / Россия</p>
         </div>
-        <div class="social-links">
+        <div class=https://vk.com/marya_koshkina_muz>
             <a href="#">Instagram</a>
             <a href="#">Telegram</a>
             <a href="#">Behance</a>
@@ -487,6 +599,18 @@
     });
 
     buildGallery();
+    
+    // Аккордеон для программ и цен (выпадающие блоки)
+    document.querySelectorAll('.project-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const detailsBlock = document.getElementById(targetId);
+            if (detailsBlock) {
+                detailsBlock.classList.toggle('show');
+            }
+        });
+    });
+</script>
 </script>
 </body>
 </html>

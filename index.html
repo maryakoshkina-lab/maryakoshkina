@@ -57,20 +57,31 @@
             margin-top: 4px;
         }
 
-        nav {
-            display: flex;
-            gap: 28px;
-        }
+       nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #2c2c28;
-            font-size: 1rem;
-            transition: color 0.2s;
-        }
+nav a {
+    text-decoration: none;
+    color: #4a4a46;
+    font-size: 1rem;
+    font-weight: 450;
+    padding: 8px 18px;
+    border-radius: 40px;
+    background-color: rgba(184, 160, 124, 0.08);
+    transition: all 0.3s ease;
+    letter-spacing: 0.01em;
+}
 
-        nav a:hover {
-            color: #b8a07c;
+nav a:hover {
+    background-color: #b8a07c;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(184, 160, 124, 0.25);
+}
         }
 
         /* Hero секция */
@@ -309,6 +320,138 @@
 .program-details.show {
     display: block;
 }
+
+/* Стили для карточек проектов (сетка 3 колонки) */
+.projects-offer {
+    padding: 40px 0 60px;
+    background-color: #fff;
+}
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.project-card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    padding: 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #f0ece4;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: #2c2c28;
+    font-weight: 500;
+}
+.project-card p {
+    color: #5e5e5a;
+    margin-bottom: 24px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+/* Красивые кнопки */
+.project-button {
+    background: linear-gradient(135deg, #b8a07c, #9a8262);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    align-self: flex-start;
+}
+.project-button:hover {
+    background: linear-gradient(135deg, #c9ad87, #b08f6e);
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.price-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+}
+.price-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e2dfd7;
+    font-size: 0.95rem;
+}
+@media (max-width: 768px) {
+    .project-cards {
+        grid-template-columns: 1fr;
+    }
+}
+/* Выпадающее меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 240px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    padding: 12px 0;
+    z-index: 100;
+    top: 50px;
+    left: 0;
+    border: 1px solid #f0ece4;
+}
+
+.dropdown-content a {
+    color: #4a4a46;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    background: transparent;
+    border-radius: 0;
+}
+
+.dropdown-content a:hover {
+    background-color: #faf8f3;
+    color: #b8a07c;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Показываем меню при наведении (на компьютере) */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Для телефонов: будем открывать по клику (см. JS) */
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        padding-left: 20px;
+        display: none;
+    }
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+}
     </style>
 </head>
 <body>
@@ -324,6 +467,14 @@
     <a href="#musicology">Музыковеденье с Марей</a>
     <a href="#custom-song">Создание песни по вашим мотивам</a>
     <a href="#photo">Фото Мари</a>
+    <div class="dropdown">
+        <a href="#" class="dropbtn">Программы ▼</a>
+        <div class="dropdown-content">
+            <a href="#lab-program-link">🔹 Лаборатория внутренних опор</a>
+            <a href="#singing-program-link">🔹 Поющие круги рефлексии</a>
+            <a href="#muza-program-link">🔹 Проект «Муза»</a>
+        </div>
+    </div>
     <a href="#contact">Контакты</a>
 </nav>
     </div>
@@ -333,13 +484,22 @@
 <section class="hero">
     <div class="container">
         <h2>О себе</h2>
-        <p>Когда-то я возвращала к жизни старинные вещи. Проводила часы в тишине мастерской, вдыхая запах лака и времени, и знала: у каждой трещины есть история, а у каждой вещи — душа, которую можно расслышать, если очень захотеть.</p>
-        <p>Шесть лет назад я начала реставрировать себя — через музыку.</p>
-        <p>Я нырнула в звук с головой и обнаружила внутри такое количество слоёв, что хватило бы на целый оркестр. Теперь я пишу стихи, смыслы, мелодии, сама делаю аранжировки в Ableton, снимаю видео, записываю голос — и с каждым разом звучу всё лучше. Не потому, что стала «правильной», а потому что перестала бояться быть слышимой.</p>
-        <p>Я не выбирала между музыкой и психологией. Я — живой мост между ними.</p>
-        <p>Как реставратор, я видела, как из фрагментов собирается целое. Теперь я помогаю людям собирать себя: находить внутренние опоры, на которые можно опереться, и голос, которым можно петь свою жизнь — свободно, осмысленно, с любовью.</p>
-        <p>Я — Марианна Певроиюльская. Для тех, кто знает меня через музыку — Маря Кошкина.<br>Человек-оркестр, собиратель смыслов и проводник к вашей собственной глубине.</p>
-        <p>Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
+        <div id="aboutShort">
+            <p><strong>Реставратор душ и звуков</strong></p>
+            <p>По первому образованию и опыту я реставратор, инженер и руководитель стройки. Годами я возвращала к жизни старые вещи, проектировала конструкции и вела за собой команды — вдыхала запах лака, дерева и времени, знала, что у каждой трещины есть своя история, а у каждой постройки — душа, которую можно услышать, если очень захотеть.</p>
+        </div>
+        <div id="aboutMore" style="display: none;">
+            <p>Шесть лет назад я начала главную стройку — самой себя. И моим инструментом стала музыка.</p>
+            <p>Я ушла с головой в звук, и внутри обнаружилось столько слоёв, что хватило бы на целый оркестр. Теперь я пишу стихи, смыслы, мелодии. Сама делаю аранжировки в Ableton, записываю голос, снимаю видео — и с каждым разом звучу всё ближе к своей сути. Не потому что стала «правильной», а потому что перестала бояться быть слышимой.</p>
+            <p>Я не выбираю между психологией и музыкой. Я — мост между ними.</p>
+            <p>Как строитель и реставратор, я видела, как из фрагментов рождается целое. Теперь я помогаю людям собирать себя: находить опоры, на которых можно устоять, и голос, которым можно петь свою жизнь — свободно, осмысленно, с любовью.</p>
+            <p>Мои проекты — это два крыла одной души:<br>
+            🔸 <strong>Лаборатория внутренних опор</strong> — здесь мы строим ваш «внутренний дом», бережно, слой за слоем.<br>
+            🔸 <strong>Поющие круги рефлексии</strong> — здесь песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о добром.</p>
+            <p>Я — Марианна Певроиюльская. Для тех, кто знает меня через музыку — Маря Кошкина.<br>
+            Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
+        </div>
+        <button id="readMoreBtn" class="music-button" style="margin-top: 16px;">Читать далее →</button>
     </div>
 </section>
 
@@ -349,8 +509,8 @@
     <div class="container">
         <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Мои проекты</h2>
         <div class="project-cards">
-            <div class="project-card">
-                <h3>🔹 Лаборатория внутренних опор</h3>
+           <div class="project-card" id="lab-program-link">
+    <h3>🔹 Лаборатория внутренних опор</h3>
                 <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы. Групповые и индивидуальные занятия.</p>
                 <button class="project-button" data-target="lab-details">Программы и цены →</button>
                 <div id="lab-details" class="program-details">
@@ -364,8 +524,8 @@
                     <p>Для записи напишите: <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Telegram</p>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>🔹 Поющие круги рефлексии</h3>
+            <div class="project-card" id="singing-program-link">
+    <h3>🔹 Поющие круги рефлексии</h3>
                 <p>Песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о светлом.</p>
                 <button class="project-button" data-target="singing-details">Программы и цены →</button>
                 <div id="singing-details" class="program-details">
@@ -379,9 +539,25 @@
                 </div>
             </div>
         </div>
+<!-- Проект 3: Муза — нейро-поэтический коучинг -->
+            <div class="project-card" id="muza-program-link">
+    <h3>🔹 Проект «Муза» — нейро-поэтический коучинг</h3>
+                <p>Включите творческий поток через отклик тела. Индивидуальные сессии, работа с образом и ритмом.</p>
+                <button class="project-button" data-target="muza-details">Программы и цены →</button>
+                <div id="muza-details" class="program-details">
+                    <h4>Программы и цены</h4>
+                    <ul class="price-list">
+                        <li><strong>Пробная сессия (60 мин)</strong> — 2 500 ₽</li>
+                        <li><strong>Курс «Поток Музы» (4 сессии)</strong> — 9 000 ₽ (экономия 1 000 ₽)</li>
+                        <li><strong>Абонемент на месяц (8 сессий)</strong> — 16 000 ₽</li>
+                        <li><strong>Программа «Поэт и тело» (12 сессий + домашние практики)</strong> — 24 000 ₽</li>
+                    </ul>
+                    <p>Старт в любое время. Запись по почте <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Telegram</p>
+                </div>
+            </div>
+
     </div>
 </section>
-
 
 <section id="gallery" class="gallery-section">
     <div class="container">
@@ -495,7 +671,7 @@
         © 2026 Маря Кошкина — все права защищены
     </div>
 </footer>
-
+<div id="galleryGrid" style="display: none;"></div>
 <!-- Модальное окно для увеличения фото -->
 <div id="imageModal" class="modal">
     <span class="close-modal">&times;</span>
@@ -610,7 +786,36 @@
             }
         });
     });
-</script>
+
+    // Читать далее для раздела "О себе"
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    const aboutMore = document.getElementById('aboutMore');
+    if (readMoreBtn && aboutMore) {
+        readMoreBtn.addEventListener('click', function() {
+            if (aboutMore.style.display === 'none' || aboutMore.style.display === '') {
+                aboutMore.style.display = 'block';
+                readMoreBtn.textContent = 'Свернуть ↑';
+            } else {
+                aboutMore.style.display = 'none';
+                readMoreBtn.textContent = 'Читать далее →';
+            }
+        });
+    }
+// Выпадающее меню для мобильных устройств (клик)
+const dropdown = document.querySelector('.dropdown');
+const dropbtn = document.querySelector('.dropbtn');
+if (dropdown && dropbtn) {
+    dropbtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+    });
+    // Закрыть при клике вне меню
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+}
 </script>
 </body>
 </html>

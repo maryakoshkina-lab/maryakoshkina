@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Маря Кошкина — Музыкант</title>
+    <title>Маря Кошкина — Музыкант</title>
     <style>
         * {
             margin: 0;
@@ -57,31 +57,30 @@
             margin-top: 4px;
         }
 
-       nav {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #4a4a46;
-    font-size: 1rem;
-    font-weight: 450;
-    padding: 8px 18px;
-    border-radius: 40px;
-    background-color: rgba(184, 160, 124, 0.08);
-    transition: all 0.3s ease;
-    letter-spacing: 0.01em;
-}
+        nav a {
+            text-decoration: none;
+            color: #4a4a46;
+            font-size: 1rem;
+            font-weight: 450;
+            padding: 8px 18px;
+            border-radius: 40px;
+            background-color: rgba(184, 160, 124, 0.08);
+            transition: all 0.3s ease;
+            letter-spacing: 0.01em;
+        }
 
-nav a:hover {
-    background-color: #b8a07c;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(184, 160, 124, 0.25);
-}
+        nav a:hover {
+            background-color: #b8a07c;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(184, 160, 124, 0.25);
         }
 
         /* Hero секция */
@@ -90,18 +89,19 @@ nav a:hover {
             text-align: center;
         }
 
-.hero h2 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-    font-weight: 450;
-}
-.hero p {
-    font-size: 0.9rem;
-    max-width: 600px;
-    margin: 0 auto 12px auto;
-    color: #4a4a46;
-    line-height: 1.5;
-}
+        .hero h2 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            font-weight: 450;
+        }
+
+        .hero p {
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto 12px auto;
+            color: #4a4a46;
+            line-height: 1.5;
+        }
 
         /* Галерея */
         .gallery-section {
@@ -256,14 +256,14 @@ nav a:hover {
             transform: translateX(4px);
         }
 
-.music-cover {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 12px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+        .music-cover {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
         .music-card h3 {
             font-size: 1.4rem;
@@ -308,191 +308,229 @@ nav a:hover {
                 font-size: 1.2rem;
             }
         }
-/* Стили для выпадающих блоков с ценами */
-.program-details {
-    display: none;
-    margin-top: 20px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.program-details.show {
-    display: block;
-}
 
-/* Стили для карточек проектов (сетка 3 колонки) */
-.projects-offer {
-    padding: 40px 0 60px;
-    background-color: #fff;
-}
-.project-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-.project-card {
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    padding: 28px 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid #f0ece4;
-    display: flex;
-    flex-direction: column;
-}
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
-}
-.project-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-    color: #2c2c28;
-    font-weight: 500;
-}
-.project-card p {
-    color: #5e5e5a;
-    margin-bottom: 24px;
-    line-height: 1.5;
-    flex-grow: 1;
-}
-/* Красивые кнопки */
-.project-button {
-    background: linear-gradient(135deg, #b8a07c, #9a8262);
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    align-self: flex-start;
-}
-.project-button:hover {
-    background: linear-gradient(135deg, #c9ad87, #b08f6e);
-    transform: scale(1.02);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-.price-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 16px;
-}
-.price-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid #e2dfd7;
-    font-size: 0.95rem;
-}
-@media (max-width: 768px) {
-    .project-cards {
-        grid-template-columns: 1fr;
-    }
-}
-/* Выпадающее меню */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
+        /* Стили для выпадающих блоков с ценами */
+        .program-details {
+            display: none;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
 
-.dropbtn {
-    cursor: pointer;
-}
+        .program-details.show {
+            display: block;
+        }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 240px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-    border-radius: 20px;
-    padding: 12px 0;
-    z-index: 100;
-    top: 50px;
-    left: 0;
-    border: 1px solid #f0ece4;
-}
+        /* Стили для карточек проектов (сетка 3 колонки) */
+        .projects-offer {
+            padding: 40px 0 60px;
+            background-color: #fff;
+        }
 
-.dropdown-content a {
-    color: #4a4a46;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: block;
-    font-size: 0.9rem;
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            padding: 28px 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f0ece4;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #2c2c28;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            color: #5e5e5a;
+            margin-bottom: 24px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* Красивые кнопки */
+        .project-button {
+            background: linear-gradient(135deg, #b8a07c, #9a8262);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            align-self: flex-start;
+        }
+
+        .project-button:hover {
+            background: linear-gradient(135deg, #c9ad87, #b08f6e);
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 16px;
+        }
+
+        .price-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2dfd7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Выпадающее меню */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 240px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 12px 0;
+            z-index: 100;
+            top: 50px;
+            left: 0;
+            border: 1px solid #f0ece4;
+        }
+
+        .dropdown-content a {
+            color: #4a4a46;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            background: transparent;
+            border-radius: 0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #faf8f3;
+            color: #b8a07c;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                padding-left: 20px;
+                display: none;
+            }
+            .dropdown.open .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* Плавающая луна и афоризмы */
+      /* Плавающая луна и афоризмы */
+.moon-sticky-container {
+    position: sticky;
+    top: 120px;
+    float: right;
+    width: 160px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    z-index: 10;
     background: transparent;
-    border-radius: 0;
+    pointer-events: none;
+    clear: both;
 }
 
-.dropdown-content a:hover {
-    background-color: #faf8f3;
-    color: #b8a07c;
-    transform: none;
-    box-shadow: none;
-}
-
-/* Показываем меню при наведении (на компьютере) */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Для телефонов: будем открывать по клику (см. JS) */
 @media (max-width: 768px) {
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        padding-left: 20px;
-        display: none;
+    .moon-sticky-container {
+        position: relative;   /* не прилипает */
+        float: right;         /* текст обтекает справа */
+        width: 110px;         /* чуть меньше на телефоне */
+        margin: 0 0 15px 15px;
+        top: auto;
+        clear: none;
     }
-    .dropdown.open .dropdown-content {
-        display: block;
+    /* Чтобы текст не подлезал под луну, добавим отступ у родителя */
+    body {
+        padding-right: 0;
+    }
+    /* Афоризм на телефоне тоже компактнее */
+    .moon-sticky-container #mahabharataWisdom {
+        font-size: 0.6rem;
+        padding: 8px;
+        max-width: 110px;
+    }
+    .moon-sticky-container canvas {
+        width: 80px;
+        height: 80px;
+    }
+    .moon-sticky-container #moonPhaseInfo {
+        font-size: 0.55rem;
     }
 }
+        .moon-sticky-container canvas {
+            pointer-events: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .moon-sticky-container canvas:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
-<!-- Плавающая луна справа -->
-<style>
-    .moon-sticky-container {
-        position: sticky;
-        top: 120px;
-        float: right;
-        width: 160px;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        z-index: 10;
-        background: transparent;
-        pointer-events: none;
-        clear: both;
-    }
-    @media (max-width: 768px) {
-        .moon-sticky-container {
-            position: relative;
-            float: none;
-            margin: 20px auto;
-            width: 130px;
-        }
-    }
-    .moon-sticky-container canvas {
-        pointer-events: auto;
-        cursor: pointer;
-        transition: transform 0.2s;
-    }
-    .moon-sticky-container canvas:hover {
-        transform: scale(1.02);
-    }
-</style>
 
+<!-- Плавающая луна и афоризмы -->
 <div class="moon-sticky-container">
     <div id="moonWidgetContainer" style="text-align: center;">
         <canvas id="realisticMoonCanvas" width="160" height="160" style="max-width: 100%; height: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));"></canvas>
         <div id="moonPhaseInfo" style="margin-top: 6px; font-family: system-ui; font-size: 0.65rem; color: #4a4a46; background: rgba(184, 160, 124, 0.1); padding: 3px 8px; border-radius: 30px;">
             Загрузка...
         </div>
+    </div>
+    <div id="mahabharataWisdom" style="margin-top: 16px; padding: 12px; background: rgba(184, 160, 124, 0.08); border-radius: 20px; font-family: system-ui; font-size: 0.7rem; color: #4a4a46; text-align: center; max-width: 160px; border-left: 2px solid #b8a07c;">
+        <div style="font-size: 0.65rem; letter-spacing: 1px; margin-bottom: 6px; color: #b8a07c;">📜 Мудрость дня</div>
+        <div id="dailyQuote">Загрузка...</div>
+        <div style="font-size: 0.6rem; margin-top: 8px;">Махабхарата</div>
     </div>
 </div>
 
@@ -604,298 +642,209 @@ nav a:hover {
         setInterval(updateMoonWidget, 3600000);
     })();
 </script>
+
 <header>
     <div class="container header-inner">
         <div class="logo">
             <h1>Маря Кошкина</h1>
-<p>музыкант · артист · художник · поэт · реставратор · прораб · эклектическая ведьма</p>
+            <p>музыкант · артист · художник · поэт · реставратор · прораб · эклектическая ведьма</p>
         </div>
-<nav>
-    <a href="#">Главная</a>
-    <a href="#musicology">Музыковеденье с Марей</a>
-    <a href="#custom-song">Создание песни по вашим мотивам</a>
-    <a href="#photo">Фото Мари</a>
-    <div class="dropdown">
-        <a href="#" class="dropbtn">Программы ▼</a>
-        <div class="dropdown-content">
-            <a href="#lab-program-link">🔹 Лаборатория внутренних опор</a>
-            <a href="#singing-program-link">🔹 Поющие круги рефлексии</a>
-            <a href="#muza-program-link">🔹 Проект «Муза»</a>
-        </div>
-    </div>
-    <a href="#animarya">АниМаря</a>
-    <a href="#contact">Контакты</a>
-</nav>
-</nav>
-    <a href="#contact">Контакты</a>
-</nav>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#musicology">Музыковеденье с Марей</a>
+            <a href="#custom-song">Создание песни по вашим мотивам</a>
+            <a href="#photo">Фото Мари</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Программы ▼</a>
+                <div class="dropdown-content">
+                    <a href="#lab-program-link">🔹 Лаборатория внутренних опор</a>
+                    <a href="#singing-program-link">🔹 Поющие круги рефлексии</a>
+                    <a href="#muza-program-link">🔹 Проект «Муза»</a>
+                </div>
+            </div>
+            <a href="#animarya">АниМаря</a>
+            <a href="#contact">Контакты</a>
+        </nav>
     </div>
 </header>
 
 <main>
-<section class="hero">
-    <div class="container">
-        <h2>О себе</h2>
-        <div id="aboutShort">
-            <p><strong>Реставратор душ и звуков</strong></p>
-            <p>По первому образованию и опыту я реставратор, инженер и руководитель стройки. Годами я возвращала к жизни старые вещи, проектировала конструкции и вела за собой команды — вдыхала запах лака, дерева и времени, знала, что у каждой трещины есть своя история, а у каждой постройки — душа, которую можно услышать, если очень захотеть.</p>
+    <section class="hero">
+        <div class="container">
+            <h2>О себе</h2>
+            <div id="aboutShort">
+                <p><strong>Реставратор душ и звуков</strong></p>
+                <p>По первому образованию и опыту я реставратор, инженер и руководитель стройки. Годами я возвращала к жизни старые вещи, проектировала конструкции и вела за собой команды — вдыхала запах лака, дерева и времени, знала, что у каждой трещины есть своя история, а у каждой постройки — душа, которую можно услышать, если очень захотеть.</p>
+            </div>
+            <div id="aboutMore" style="display: none;">
+                <p>Шесть лет назад я начала главную стройку — самой себя. И моим инструментом стала музыка.</p>
+                <p>Я ушла с головой в звук, и внутри обнаружилось столько слоёв, что хватило бы на целый оркестр. Теперь я пишу стихи, смыслы, мелодии. Сама делаю аранжировки в Ableton, записываю голос, снимаю видео — и с каждым разом звучу всё ближе к своей сути. Не потому что стала «правильной», а потому что перестала бояться быть слышимой.</p>
+                <p>Я не выбираю между психологией и музыкой. Я — мост между ними.</p>
+                <p>Как строитель и реставратор, я видела, как из фрагментов рождается целое. Теперь я помогаю людям собирать себя: находить опоры, на которых можно устоять, и голос, которым можно петь свою жизнь — свободно, осмысленно, с любовью.</p>
+                <p>Мои проекты — это два крыла одной души:<br>
+                🔸 <strong>Лаборатория внутренних опор</strong> — здесь мы строим ваш «внутренний дом», бережно, слой за слоем.<br>
+                🔸 <strong>Поющие круги рефлексии</strong> — здесь песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о добром.</p>
+                <p>Я — Марианна Певроиюльская. Для тех, кто знает меня через музыку — Маря Кошкина.<br>
+                Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
+            </div>
+            <button id="readMoreBtn" class="music-button" style="margin-top: 16px;">Читать далее →</button>
         </div>
-        <div id="aboutMore" style="display: none;">
-            <p>Шесть лет назад я начала главную стройку — самой себя. И моим инструментом стала музыка.</p>
-            <p>Я ушла с головой в звук, и внутри обнаружилось столько слоёв, что хватило бы на целый оркестр. Теперь я пишу стихи, смыслы, мелодии. Сама делаю аранжировки в Ableton, записываю голос, снимаю видео — и с каждым разом звучу всё ближе к своей сути. Не потому что стала «правильной», а потому что перестала бояться быть слышимой.</p>
-            <p>Я не выбираю между психологией и музыкой. Я — мост между ними.</p>
-            <p>Как строитель и реставратор, я видела, как из фрагментов рождается целое. Теперь я помогаю людям собирать себя: находить опоры, на которых можно устоять, и голос, которым можно петь свою жизнь — свободно, осмысленно, с любовью.</p>
-            <p>Мои проекты — это два крыла одной души:<br>
-            🔸 <strong>Лаборатория внутренних опор</strong> — здесь мы строим ваш «внутренний дом», бережно, слой за слоем.<br>
-            🔸 <strong>Поющие круги рефлексии</strong> — здесь песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о добром.</p>
-            <p>Я — Марианна Певроиюльская. Для тех, кто знает меня через музыку — Маря Кошкина.<br>
-            Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
-        </div>
-        <button id="readMoreBtn" class="music-button" style="margin-top: 16px;">Читать далее →</button>
-    </div>
-</section>
+    </section>
 
-<!-- Блок с предложением проектов -->
-<!-- Блок с предложением проектов (цены скрыты, появляются по кнопке) -->
-<section class="projects-offer">
-    <div class="container">
-        <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Мои проекты</h2>
-        <div class="project-cards">
-           <div class="project-card" id="lab-program-link">
-    <h3>🔹 Лаборатория внутренних опор</h3>
-                <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы. Групповые и индивидуальные занятия.</p>
-                <button class="project-button" data-target="lab-details">Программы и цены →</button>
-                <div id="lab-details" class="program-details">
-                    <h4>Программы и цены</h4>
-                    <ul class="price-list">
-                        <li><strong>Базовый курс (4 недели)</strong> — 8 000 ₽<br><span style="font-size:0.9rem;">✔ 4 групповых онлайн-встречи + материалы</span></li>
-                        <li><strong>Индивидуальное сопровождение (месяц)</strong> — 25 000 ₽<br><span style="font-size:0.9rem;">✔ 4 личные сессии + поддержка в мессенджере</span></li>
-                        <li><strong>Разовое занятие</strong> — 3 500 ₽ (60 мин)</li>
-                        <li><strong>Старт нового потока — 15 мая</strong> → запись открыта</li>
-                    </ul>
-                    <p>Для записи напишите: <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Telegram</p>
+    <!-- Мои проекты -->
+    <section class="projects-offer">
+        <div class="container">
+            <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Мои проекты</h2>
+            <div class="project-cards">
+                <div class="project-card" id="lab-program-link">
+                    <h3>🔹 Лаборатория внутренних опор</h3>
+                    <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы. Групповые и индивидуальные занятия.</p>
+                    <button class="project-button" data-target="lab-details">Программы и цены →</button>
+                    <div id="lab-details" class="program-details">
+                        <h4>Программы и цены</h4>
+                        <ul class="price-list">
+                            <li><strong>Базовый курс (4 недели)</strong> — 8 000 ₽<br><span style="font-size:0.9rem;">✔ 4 групповых онлайн-встречи + материалы</span></li>
+                            <li><strong>Индивидуальное сопровождение (месяц)</strong> — 25 000 ₽<br><span style="font-size:0.9rem;">✔ 4 личные сессии + поддержка в мессенджере</span></li>
+                            <li><strong>Разовое занятие</strong> — 3 500 ₽ (60 мин)</li>
+                            <li><strong>Старт нового потока — 15 мая</strong> → запись открыта</li>
+                        </ul>
+                        <p>Для записи напишите: <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Telegram</p>
+                    </div>
+                </div>
+                <div class="project-card" id="singing-program-link">
+                    <h3>🔹 Поющие круги рефлексии</h3>
+                    <p>Песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о светлом.</p>
+                    <button class="project-button" data-target="singing-details">Программы и цены →</button>
+                    <div id="singing-details" class="program-details">
+                        <h4>Программы и цены</h4>
+                        <ul class="price-list">
+                            <li><strong>Разовый круг</strong> — 1 500 ₽ (2 часа, в Zoom)</li>
+                            <li><strong>Абонемент на 4 круга</strong> — 5 000 ₽ (экономия 1 000 ₽)</li>
+                            <li><strong>Индивидуальная песня-рефлексия</strong> — от 5 000 ₽ (текст + демо)</li>
+                        </ul>
+                        <p>Ближайший круг: 20 апреля в 19:00 мск. <a href="#contact" style="color:#b8a07c;">Связаться</a></p>
+                    </div>
+                </div>
+                <div class="project-card" id="muza-program-link">
+                    <h3>🔹 Проект «Муза» — нейро-поэтический коучинг</h3>
+                    <p>Включите творческий поток через отклик тела. Индивидуальные сессии, работа с образом и ритмом.</p>
+                    <button class="project-button" data-target="muza-details">Программы и цены →</button>
+                    <div id="muza-details" class="program-details">
+                        <h4>Программы и цены</h4>
+                        <ul class="price-list">
+                            <li><strong>Пробная сессия (60 мин)</strong> — 2 500 ₽</li>
+                            <li><strong>Курс «Поток Музы» (4 сессии)</strong> — 9 000 ₽ (экономия 1 000 ₽)</li>
+                            <li><strong>Абонемент на месяц (8 сессий)</strong> — 16 000 ₽</li>
+                            <li><strong>Программа «Поэт и тело» (12 сессий + домашние практики)</strong> — 24 000 ₽</li>
+                        </ul>
+                        <p>Старт в любое время. Запись по почте <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Telegram</p>
+                    </div>
                 </div>
             </div>
-            <div class="project-card" id="singing-program-link">
-    <h3>🔹 Поющие круги рефлексии</h3>
-                <p>Песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о светлом.</p>
-                <button class="project-button" data-target="singing-details">Программы и цены →</button>
-                <div id="singing-details" class="program-details">
-                    <h4>Программы и цены</h4>
-                    <ul class="price-list">
-                        <li><strong>Разовый круг</strong> — 1 500 ₽ (2 часа, в Zoom)</li>
-                        <li><strong>Абонемент на 4 круга</strong> — 5 000 ₽ (экономия 1 000 ₽)</li>
-                        <li><strong>Индивидуальная песня-рефлексия</strong> — от 5 000 ₽ (текст + демо)</li>
-                    </ul>
-                    <p>Ближайший круг: 20 апреля в 19:00 мск. <a href="#contact" style="color:#b8a07c;">Связаться</a></p>
+        </div>
+    </section>
+
+    <!-- Мои треки -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2>Мои треки</h2>
+            <div class="music-grid">
+                <div class="music-card">
+                    <img src="images/temnie_zvezdi_img.jpg" alt="Маря Кошкина" class="music-cover">
+                    <h3>Маря Кошкина</h3>
+                    <p>Все мои проекты и соцсети в одном месте</p>
+                    <a href="https://band.link/marya_koshkina" class="music-button" target="_blank" rel="noopener noreferrer">Слушать →</a>
+                </div>
+                <div class="music-card">
+                    <img src="images/temnie_zvezdi_img.jpg" alt="Тёмные звёзды" class="music-cover">
+                    <h3>Тёмные звёзды</h3>
+                    <p>Новый сингл 2025</p>
+                    <a href="https://band.link/tyomniye_zvyzdy" class="music-button" target="_blank" rel="noopener noreferrer">Слушать →</a>
                 </div>
             </div>
         </div>
-<!-- Проект 3: Муза — нейро-поэтический коучинг -->
-            <div class="project-card" id="muza-program-link">
-    <h3>🔹 Проект «Муза» — нейро-поэтический коучинг</h3>
-                <p>Включите творческий поток через отклик тела. Индивидуальные сессии, работа с образом и ритмом.</p>
-                <button class="project-button" data-target="muza-details">Программы и цены →</button>
-                <div id="muza-details" class="program-details">
-                    <h4>Программы и цены</h4>
-                    <ul class="price-list">
-                        <li><strong>Пробная сессия (60 мин)</strong> — 2 500 ₽</li>
-                        <li><strong>Курс «Поток Музы» (4 сессии)</strong> — 9 000 ₽ (экономия 1 000 ₽)</li>
-                        <li><strong>Абонемент на месяц (8 сессий)</strong> — 16 000 ₽</li>
-                        <li><strong>Программа «Поэт и тело» (12 сессий + домашние практики)</strong> — 24 000 ₽</li>
-                    </ul>
-                    <p>Старт в любое время. Запись по почте <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Telegram</p>
+    </section>
+
+    <!-- Музыковеденье с Марей -->
+    <section id="musicology" class="hero" style="padding: 60px 0; background-color: #faf8f3;">
+        <div class="container">
+            <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Музыковеденье с Марей</h2>
+            <p>Мои заметки и статьи о музыке из ВКонтакте:</p>
+            <script type="text/javascript" src="https://vk.com/js/api/openapi.js?173"></script>
+            <div id="vk_post_-235398281_417"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_417", -235398281, 417, 'nqpJAkTFEh3d5yR59TNxMt7ijA'); }());</script>
+            <div id="vk_post_-235398281_411"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_411", -235398281, 411, 'wbx-Wh1fktHZsQAAAa2gEdsF7g'); }());</script>
+            <div id="vk_post_-235398281_244"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_244", -235398281, 244, 'KzICEUCTodnEje_styDWLR8rXQ'); }());</script>
+            <div id="vk_post_-235398281_241"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_241", -235398281, 241, 'naZAkNkN_-TxWGuMMtRJiDoLgQ'); }());</script>
+            <div id="vk_post_-235398281_235"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_235", -235398281, 235, '96hvxf2cyux2O7O5nPGXCXQ43A'); }());</script>
+            <div id="vk_post_-235398281_228"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_228", -235398281, 228, 'wulEQnB2rx_wOHACZs5bt0y37g'); }());</script>
+            <div id="vk_post_-235398281_216"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_216", -235398281, 216, 'IlLZHZ5F4DYlsSoAVFoTM2FcIA'); }());</script>
+            <div id="vk_post_-235398281_165"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_165", -235398281, 165, '5K4EEpUdQ7PeD7OnljoekMHr1Q'); }());</script>
+            <div id="vk_post_-235398281_139"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_139", -235398281, 139, '1Gtwbbq3Blquuu6D0IUmiJhl0A'); }());</script>
+            <div id="vk_post_-235398281_135"></div>
+            <script type="text/javascript">(function() { VK.Widgets.Post("vk_post_-235398281_135", -235398281, 135, 'ZDKv1KgBwVexC9wHktOVDvRx7g'); }());</script>
+            <a href="https://vk.com/marya_koshkina_muz" class="music-button" style="margin-top: 20px; display: inline-block;">Все статьи в VK →</a>
+        </div>
+    </section>
+
+    <!-- АниМаря -->
+    <section id="animarya" class="gallery-section" style="background-color: #fff; padding: 60px 0;">
+        <div class="container">
+            <h2>АниМаря</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #5e5e5a;">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
+            <div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip1.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 1</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip2.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 2</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip3.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 3</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip4.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 4</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip5.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 5</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip6.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 6</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip7.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 7</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip8.mp4" type="video/mp4"></video>
+                    <h3>АниМаря</h3><p>Клип 8</p><a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
                 </div>
             </div>
-
-    </div>
-</section>
-
-<section id="gallery" class="gallery-section">
-    <div class="container">
-        <h2>Мои треки</h2>
-        <div class="music-grid">
-            <!-- Карточка 1: общий профиль -->
-            <div class="music-card">
-                <img src="images/temnie_zvezdi_img.jpg" alt="Маря Кошкина" class="music-cover">
-                <h3>Маря Кошкина</h3>
-                <p>Все мои проекты и соцсети в одном месте</p>
-                <a href="https://band.link/marya_koshkina" class="music-button" target="_blank" rel="noopener noreferrer">Слушать →</a>
-            </div>
-            <!-- Карточка 2: Тёмные звёзды -->
-            <div class="music-card">
-                <img src="images/temnie_zvezdi_img.jpg" alt="Тёмные звёзды" class="music-cover">
-                <h3>Тёмные звёзды</h3>
-                <p>Новый сингл 2025</p>
-                <a href="https://band.link/tyomniye_zvyzdy" class="music-button" target="_blank" rel="noopener noreferrer">Слушать →</a>
-            </div>
-        </div>
-    </div>
-</section>
-</main>
-<!-- Раздел: Музыковеденье с Марей -->
-<section id="musicology" class="hero" style="padding: 60px 0; background-color: #faf8f3;">
-    <div class="container">
-        <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Музыковеденье с Марей</h2>
-        <p>Мои заметки и статьи о музыке из ВКонтакте:</p>
-
-        <!-- Подключаем API VK один раз -->
-        <script type="text/javascript" src="https://vk.com/js/api/openapi.js?173"></script>
-
-        <!-- Статья 417 -->
-        <div id="vk_post_-235398281_417"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_417", -235398281, 417, 'nqpJAkTFEh3d5yR59TNxMt7ijA'); }());
-        </script>
-
-        <!-- Статья 411 -->
-        <div id="vk_post_-235398281_411"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_411", -235398281, 411, 'wbx-Wh1fktHZsQAAAa2gEdsF7g'); }());
-        </script>
-
-        <!-- Статья 244 -->
-        <div id="vk_post_-235398281_244"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_244", -235398281, 244, 'KzICEUCTodnEje_styDWLR8rXQ'); }());
-        </script>
-
-        <!-- Статья 241 -->
-        <div id="vk_post_-235398281_241"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_241", -235398281, 241, 'naZAkNkN_-TxWGuMMtRJiDoLgQ'); }());
-        </script>
-
-        <!-- Статья 235 -->
-        <div id="vk_post_-235398281_235"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_235", -235398281, 235, '96hvxf2cyux2O7O5nPGXCXQ43A'); }());
-        </script>
-
-        <!-- Статья 228 -->
-        <div id="vk_post_-235398281_228"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_228", -235398281, 228, 'wulEQnB2rx_wOHACZs5bt0y37g'); }());
-        </script>
-
-        <!-- Статья 216 -->
-        <div id="vk_post_-235398281_216"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_216", -235398281, 216, 'IlLZHZ5F4DYlsSoAVFoTM2FcIA'); }());
-        </script>
-
-        <!-- Статья 165 -->
-        <div id="vk_post_-235398281_165"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_165", -235398281, 165, '5K4EEpUdQ7PeD7OnljoekMHr1Q'); }());
-        </script>
-
-        <!-- Статья 139 -->
-        <div id="vk_post_-235398281_139"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_139", -235398281, 139, '1Gtwbbq3Blquuu6D0IUmiJhl0A'); }());
-        </script>
-
-        <!-- Статья 135 -->
-        <div id="vk_post_-235398281_135"></div>
-        <script type="text/javascript">
-          (function() { VK.Widgets.Post("vk_post_-235398281_135", -235398281, 135, 'ZDKv1KgBwVexC9wHktOVDvRx7g'); }());
-        </script>
-
-        <a href="https://vk.com/marya_koshkina_muz" class="music-button" style="margin-top: 20px; display: inline-block;">Все статьи в VK →</a>
-    </div>
-</section>
-<!-- Раздел: АниМаря -->
-<section id="animarya" class="gallery-section" style="background-color: #fff; padding: 60px 0;">
-    <div class="container">
-        <h2>АниМаря</h2>
-        <p style="text-align: center; margin-bottom: 40px; color: #5e5e5a;">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
-<div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
-    <!-- Клип 1 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src="clip1.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 1</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-    <!-- Клип 2 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src="clip2.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 2</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-    <!-- Клип 3 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src="clip3.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 3</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-    <!-- Клип 4 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src="clip4.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 4</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-    <!-- Клип 5 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src="clip5.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 5</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-    <!-- Клип 6 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src=clip6.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 6</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-    <!-- Клип 7 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src="clip7.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 7</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-    <!-- Клип 8 -->
-    <div class="project-card" style="text-align: center;">
-        <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-            <source src=clip8.mp4" type="video/mp4">
-        </video>
-        <h3>АниМаря</h3>
-        <p>Клип 8</p>
-        <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
-    </div>
-</div>
-            <!-- Карточка 2 -->
             <div class="project-card" style="text-align: center;">
                 <div style="font-size: 3rem; margin-bottom: 16px;">✨</div>
                 <h3>АниМаря Фото</h3>
                 <p>Первые фото АниМари для сниппетов.</p>
                 <a href="#" class="music-button" style="align-self: center;">Смотреть →</a>
             </div>
-            <!-- Добавьте больше карточек по необходимости -->
+            <p style="text-align: center; margin-top: 40px;">Больше анимаций в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank" style="color:#b8a07c;">ВКонтакте</a> и <a href="#" style="color:#b8a07c;">Telegram</a>.</p>
         </div>
-        <p style="text-align: center; margin-top: 40px;">Больше анимаций в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank" style="color:#b8a07c;">ВКонтакте</a> и <a href="#" style="color:#b8a07c;">Telegram</a>.</p>
-    </div>
-</section>
+    </section>
+</main>
+
 <footer id="contact">
     <div class="container footer-content">
         <div class="footer-info">
@@ -904,7 +853,7 @@ nav a:hover {
             <p>+7 985 300 87 77</p>
             <p>Москва / Россия</p>
         </div>
-        <div class=https://vk.com/marya_koshkina_muz>
+        <div class="social-links">
             <a href="#">Instagram</a>
             <a href="#">Telegram</a>
             <a href="#">Behance</a>
@@ -914,72 +863,37 @@ nav a:hover {
         © 2026 Маря Кошкина — все права защищены
     </div>
 </footer>
+
 <div id="galleryGrid" style="display: none;"></div>
-<!-- Модальное окно для увеличения фото -->
 <div id="imageModal" class="modal">
     <span class="close-modal">&times;</span>
     <img class="modal-content" id="modalImg">
 </div>
 
 <script>
-    // ------------------------------------------------------------
-    // ЗДЕСЬ ВЫ МОЖЕТЕ ЗАМЕНИТЬ ИЗОБРАЖЕНИЯ НА СВОИ
-    // Добавьте свои картинки в папку "images" и укажите пути
-    // ------------------------------------------------------------
+    // Галерея (artworks) – временные изображения
     const artworks = [
-        {
-            src: "https://picsum.photos/id/102/600/800",  // временное фото (замените!)
-            title: "Утренний сад",
-            desc: "холст, масло, 80x100 см, 2025"
-        },
-        {
-            src: "https://picsum.photos/id/104/600/800",
-            title: "Тишина в городе",
-            desc: "акрил, холст, 90x70 см, 2024"
-        },
-        {
-            src: "https://picsum.photos/id/106/600/800",
-            title: "Отражение",
-            desc: "смешанная техника, 60x80 см, 2025"
-        },
-        {
-            src: "https://picsum.photos/id/20/600/800",
-            title: "Весеннее настроение",
-            desc: "пастель, бумага, 50x65 см, 2023"
-        },
-        {
-            src: "https://picsum.photos/id/30/600/800",
-            title: "Ночной диалог",
-            desc: "холст, масло, 100x120 см, 2024"
-        },
-        {
-            src: "https://picsum.photos/id/42/600/800",
-            title: "Поток сознания",
-            desc: "графика, тушь, 40x50 см, 2025"
-        }
+        { src: "https://picsum.photos/id/102/600/800", title: "Утренний сад", desc: "холст, масло, 80x100 см, 2025" },
+        { src: "https://picsum.photos/id/104/600/800", title: "Тишина в городе", desc: "акрил, холст, 90x70 см, 2024" },
+        { src: "https://picsum.photos/id/106/600/800", title: "Отражение", desc: "смешанная техника, 60x80 см, 2025" },
+        { src: "https://picsum.photos/id/20/600/800", title: "Весеннее настроение", desc: "пастель, бумага, 50x65 см, 2023" },
+        { src: "https://picsum.photos/id/30/600/800", title: "Ночной диалог", desc: "холст, масло, 100x120 см, 2024" },
+        { src: "https://picsum.photos/id/42/600/800", title: "Поток сознания", desc: "графика, тушь, 40x50 см, 2025" }
     ];
 
-    // Заполняем галерею
     const galleryGrid = document.getElementById('galleryGrid');
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
     const closeModal = document.querySelector('.close-modal');
 
     function buildGallery() {
+        if (!galleryGrid) return;
         galleryGrid.innerHTML = '';
-        artworks.forEach((art, index) => {
+        artworks.forEach(art => {
             const item = document.createElement('div');
             item.className = 'gallery-item';
-            item.innerHTML = `
-                <img src="${art.src}" alt="${art.title}" loading="lazy">
-                <div class="caption">
-                    <strong>${art.title}</strong>
-                    <span>${art.desc}</span>
-                </div>
-            `;
-            // Клик по картинке открывает модалку
-            const imgElement = item.querySelector('img');
-            imgElement.addEventListener('click', (e) => {
+            item.innerHTML = `<img src="${art.src}" alt="${art.title}" loading="lazy"><div class="caption"><strong>${art.title}</strong><span>${art.desc}</span></div>`;
+            item.querySelector('img').addEventListener('click', (e) => {
                 e.stopPropagation();
                 modal.style.display = 'flex';
                 modalImg.src = art.src;
@@ -989,76 +903,377 @@ nav a:hover {
         });
     }
 
-    // Закрыть модалку по клику на крестик или фон
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
+    closeModal?.addEventListener('click', () => modal.style.display = 'none');
+    modal?.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
-    // Плавная прокрутка для навигации
+    // Плавная прокрутка
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            if (targetId && targetId !== '#') {
+            if (!targetId || targetId === '#') return;
+            if (targetId[0] === '#') {
                 e.preventDefault();
-                const targetElem = document.querySelector(targetId);
-                if (targetElem) {
-                    targetElem.scrollIntoView({ behavior: 'smooth' });
-                }
-            } else if (targetId === '#') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                const target = document.querySelector(targetId);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 
-    buildGallery();
-    
-    // Аккордеон для программ и цен (выпадающие блоки)
+    // Аккордеон для проектов
     document.querySelectorAll('.project-button').forEach(button => {
         button.addEventListener('click', () => {
             const targetId = button.getAttribute('data-target');
-            const detailsBlock = document.getElementById(targetId);
-            if (detailsBlock) {
-                detailsBlock.classList.toggle('show');
-            }
+            const details = document.getElementById(targetId);
+            if (details) details.classList.toggle('show');
         });
     });
 
-    // Читать далее для раздела "О себе"
+    // Читать далее
     const readMoreBtn = document.getElementById('readMoreBtn');
     const aboutMore = document.getElementById('aboutMore');
     if (readMoreBtn && aboutMore) {
-        readMoreBtn.addEventListener('click', function() {
-            if (aboutMore.style.display === 'none' || aboutMore.style.display === '') {
-                aboutMore.style.display = 'block';
-                readMoreBtn.textContent = 'Свернуть ↑';
-            } else {
-                aboutMore.style.display = 'none';
-                readMoreBtn.textContent = 'Читать далее →';
-            }
+        readMoreBtn.addEventListener('click', () => {
+            const isHidden = aboutMore.style.display === 'none';
+            aboutMore.style.display = isHidden ? 'block' : 'none';
+            readMoreBtn.textContent = isHidden ? 'Свернуть ↑' : 'Читать далее →';
         });
     }
-// Выпадающее меню для мобильных устройств (клик)
-const dropdown = document.querySelector('.dropdown');
-const dropbtn = document.querySelector('.dropbtn');
-if (dropdown && dropbtn) {
-    dropbtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        dropdown.classList.toggle('open');
-    });
-    // Закрыть при клике вне меню
-    document.addEventListener('click', function(e) {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('open');
+
+    // Выпадающее меню для мобильных
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = document.querySelector('.dropbtn');
+    if (dropdown && dropbtn) {
+        dropbtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
+        });
+    }
+
+    // Афоризмы Махабхараты (365 штук)
+    (function() {
+        const quotes = [
+            "Нет ничего выше Дхармы. Даже малая Дхарма спасает от великого страха. — Дхарма — это внутренний закон, следование своей природе.",
+            "Гнев — враг человека, прощение — его щит. — Гнев разрушает, прощение возвышает и защищает.",
+            "Тот, кто не владеет собой, не владеет и миром. — Самоконтроль — основа любой победы.",
+            "Истина одна, но мудрецы называют её разными именами. — Разные пути ведут к единому источнику.",
+            "Побеждай гнев прощением, зло — добром, ложь — правдой. — Высшая доблесть — отвечать добром на зло.",
+            "Судьба — это то, что мы заслужили своими поступками. — Карма неумолима: что посеешь, то пожнёшь.",
+            "Счастье и горе, прибыль и убыток, победа и поражение — таков закон жизни. — Относись ко всему ровно.",
+            "Лучше своя дхарма, даже несовершенная, чем чужая, исполненная безупречно. — Следуй своему пути, даже если он труден.",
+            "Ум — друг, но он же и враг для того, кто его не контролирует. — Укрощённый ум ведёт к свободе.",
+            "Не делай другим того, что неприятно тебе самому. — Золотое правило нравственности.",
+            "Знание — это свет, а невежество — тьма. — Стремись к истине, и тьма рассеется.",
+            "Только тот, кто победил свой ум, обретает покой. — Внутренняя битва — самая важная.",
+            "Время пожирает всё, но дхарма вечна. — Вечны только закон и истина.",
+            "Мудрый видит равными счастье и несчастье, золото и камень. — Равнодушие к двойственности — признак мудрости.",
+            "Сомнение — величайшая потеря времени, иди вперёд с верой. — Действие лучше бесплодных размышлений.",
+            "Нет друга лучше истины, нет врага хуже лжи. — Искренность — высшая ценность в отношениях.",
+            "Человек создан своими мыслями, он становится тем, о чём думает. — Мысли формируют реальность.",
+            "Укроти свой язык, и ты укротишь весь мир. — Слово — величайшая сила.",
+            "Терпение — высшая аскеза. — Умение ждать и прощать делает дух сильнее.",
+            "Кто ищет друзей без недостатков, останется один. — Принимай других с их несовершенствами.",
+            "Лучше жить одному, чем с глупцом. — Одиночество лучше пустого общения.",
+            "Не хвались богатством, не гордись молодостью — время отнимает всё. — Смирение перед силой времени.",
+            "Как черепаха прячет конечности, так мудрец прячет свои чувства от соблазнов. — Отрешённость — путь к покою.",
+            "Кто победил сон, тот победил смерть. — Осознанность и бдительность — признаки духовного роста.",
+            "Даже малое добро не оставляй, даже малое зло не совершай. — Накопление качеств начинается с малого.",
+            "Гнев порождает заблуждение, заблуждение — помрачение памяти. — Следи за вспышками ярости.",
+            "Радость от встречи и горе от разлуки — лишь волны на воде. — Всё временно, не цепляйся.",
+            "Змея кусает только тело, а злые слова — душу. — Остерегайся ядовитых речей.",
+            "Труд без привязанности к плодам — высшая йога. — Делай своё дело, не думая о награде.",
+            "Сердце, полное сострадания, — самый драгоценный сосуд. — Милосердие украшает человека.",
+            "Даже врага встречай с улыбкой, если он пришёл с миром. — Мудрость не знает вражды.",
+            "Слабость прощают сильному, но не слабому. — Работай над собой, не жалуйся.",
+            "Как огонь разгорается от ветра, так желания разгораются от воображения. — Контролируй свои фантазии.",
+            "Увидел падение другого — проверь свою дорогу. — Чужие ошибки — лучшие уроки.",
+            "Дерево с глубокими корнями не боится бури. — Духовная основа даёт устойчивость.",
+            "Кто раздаёт, тот приобретает; кто копит, тот теряет. — Щедрость умножает блага.",
+            "Если хочешь быть счастливым — сделай счастливым другого. — Счастье заразительно.",
+            "Не бойся одиночества — бойся пустоты внутри. — Научись быть в гармонии с собой.",
+            "Лучшее время для доброго дела — сейчас. — Не откладывай доброту на завтра.",
+            "Мудрость приходит не с возрастом, а с умением учиться. — Будь открыт новому всегда.",
+            "Стыд — великая преграда для зла. — Здоровая совесть — лучший сторож.",
+            "Не суди о человеке по его словам, суди по делам. — Поступки говорят громче речей.",
+            "Солнце одинаково светит для всех, так и мудрец равно относится ко всем. — Беспристрастие — знак просветления.",
+            "Кто не защитил вчера, не защитит и завтра. — Будь бдителен в настоящем.",
+            "Правда, сказанная грубо, ранит больше лжи. — Говори истину, но с любовью.",
+            "Не отвечай на оскорбление оскорблением — так побеждает только зло. — Ответный гнев умножает тьму.",
+            "Беда приходит к тому, кто не готов. — Готовность — половина спасения.",
+            "Лучше проиграть, сражаясь за правое дело, чем победить нечестно. — Честность дороже победы.",
+            "Не завидуй успеху другого — его карма тебе неведома. — Каждый идёт своим путём.",
+            "Большое терпение — большая магия. — Кто умеет ждать, тот достигает большего.",
+            "Не говори «никогда» — жизнь непредсказуема. — Будь гибким.",
+            "Умение слушать — величайшее искусство. — Слышать другого — значит уважать.",
+            "Печаль не вечна, как и радость. — Относись к эмоциям как к погоде.",
+            "Не трать время на сожаления — оно уходит безвозвратно. — Живи настоящим.",
+            "Трус умирает много раз, храбрый — только раз. — Страх лишает жизни уже сейчас.",
+            "Не бойся попросить прощения — это признак силы, а не слабости. — Смиренное сердце открыто.",
+            "Голодный не понимает сытого, сытый не помнит голодного. — Будь милосерден к нуждающимся.",
+            "Как пчела собирает мёд, не повреждая цветок, так собирай знания, не обижая учителя. — Учись бережно.",
+            "Нет врага сильнее, чем твои собственные желания. — Желания — цепи.",
+            "Кто умеет благодарить, тот умеет жить. — Благодарность открывает сердце.",
+            "Не суди о величии души по богатству. — Истинное величие не в золоте.",
+            "Будь как вода: мягкая и текучая, но способная разрушить скалы. — Сила в гибкости.",
+            "Ошибка признанная — уже наполовину исправлена. — Признание ошибки — первый шаг к мудрости.",
+            "Кто не рискует, тот не пьёт нектар. — Дерзай, но осознанно.",
+            "Лучший подарок — дать человеку веру в себя. — Поддерживай ближнего.",
+            "Не прячь свою доброту — она не товар. — Будь открыт в добрых делах.",
+            "Когда двое ссорятся, глупец винит другого, мудрец — себя. — Ответственность за конфликт лежит на обоих.",
+            "Не сравнивай себя с другими — это ворует радость. — У каждого свой путь.",
+            "Рана от клинка заживает, рана от слова — нет. — Береги речь.",
+            "Кто потакает своим слабостям, тот кормит врага. — Потакание себе — путь вниз.",
+            "Даже капля долго падающая точит камень. — Упорство творит чудеса.",
+            "Не будь рабом привычек — они могут стать тюрьмой. — Проверяй свои привычки.",
+            "Самый сильный — тот, кто способен простить. — Прощение — признак огромной силы.",
+            "Мудрый не ищет правды вовне — он ищет её в себе. — Истина внутри.",
+            "Не делай из мухи слона — это умножит твои проблемы. — Соразмеряй реакцию.",
+            "Чистота помыслов важнее чистоты тела. — Намерения определяют поступок.",
+            "Кто не слушает советов, тот наступает на те же грабли. — Учись на чужих ошибках.",
+            "Счастье — это не цель, а спутник правильного пути. — Будь на правильной дороге.",
+            "Нет уз крепче, чем узы благодарности. — Благодарность связывает сердца.",
+            "Доброе имя дороже золота. — Репутация — капитал.",
+            "Кто жалуется, тот привлекает беду. — Фокусируйся на решениях, а не на проблемах.",
+            "Даже гора состоит из песчинок. — Великое начинается с малого.",
+            "Не насилуй природу — она сильнее. — Живи в гармонии с миром.",
+            "Тот, кто познал себя, познал всё. — Самопознание — ключ ко вселенной.",
+            "Перед сном спроси себя: что хорошего я сделал сегодня? — Рефлексия очищает.",
+            "Не бойся потерять то, что не можешь унести с собой. — Вещи — прах.",
+            "Глаза, которые видят только плохое, скоро ослепнут. — Ищи хорошее в людях.",
+            "Чужие секреты не храни — тяжело. — Не бери на себя лишний груз.",
+            "Не обещай, если не уверен. — Слово — долг.",
+            "Кто не умеет отдыхать, тот не умеет работать. — Баланс важен.",
+            "Уважай старших не за их возраст, а за их опыт. — Учись у прошлого.",
+            "Помогай, не ожидая благодарности, — это высшая помощь. — Бескорыстие облагораживает.",
+            "Не ищи лёгких путей — они ведут в тупик. — Преодоление развивает.",
+            "Сплетня — монета, которая обесценивается при каждой передаче. — Не участвуй в пересудах.",
+            "Не будь как попугай, повторяющий чужие слова. — Имей своё мнение.",
+            "Истинная красота — в добром сердце. — Доброта красит.",
+            "Когда ты счастлив — делись, когда несчастлив — не жалуйся. — Учись принимать удары.",
+            "Нет пророка в своём отечестве — это не беда, беда — не искать его. — Ищи вдохновения везде.",
+            "Лучше быть одного поля ягодой, чем сорняком среди цветов. — Качество, а не количество.",
+            "Скупость — нищета души. — Щедрость расширяет мир.",
+            "Не презирай бедного — ты не знаешь его кармы. — Смирение перед судьбой.",
+            "Если ударили по левой щеке, подставь правую — но только если это поможет врагу стать лучше. — Мудрость не в слепой покорности.",
+            "Кто не умеет проигрывать, тот не умеет побеждать. — Поражение — урок.",
+            "Бойся равнодушных — они не убивают, но позволяют убивать. — Равнодушие страшнее зла.",
+            "Не продавай душу за мишуру. — Ценности выше вещей.",
+            "Смысл жизни не в накоплении, а в отдавании. — Жизнь — это обмен.",
+            "Довольствуйся малым, но стремись к большому. — Баланс желаний и возможностей.",
+            "Если не знаешь, как поступить, поступи по совести. — Совесть — компас.",
+            "Не бойся перемен — они обещают рост. — Страх нового — враг развития.",
+            "Каждый день — это новая жизнь. — Живи так, как будто это первый и последний день.",
+            "Не дай гневу разрушить то, что строил годами. — Остановись до того, как скажешь.",
+            "Уважай своё прошлое, но не живи в нём. — Прошлое — учитель, а не тюрьма.",
+            "Если тебя предали, не мсти — предатель сам наказан своей сущностью. — Не уподобляйся.",
+            "Ищи друзей не среди богатых, а среди верных. — Дружба не продаётся.",
+            "Кто живёт без цели, тот блуждает в темноте. — Ставь ориентиры.",
+            "Сладость победы познаёт лишь тот, кто прошёл через горечь поражений. — Без страданий нет радости.",
+            "Не суди день по вечеру, а жизнь по несчастью. — Всё проходит.",
+            "Человек, который не меняется, подобен стоячей воде. — Развивайся.",
+            "Не бойся одиночества — это время для встречи с собой. — Одиночество может быть благословением.",
+            "Кто много говорит, тот мало делает. — Молчание часто продуктивнее.",
+            "Лучше один шаг в правильном направлении, чем миля в неправильном. — Важна не скорость, а верность пути.",
+            "Не будь слишком строг к себе и к другим — это рождает только страх. — Мягкость сильнее жёсткости.",
+            "Радость отданного не сравнится с радостью полученного. — Дарение делает богаче.",
+            "Не жди, что кто-то придёт и спасёт — спасай себя сам. — Ответственность за свою жизнь на тебе.",
+            "Слабость прощать не означает слабость характера. — Величие в милосердии.",
+            "Умей радоваться чужому счастью — это сделает твоё сердце лёгким. — Отсутствие зависти — свобода.",
+            "Не верь всему, что слышишь, и не говори всё, что знаешь. — Мудрость в сдержанности.",
+            "Лучше быть в тишине, чем говорить глупости. — Молчание может быть золотым.",
+            "Кто не уважает себя, того не уважают другие. — Самоуважение — база для уважения извне.",
+            "Красота души привлекает даже издалека. — Внутренняя красота магнитична.",
+            "Не выбирай между правдой и выгодой — выбирай правду. — Выгода без правды — иллюзия.",
+            "Время — лучший лекарь, но и самый жестокий судья. — Всему своё время.",
+            "Не будь как пыль, поднимаемая ветром; будь как корень дерева. — Будь устойчивым.",
+            "Даже самое малое добро имеет вес на чаше весов. — Не пренебрегай малым.",
+            "Сердце, полное любви, не знает вражды. — Любовь растворяет границы.",
+            "Не бойся показаться глупым в глазах других — бойся быть глупым в своих собственных. — Собственное мнение главнее.",
+            "Учись видеть знаки — мир говорит с тобой. — Внимательность к деталям.",
+            "Не будь рабом своего желудка. — Воздержанность — здоровье.",
+            "Если упал, поднимись и отряхнись. — Главное — не лежать.",
+            "Кто жаждет власти, тот теряет себя. — Власть опасна для души.",
+            "Не дели мир на чёрное и белое — там много оттенков. — Терпимость к многогранности.",
+            "Лучше подарить улыбку, чем пустой комплимент. — Искренность важнее лести.",
+            "Не пытайся изменить других — начни с себя. — Собственный пример заразителен.",
+            "Стыд — это страж, которого нельзя усыплять. — Совесть охраняет душу.",
+            "Если ты в чём-то сомневаешься, не делай. — Сомнение часто знак.",
+            "Не перебивай — ты можешь пропустить важное. — Умение слушать дороже умения говорить.",
+            "Доверие — как хрусталь: разбив, не склеишь. — Береги чужое доверие.",
+            "Тот, кто ищет недостатки, никогда не будет счастлив. — Фокус на позитиве.",
+            "Не превращай свою жизнь в гонку — финиш один. — Важен процесс, а не скорость.",
+            "Если можешь помочь — помоги, не можешь — не мешай. — Золотое правило.",
+            "Гордыня — спутник падения. — Скромность возвышает.",
+            "Не прячь свою боль — делись, и она уменьшится. — Поддержка других лечит.",
+            "Лучше быть честным врагом, чем фальшивым другом. — Искренность ценнее.",
+            "Не осуждай, если не был в шкуре того, кого судишь. — Эмпатия прежде осуждения.",
+            "Свобода — это не делать всё, что хочется, а не делать того, что вредно. — Истинная свобода в самоограничении.",
+            "Кто не ценит время, тот не ценит жизнь. — Время — драгоценный ресурс.",
+            "Не позволяй страху управлять твоими решениями. — Страх — плохой советчик.",
+            "Учись просить прощения даже тогда, когда ты не виноват — ради мира. — Иногда лучше уступить.",
+            "Спокойствие — признак силы, суета — слабости. — Уравновешенность говорит о внутренней силе.",
+            "Не зарься на чужое — своё потеряешь. — Зависть разрушительна.",
+            "Каждое утро задавай себе вопрос: что я могу сделать сегодня для других? — Служение другим наполняет жизнь.",
+            "Не бойся перемен — они могут привести к лучшему. — Открытость новому.",
+            "Умей вовремя остановиться — это тоже победа. — Мера во всём.",
+            "Кто не рискует, тот не пьёт шампанское, но и не тонет. — Риск оправдан не всегда.",
+            "Не сравнивай свою жизнь с жизнью других — у каждого своё солнце. — Уникальность каждого.",
+            "Чистота в доме — чистота в мыслях. — Порядок вокруг создаёт порядок внутри.",
+            "Не торопись с выводами — торопливость ведёт к ошибкам. — Вдумчивость.",
+            "Будь как солнце: свети всем одинаково. — Беспристрастная доброта.",
+            "Если не знаешь, куда идти, иди к свету. — Ищи внутреннюю истину.",
+            "Не обманывай — обман всегда раскрывается. — Правда рано или поздно выходит наружу.",
+            "Даже в тишине можно услышать ответ. — Медитируй.",
+            "Кто не благодарит за малое, не получит большое. — Благодарность открывает двери.",
+            "Не будь как стена, будь как мост. — Соединяй, а не разделяй.",
+            "Лучше один раз сделать, чем сто раз сказать. — Дела важнее слов.",
+            "Не суди о человеке по его внешности — суди по поступкам. — Внешность обманчива.",
+            "Слабость — это не недостаток, а возможность стать сильнее. — Преодоление закаляет.",
+            "Не ищи лёгких денег — они быстро уходят. — Трудом добытое ценится больше.",
+            "Если хочешь быть здоровым — закаляйся. — Закалка и тела, и духа.",
+            "Не бойся быть первым в добром деле. — Лидерство во благе.",
+            "Кто не умеет хранить тайны, тот теряет друзей. — Конфиденциальность.",
+            "Не прожигай жизнь — она коротка. — Цени каждый миг.",
+            "Даже в самой тёмной ночи рождается рассвет. — После трудностей приходит облегчение.",
+            "Не бойся признать свою неправоту — это путь к истине. — Смирение пред правдой.",
+            "Щедрость не в количестве отданного, а в чистоте намерений. — Важна душа, а не размер.",
+            "Не откладывай важное на потом — потом может не наступить. — Живи настоящим.",
+            "Если тебе больно — не кричи, ищи причину внутри. — Самопознание.",
+            "Не строй планы на чужих ошибках — строй на своих. — Личный опыт ценнее.",
+            "Лучше быть голодным, чем есть не свою пищу. — Не бери чужое.",
+            "Не требуй от жизни больше, чем ты готов отдать. — Баланс.",
+            "Счастье — это когда тебя понимают, но ещё больше — когда понимаешь ты. — Понимание других.",
+            "Не будь как муха, что летит на свет и сгорает. — Разумная устремлённость.",
+            "Кто не умеет ждать, тот не умеет побеждать. — Терпение — мать успеха.",
+            "Не предавай себя ради других — это не жертва, а глупость. — Сохраняй свою суть.",
+            "Если тебя обманули, не гневайся — обманщик наказан своей ложью. — Жалость к обманщику.",
+            "Не будь как сорока, которая тащит всё блестящее. — Разборчивость в ценностях.",
+            "Старость — это не возраст, а состояние ума. — Старым становится тот, кто перестал развиваться.",
+            "Не бойся выглядеть смешным — бойся быть злым. — Доброта важнее репутации.",
+            "Умей вовремя замолчать — иногда это лучшее, что ты можешь сказать. — Молчание — речь мудреца.",
+            "Не суди о человеке по его прошлому — люди меняются. — Верь в возможность перемен.",
+            "Если не знаешь, что сказать, скажи правду. — Правда всегда уместна.",
+            "Не играй чужими чувствами — это бумеранг. — Относись к другим как к себе.",
+            "Даже маленькое доброе слово может изменить чей-то день. — Сила доброго слова.",
+            "Не бойся мечтать — бойся не мечтать вовсе. — Мечты двигают вперёд.",
+            "Кто не ценит других, тот не ценит себя. — Уважение к другим начинается с самоуважения.",
+            "Не будь как осёл, который несёт тяжёлый груз и жалуется. — Принимай ответственность без нытья.",
+            "Спокойствие — это океан, а эмоции — лишь волны на поверхности. — Будь глубже.",
+            "Не ищи виноватых — ищи решения. — Конструктивный подход.",
+            "Лучше быть в меньшинстве с правдой, чем в большинстве с ложью. — Смелость быть собой.",
+            "Не бойся ошибаться — ошибки делают нас опытнее. — Ошибки — ступени роста.",
+            "Кто не умеет отпускать, тот не умеет принимать новое. — Старое уходит, чтобы пришло новое.",
+            "Уважай чужое пространство — как ты хочешь, чтобы уважали твоё. — Границы.",
+            "Не живи прошлым, не грези о будущем, живи настоящим. — Здесь и сейчас.",
+            "Если хочешь быть счастливым — будь им, прямо сейчас. — Счастье в твоём выборе.",
+            "Не критикуй то, чего не понимаешь. — Понимание прежде оценки.",
+            "Кто постоянно жалуется, тот никому не нужен. — Нытьё отталкивает.",
+            "Не бойся быть одному — бойся быть в компании, где ты одинок. — Лучше одиночество, чем фальшь.",
+            "Даже камень может треснуть от терпеливого давления воды. — Терпение и время всё меняют.",
+            "Не будь как дерево, которое ломается под ветром; будь как трава, которая гнётся. — Гибкость.",
+            "Не суди о человеке по одному поступку. — Все мы совершаем ошибки.",
+            "Радость — это не отсутствие проблем, а умение с ними жить. — Отношение к проблемам.",
+            "Не жди, что кто-то придёт и спасёт — спасай себя сам. — Ответственность за жизнь.",
+            "Благодарность превращает то, что мы имеем, в достаток. — Цени то, что есть.",
+            "Не будь как павлин, гордящийся своими перьями. — Скромность.",
+            "Умей признавать свои ошибки — это делает тебя сильнее. — Признание ошибки — шаг к мудрости.",
+            "Не пытайся нравиться всем — это невозможно. — Будь собой.",
+            "Если хочешь изменить мир, начни с себя. — Внутреннее изменение отражается вовне.",
+            "Не бойся делать первый шаг — даже если он маленький. — Любой путь начинается с шага.",
+            "Терпение и труд всё перетрут. — Упорство побеждает всё.",
+            "Не будь как ворона, которая клюёт падаль. — Стремись к чистому.",
+            "Даже в неудаче есть зерно удачи — нужно уметь его видеть. — Оптимизм.",
+            "Не суди о дне по утру — он может ещё удивить. — Не торопись с выводами.",
+            "Лучше быть бедным, но свободным, чем богатым, но в клетке. — Свобода дороже.",
+            "Не бойся потерять что-то — ты можешь найти нечто лучшее. — Открытость к новому.",
+            "Кто не умеет слушать, тот не умеет любить. — Любовь начинается с внимания.",
+            "Не будь как фонтан, который бьёт в одну точку. — Развивайся разносторонне.",
+            "Счастье — это когда тебя любят таким, какой ты есть. — Принятие себя и других.",
+            "Не трать время на зависть — оно уходит безвозвратно. — Зависть — пустая трата.",
+            "Если можешь не говорить — молчи. — Мудрость в молчании.",
+            "Не бойся выглядеть слабым — настоящая сила внутри. — Внешняя слабость может быть притворством.",
+            "Даже в пустыне есть оазис — нужно только искать. — Надежда умирает последней.",
+            "Не суди о человеке по его внешности — одежда не делает монаха. — Глубинная суть.",
+            "Лучше сделать и пожалеть, чем не сделать и жалеть всю жизнь. — Сожаление о бездействии горше.",
+            "Не бойся перемен — бойся застоя. — Застой — это смерть.",
+            "Уважай себя настолько, чтобы не позволять другим унижать тебя. — Самоуважение.",
+            "Не будь как губка, впитывающая всё подряд. — Избирательность.",
+            "Каждый день — это шанс начать заново. — Новый старт каждый день.",
+            "Если ты недоволен, измени что-то. — Действие вместо жалоб.",
+            "Не ищи оправданий — ищи возможности. — Позитивный настрой.",
+            "Кто не умеет прощать, тот не умеет жить. — Прощение освобождает.",
+            "Не бойся одиночества — иногда это лучшее общество. — Время наедине с собой ценно.",
+            "Смысл жизни в том, чтобы жить осознанно. — Осознанность — ключ.",
+            "Не пытайся удержать то, что уходит. — Отпускай с благодарностью.",
+            "Будь как луна: свети даже в темноте. — Свети другим, даже когда трудно.",
+            "Не бойся делать добро — оно возвращается. — Закон бумеранга.",
+            "Умей радоваться малым — тогда придёт и большое. — Цени мгновения.",
+            "Не суди о книге по обложке. — Глубина важнее поверхности.",
+            "Лучше быть странным, чем безликим. — Индивидуальность.",
+            "Не бойся мечтать о великом — мечты имеют обыкновение сбываться. — Мечты — топливо.",
+            "Кто не ищет, тот не найдёт. — Поиск необходим.",
+            "Не будь как копилка, которая собирает, но не тратит. — Делиться — радость.",
+            "Даже самый длинный путь начинается с первого шага. — Начни сегодня.",
+            "Не бойся показаться уязвимым — это делает тебя настоящим. — Уязвимость — сила.",
+            "Счастье — это не финиш, а способ движения. — Наслаждайся процессом.",
+            "Не трать время на тех, кто не ценит твоё время. — Выбирай окружение.",
+            "Если можешь помочь — помоги, не можешь — не вреди. — Минимальное добро.",
+            "Не бойся потерять тех, кто не ценит. — Пусть уходят.",
+            "Уважай чужой труд, как свой. — Труд уважаем.",
+            "Будь как скала: стойко переноси удары судьбы. — Стойкость.",
+            "Не суди о человеке по его словам в гневе. — Гнев искажает.",
+            "Лучше быть бедным и здоровым, чем богатым и больным. — Здоровье важнее.",
+            "Не бойся быть непонятым — главное, понимать себя. — Самопонимание.",
+            "Кто не умеет отдыхать, тот не умеет работать. — Баланс необходим.",
+            "Не будь как лиса, которая хитрит, но попадает в капкан. — Хитрость наказуема.",
+            "Даже самая маленькая искра может зажечь большое пламя. — Малое может стать великим.",
+            "Не бойся проигрывать — это опыт. — Проигрыш — тоже победа, если извлёк урок.",
+            "Счастье — это когда ты в мире с самим собой. — Внутренний мир.",
+            "Не трать жизнь на сожаления — они не вернут прошлого. — Живи здесь и сейчас.",
+            "Если не знаешь, что делать, делай добро. — Добро — универсальный ответ.",
+            "Не бойся перемен — бойся жить без перемен. — Развитие.",
+            "Уважай себя, чтобы уважали другие. — Самоценность.",
+            "Будь как океан: глубок и спокоен. — Внутренняя глубина.",
+            "Не суди о силе по мышцам — суди по духу. — Дух важнее плоти.",
+            "Лучше быть голодным, чем есть пищу врага. — Достоинство.",
+            "Не бойся одиночества — это время для творчества. — Творчество в тишине.",
+            "Кто не ценит мир, тот не знает покоя. — Мир внутри и снаружи.",
+            "Не будь как сверчок, который поёт только для себя. — Пой для других.",
+            "Даже путник, идущий медленно, достигнет цели, если не остановится. — Постоянство важнее скорости.",
+            "Не бойся показаться смешным — смейся над собой. — Здоровое чувство юмора.",
+            "Счастье — это когда есть кому сказать «спасибо». — Благодарность к близким.",
+            "Не трать энергию на злость — сохрани её для добра. — Энергия ценна.",
+            "Если можешь простить — прости, это освободит тебя. — Прощение для себя.",
+            "Не бойся начать сначала — это не конец. — Новый старт всегда возможен.",
+            "Уважай чужую боль, даже если не понимаешь её. — Эмпатия.",
+            "Будь как ветер: свободен и неуловим. — Свобода.",
+            "Не суди о человеке по его статусу. — Истинное достоинство не в титулах.",
+            "Лучше дать, чем взять. — Отдавание приносит радость.",
+            "Не бойся делать ошибки — бойся их повторять. — Учись на ошибках.",
+            "Кто не умеет быть благодарным, тот не заслуживает даров. — Благодарность открывает двери.",
+            "Не будь как мышь, которая прячется от света. — Выходи из тени.",
+            "Даже капля дождя может наполнить кувшин, если падает долго. — Терпение.",
+            "Не бойся говорить «нет» — это сохранит твоё время. — Умение отказывать.",
+            "Счастье — это когда ты нужен. — Быть полезным.",
+            "Не трать жизнь на сплетни — они не делают тебя лучше. — Сплетни отравляют душу.",
+            "Если не знаешь, как ответить, улыбнись. — Улыбка — лучший ответ.",
+            "Не бойся быть одному — бойся быть с теми, кто тебя не понимает. — Качество общения важнее количества.",
+            "Уважай чужое мнение, даже если не согласен. — Толерантность.",
+            "Будь как река: течёт, но не пересыхает. — Постоянство и движение."
+        ];
+
+        const dailyQuoteDiv = document.getElementById('dailyQuote');
+        if (dailyQuoteDiv) {
+            const start = new Date(new Date().getFullYear(), 0, 0);
+            const dayOfYear = Math.floor((Date.now() - start) / 86400000);
+            const index = dayOfYear % quotes.length;
+            dailyQuoteDiv.innerText = quotes[index];
         }
-    });
-}
-</body>
+    })();
+
+    buildGallery();
 </script>
+</body>
 </html>

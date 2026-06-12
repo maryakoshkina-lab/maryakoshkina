@@ -455,7 +455,155 @@ nav a:hover {
     </style>
 </head>
 <body>
+<!-- Плавающая луна справа -->
+<style>
+    .moon-sticky-container {
+        position: sticky;
+        top: 120px;
+        float: right;
+        width: 160px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        z-index: 10;
+        background: transparent;
+        pointer-events: none;
+        clear: both;
+    }
+    @media (max-width: 768px) {
+        .moon-sticky-container {
+            position: relative;
+            float: none;
+            margin: 20px auto;
+            width: 130px;
+        }
+    }
+    .moon-sticky-container canvas {
+        pointer-events: auto;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .moon-sticky-container canvas:hover {
+        transform: scale(1.02);
+    }
+</style>
 
+<div class="moon-sticky-container">
+    <div id="moonWidgetContainer" style="text-align: center;">
+        <canvas id="realisticMoonCanvas" width="160" height="160" style="max-width: 100%; height: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));"></canvas>
+        <div id="moonPhaseInfo" style="margin-top: 6px; font-family: system-ui; font-size: 0.65rem; color: #4a4a46; background: rgba(184, 160, 124, 0.1); padding: 3px 8px; border-radius: 30px;">
+            Загрузка...
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const MOON_SETTINGS = {
+            baseColor: "#FFF5E6",
+            highlightColor: "#FFE4B5",
+            shadowColor: "#8B7D6B",
+            craterColor: "rgba(0,0,0,0.15)",
+            craterHighlight: "rgba(255,255,245,0.3)"
+        };
+
+        function getMoonPhase(date) {
+            const UNIX_EPOCH_JD = 2440587.5;
+            const MS_PER_DAY = 86400000;
+            const REFERENCE_NEW_MOON_JD = 2451550.1;
+            const SYNODIC_MONTH = 29.530588853;
+            const jd = date.getTime() / MS_PER_DAY + UNIX_EPOCH_JD;
+            const daysSinceRef = jd - REFERENCE_NEW_MOON_JD;
+            let phase = (daysSinceRef / SYNODIC_MONTH) % 1;
+            if (phase < 0) phase += 1;
+            return phase;
+        }
+
+        function getPhaseInfo(phase) {
+            const names = [
+                { name: "🌑 Новолуние", illumination: 0 },
+                { name: "🌒 Молодая Луна", illumination: 0.125 },
+                { name: "🌓 Первая четверть", illumination: 0.25 },
+                { name: "🌔 Прибывающая Луна", illumination: 0.375 },
+                { name: "🌕 Полнолуние", illumination: 0.5 },
+                { name: "🌖 Убывающая Луна", illumination: 0.625 },
+                { name: "🌗 Последняя четверть", illumination: 0.75 },
+                { name: "🌘 Старая Луна", illumination: 0.875 }
+            ];
+            const idx = Math.round(phase * 8) % 8;
+            const illumination = 0.5 * (1 - Math.cos(2 * Math.PI * phase));
+            return { name: names[idx].name, illuminationPercent: Math.round(illumination * 100) };
+        }
+
+        function drawMoon(ctx, centerX, centerY, radius, phase) {
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = MOON_SETTINGS.shadowColor;
+            ctx.fill();
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.clip();
+
+            const gradient = ctx.createRadialGradient(
+                centerX - radius * 0.2, centerY - radius * 0.2, radius * 0.1,
+                centerX, centerY, radius
+            );
+            gradient.addColorStop(0, MOON_SETTINGS.highlightColor);
+            gradient.addColorStop(1, MOON_SETTINGS.baseColor);
+
+            let litWidth = radius * Math.sin(Math.PI * phase);
+            let litX = centerX + (phase < 0.5 ? -litWidth : litWidth);
+            ctx.beginPath();
+            ctx.ellipse(litX, centerY, Math.abs(litWidth), radius, 0, 0, 2 * Math.PI);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            ctx.restore();
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.clip();
+            for (let i = 0; i < 120; i++) {
+                let angle = Math.random() * 2 * Math.PI;
+                let rad = Math.sqrt(Math.random()) * radius;
+                let x = centerX + rad * Math.cos(angle);
+                let y = centerY + rad * Math.sin(angle);
+                let size = 1 + Math.random() * 3;
+                ctx.beginPath();
+                ctx.ellipse(x, y, size, size * 0.8, 0, 0, 2 * Math.PI);
+                ctx.fillStyle = MOON_SETTINGS.craterColor;
+                ctx.fill();
+                ctx.beginPath();
+                ctx.ellipse(x - size*0.3, y - size*0.2, size*0.3, size*0.2, 0, 0, 2 * Math.PI);
+                ctx.fillStyle = MOON_SETTINGS.craterHighlight;
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+
+        function updateMoonWidget() {
+            const canvas = document.getElementById('realisticMoonCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const now = new Date();
+            const phase = getMoonPhase(now);
+            const { name, illuminationPercent } = getPhaseInfo(phase);
+            const width = canvas.width;
+            const height = canvas.height;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = width / 2 - 6;
+            ctx.clearRect(0, 0, width, height);
+            drawMoon(ctx, centerX, centerY, radius, phase);
+            const infoDiv = document.getElementById('moonPhaseInfo');
+            if (infoDiv) infoDiv.innerHTML = `${name} · ${illuminationPercent}%`;
+        }
+
+        updateMoonWidget();
+        setInterval(updateMoonWidget, 3600000);
+    })();
+</script>
 <header>
     <div class="container header-inner">
         <div class="logo">
@@ -911,154 +1059,6 @@ if (dropdown && dropbtn) {
         }
     });
 }
-<!-- Плавающая луна справа (sticky) -->
-<style>
-    .moon-sticky-container {
-        position: sticky;
-        top: 100px;           /* отступ сверху, чтобы не перекрывать шапку */
-        float: right;
-        width: 160px;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        z-index: 10;
-        background: transparent;
-        pointer-events: none;
-        clear: both;
-    }
-    @media (max-width: 768px) {
-        .moon-sticky-container {
-            position: relative;
-            float: none;
-            margin: 20px auto;
-            width: 130px;
-        }
-    }
-    .moon-sticky-container canvas {
-        pointer-events: auto;
-        cursor: pointer;
-        transition: transform 0.2s;
-    }
-    .moon-sticky-container canvas:hover {
-        transform: scale(1.02);
-    }
-</style>
-
-<div class="moon-sticky-container">
-    <div id="moonWidgetContainer" style="text-align: center;">
-        <canvas id="realisticMoonCanvas" width="160" height="160" style="max-width: 100%; height: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));"></canvas>
-        <div id="moonPhaseInfo" style="margin-top: 6px; font-family: system-ui; font-size: 0.65rem; color: #4a4a46; background: rgba(184, 160, 124, 0.1); padding: 3px 8px; border-radius: 30px;">
-            Загрузка...
-        </div>
-    </div>
-</div>
-
-<script>
-    (function() {
-        const MOON_SETTINGS = {
-            baseColor: "#FFF5E6",
-            highlightColor: "#FFE4B5",
-            shadowColor: "#8B7D6B",
-            craterColor: "rgba(0,0,0,0.15)",
-            craterHighlight: "rgba(255,255,245,0.3)"
-        };
-
-        function getMoonPhase(date) {
-            const UNIX_EPOCH_JD = 2440587.5;
-            const MS_PER_DAY = 86400000;
-            const REFERENCE_NEW_MOON_JD = 2451550.1;
-            const SYNODIC_MONTH = 29.530588853;
-            const jd = date.getTime() / MS_PER_DAY + UNIX_EPOCH_JD;
-            const daysSinceRef = jd - REFERENCE_NEW_MOON_JD;
-            let phase = (daysSinceRef / SYNODIC_MONTH) % 1;
-            if (phase < 0) phase += 1;
-            return phase;
-        }
-
-        function getPhaseInfo(phase) {
-            const names = [
-                { name: "🌑 Новолуние", illumination: 0 },
-                { name: "🌒 Молодая Луна", illumination: 0.125 },
-                { name: "🌓 Первая четверть", illumination: 0.25 },
-                { name: "🌔 Прибывающая Луна", illumination: 0.375 },
-                { name: "🌕 Полнолуние", illumination: 0.5 },
-                { name: "🌖 Убывающая Луна", illumination: 0.625 },
-                { name: "🌗 Последняя четверть", illumination: 0.75 },
-                { name: "🌘 Старая Луна", illumination: 0.875 }
-            ];
-            const idx = Math.round(phase * 8) % 8;
-            const illumination = 0.5 * (1 - Math.cos(2 * Math.PI * phase));
-            return { name: names[idx].name, illuminationPercent: Math.round(illumination * 100) };
-        }
-
-        function drawMoon(ctx, centerX, centerY, radius, phase) {
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-            ctx.fillStyle = MOON_SETTINGS.shadowColor;
-            ctx.fill();
-
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-            ctx.clip();
-
-            const gradient = ctx.createRadialGradient(
-                centerX - radius * 0.2, centerY - radius * 0.2, radius * 0.1,
-                centerX, centerY, radius
-            );
-            gradient.addColorStop(0, MOON_SETTINGS.highlightColor);
-            gradient.addColorStop(1, MOON_SETTINGS.baseColor);
-
-            let litWidth = radius * Math.sin(Math.PI * phase);
-            let litX = centerX + (phase < 0.5 ? -litWidth : litWidth);
-            ctx.beginPath();
-            ctx.ellipse(litX, centerY, Math.abs(litWidth), radius, 0, 0, 2 * Math.PI);
-            ctx.fillStyle = gradient;
-            ctx.fill();
-            ctx.restore();
-
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-            ctx.clip();
-            for (let i = 0; i < 120; i++) {
-                let angle = Math.random() * 2 * Math.PI;
-                let rad = Math.sqrt(Math.random()) * radius;
-                let x = centerX + rad * Math.cos(angle);
-                let y = centerY + rad * Math.sin(angle);
-                let size = 1 + Math.random() * 3;
-                ctx.beginPath();
-                ctx.ellipse(x, y, size, size * 0.8, 0, 0, 2 * Math.PI);
-                ctx.fillStyle = MOON_SETTINGS.craterColor;
-                ctx.fill();
-                ctx.beginPath();
-                ctx.ellipse(x - size*0.3, y - size*0.2, size*0.3, size*0.2, 0, 0, 2 * Math.PI);
-                ctx.fillStyle = MOON_SETTINGS.craterHighlight;
-                ctx.fill();
-            }
-            ctx.restore();
-        }
-
-        function updateMoonWidget() {
-            const canvas = document.getElementById('realisticMoonCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            const now = new Date();
-            const phase = getMoonPhase(now);
-            const { name, illuminationPercent } = getPhaseInfo(phase);
-            const width = canvas.width;
-            const height = canvas.height;
-            const centerX = width / 2;
-            const centerY = height / 2;
-            const radius = width / 2 - 6;
-            ctx.clearRect(0, 0, width, height);
-            drawMoon(ctx, centerX, centerY, radius, phase);
-            const infoDiv = document.getElementById('moonPhaseInfo');
-            if (infoDiv) infoDiv.innerHTML = `${name} · ${illuminationPercent}%`;
-        }
-
-        updateMoonWidget();
-        setInterval(updateMoonWidget, 3600000);
-    })();
 </body>
 </script>
 </html>

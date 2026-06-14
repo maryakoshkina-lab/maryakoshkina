@@ -499,7 +499,7 @@
             transform: scale(1.02);
         }
 
-        /* Стили для нейро-практик (5+10) */
+        /* Стили для нейро-практик */
         .practices-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -697,10 +697,10 @@
                 <a href="#" class="dropbtn">Программы ▼</a>
                 <div class="dropdown-content">
                     <a href="#lab-program-link">🔹 Лаборатория внутренних опор</a>
-                    <a href="#singing-program-link">🔹 Поющие круги рефлексии</a>
-                    <a href="#muza-program-link">🔹 Проект «Муза»</a>
+                    <a href="#singing-program-link">🔸 Поющие круги рефлексии</a>
+                    <a href="#muza-program-link">🔸 Проект «Муза»</a>
                     <a href="#neuro-program-link">🧠 Нейро-дыхательные практики</a>
-                    <a href="#neuro-aid-link">🧰 Нейро-аптечка: 10 быстрых практик</a>
+                    <a href="#neuro-aid-link">🧰 Нейро-аптечка</a>
                     <a href="#neuro-games-link">🎮 Нейробиологические упражнения</a>
                 </div>
             </div>
@@ -724,12 +724,12 @@
             </div>
             <div id="aboutMore" style="display: none;">
                 <p>Мои проекты — это живые инструменты, которые я создала, пройдя этот путь сама. Каждый из них можно попробовать как отдельную практику или собрать в свою личную систему опор и звучания.</p>
-                <p>🔸 <strong>Лаборатория внутренних опор</strong> — здесь мы строим ваш «внутренний дом», бережно, слой за слоем. Психологическая работа с поиском себя и обретением устойчивости: групповые программы, диагностические сессии, наставничество.</p>
-                <p>🔸 <strong>Поющие круги рефлексии</strong> — здесь песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о добром. Авторские песни-размышления, камерные встречи, музыкальные ретриты.</p>
-                <p>🔸 <strong>Муза</strong> — для тех, кто попал в творческий ступор. Учу находить музу в любой момент, без ожидания вдохновения, без страха чистого листа и без вечной гонки за идеей. Муза по вызову — практичный и бережный метод возвращать себе творческое состояние, когда оно нужно здесь и сейчас.</p>
-                <p>🔸 <strong>Нейро-дыхательные упражнения</strong> — коллекция дыхательных практик, собранных мной на стыке нейронауки и музыки. Быстрые техники для снятия тревоги, заземления перед пением, активации блуждающего нерва через дыхание и звук. Можно делать где угодно и когда угодно — эффект чувствуется сразу.</p>
-                <p>🔸 <strong>Нейро-аптечка</strong> — двадцать быстрых практик для мозга, голоса и внутренней устойчивости: дыхание, движение, звук, игра. Ваш личный набор инструментов «здесь и сейчас», когда нужно вернуть равновесие, перезагрузить нервную систему или освободить голос.</p>
-                <p>🔸 <strong>Нейробиологические упражнения</strong> — научно обоснованные техники для тренировки мозга: нейроигры, упражнения на межполушарное взаимодействие, развитие слуха, памяти и внимания. Связываю нейробиологию с музыкой и психологией, чтобы мозг и голос работали в тандеме.</p>
+                <p>🔸 <strong>Лаборатория внутренних опор</strong> — здесь мы строим ваш «внутренний дом», бережно, слой за слоем.</p>
+                <p>🔸 <strong>Поющие круги рефлексии</strong> — здесь песни становятся зеркалом, в которое приятно смотреться и под которое хочется думать о добром.</p>
+                <p>🔸 <strong>Муза</strong> — для тех, кто попал в творческий ступор.</p>
+                <p>🔸 <strong>Нейро-дыхательные упражнения</strong> — коллекция дыхательных практик на стыке нейронауки и музыки.</p>
+                <p>🔸 <strong>Нейро-аптечка</strong> — быстрые практики для мозга, голоса и внутренней устойчивости.</p>
+                <p>🔸 <strong>Нейробиологические упражнения</strong> — научно обоснованные техники для тренировки мозга.</p>
                 <p>Я — Марианна Певроиюльская. Для тех, кто знает меня через музыку — Маря Кошкина.<br>Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
             </div>
             <button id="readMoreBtn" class="music-button" style="margin-top: 16px;">Читать далее →</button>
@@ -742,7 +742,7 @@
             <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Мои проекты</h2>
             <div class="project-cards">
 
-                <!-- 1. Лаборатория внутренних опор (4 урока, первый бесплатный) -->
+                <!-- 1. Лаборатория внутренних опор -->
                 <div class="project-card" id="lab-program-link">
                     <h3>🔹 Лаборатория внутренних опор</h3>
                     <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы. Групповые и индивидуальные занятия.</p>
@@ -750,73 +750,44 @@
                     <div id="lab-details" class="program-details">
                         <h4>Четыре урока устойчивости</h4>
                         <div style="margin-bottom: 20px;">
-
-                            <!-- Урок 1 (бесплатный, открыт) -->
                             <details open style="margin-bottom: 16px; border: 1px solid #f0ece4; border-radius: 20px; padding: 8px 12px;">
-                                <summary style="font-weight: 600; color: #b8a07c; cursor: pointer;">🎁 Урок 1. Встреча с собой: знаю, кто я – бесплатно</summary>
+                                <summary style="font-weight: 600; color: #b8a07c;">🎁 Урок 1. Встреча с собой: знаю, кто я – доступно</summary>
                                 <div style="margin-top: 12px; padding-left: 12px;">
                                     <p><em>«Я не то, что случилось со мной, я — то, чем я решил стать» — Карл Густав Юнг</em></p>
                                     <p><strong>Моё персонализированное обращение к тебе</strong><br>Этот урок — для тебя, если ты иногда ловишь себя на мысли: «Я вроде живу, но как будто не свою жизнь». Этот урок — о встрече с собой настоящим. Не с Персоной, которую видят другие, а с Самостью — центром твоей души.</p>
-                                    <details><summary>📝 Тест «Персона и Тень»</summary><div><p><strong>Как выполнять:</strong><br>1. Раздели лист на две колонки.<br>2. Слева напиши «Какой меня знают другие» — 10 качеств.<br>3. Справа напиши «Какую себя знаю только я».<br>4. Найди в правом списке одно качество... Задание на неделю: один раз проявить его безопасно.</p><p><em>«Пока вы не сделаете бессознательное сознательным, оно будет управлять вашей жизнью» — Юнг.</em></p></div></details>
-                                    <details><summary>🧠 Типы личности</summary><div><p><strong>По Фрейду:</strong> Разложи ситуацию выбора на голоса Ид, Эго, Супер-Эго.</p><p><strong>По Юнгу:</strong> Определи свою ведущую функцию.</p><p><strong>По Гаджиеву:</strong> 5 минут наблюдения.</p><p><strong>Древние греки:</strong> Найди свою «золотую середину».</p></div></details>
+                                    <details><summary>📝 Тест «Персона и Тень»</summary><div><p><strong>Как выполнять:</strong><br>1. Раздели лист на две колонки.<br>2. Слева напиши «Какой меня знают другие» — 10 качеств.<br>3. Справа напиши «Какую себя знаю только я».<br>4. Найди в правом списке одно качество, которое ты прячешь глубже всего. Задание на неделю: один раз проявить его безопасно.</p><p><em>«Пока вы не сделаете бессознательное сознательным, оно будет управлять вашей жизнью» — Юнг.</em></p></div></details>
+                                    <details><summary>🧠 Типы личности: Фрейд, Юнг, Гаджиев, древнегреческие философы</summary><div><p><strong>По Фрейду:</strong> Разложи ситуацию выбора на голоса Ид, Эго, Супер-Эго.</p><p><strong>По Юнгу:</strong> Определи свою ведущую функцию (мышление, чувство, ощущение, интуиция).</p><p><strong>По Гаджиеву:</strong> 5 минут наблюдения за мыслями, эмоциями, телом, дыханием.</p><p><strong>Древние греки:</strong> Найди свою «золотую середину».</p></div></details>
                                     <details><summary>🎙️ Две тайные опоры</summary><div><p>1. Разберитесь со своей историей, иначе она будет управлять вами.</p><p>2. Определите свои ценности — не навязанные, а свои.</p></div></details>
-                                    <details><summary>✍️ Практики</summary><div><p><strong>Техника десяти вопросов</strong><br><strong>Диалог с будущей собой</strong></p></div></details>
-                                    <details><summary>🔄 EMDR/ДПДГ: «Безопасное место»</summary><div><p>Закрой глаза, вспомни безопасное место. Выполняй билатеральную стимуляцию 30–60 секунд. Повтори 3–4 раза. Заверши рукой на сердце: «У меня есть безопасное место внутри».</p></div></details>
+                                    <details><summary>✍️ Практики</summary><div><p><strong>Техника десяти вопросов:</strong> «Кто я?», «Что я люблю, когда никто не смотрит?», «Что я сделала бы, если бы не боялась?» и т.д.</p><p><strong>Диалог с будущей собой:</strong> представь себя через 20 лет, задай три вопроса, ответь вслух.</p></div></details>
+                                    <details><summary>🔄 EMDR/ДПДГ: «Безопасное место»</summary><div><p>Закрой глаза, вспомни безопасное место. Выполняй билатеральную стимуляцию (попеременное сжатие кулаков или «бабочка») 30–60 секунд. Повтори 3–4 раза. Заверши рукой на сердце: «У меня есть безопасное место внутри».</p></div></details>
                                     <details><summary>📜 Формула Мухоной «Целостность»</summary><div><p><em>«Я есмь та, кто я есмь. Я принимаю все свои части... Я — целостность. Я — достаточно».</em> Проговаривай утром и вечером 21 день.</p></div></details>
-                                    <details><summary>🌑 Новолуние и «Путь художника»</summary><div><p>В Новолуние напиши письмо себе будущей. Практикуй «Утренние страницы».</p></div></details>
-                                    <p><em>Родная моя, я знаю, как страшно открыть эту шкатулку. Но поверь: в самой глубине живёт не монстр, а та маленькая ты, которая когда-то знала всё о себе. Дай ей слово сейчас. Ты — целый мир. Это короткая демо-версия. Полная версия Урока 1 доступна при скачивании Уроков 2, 3, 4.</em></p>
+                                    <details><summary>🌑 Новолуние и «Путь художника»</summary><div><p>В Новолуние напиши письмо себе будущей. Практикуй «Утренние страницы» (3 страницы каждое утро).</p></div></details>
+                                    <p style="margin-top: 12px;"><em>Родная моя, я знаю, как страшно открыть эту шкатулку. Но поверь: в самой глубине живёт не монстр, а та маленькая ты, которая когда-то знала всё о себе. Дай ей слово сейчас. Ты — целый мир.</em></p>
                                 </div>
                             </details>
-
-                            <!-- Урок 2 (платный) -->
                             <details style="margin-bottom: 16px; border: 1px solid #f0ece4; border-radius: 20px; padding: 8px 12px;">
-                                <summary style="font-weight: 600; color: #b8a07c; cursor: pointer;">📘 Урок 2. Тело как якорь: чувствую, значит, живу – 2 500 ₽</summary>
+                                <summary style="font-weight: 600; color: #b8a07c;">📘 Урок 2. Тело как якорь: чувствую, значит, живу</summary>
                                 <div style="margin-top: 12px; padding-left: 12px;">
                                     <p>Практики на проприоцепцию, телесное заземление, снятие мышечных зажимов. Видеоурок + чек-лист «Мои телесные триггеры».</p>
-                                    <form action="https://auth.robokassa.ru/Merchant/Index.aspx" method="post" target="_blank">
-                                        <input type="hidden" name="MrchLogin" value="maryakoshkina-lab">
-                                        <input type="hidden" name="InvId" value="1">
-                                        <input type="hidden" name="OutSum" value="2500.00">
-                                        <input type="hidden" name="Desc" value="Урок 2. Тело как якорь">
-                                        <input type="hidden" name="SignatureValue" value="7b081ebde64506b7279f762fb07f45b9">
-                                        <input type="submit" class="music-button" value="Оплатить 2500₽ →" style="margin-top: 12px; background: #b8a07c;">
-                                    </form>
+                                    <a href="https://boosty.to/maryakoshkina" target="_blank" class="music-button" style="margin-top: 12px; display: inline-block;">Доступно по спонсорской ссылке →</a>
                                 </div>
                             </details>
-
-                            <!-- Урок 3 (платный) -->
                             <details style="margin-bottom: 16px; border: 1px solid #f0ece4; border-radius: 20px; padding: 8px 12px;">
-                                <summary style="font-weight: 600; color: #b8a07c; cursor: pointer;">🎨 Урок 3. Творчество как дыхание: создаю, значит, есть – 2 500 ₽</summary>
+                                <summary style="font-weight: 600; color: #b8a07c;">🎨 Урок 3. Творчество как дыхание: создаю, значит, есть</summary>
                                 <div style="margin-top: 12px; padding-left: 12px;">
                                     <p>Нейроигры для снятия творческих блоков, техники спонтанного письма и рисования.</p>
-                                    <form action="https://auth.robokassa.ru/Merchant/Index.aspx" method="post" target="_blank">
-                                        <input type="hidden" name="MrchLogin" value="maryakoshkina-lab">
-                                        <input type="hidden" name="InvId" value="2">
-                                        <input type="hidden" name="OutSum" value="2500.00">
-                                        <input type="hidden" name="Desc" value="Урок 3. Творчество как дыхание">
-                                        <input type="hidden" name="SignatureValue" value="03a07be23510b0b8fa0079601faab3e7">
-                                        <input type="submit" class="music-button" value="Оплатить 2500₽ →" style="margin-top: 12px; background: #b8a07c;">
-                                    </form>
+                                    <a href="https://boosty.to/maryakoshkina" target="_blank" class="music-button" style="margin-top: 12px; display: inline-block;">Доступно по спонсорской ссылке →</a>
                                 </div>
                             </details>
-
-                            <!-- Урок 4 (платный) -->
                             <details style="margin-bottom: 16px; border: 1px solid #f0ece4; border-radius: 20px; padding: 8px 12px;">
-                                <summary style="font-weight: 600; color: #b8a07c; cursor: pointer;">💖 Урок 4. Любовь к себе: принимаю, значит, исцеляюсь – 2 500 ₽</summary>
+                                <summary style="font-weight: 600; color: #b8a07c;">💖 Урок 4. Любовь к себе: принимаю, значит, исцеляюсь</summary>
                                 <div style="margin-top: 12px; padding-left: 12px;">
                                     <p>Практика само-компассии, работа с внутренним критиком, аудио-медитация «Принятие».</p>
-                                    <form action="https://auth.robokassa.ru/Merchant/Index.aspx" method="post" target="_blank">
-                                        <input type="hidden" name="MrchLogin" value="maryakoshkina-lab">
-                                        <input type="hidden" name="InvId" value="3">
-                                        <input type="hidden" name="OutSum" value="2500.00">
-                                        <input type="hidden" name="Desc" value="Урок 4. Любовь к себе">
-                                        <input type="hidden" name="SignatureValue" value="c8f7f8eadeca5fc2abf8435bf2a59755">
-                                        <input type="submit" class="music-button" value="Оплатить 2500₽ →" style="margin-top: 12px; background: #b8a07c;">
-                                    </form>
+                                    <a href="https://boosty.to/maryakoshkina" target="_blank" class="music-button" style="margin-top: 12px; display: inline-block;">Доступно по спонсорской ссылке →</a>
                                 </div>
                             </details>
                         </div>
-                        <p>📌 Первый урок – бесплатно, остальные по 2 500 ₽ каждый. Все уроки включают текстовые файлы и поддержку в мессенджере. Запись: <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или в Макс.</p>
+                        <p>📌 Первый урок – доступен бесплатно, остальные – по спонсорской ссылке на Boosty. После поддержки вы получите все материалы на почту.</p>
                     </div>
                 </div>
 
@@ -827,10 +798,8 @@
                     <button class="project-button" data-target="singing-details">Программы →</button>
                     <div id="singing-details" class="program-details">
                         <h4>Три направления: Голос, Танец, Слово</h4>
-
-                        <!-- Направление 1. Голос — полностью открыто -->
                         <details open style="margin-bottom: 16px; border: 1px solid #f0ece4; border-radius: 20px; padding: 8px 12px;">
-                            <summary style="font-weight: 600; color: #b8a07c;">🎤 Направление 1. «Голос» — песни как зеркало души (открыто)</summary>
+                            <summary style="font-weight: 600; color: #b8a07c;">🎤 Направление 1. «Голос» — песни как зеркало души (доступно)</summary>
                             <div style="margin-top: 12px; padding-left: 12px;">
                                 <p>Здесь мы поём, чтобы встретиться с собой, прожить эмоции и найти внутреннюю опору через звук. Песня становится практикой осознанности, а голос — проводником к светлым смыслам.</p>
                                 <details><summary>📝 Тест «Голосовой портрет»</summary><div><p>Закрой глаза, задай вопрос «Мой голос, что ты хочешь мне сказать?», затем мягко гуди «м-м-м» 1 минуту, запиши на диктофон. Прослушай, замечая дрожь, силу, мягкость, сдавленность. Нарисуй образ своего голоса — цвет, форму, текстуру.</p></div></details>
@@ -858,83 +827,85 @@
                                 <details><summary>❤️ Мои слова</summary><div><p>Родная, твой голос — отпечаток души. Не важно, «правильно» ли ты поёшь. Важно, что сердце хочет звучать. Приходи, споём вместе о светлом.</p></div></details>
                             </div>
                         </details>
-
-                        <!-- Направление 2. Танец — платное -->
                         <details style="margin-bottom: 16px; border: 1px solid #f0ece4; border-radius: 20px; padding: 8px 12px;">
-                            <summary style="font-weight: 600; color: #b8a07c;">💃 Направление 2. «Танец» — движение как молитва (2 500 ₽)</summary>
+                            <summary style="font-weight: 600; color: #b8a07c;">💃 Направление 2. «Танец» — движение как молитва</summary>
                             <div style="margin-top: 12px; padding-left: 12px;">
-                                <p><strong>Стоимость:</strong> 2 500 ₽. Доступно после оплаты. Полное описание включает тесты, нейробиологию, практики, аффирмации и ритуалы.</p>
-                                <form action="https://auth.robokassa.ru/Merchant/Index.aspx" method="post" target="_blank">
-                                    <input type="hidden" name="MrchLogin" value="maryakoshkina-lab">
-                                    <input type="hidden" name="InvId" value="4">
-                                    <input type="hidden" name="OutSum" value="2500.00">
-                                    <input type="hidden" name="Desc" value="Направление 2. Танец — движение как молитва">
-                                    <input type="hidden" name="SignatureValue" value="52fab5c86f2e6b1d175b1c15aec174d8">
-                                    <input type="submit" class="music-button" value="Оплатить 2500₽ →" style="margin-top: 12px; background: #b8a07c;">
-                                </form>
+                                <p><strong>Доступно по спонсорской ссылке.</strong> Полное описание включает тесты, нейробиологию, практики, аффирмации и ритуалы.</p>
+                                <a href="https://boosty.to/maryakoshkina" target="_blank" class="music-button" style="margin-top: 12px; display: inline-block;">Доступно по спонсорской ссылке →</a>
                             </div>
                         </details>
-
-                        <!-- Направление 3. Слово — платное -->
                         <details style="margin-bottom: 16px; border: 1px solid #f0ece4; border-radius: 20px; padding: 8px 12px;">
-                            <summary style="font-weight: 600; color: #b8a07c;">✍️ Направление 3. «Слово» — письменная рефлексия и исцеляющий текст (2 500 ₽)</summary>
+                            <summary style="font-weight: 600; color: #b8a07c;">✍️ Направление 3. «Слово» — письменная рефлексия и исцеляющий текст</summary>
                             <div style="margin-top: 12px; padding-left: 12px;">
-                                <p><strong>Стоимость:</strong> 2 500 ₽. Доступно после оплаты. Полное описание включает тесты, нейробиологию, практики, аффирмации и ритуалы.</p>
-                                <form action="https://auth.robokassa.ru/Merchant/Index.aspx" method="post" target="_blank">
-                                    <input type="hidden" name="MrchLogin" value="maryakoshkina-lab">
-                                    <input type="hidden" name="InvId" value="5">
-                                    <input type="hidden" name="OutSum" value="2500.00">
-                                    <input type="hidden" name="Desc" value="Направление 3. Слово — письменная рефлексия">
-                                    <input type="hidden" name="SignatureValue" value="88276e386b309767cf566db3bc4f1666">
-                                    <input type="submit" class="music-button" value="Оплатить 2500₽ →" style="margin-top: 12px; background: #b8a07c;">
-                                </form>
+                                <p><strong>Доступно по спонсорской ссылке.</strong> Полное описание включает тесты, нейробиологию, практики, аффирмации и ритуалы.</p>
+                                <a href="https://boosty.to/maryakoshkina" target="_blank" class="music-button" style="margin-top: 12px; display: inline-block;">Доступно по спонсорской ссылке →</a>
                             </div>
                         </details>
-
-                        <p style="margin-top: 16px;">📌 Выберите направление, которое отзывается, или пройдите все три. Каждое — это отдельный путь рефлексии.<br>Запись: <a href="mailto:marya777koshkina@yandex.ru" style="color:#b8a07c;">marya777koshkina@yandex.ru</a> или Telegram.</p>
+                        <p style="margin-top: 16px;">📌 Выберите направление. Первое – полностью доступно, остальные – по спонсорской ссылке на Boosty.</p>
                     </div>
                 </div>
 
-                <!-- 3. Проект «Муза» — нейро-поэтический коучинг (Муза 1.0) -->
+                <!-- 3. Проект «Муза» — полностью открыт -->
                 <div class="project-card" id="muza-program-link">
                     <h3>🔸 Проект «Муза» — нейро-поэтический коучинг</h3>
                     <p>Для тех, кто попал в творческий ступор. Учу находить музу в любой момент — без ожидания, без страха чистого листа, без вечной гонки за идеей. Муза по вызову. Практичный, научно обоснованный и бережный метод возвращать себе творческое состояние здесь и сейчас.</p>
                     <button class="project-button" data-target="muza-details">Муза 1.0 →</button>
                     <div id="muza-details" class="program-details">
                         <h4>Всё, что нужно, чтобы вдохновение стало не случайным гостем, а вашим постоянным спутником</h4>
-                        <details open><summary>✨ 10 практик для вдохновения</summary><div>1. Утренние страницы<br>2. Дофаминовое голодание наоборот<br>3. Правило трёх<br>4. Техника десяти вопросов<br>5. Диалог с будущей собой<br>6. Билатеральная стимуляция для разблокировки идей<br>7. Скука как топливо<br>8. Телесный якорь вдохновения<br>9. Ассоциативные карты через музыку<br>10. Письмо от Музы</div></details>
-                        <details><summary>🧠 5 психологических приёмов для себя</summary><div>1. Переименование критика<br>2. Правило 5 секунд<br>3. Эффект прогресса<br>4. Мантра достаточности<br>5. Дыхание 4-7-8 перед творческим актом</div></details>
-                        <details><summary>💫 10 эффективных и приятных аффирмаций</summary><div>Творчество — моя природа... (полный список в коде)</div></details>
-                        <details><summary>🌸 Массаж лица: пробуждение чувств и творческого начала</summary><div>Пошаговая техника: разогрев, лоб, глаза, скулы, челюсть, завершение.</div></details>
-                        <details><summary>🌙 Астрологический раздел: когда муза ближе всего</summary><div>По дням недели и фазам Луны.</div></details>
-                        <details><summary>🎲 5 нейроигр для воображения, эмпатии, мышления и пластичности мозга</summary><div>Образный перевод, эмпатическое зеркало, абсурдные ассоциации, звуковой пейзаж, кубик историй.</div></details>
-                        <p>📌 «Муза» — это не ожидание, а тренировка. Вдохновение — навык, который можно развивать. Присоединяйтесь к нейро-поэтическому коучингу.<br>Запись: <a href="mailto:marya777koshkina@yandex.ru">marya777koshkina@yandex.ru</a> или Telegram.</p>
+                        <details open><summary>✨ 10 практик для вдохновения</summary>
+                            <div><details><summary>1. «Утренние страницы»</summary><div>Сразу после пробуждения пишите от руки три страницы текста — всё, что приходит в голову, без цензуры.</div></details>
+                            <details><summary>2. «Дофаминовое голодание наоборот»</summary><div>Выделите 1–2 часа в день, когда вы НЕ потребляете контент, а только создаёте.</div></details>
+                            <details><summary>3. «Правило трёх»</summary><div>Каждый день делайте три маленьких творческих действия: три абзаца, три наброска, три музыкальных фразы.</div></details>
+                            <details><summary>4. «Техника десяти вопросов»</summary><div>Задайте себе письменно 10 вопросов, начиная с простых и заканчивая глубокими.</div></details>
+                            <details><summary>5. «Диалог с будущей собой»</summary><div>Сядьте напротив пустого стула и представьте там себя через 20 лет — мудрую, реализованную. Спросите: «Что для меня сейчас самое важное? Чего мне не хватает, чтобы начать?» Пересядьте и ответьте от лица будущей себя.</div></details>
+                            <details><summary>6. «Билатеральная стимуляция для разблокировки идей»</summary><div>Попеременно постукивайте ладонями по бёдрам (левая-правая) в ритме 1 удар в секунду, удерживая в уме вопрос: «Какое решение я не вижу?»</div></details>
+                            <details><summary>7. «Скука как топливо»</summary><div>Запланируйте 20 минут скуки в день: без телефона, без дел, просто сидеть и смотреть в окно.</div></details>
+                            <details><summary>8. «Телесный якорь вдохновения»</summary><div>Выберите жест или позу, которая ассоциируется у вас с состоянием потока. В моменты пикового вдохновения сознательно делайте этот жест.</div></details>
+                            <details><summary>9. «Ассоциативные карты» через музыку</summary><div>Включите незнакомый инструментальный трек без слов. Закройте глаза и позвольте образам всплывать.</div></details>
+                            <details><summary>10. «Письмо от Музы»</summary><div>Представьте, что ваша муза пишет вам письмо. Начните со слов: «Дорогая моя, я прихожу к тебе, когда…»</div></details></div>
+                        </details>
+                        <details><summary>🧠 5 психологических приёмов для себя</summary>
+                            <div><details><summary>1. «Переименование критика»</summary><div>Дайте своему внутреннему критику смешное имя. Когда он начинает вас ругать, скажите: «О, привет, спасибо за заботу, я сама разберусь».</div></details>
+                            <details><summary>2. «Правило 5 секунд»</summary><div>Как только появляется импульс к творчеству, в течение 5 секунд начинайте действовать.</div></details>
+                            <details><summary>3. «Эффект прогресса»</summary><div>Фиксируйте даже крошечные шаги в творчестве (галочкой, стикером, записью).</div></details>
+                            <details><summary>4. «Мантра достаточности»</summary><div>«Это не должно быть идеально. Это должно быть. Я достаточно хороша, чтобы начать».</div></details>
+                            <details><summary>5. «Дыхание 4-7-8 перед творческим актом»</summary><div>Вдох на 4, задержка на 7, выдох на 8. Повторить 4 раза. Снижает кортизол.</div></details></div>
+                        </details>
+                        <details><summary>💫 10 эффективных и приятных аффирмаций</summary>
+                            <ul><li>«Творчество — моя природа...»</li><li>«Моя муза живёт внутри меня...»</li><li>«Я достойна создавать прекрасное...»</li><li>«Чем больше я творю, тем больше вдохновения приходит ко мне.»</li><li>«Я отпускаю страх ошибки...»</li><li>«Мои идеи ценны...»</li><li>«С каждым днём я всё легче вхожу в состояние потока.»</li><li>«Я — проводник вдохновения...»</li><li>«Моё творчество приносит свет мне и другим...»</li><li>«Я выбираю творить из любопытства и радости...»</li></ul>
+                        </details>
+                        <details><summary>🌸 Массаж лица: пробуждение чувств и творческого начала</summary>
+                            <div>Пошаговая техника: разогрев, лоб, глаза, скулы, челюсть, завершение.</div>
+                        </details>
+                        <details><summary>🌙 Астрологический раздел: когда муза ближе всего</summary>
+                            <div>По дням недели и фазам Луны.</div>
+                        </details>
+                        <details><summary>🎲 5 нейроигр для воображения, эмпатии, мышления и пластичности мозга</summary>
+                            <div>Образный перевод, эмпатическое зеркало, абсурдные ассоциации, звуковой пейзаж, кубик историй.</div>
+                        </details>
+                        <p style="margin-top: 16px;">📌 «Муза» — это не ожидание, а тренировка. Все материалы полностью доступны на сайте.</p>
                     </div>
                 </div>
 
-                <!-- 4. Нейро-дыхательные практики -->
+                <!-- 4. Нейро-дыхательные практики (полностью открыто) -->
                 <div class="project-card" id="neuro-program-link">
                     <h3>🧠 Нейро-дыхательные практики</h3>
                     <p>Простые 2–5‑минутные упражнения для снятия тревоги, заземления и активации голоса.</p>
-                    <button class="project-button" data-target="neuro-details">Программы →</button>
-                    <div id="neuro-details" class="program-details">
-                        <h4>5 нейро-дыхательных практик</h4>
-                        <div><details><summary>💨 1. Физиологический вздох</summary><div>Глубокий вдох носом, короткий довдох, долгий выдох ртом. 3–5 раз.</div></details>
-                        <details><summary>🌬️ 2. Опора на выдох</summary><div>Вдох носом (живот надувается), выдох со звуком «ф-ф-ф-ф». 5 выдохов.</div></details>
-                        <details><summary>🎵 3. Пение как нейрохакинг</summary><div>Гудеть «м-м-м-м-м», затем «а-а-а-а-а». 3–4 раза.</div></details>
-                        <details><summary>❓ 4. Вопрос к себе</summary><div>Задайте вопрос: «Если бы я точно знал(а), что со мной всё в порядке, как бы я звучал(а)?»</div></details>
-                        <details><summary>⬜ 5. Квадратное дыхание с пением</summary><div>4 счёта вдох, 4 задержка, 4 выдох со звуком, 4 задержка. Повторить 4 раза.</div></details></div>
+                    <div style="margin-top: 16px;">
+                        <details><summary>💨 1. Физиологический вздох</summary><div>Глубокий вдох носом, короткий довдох, долгий выдох ртом. 3–5 раз.</div></details>
+                        <details><summary>🌬️ 2. Опора на выдох</summary><div>Вдох носом (живот надувается), выдох со звуком «ф-ф-ф-ф».</div></details>
+                        <details><summary>🎵 3. Пение как нейрохакинг</summary><div>Гудеть «м-м-м-м-м», затем «а-а-а-а-а».</div></details>
+                        <details><summary>❓ 4. Вопрос к себе</summary><div>«Если бы я точно знал(а), что со мной всё в порядке, как бы я звучал(а)?»</div></details>
+                        <details><summary>⬜ 5. Квадратное дыхание с пением</summary><div>4 счёта вдох, 4 задержка, 4 выдох со звуком, 4 задержка.</div></details>
                     </div>
                 </div>
 
-                <!-- 5. Нейро-аптечка: 10 быстрых практик -->
+                <!-- 5. Нейро-аптечка (полностью открыто) -->
                 <div class="project-card" id="neuro-aid-link">
                     <h3>🧰 Нейро-аптечка: 10 быстрых практик</h3>
                     <p>10 упражнений для сброса тревоги, заземления, активации блуждающего нерва.</p>
-                    <button class="project-button" data-target="neuro-aid-details">Программы →</button>
-                    <div id="neuro-aid-details" class="program-details">
-                        <h4>10 быстрых практик</h4>
-                        <div><details><summary>💧 1. Холодная вода</summary><div>Запястья под холодной водой 15–20 сек, умыть лицо.</div></details>
+                    <div style="margin-top: 16px;">
+                        <details><summary>💧 1. Холодная вода</summary><div>Запястья под холодной водой 15–20 сек, умыть лицо.</div></details>
                         <details><summary>🦋 2. Тряска всем телом</summary><div>Трясти кистями, локтями, плечами, подпрыгивать 1–2 мин.</div></details>
                         <details><summary>👁️ 3. Боковое зрение</summary><div>Расслабленный взгляд, воспринимать периферию 3–5 мин.</div></details>
                         <details><summary>🤗 4. Надавливание на грудь</summary><div>Руки скрестить на груди, мягко надавить, постукивать 2–3 мин.</div></details>
@@ -943,23 +914,29 @@
                         <details><summary>👂 7. Массаж ушей</summary><div>Потянуть мочки, размять уши, накрыть ладонями на 30 сек.</div></details>
                         <details><summary>🏔️ 8. Поза «Гора»</summary><div>Стоять ровно 2–3 минуты.</div></details>
                         <details><summary>🥁 9. Постукивание по телу</summary><div>Постукивать кулаками по груди, животу, бёдрам 1–2 мин.</div></details>
-                        <details><summary>🕯️ 10. Дыхание через сжатые губы</summary><div>Вдох 4, выдох через сжатые губы на 8–12. 5–7 раз.</div></details></div>
+                        <details><summary>🕯️ 10. Дыхание через сжатые губы</summary><div>Вдох 4, выдох через сжатые губы на 8–12. 5–7 раз.</div></details>
                     </div>
                 </div>
 
-                <!-- 6. Нейробиологические упражнения -->
+                <!-- 6. Нейробиологические упражнения (полностью открыто) -->
                 <div class="project-card" id="neuro-games-link">
                     <h3>🎮 Нейробиологические упражнения</h3>
                     <p>5 нейроигр для развития голоса и слуха.</p>
-                    <button class="project-button" data-target="neuro-games-details">Программы →</button>
-                    <div id="neuro-games-details" class="program-details">
-                        <h4>5 нейроигр</h4>
-                        <div><details><summary>🎤 1. Зеркальный звук</summary><div>Петь вместе с записью, затем выключать звук и продолжать а капелла.</div></details>
+                    <div style="margin-top: 16px;">
+                        <details><summary>🎤 1. Зеркальный звук</summary><div>Петь вместе с записью, затем выключать звук и продолжать а капелла.</div></details>
                         <details><summary>🧘 2. Гудение в разные части тела</summary><div>Гудеть «м-м-м-м-м», перемещая внимание на вибрацию.</div></details>
                         <details><summary>🥄 3. Ритмический диалог</summary><div>Отстучать ритм, партнёр повторяет и добавляет свой.</div></details>
                         <details><summary>🎧 4. Пение с помехой</summary><div>Петь под песню при включённом белом шуме.</div></details>
-                        <details><summary>🎭 5. Эмоциональный вокал</summary><div>Пропеть фразу с разными эмоциями, записать и сравнить.</div></details></div>
+                        <details><summary>🎭 5. Эмоциональный вокал</summary><div>Пропеть фразу с разными эмоциями, записать и сравнить.</div></details>
                     </div>
+                </div>
+
+                <!-- QR-код для Boosty -->
+                <div class="project-card" style="text-align: center;">
+                    <h3>📱 Поддержать на Boosty</h3>
+                    <p>Отсканируйте QR-код, чтобы перейти на страницу спонсорства и получить доступ ко всем платным материалам.</p>
+                    <img src="images/qr-code.png" alt="QR-код Boosty" style="width: 150px; height: 150px; margin: 0 auto; display: block; border-radius: 16px;">
+                    <p style="margin-top: 16px;">Или перейдите по прямой ссылке:<br><a href="https://boosty.to/maryakoshkina" target="_blank" style="color:#b8a07c;">boosty.to/maryakoshkina</a></p>
                 </div>
             </div>
         </div>
@@ -1022,7 +999,7 @@
                 <div class="project-card" style="text-align: center;"><video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;"><source src="clip8.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 8</p><a href="#" class="music-button">Смотреть →</a></div>
             </div>
             <div class="project-card" style="text-align: center; margin-top: 30px;"><div style="font-size: 3rem;">✨</div><h3>АниМаря Фото</h3><p>Первые фото АниМари для сниппетов.</p><a href="#" class="music-button">Смотреть →</a></div>
-            <p style="text-align: center; margin-top: 40px;">Больше анимаций в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank">ВКонтакте</a> и <a href="#">Макс, Telegram</a>.</p>
+            <p style="text-align: center; margin-top: 40px;">Больше анимаций в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank">ВКонтакте</a> и Telegram.</p>
         </div>
     </section>
 </main>
@@ -1037,7 +1014,7 @@
         </div>
         <div class="social-links">
             <a href="#">Instagram</a>
-            <a href="#">Макс, Telegram</a>
+            <a href="#">Telegram</a>
             <a href="#">Behance</a>
         </div>
     </div>

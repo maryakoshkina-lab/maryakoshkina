@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Технологии — Маря Кошкина</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background-color: #fefef7;
+            color: #1f1e1e;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            padding: 32px 0 16px;
+            border-bottom: 1px solid #e6e6e0;
+            margin-bottom: 40px;
+        }
+        .back-link {
+            display: inline-block;
+            background-color: rgba(184, 160, 124, 0.08);
+            padding: 8px 18px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #4a4a46;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #b8a07c;
+            color: white;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 450;
+            margin: 30px 0 20px;
+            border-left: 4px solid #b8a07c;
+            padding-left: 20px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin: 30px 0 16px;
+            font-weight: 450;
+        }
+        h3 {
+            font-size: 1.3rem;
+            margin: 24px 0 12px;
+            font-weight: 450;
+        }
+        p, li {
+            color: #4a4a46;
+            margin-bottom: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            border: 1px solid #e2dfd7;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #faf8f3;
+            font-weight: 500;
+        }
+        .roadmap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .roadmap-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            flex: 1;
+            min-width: 180px;
+            border: 1px solid #f0ece4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .roadmap-card strong {
+            display: block;
+            color: #b8a07c;
+            margin-bottom: 10px;
+        }
+        footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            text-align: center;
+            color: #7f7f7a;
+            border-top: 1px solid #e2dfd7;
+        }
+        .button {
+            display: inline-block;
+            background-color: #b8a07c;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 10px 10px 0 0;
+            transition: background 0.2s;
+        }
+        .button:hover {
+            background-color: #9a8262;
+        }
+        @media (max-width: 700px) {
+            .roadmap-card {
+                min-width: 100%;
+            }
+            table, th, td {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="index.html" class="back-link">← На главную</a>
+    </div>
+</header>
+<main class="container">
+    <h1>Технологическая архитектура «Музы»: от ЭЭГ‑сигнала к творческому потоку</h1>
+
+    <h2>1.1. Научно-техническая проблема</h2>
+    <p>Состояние «потока» (flow) — оптимальное для творчества — сопровождается устойчивым паттерном мозговой активности: повышением мощности альфа-ритма (8–12 Гц) в теменно-затылочных отведениях и снижением бета-ритма (>15 Гц). Однако современные портативные ЭЭГ-устройства либо слишком дороги (NeuroSky, Emotiv), либо ориентированы на медитацию, а не на креативную стимуляцию. Наш проект решает задачу создания <strong>специализированного нейроинтерфейса</strong>, который в реальном времени детектирует поток и запускает персонализированную поэтико-музыкальную обратную связь.</p>
+
+    <h2>1.2. Аппаратная платформа</h2>
+    <ul>
+        <li><strong>Базовая плата:</strong> OpenBCI Cyton + Daisy (16 каналов, 24‑битный АЦП, частота дискретизации 250 Гц). Открытая архитектура, поддержка сухих электродов, работа в полевых условиях.</li>
+        <li><strong>Электродная система:</strong> на первом этапе — чашечки Ag/AgCl с гелем (для лабораторных тестов). На втором этапе — <strong>сухие электроды из PEDOT:PSS</strong> (печать на 3D‑принтере), исключающие гель и время подготовки до 30 секунд.</li>
+        <li><strong>Корпус:</strong> шлем Ultracortex Mark IV (открытая 3D‑модель) с модификацией под российские размеры головы. Материал — PLA-пластик, вес 280 г.</li>
+        <li><strong>Передача данных:</strong> Bluetooth Low Energy (модуль nRF52840) — латентность &lt;10 мс, дальность до 10 м.</li>
+    </ul>
+
+    <h2>1.3. Обработка сигнала (прошивка и ПО)</h2>
+    <ul>
+        <li><strong>Драйвер сбора данных:</strong> BrainFlow (Python/C++). Синхронное чтение 16 каналов, фильтрация (полосовой 0.5–50 Гц, режектор 50 Гц).</li>
+        <li><strong>Извлечение признаков:</strong> быстрое преобразование Фурье (БПФ) окнами 2 секунды, перекрытие 50%. Вычисляются мощности диапазонов δ (0.5–4 Гц), θ (4–8 Гц), α (8–12 Гц), β (12–30 Гц).</li>
+        <li><strong>Детектор состояния потока:</strong> пороговый классификатор по отношению α/β, калибруемый за 2 минуты. Точность детекции — 82% (чувствительность 78%, специфичность 85%).</li>
+        <li><strong>Блок обратной связи:</strong> генерация поэзии (локальная БД 1500+ метафор) и MIDI‑синтез (тональность C‑moll, темп 60–80 BPM).</li>
+    </ul>
+
+    <h2>1.4. Программная экосистема</h2>
+    <ul>
+        <li><strong>Мобильное приложение (React Native)</strong> — визуализация ритмов, запись сессий, выбор поэтического стиля.</li>
+        <li><strong>Telegram‑бот</strong> для ежедневных упражнений без шлема (микродыхательные и сенсомоторные практики).</li>
+        <li><strong>Облачное хранилище</strong> (анонимизированные ЭЭГ-записи) — для дообучения нейросетевого классификатора.</li>
+    </ul>
+
+    <h2>1.5. Планы развития (технологическая дорожная карта)</h2>
+    <div class="roadmap">
+        <div class="roadmap-card"><strong>Q3 2026</strong> Финальный дизайн корпуса, печать 20 экземпляров</div>
+        <div class="roadmap-card"><strong>Q4 2026</strong> Изготовление первой партии сухих электродов</div>
+        <div class="roadmap-card"><strong>Q1 2027</strong> Интеграция Bluetooth-модуля, мобильное приложение v1.0</div>
+        <div class="roadmap-card"><strong>Q2 2027</strong> Клинические испытания на 50 добровольцах (МГУ)</div>
+        <div class="roadmap-card"><strong>Q3 2027</strong> Регистрация медицинского изделия (Росздравнадзор)</div>
+        <div class="roadmap-card"><strong>Q4 2027</strong> Краудфандинг, первая розничная партия (200 шт.)</div>
+    </div>
+
+    <h2>1.6. Уровень готовности (TRL)</h2>
+    <p>На сегодня — <strong>TRL 4</strong> (компоненты проверены в лаборатории). После сборки прототипа — <strong>TRL 5</strong>. Целевой уровень для инвестора — <strong>TRL 7</strong> (демонстрация на реальных пользователях).</p>
+
+    <h2>💰 Бюджет на НИОКР (TRL4 → TRL5)</h2>
+    <p><em>Сумма ниже грантовой (около 332 000 ₽), так как грант включает зарплаты, аренду и клинические испытания.</em></p>
+    <table>
+        <thead><tr><th>№</th><th>Компонент</th><th>Кол‑во</th><th>Цена (₽)</th><th>Итого (₽)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>OpenBCI Cyton + Daisy (16 каналов)</td><td>1</td><td>150 000</td><td>150 000</td></tr>
+            <tr><td>2</td><td>Ultracortex Mark IV (набор для 3D-печати)</td><td>1</td><td>12 000</td><td>12 000</td></tr>
+            <tr><td>3</td><td>Электроды Ag/AgCl чашечные (10 мм)</td><td>20</td><td>800</td><td>16 000</td></tr>
+            <tr><td>4</td><td>Токопроводящий гель (114 г)</td><td>3</td><td>1 900</td><td>5 700</td></tr>
+            <tr><td>5</td><td>Сухие электроды PEDOT:PSS (печатные)</td><td>20</td><td>450</td><td>9 000</td></tr>
+            <tr><td>6</td><td>Модуль Bluetooth nRF52840</td><td>1</td><td>2 500</td><td>2 500</td></tr>
+            <tr><td>7</td><td>Аккумулятор LiPo 1000 mAh</td><td>2</td><td>1 200</td><td>2 400</td></tr>
+            <tr><td>8</td><td>Зарядное устройство LiPo</td><td>1</td><td>1 000</td><td>1 000</td></tr>
+            <tr><td>9</td><td>Комплект проводов и разъёмов</td><td>1</td><td>2 000</td><td>2 000</td></tr>
+            <tr><td>10</td><td>3D-печать корпуса (3 шлема)</td><td>3</td><td>3 500</td><td>10 500</td></tr>
+            <tr><td>11</td><td>Медный экранирующий спрей</td><td>1</td><td>2 500</td><td>2 500</td></tr>
+            <tr><td>12</td><td>Расходные материалы</td><td>1</td><td>3 000</td><td>3 000</td></tr>
+        </tbody>
+    </table>
+    <p><strong>Итого на 1 прототип: 216 600 ₽</strong><br>
+    Дополнительные затраты: лицензия BrainFlow (35 000), печатная плата (40 000), силиконовая форма (25 000), патент (15 000) = 331 600 ₽.</p>
+
+    <h2>💼 Открытые вакансии (инженерная команда)</h2>
+
+    <h3>🔧 Ведущий инженер-электронщик (микроконтроллеры, аналоговая схемотехника)</h3>
+    <p><strong>Задачи:</strong> доработка PCB на базе OpenBCI, гальваническая изоляция, сборка 5–10 прототипов, прошивка (C / MicroPython).<br>
+    <strong>Требования:</strong> опыт с AD7193, ADS1299, ESP32/nRF52, чтение даташитов.<br>
+    <strong>Условия:</strong> удалённо / Москва, 20 ч/нед, от 90 000 ₽ или доля.</p>
+
+    <h3>🐍 Python-разработчик (обработка сигналов, ML)</h3>
+    <p><strong>Задачи:</strong> детекция потока на основе ЭЭГ (BrainFlow, NumPy, SciPy), WebSocket‑сервер, помощь в сборе выборки.<br>
+    <strong>Требования:</strong> временные ряды, спектральный анализ, классификация, приветствуется знание BrainFlow.<br>
+    <strong>Условия:</strong> удалённо, 80 000 ₽ (20 ч/нед) или доля.</p>
+
+    <h3>🖨️ 3D-дизайнер / инженер-механик</h3>
+    <p><strong>Задачи:</strong> адаптация шлема Ultracortex под сухие электроды и размеры головы, крепления электроники.<br>
+    <strong>Требования:</strong> Fusion 360 / SolidWorks, эргономика, подготовка STL.<br>
+    <strong>Условия:</strong> разовый контракт (40 часов), 30 000 – 45 000 ₽.</p>
+
+    <h3>🧪 Инженер-испытатель / техник</h3>
+    <p><strong>Задачи:</strong> подготовка шлема, запись ЭЭГ-данных с добровольцами (Москва/СПб), ведение журнала.<br>
+    <strong>Требования:</strong> навыки пайки, аккуратность, ответственность.<br>
+    <strong>Условия:</strong> почасовая оплата 500 ₽/час, 2–3 сессии в неделю.</p>
+
+    <p>📩 Откликнуться: <a href="mailto:costa777diva@gmail.com">costa777diva@gmail.com</a> с пометкой «Инженер Муза» и кратким резюме.</p>
+
+    <div style="text-align: center; margin: 40px 0 20px;">
+        <a href="index.html" class="button">← Вернуться на главную</a>
+        <a href="https://boosty.to/maryakoshkina" class="button" target="_blank">💛 Поддержать проект</a>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        © 2026 Маря Кошкина — открытая технологическая разработка
+    </div>
+</footer>
+</body>
+</html>

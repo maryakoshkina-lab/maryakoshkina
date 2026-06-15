@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Маря Кошкина — Музыкант</title>
+    <title>Маря Кошкина — Музыкант,Аранжировщик, Персональный нейро-коуч</title>
     <style>
         * {
             margin: 0;
@@ -481,7 +481,7 @@
     <div class="container header-inner">
         <div class="logo">
             <h1>Маря Кошкина</h1>
-            <p>музыкант · артист · художник · поэт · реставратор · прораб · эклектическая ведьма</p>
+            <p>музыкант · артист · художник · поэт · реставратор · прораб · эклектическая нейро-ведьма</p>
         </div>
         <nav>
             <a href="#">Главная</a>
@@ -790,6 +790,7 @@
 </section>
 
 <!-- НОВЫЙ РАЗДЕЛ: АЛЬФА-МУЗЫКА -->
+<!-- Альфа-музыка -->
 <section id="alpha-music" class="gallery-section" style="background-color: #ffffff;">
     <div class="container">
         <h2>🎧 Альфа-музыка — Глубокая нейро-энтрейнерная стимуляция</h2>
@@ -842,6 +843,29 @@
 </section>
 
 <script>
+    (function() {
+        const photoNames = ['mari1.jpg', 'mari2.jpg', 'mari3.jpg', 'mari4.jpg', 'mari5.jpg', 'mari6.jpg'];
+        const galleryContainer = document.getElementById('photoGalleryGrid');
+        if (!galleryContainer) return;
+        galleryContainer.innerHTML = '';
+        photoNames.forEach(photo => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `<img src="foto_mari/${photo}" alt="Фото Мари" loading="lazy">`;
+            item.querySelector('img').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImg');
+                if (modal && modalImg) {
+                    modal.style.display = 'flex';
+                    modalImg.src = `foto_mari/${photo}`;
+                    modalImg.alt = 'Фото Мари';
+                }
+            });
+            galleryContainer.appendChild(item);
+        });
+    })();
+</script>
     // Загрузка фотографий Мари из папки foto_mari (переименованные файлы mari1.jpg ... mari6.jpg)
     (function() {
         const photoNames = ['mari1.jpg', 'mari2.jpg', 'mari3.jpg', 'mari4.jpg', 'mari5.jpg', 'mari6.jpg'];
@@ -885,9 +909,8 @@
     <div class="container">
         <h2>АниМаря</h2>
         <p style="text-align: center; margin-bottom: 40px; color: #5e5e5a;">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
-        
-        <!-- ВСЕ 8 ВИДЕОКЛИПОВ (путь videos/) -->
         <div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 60px;">
+            <!-- 8 видеоклипов -->
             <div class="project-card" style="text-align: center;">
                 <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
                     <source src="videos/clip1.mp4" type="video/mp4">
@@ -964,6 +987,31 @@
 </section>
 
 <script>
+    (function() {
+        const photoNamesLat = Array.from({length: 35}, (_, i) => `foto${i+1}.jpg`);
+        const allPhotos = photoNamesLat;
+        const galleryContainer = document.getElementById('animaryaGalleryGrid');
+        if (!galleryContainer) return;
+        galleryContainer.innerHTML = '';
+        allPhotos.forEach(photo => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            const imgSrc = `animarya_images/${photo}`;
+            item.innerHTML = `<img src="${imgSrc}" alt="${photo}" loading="lazy" style="height: 260px; object-fit: cover;"><div class="caption"><strong>${photo.replace('.jpg', '')}</strong><span>АниМаря</span></div>`;
+            item.querySelector('img').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImg');
+                if (modal && modalImg) {
+                    modal.style.display = 'flex';
+                    modalImg.src = imgSrc;
+                    modalImg.alt = photo;
+                }
+            });
+            galleryContainer.appendChild(item);
+        });
+    })();
+</script>
     // Генерация галереи АниМаря (35 фото, только латиница)
     (function() {
         const photoNamesLat = Array.from({length: 35}, (_, i) => `foto${i+1}.jpg`);

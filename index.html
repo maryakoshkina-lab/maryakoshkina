@@ -349,6 +349,49 @@
         details summary:hover {
             background: rgba(184,160,124,0.2);
         }
+        /* Стили для альфа-музыки */
+        .alpha-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .alpha-card {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            padding: 20px;
+            border: 1px solid #f0ece4;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+        .alpha-card:hover {
+            transform: translateY(-5px);
+        }
+        .alpha-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #2c2c28;
+        }
+        .alpha-card p {
+            font-size: 0.85rem;
+            color: #6a6a66;
+            margin-bottom: 16px;
+        }
+        .alpha-audio {
+            width: 100%;
+            margin-top: 8px;
+            border-radius: 40px;
+        }
+        .alpha-badge {
+            background: #b8a07c20;
+            color: #b8a07c;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
     </style>
 </head>
 <body>
@@ -456,6 +499,7 @@
                     <a href="#tech-link">🔹 Технологии и Муза 2.0</a>
                 </div>
             </div>
+            <a href="#alpha-music">🎧 Альфа-музыка</a>
             <a href="#animarya">АниМаря</a>
             <a href="#contact">Контакты</a>
         </nav>
@@ -668,7 +712,7 @@
                 </div>
             </div>
 
-            <!-- 7. ТЕХНОЛОГИИ И МУЗА 2.0 (восстановлен) -->
+            <!-- 7. ТЕХНОЛОГИИ И МУЗА 2.0 -->
             <div class="project-card" id="tech-link">
                 <h3>🔹 Технологии и Муза 2.0</h3>
                 <p>Продвинутый уровень работы со звуком, нейроинтерфейсами и творческим программированием. Для тех, кто хочет соединить музыку, технологии и глубокую рефлексию.</p>
@@ -712,6 +756,50 @@
                 <a href="https://band.link/tyomniye_zvyzdy" class="music-button" target="_blank">Слушать →</a>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- НОВЫЙ РАЗДЕЛ: АЛЬФА-МУЗЫКА -->
+<section id="alpha-music" class="gallery-section" style="background-color: #ffffff;">
+    <div class="container">
+        <h2>🎧 Альфа-музыка — Глубокая нейро-энтрейнерная стимуляция</h2>
+        <p style="margin-bottom: 30px; color: #5e5e5a; max-width: 800px;">Специальные аудиотреки для синхронизации с альфа-ритмом мозга. Помогают быстро войти в состояние глубокого расслабления, повысить креативность и восстановить нервную систему. Рекомендуется слушать в наушниках с закрытыми глазами.</p>
+        <div class="alpha-grid">
+            <div class="alpha-card">
+                <div class="alpha-badge">🧠 Альфа-поток</div>
+                <h3>Альфа-поток 1</h3>
+                <p>Вхождение в альфа-состояние · 30 мин</p>
+                <audio class="alpha-audio" controls preload="metadata">
+                    <source src="Альфа-поток 1.mp3" type="audio/mpeg">
+                    Ваш браузер не поддерживает аудио.
+                </audio>
+            </div>
+            <div class="alpha-card">
+                <div class="alpha-badge">🎵 Альфа-поток</div>
+                <h3>Альфа поток 2</h3>
+                <p>Углубление · 25 мин</p>
+                <audio class="alpha-audio" controls preload="metadata">
+                    <source src="Альфа поток 2.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="alpha-card">
+                <div class="alpha-badge">🌊 Альфа-поток</div>
+                <h3>Альфа поток 3</h3>
+                <p>Восстановление · 28 мин</p>
+                <audio class="alpha-audio" controls preload="metadata">
+                    <source src="Альфа поток 3.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="alpha-card">
+                <div class="alpha-badge">✨ Альфа-поток</div>
+                <h3>Альфа поток 4</h3>
+                <p>Интеграция · 32 мин</p>
+                <audio class="alpha-audio" controls preload="metadata">
+                    <source src="Альфа поток 4.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+        <p style="margin-top: 30px; text-align: center; font-size: 0.85rem; color: #7f7f7a;">🎧 Для лучшего эффекта используйте качественные наушники и слушайте в спокойной обстановке. Не управляйте транспортными средствами во время прослушивания.</p>
     </div>
 </section>
 

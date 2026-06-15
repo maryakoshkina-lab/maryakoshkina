@@ -512,7 +512,7 @@
         <h2>О себе</h2>
         <p><strong>Реставратор душ и звуков</strong></p>
         <p>По первому образованию и опыту я реставратор, инженер, руководитель стройки. Я возвращала к жизни старые вещи и знаю: у каждой трещины есть история, а у каждой постройки — душа.</p>
-        <p>Шесть лет назад я начала главную стройку — самой себя, и моим инструментом стала музыка.</p>
+        <p>Десять лет назад я начала главную стройку — самой себя, и моим инструментом стала музыка.</p>
         <p>Я ушла с головой в звук и обнаружила внутри целый оркестр. Теперь я пишу стихи, смыслы, мелодии, делаю аранжировки, записываю голос, снимаю видео — и перестала бояться быть слышимой.</p>
         
         <!-- Скрытая часть (появляется по кнопке) -->
@@ -842,22 +842,16 @@
 </section>
 
 <script>
-    // Загрузка реальных фотографий Мари из папки foto_mari (6 штук)
+    // Загрузка фотографий Мари из папки foto_mari (переименованные файлы mari1.jpg ... mari6.jpg)
     (function() {
-        const photoCount = 6;
-        const photoNames = [];
-        for (let i = 1; i <= photoCount; i++) {
-            photoNames.push(`фото_mari (${i}).jpg`);
-        }
-        
+        const photoNames = ['mari1.jpg', 'mari2.jpg', 'mari3.jpg', 'mari4.jpg', 'mari5.jpg', 'mari6.jpg'];
         const galleryContainer = document.getElementById('photoGalleryGrid');
         if (!galleryContainer) return;
-        
         galleryContainer.innerHTML = '';
         photoNames.forEach(photo => {
             const item = document.createElement('div');
             item.className = 'gallery-item';
-            // Убираем подпись: оставляем только картинку, без caption
+            // Убираем подпись: только картинка
             item.innerHTML = `<img src="foto_mari/${photo}" alt="Фото Мари" loading="lazy">`;
             item.querySelector('img').addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -892,7 +886,7 @@
         <h2>АниМаря</h2>
         <p style="text-align: center; margin-bottom: 40px; color: #5e5e5a;">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
         
-        <!-- ВСЕ 8 ВИДЕОКЛИПОВ (путь исправлен: videos/) -->
+        <!-- ВСЕ 8 ВИДЕОКЛИПОВ (путь videos/) -->
         <div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 60px;">
             <div class="project-card" style="text-align: center;">
                 <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">

@@ -841,6 +841,39 @@
     </div>
 </section>
 
+<script>
+    // Загрузка реальных фотографий Мари из папки foto_mari (6 штук)
+    (function() {
+        const photoCount = 6;
+        const photoNames = [];
+        for (let i = 1; i <= photoCount; i++) {
+            photoNames.push(`фото_mari (${i}).jpg`);
+        }
+        
+        const galleryContainer = document.getElementById('photoGalleryGrid');
+        if (!galleryContainer) return;
+        
+        galleryContainer.innerHTML = '';
+        photoNames.forEach(photo => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            // Убираем подпись: оставляем только картинку, без caption
+            item.innerHTML = `<img src="foto_mari/${photo}" alt="Фото Мари" loading="lazy">`;
+            item.querySelector('img').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImg');
+                if (modal && modalImg) {
+                    modal.style.display = 'flex';
+                    modalImg.src = `foto_mari/${photo}`;
+                    modalImg.alt = 'Фото Мари';
+                }
+            });
+            galleryContainer.appendChild(item);
+        });
+    })();
+</script>
+
 <!-- Музыковеденье -->
 <section id="musicology" class="hero" style="padding: 60px 0; background-color: #faf8f3;">
     <div class="container">
@@ -857,15 +890,112 @@
 <section id="animarya" class="gallery-section" style="background-color: #fff; padding: 60px 0;">
     <div class="container">
         <h2>АниМаря</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Анимационные работы, визуальные этюды и арты.</p>
-        <div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
-            <div class="project-card" style="text-align: center;"><video controls width="100%" style="border-radius: 16px;"><source src="clip1.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 1</p><a href="#" class="music-button">Смотреть →</a></div>
-            <div class="project-card" style="text-align: center;"><video controls width="100%" style="border-radius: 16px;"><source src="clip2.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 2</p><a href="#" class="music-button">Смотреть →</a></div>
-            <div class="project-card" style="text-align: center;"><video controls width="100%" style="border-radius: 16px;"><source src="clip3.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 3</p><a href="#" class="music-button">Смотреть →</a></div>
+        <p style="text-align: center; margin-bottom: 40px; color: #5e5e5a;">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
+        
+        <!-- ВСЕ 8 ВИДЕОКЛИПОВ (путь исправлен: videos/) -->
+        <div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 60px;">
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip1.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 1</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip2.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 2</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip3.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 3</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip4.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 4</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip5.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 5</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip6.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 6</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip7.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 7</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
+            <div class="project-card" style="text-align: center;">
+                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                    <source src="videos/clip8.mp4" type="video/mp4">
+                </video>
+                <h3>АниМаря</h3>
+                <p>Клип 8</p>
+                <a href="#" class="music-button">Смотреть →</a>
+            </div>
         </div>
-        <p style="text-align: center; margin-top: 40px;">Больше анимаций в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank">ВКонтакте</a>.</p>
+
+        <!-- ГАЛЕРЕЯ ФОТОГРАФИЙ АНИМАРИ (35 фото на латинице) -->
+        <h3 style="font-size: 1.8rem; margin: 40px 0 20px 0; border-left: 4px solid #b8a07c; padding-left: 20px;">✨ АниМаря Фото</h3>
+        <p style="margin-bottom: 30px; text-align: center; color: #5e5e5a;">Первые фото АниМари для сниппетов. Нажмите на любое фото, чтобы увеличить.</p>
+        <div class="gallery-grid" id="animaryaGalleryGrid"></div>
+        
+        <p style="text-align: center; margin-top: 40px;">Больше анимаций и фото в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank">ВКонтакте</a> и Telegram.</p>
     </div>
 </section>
+
+<script>
+    // Генерация галереи АниМаря (35 фото, только латиница)
+    (function() {
+        const photoNamesLat = Array.from({length: 35}, (_, i) => `foto${i+1}.jpg`);
+        const allPhotos = photoNamesLat;
+        const galleryContainer = document.getElementById('animaryaGalleryGrid');
+        if (!galleryContainer) return;
+        galleryContainer.innerHTML = '';
+        allPhotos.forEach(photo => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            const imgSrc = `animarya_images/${photo}`;
+            item.innerHTML = `<img src="${imgSrc}" alt="${photo}" loading="lazy" style="height: 260px; object-fit: cover;"><div class="caption"><strong>${photo.replace('.jpg', '')}</strong><span>АниМаря</span></div>`;
+            item.querySelector('img').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImg');
+                if (modal && modalImg) {
+                    modal.style.display = 'flex';
+                    modalImg.src = imgSrc;
+                    modalImg.alt = photo;
+                }
+            });
+            galleryContainer.appendChild(item);
+        });
+    })();
+</script>
 </main>
 
 <footer id="contact">
@@ -893,31 +1023,7 @@
 </div>
 
 <script>
-    const photoArtworks = [
-        { src: "https://picsum.photos/id/102/600/800", title: "Утренний сад", desc: "холст, масло, 80x100 см" },
-        { src: "https://picsum.photos/id/104/600/800", title: "Тишина в городе", desc: "акрил, холст, 90x70 см" },
-        { src: "https://picsum.photos/id/106/600/800", title: "Отражение", desc: "смешанная техника" },
-        { src: "https://picsum.photos/id/20/600/800", title: "Весеннее настроение", desc: "пастель" },
-        { src: "https://picsum.photos/id/30/600/800", title: "Ночной диалог", desc: "холст, масло" },
-        { src: "https://picsum.photos/id/42/600/800", title: "Поток сознания", desc: "графика" }
-    ];
-    function buildPhotoGallery() {
-        const grid = document.getElementById('photoGalleryGrid');
-        if(!grid) return;
-        grid.innerHTML = '';
-        photoArtworks.forEach(art => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.innerHTML = `<img src="${art.src}" alt="${art.title}"><div class="caption"><strong>${art.title}</strong><span>${art.desc}</span></div>`;
-            item.querySelector('img').addEventListener('click', () => {
-                const modal = document.getElementById('imageModal');
-                const modalImg = document.getElementById('modalImg');
-                modal.style.display = 'flex';
-                modalImg.src = art.src;
-            });
-            grid.appendChild(item);
-        });
-    }
+    // Общие скрипты (модальное окно, навигация, кнопки проектов, выпадающее меню, цитата)
     const modal = document.getElementById('imageModal');
     const closeModal = document.querySelector('.close-modal');
     closeModal?.addEventListener('click', () => modal.style.display = 'none');
@@ -963,7 +1069,6 @@
             daily.innerText = quotes[day % quotes.length];
         }
     })();
-    buildPhotoGallery();
 </script>
 </body>
 </html>

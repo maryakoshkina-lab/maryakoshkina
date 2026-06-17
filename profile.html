@@ -107,6 +107,49 @@
         }
         .logout-btn:hover { background: #9a8262; }
 
+        /* Блок бесплатного урока */
+        .free-lesson-block {
+            background: linear-gradient(135deg, #f8f4f0, #f0ece4);
+            border-radius: 24px;
+            padding: 24px 30px;
+            margin: 20px 0 30px;
+            border: 2px solid #b8a07c;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .free-lesson-block .text {
+            flex: 1;
+            min-width: 200px;
+        }
+        .free-lesson-block .text h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #2c2c28;
+        }
+        .free-lesson-block .text p {
+            color: #5e5e5a;
+            margin: 0;
+        }
+        .free-lesson-block .btn {
+            background: #9e5d4c;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 16px rgba(158,93,76,0.3);
+            white-space: nowrap;
+        }
+        .free-lesson-block .btn:hover {
+            background: #7d4739;
+            transform: scale(1.02);
+        }
+
         .program-block {
             background: #fff;
             border-radius: 24px;
@@ -153,6 +196,14 @@
             text-decoration: line-through;
             color: #888;
         }
+        .lesson-item .lesson-link {
+            color: #9e5d4c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .lesson-item .lesson-link:hover {
+            text-decoration: underline;
+        }
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -195,6 +246,8 @@
         }
         @media (max-width: 600px) {
             .program-block h2 { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .free-lesson-block { flex-direction: column; text-align: center; }
+            .free-lesson-block .btn { white-space: normal; }
         }
     </style>
 </head>
@@ -206,6 +259,7 @@
         <nav>
             <a href="index.html">Главная</a>
             <a href="profile.html">Личный кабинет</a>
+            <a href="fat-burning-lesson.html">📖 Бесплатный урок</a>
         </nav>
     </div>
 </header>
@@ -235,6 +289,15 @@
                     <button class="logout-btn" id="logoutBtn">Выйти</button>
                 </div>
 
+                <!-- БЕСПЛАТНЫЙ УРОК (блок) -->
+                <div class="free-lesson-block">
+                    <div class="text">
+                        <h2>🔥 Бесплатный урок по жиросжиганию</h2>
+                        <p>Нейробиология, дыхание, холод и древняя мудрость – всё в одном уроке. Читайте прямо сейчас!</p>
+                    </div>
+                    <a href="fat-burning-lesson.html" class="btn">Читать урок →</a>
+                </div>
+
                 <!-- Общая статистика -->
                 <div class="stats" id="statsContainer">
                     <div class="stats-item">Всего уроков: <strong id="totalLessons">0</strong></div>
@@ -259,6 +322,12 @@
 <script>
     // ======= ДАННЫЕ ПРОГРАММ =======
     const programsData = [
+        // БЕСПЛАТНЫЙ УРОК – добавлен в начало списка
+        {
+            id: 'free_lesson',
+            name: '🔥 Бесплатный урок по жиросжиганию',
+            lessons: ['Нейробиология жиросжигания (холод, дыхание, разум и древняя мудрость)']
+        },
         {
             id: 'lab',
             name: '🔹 Лаборатория внутренних опор',
@@ -355,7 +424,6 @@
             const lessons = prog.lessons;
             const progProgress = progress[progId] || {};
 
-            // Считаем сколько уроков в этой программе уже отмечено
             let progCompleted = 0;
             lessons.forEach((lesson, index) => {
                 if (progProgress[index]) progCompleted++;
@@ -364,7 +432,6 @@
             totalLessons += progTotal;
             completedLessons += progCompleted;
 
-            // Блок программы
             const block = document.createElement('div');
             block.className = 'program-block';
 
@@ -372,7 +439,6 @@
             header.innerHTML = `${prog.name} <span>${progCompleted}/${progTotal}</span>`;
             block.appendChild(header);
 
-            // Прогресс-бар
             const bar = document.createElement('div');
             bar.className = 'progress-bar';
             const fill = document.createElement('div');
@@ -382,7 +448,6 @@
             bar.appendChild(fill);
             block.appendChild(bar);
 
-            // Список уроков
             lessons.forEach((lesson, index) => {
                 const item = document.createElement('div');
                 item.className = 'lesson-item';
@@ -394,18 +459,27 @@
                 checkbox.type = 'checkbox';
                 checkbox.checked = !!progProgress[index];
                 checkbox.addEventListener('change', function() {
-                    // Обновляем прогресс
                     const newProgress = loadProgress(username);
                     if (!newProgress[progId]) newProgress[progId] = {};
                     newProgress[progId][index] = this.checked;
                     saveProgress(username, newProgress);
-                    // Перерисовываем всё
                     renderPrograms(username, loadProgress(username));
                     updateStats(username);
                 });
 
                 const label = document.createElement('label');
-                label.textContent = lesson;
+                // Если это бесплатный урок, добавляем ссылку
+                if (progId === 'free_lesson') {
+                    // Делаем название кликабельным
+                    const link = document.createElement('a');
+                    link.href = 'fat-burning-lesson.html';
+                    link.target = '_blank';
+                    link.textContent = lesson;
+                    link.className = 'lesson-link';
+                    label.appendChild(link);
+                } else {
+                    label.textContent = lesson;
+                }
 
                 item.appendChild(checkbox);
                 item.appendChild(label);
@@ -415,7 +489,6 @@
             container.appendChild(block);
         });
 
-        // Обновляем статистику в шапке
         document.getElementById('totalLessons').textContent = totalLessons;
         document.getElementById('completedLessons').textContent = completedLessons;
         const overallPercent = totalLessons === 0 ? 0 : Math.round((completedLessons / totalLessons) * 100);
@@ -424,8 +497,6 @@
 
     function updateStats(username) {
         const progress = loadProgress(username);
-        // Пересчёт делается внутри renderPrograms, но мы можем обновить только статистику без перерисовки всех программ? 
-        // Проще перерисовать всё, но можно и оптимизировать. Так как у нас небольшие данные, перерисуем всё.
         renderPrograms(username, progress);
     }
 
@@ -451,7 +522,6 @@
         document.getElementById('cabinet').style.display = 'none';
         document.getElementById('loginArea').style.display = 'block';
         document.getElementById('usernameInput').value = '';
-        // Очищаем контейнер
         document.getElementById('programsContainer').innerHTML = '';
         document.getElementById('totalLessons').textContent = '0';
         document.getElementById('completedLessons').textContent = '0';
@@ -464,10 +534,8 @@
         const usernameInput = document.getElementById('usernameInput');
         const logoutBtn = document.getElementById('logoutBtn');
 
-        // Проверяем, есть ли сохранённое имя
         const savedUser = localStorage.getItem('last_user');
         if (savedUser) {
-            // Автоматически входим
             login(savedUser);
         } else {
             document.getElementById('loginArea').style.display = 'block';
@@ -484,7 +552,6 @@
             }
         });
 
-        // Вход по Enter
         usernameInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 loginBtn.click();

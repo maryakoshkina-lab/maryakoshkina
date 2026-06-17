@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос для ретрита — Маря Кошкина</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #fefef7;
+            color: #1f1e1e;
+            line-height: 1.8;
+            padding: 20px 0 60px;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            background: #fff;
+            padding: 16px 0;
+            border-bottom: 1px solid #e6e6e0;
+            margin-bottom: 30px;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1f1e1e;
+            text-decoration: none;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #4a4a46;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            background: rgba(184,160,124,0.08);
+            transition: 0.3s;
+        }
+        .nav a:hover { background: #b8a07c; color: #fff; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            border-left: 4px solid #b8a07c;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #5e5e5a;
+            margin-bottom: 30px;
+            padding-left: 24px;
+        }
+
+        .question-block {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            border: 1px solid #f0ece4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .question-block h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 14px;
+            color: #2c2c28;
+        }
+        .question-block label {
+            display: block;
+            padding: 8px 0 8px 32px;
+            cursor: pointer;
+            position: relative;
+            font-size: 1rem;
+        }
+        .question-block input[type="radio"] {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #b8a07c;
+        }
+
+        .btn-submit {
+            background: #9e5d4c;
+            color: #fff;
+            border: none;
+            padding: 16px 50px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(158,93,76,0.3);
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-submit:hover {
+            background: #7d4739;
+            transform: scale(1.02);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .form-footer p {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        footer {
+            background: #f5f3ed;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #e2dfd7;
+            font-size: 0.9rem;
+            color: #5e5e5a;
+            margin-top: 40px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .question-block { padding: 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo"><a href="index.html">✨ Маря Кошкина</a></div>
+        <div class="nav">
+            <a href="index.html">Главная</a>
+            <a href="index.html#paid">Программы</a>
+            <a href="profile.html">Личный кабинет</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <h1>🌿 Ретриты — опрос</h1>
+        <p class="subtitle">Ответьте на несколько вопросов, чтобы мы подобрали для вас идеальный формат выезда</p>
+
+        <form id="retreatForm" method="GET" action="mailto:marya777koshkina@yandex.ru" enctype="text/plain">
+            <!-- Вопрос 1 -->
+            <div class="question-block">
+                <h3>1. Что для вас сейчас наиболее актуально?</h3>
+                <label><input type="radio" name="q1" value="Восстановление энергии и борьба с выгоранием" required> Восстановление энергии и борьба с выгоранием.</label>
+                <label><input type="radio" name="q1" value="Поиск новых идей и творческого вдохновения"> Поиск новых идей и творческого вдохновения.</label>
+                <label><input type="radio" name="q1" value="Переосмысление целей и поиск внутренней опоры"> Переосмысление целей и поиск внутренней опоры.</label>
+                <label><input type="radio" name="q1" value="Желание вырваться из рутины и сменить обстановку"> Желание вырваться из рутины и сменить обстановку.</label>
+            </div>
+
+            <!-- Вопрос 2 -->
+            <div class="question-block">
+                <h3>2. Какие форматы трансформационных выездов вам ближе?</h3>
+                <label><input type="radio" name="q2" value="Женские «Шабаши» для глубокой работы с собой" required> Женские «Шабаши» для глубокой работы с собой.</label>
+                <label><input type="radio" name="q2" value="Бизнес-тимбилдинг для сплочения команды и генерации идей"> Бизнес-тимбилдинг для сплочения команды и генерации идей.</label>
+                <label><input type="radio" name="q2" value="Смешанные выезды (миксовые группы)"> Смешанные выезды (миксовые группы).</label>
+                <label><input type="radio" name="q2" value="Индивидуальные ретриты «под ключ»"> Индивидуальные ретриты «под ключ».</label>
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="btn-submit">📩 Отправить запрос</button>
+                <p>Вы будете перенаправлены в почту для отправки</p>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Маря Кошкина — Все права защищены</p>
+        <p><a href="index.html" style="color:#9e5d4c;">Вернуться на главную</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос для консьержа — Маря Кошкина</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #fefef7;
+            color: #1f1e1e;
+            line-height: 1.8;
+            padding: 20px 0 60px;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            background: #fff;
+            padding: 16px 0;
+            border-bottom: 1px solid #e6e6e0;
+            margin-bottom: 30px;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1f1e1e;
+            text-decoration: none;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #4a4a46;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            background: rgba(184,160,124,0.08);
+            transition: 0.3s;
+        }
+        .nav a:hover { background: #b8a07c; color: #fff; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            border-left: 4px solid #b8a07c;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #5e5e5a;
+            margin-bottom: 30px;
+            padding-left: 24px;
+        }
+
+        .question-block {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            border: 1px solid #f0ece4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .question-block h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 14px;
+            color: #2c2c28;
+        }
+        .question-block label {
+            display: block;
+            padding: 8px 0 8px 32px;
+            cursor: pointer;
+            position: relative;
+            font-size: 1rem;
+        }
+        .question-block input[type="radio"] {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #b8a07c;
+        }
+
+        .btn-submit {
+            background: #9e5d4c;
+            color: #fff;
+            border: none;
+            padding: 16px 50px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(158,93,76,0.3);
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-submit:hover {
+            background: #7d4739;
+            transform: scale(1.02);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .form-footer p {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        footer {
+            background: #f5f3ed;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #e2dfd7;
+            font-size: 0.9rem;
+            color: #5e5e5a;
+            margin-top: 40px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .question-block { padding: 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo"><a href="index.html">✨ Маря Кошкина</a></div>
+        <div class="nav">
+            <a href="index.html">Главная</a>
+            <a href="index.html#paid">Программы</a>
+            <a href="profile.html">Личный кабинет</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <h1>💼 Консьерж для ТОПов — опрос</h1>
+        <p class="subtitle">Ответьте на несколько вопросов, чтобы мы подобрали для вас идеальный формат сотрудничества</p>
+
+        <form id="conciergeForm" method="GET" action="mailto:marya777koshkina@yandex.ru" enctype="text/plain">
+            <!-- Вопрос 3 -->
+            <div class="question-block">
+                <h3>3. Какая бизнес-задача стоит перед вами острее всего?</h3>
+                <label><input type="radio" name="q3" value="Масштабирование бизнеса и выход на новый уровень дохода" required> Масштабирование бизнеса и выход на новый уровень дохода.</label>
+                <label><input type="radio" name="q3" value="Построение личного бренда и узнаваемости"> Построение личного бренда и узнаваемости.</label>
+                <label><input type="radio" name="q3" value="Адаптация компании к новым условиям (AI, цифровизация)"> Адаптация компании к новым условиям (AI, цифровизация).</label>
+                <label><input type="radio" name="q3" value="Поиск стратегических партнеров и новых каналов роста"> Поиск стратегических партнеров и новых каналов роста.</label>
+            </div>
+
+            <!-- Вопрос 4 -->
+            <div class="question-block">
+                <h3>4. В чем вы видите главную ценность для себя в услуге «личный советник»?</h3>
+                <label><input type="radio" name="q4" value="В регулярной стратегической сессии для расчистки «завалов» в голове и бизнесе" required> В регулярной стратегической сессии для расчистки «завалов» в голове и бизнесе.</label>
+                <label><input type="radio" name="q4" value="В быстром и эффективном решении нестандартных задач"> В быстром и эффективном решении нестандартных задач.</label>
+                <label><input type="radio" name="q4" value="В возможности снять тревогу и обрести устойчивость в принятии решений"> В возможности снять тревогу и обрести устойчивость в принятии решений.</label>
+                <label><input type="radio" name="q4" value="В доступе к экспертному мнению и свежему взгляду со стороны"> В доступе к экспертному мнению и свежему взгляду со стороны.</label>
+            </div>
+
+            <!-- Вопрос 5 -->
+            <div class="question-block">
+                <h3>5. Какая сфера поддержки для вас наиболее критична?</h3>
+                <label><input type="radio" name="q5" value="Ментальное здоровье и психологическая устойчивость" required> Ментальное здоровье и психологическая устойчивость.</label>
+                <label><input type="radio" name="q5" value="Стратегическое планирование и постановка целей"> Стратегическое планирование и постановка целей.</label>
+                <label><input type="radio" name="q5" value="Работа с командой и корпоративная культура"> Работа с командой и корпоративная культура.</label>
+                <label><input type="radio" name="q5" value="Креативные задачи и поиск вдохновения для бизнеса"> Креативные задачи и поиск вдохновения для бизнеса.</label>
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="btn-submit">📩 Отправить запрос</button>
+                <p>Вы будете перенаправлены в почту для отправки</p>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Маря Кошкина — Все права защищены</p>
+        <p><a href="index.html" style="color:#9e5d4c;">Вернуться на главную</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

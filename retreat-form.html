@@ -171,12 +171,20 @@
         <h1>🌿 Ретриты — опрос</h1>
         <p class="subtitle">Ответьте на несколько вопросов, чтобы мы подобрали для вас идеальный формат выезда</p>
 
-        <form id="retreatForm" method="GET" action="mailto:marya777koshkina@yandex.ru" enctype="text/plain">
+        <!-- НОВАЯ ФОРМА через FormSubmit -->
+        <form action="https://formsubmit.co/marya777koshkina@yandex.ru" method="POST">
+            <!-- Защита от спама -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Тема письма -->
+            <input type="hidden" name="_subject" value="Новый запрос на ретрит">
+            <!-- Страница после отправки -->
+            <input type="hidden" name="_next" value="https://maryakoshkina-lab.github.io/maryakoshkina/thanks.html">
+
             <!-- Контактные данные -->
             <div class="question-block">
                 <h3>Ваши контактные данные</h3>
-                <label>Ваше имя<br><input type="text" name="name" placeholder="Имя" required></label>
-                <label>Ваш email или телефон<br><input type="text" name="contact" placeholder="Email или телефон" required></label>
+                <label>Ваше имя<br><input type="text" name="Имя" placeholder="Имя" required></label>
+                <label>Ваш email или телефон<br><input type="text" name="Контакт" placeholder="Email или телефон" required></label>
             </div>
 
             <!-- Вопрос 1 -->
@@ -200,12 +208,12 @@
             <!-- Дополнительное сообщение -->
             <div class="question-block">
                 <h3>Дополнительные пожелания (необязательно)</h3>
-                <textarea name="message" placeholder="Напишите, что ещё важно для вас..."></textarea>
+                <textarea name="Сообщение" placeholder="Напишите, что ещё важно для вас..."></textarea>
             </div>
 
             <div class="form-footer">
                 <button type="submit" class="btn-submit">📩 Отправить запрос</button>
-                <p>Вы будете перенаправлены в почту для отправки</p>
+                <p>Мы свяжемся с вами в ближайшее время</p>
             </div>
         </form>
     </div>

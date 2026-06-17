@@ -87,6 +87,27 @@
             height: 18px;
             accent-color: #b8a07c;
         }
+        .question-block input[type="text"],
+        .question-block input[type="email"],
+        .question-block textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+            font-size: 1rem;
+            margin-top: 6px;
+            outline: none;
+            font-family: inherit;
+        }
+        .question-block textarea {
+            border-radius: 16px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        .question-block input:focus,
+        .question-block textarea:focus {
+            border-color: #b8a07c;
+        }
 
         .btn-submit {
             background: #9e5d4c;
@@ -151,6 +172,13 @@
         <p class="subtitle">Ответьте на несколько вопросов, чтобы мы подобрали для вас идеальный формат выезда</p>
 
         <form id="retreatForm" method="GET" action="mailto:marya777koshkina@yandex.ru" enctype="text/plain">
+            <!-- Контактные данные -->
+            <div class="question-block">
+                <h3>Ваши контактные данные</h3>
+                <label>Ваше имя<br><input type="text" name="name" placeholder="Имя" required></label>
+                <label>Ваш email или телефон<br><input type="text" name="contact" placeholder="Email или телефон" required></label>
+            </div>
+
             <!-- Вопрос 1 -->
             <div class="question-block">
                 <h3>1. Что для вас сейчас наиболее актуально?</h3>
@@ -167,6 +195,12 @@
                 <label><input type="radio" name="q2" value="Бизнес-тимбилдинг для сплочения команды и генерации идей"> Бизнес-тимбилдинг для сплочения команды и генерации идей.</label>
                 <label><input type="radio" name="q2" value="Смешанные выезды (миксовые группы)"> Смешанные выезды (миксовые группы).</label>
                 <label><input type="radio" name="q2" value="Индивидуальные ретриты «под ключ»"> Индивидуальные ретриты «под ключ».</label>
+            </div>
+
+            <!-- Дополнительное сообщение -->
+            <div class="question-block">
+                <h3>Дополнительные пожелания (необязательно)</h3>
+                <textarea name="message" placeholder="Напишите, что ещё важно для вас..."></textarea>
             </div>
 
             <div class="form-footer">

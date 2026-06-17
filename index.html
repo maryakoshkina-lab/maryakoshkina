@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Маря Кошкина — Музыкант, Аранжировщик, Персональный нейро-коуч</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ======= ОБЩИЕ СТИЛИ ======= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
             background-color: #fefef7;
@@ -17,139 +14,314 @@
             line-height: 1.5;
             scroll-behavior: smooth;
         }
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* ======= ХЕДЕР И МЕНЮ ======= */
         header {
-            padding: 32px 0 16px;
+            padding: 16px 0;
             border-bottom: 1px solid #e6e6e0;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .header-inner {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 16px;
         }
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 500;
-        }
-        .logo p {
-            font-size: 0.9rem;
-            color: #5e5e5a;
-            margin-top: 4px;
-        }
-        nav {
+        .logo h1 { font-size: 1.6rem; font-weight: 500; }
+        .logo p { font-size: 0.8rem; color: #5e5e5a; }
+
+        /* Обычное меню */
+        .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 12px;
+            align-items: center;
             flex-wrap: wrap;
         }
-        nav a {
+        .nav-links a {
             text-decoration: none;
             color: #4a4a46;
-            font-size: 1rem;
-            padding: 8px 18px;
-            border-radius: 40px;
-            background-color: rgba(184, 160, 124, 0.08);
-            transition: all 0.3s ease;
-        }
-        nav a:hover {
-            background-color: #b8a07c;
-            color: white;
-            transform: translateY(-2px);
-        }
-        .hero {
-            padding: 80px 0 48px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-            font-weight: 450;
-        }
-        .hero p {
             font-size: 0.9rem;
-            max-width: 600px;
-            margin: 0 auto 12px auto;
+            padding: 6px 14px;
+            border-radius: 40px;
+            background: rgba(184,160,124,0.08);
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: #b8a07c;
+            color: #fff;
+        }
+        .nav-links .dropdown { position: relative; display: inline-block; }
+        .nav-links .dropbtn { cursor: pointer; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #fff;
+            min-width: 220px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            padding: 8px 0;
+            z-index: 200;
+            top: 40px;
+            left: 0;
+            border: 1px solid #f0ece4;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 8px 20px;
             color: #4a4a46;
+            background: transparent;
+            border-radius: 0;
         }
-        .gallery-section {
-            padding: 40px 0 80px;
+        .dropdown-content a:hover { background: #faf8f3; color: #b8a07c; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Бургер-кнопка (скрыта на десктопе) */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px;
         }
+        .burger span {
+            width: 28px;
+            height: 3px;
+            background: #4a4a46;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger.active span:nth-child(2) { opacity: 0; }
+        .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Адаптив для мобильных */
+        @media (max-width: 768px) {
+            .burger { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #fff;
+                padding: 16px 0;
+                border-top: 1px solid #e6e6e0;
+                margin-top: 12px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; text-align: center; }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding-left: 20px;
+            }
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.open .dropdown-content { display: block; }
+        }
+
+        /* ======= ОСТАЛЬНЫЕ СТИЛИ (сохранены) ======= */
+        .hero { padding: 60px 0 40px; text-align: center; }
+        .hero h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: 16px; }
+        .hero p { max-width: 700px; margin: 0 auto 12px; color: #4a4a46; }
+        .gallery-section { padding: 40px 0 80px; }
         .gallery-section h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            border-left: 4px solid #b8a07c;
-            padding-left: 20px;
+            font-size: 2rem; margin-bottom: 40px;
+            border-left: 4px solid #b8a07c; padding-left: 20px;
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 28px;
         }
         .gallery-item {
-            overflow: hidden;
-            cursor: pointer;
-            background: #fff;
-            border-radius: 16px;
+            overflow: hidden; cursor: pointer;
+            background: #fff; border-radius: 16px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
             transition: transform 0.25s;
         }
-        .gallery-item:hover {
-            transform: translateY(-6px);
-        }
+        .gallery-item:hover { transform: translateY(-6px); }
         .gallery-item img {
-            width: 100%;
-            height: 340px;
-            object-fit: cover;
+            width: 100%; height: 260px; object-fit: cover;
             display: block;
         }
-        .caption {
-            padding: 16px;
-            text-align: center;
-            border-top: 1px solid #f0f0ea;
-        }
-        .caption strong {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
+        .caption { padding: 16px; text-align: center; border-top: 1px solid #f0f0ea; }
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.92);
-            align-items: center;
-            justify-content: center;
+            display: none; position: fixed; z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92);
+            align-items: center; justify-content: center;
             cursor: pointer;
         }
-        .modal-content {
-            max-width: 90vw;
-            max-height: 85vh;
-            border-radius: 12px;
-        }
+        .modal-content { max-width: 90vw; max-height: 85vh; border-radius: 12px; }
         .close-modal {
-            position: absolute;
-            top: 28px;
-            right: 42px;
-            color: #fff;
-            font-size: 48px;
+            position: absolute; top: 28px; right: 42px;
+            color: #fff; font-size: 48px; cursor: pointer;
+        }
+        .close-modal:hover { color: #b8a07c; }
+        .music-grid { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+        .music-card {
+            display: flex; align-items: center; gap: 20px;
+            background: #fff; border-radius: 20px; padding: 16px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+        }
+        .music-cover { width: 60px; height: 60px; object-fit: cover; border-radius: 12px; }
+        .music-card h3 { font-size: 1.2rem; font-weight: 500; }
+        .music-button {
+            display: inline-block;
+            background: #b8a07c; color: #fff;
+            padding: 6px 18px; border-radius: 30px;
+            text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            transition: background 0.2s;
+            border: none; cursor: pointer;
+        }
+        .music-button:hover { background: #9a8262; }
+
+        .projects-offer { padding: 40px 0 60px; background: #fff; }
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .project-card {
+            background: #fff; border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            padding: 28px 24px;
+            border: 1px solid #f0ece4;
+            display: flex; flex-direction: column;
+            transition: transform 0.2s;
+        }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-card h3 { font-size: 1.4rem; margin-bottom: 16px; font-weight: 500; }
+        .project-card p { color: #5e5e5a; margin-bottom: 16px; flex-grow: 1; }
+        .project-button {
+            background: linear-gradient(135deg, #b8a07c, #9a8262);
+            color: #fff; border: none;
+            padding: 10px 24px; border-radius: 50px;
+            font-size: 0.95rem; font-weight: 500;
             cursor: pointer;
+            align-self: flex-start;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
-        .close-modal:hover {
-            color: #b8a07c;
+        .project-button:hover {
+            background: linear-gradient(135deg, #c9ad87, #b08f6e);
+            transform: scale(1.02);
         }
+        .btn-primary {
+            background: #9e5d4c;
+            box-shadow: 0 6px 20px rgba(158,93,76,0.3);
+        }
+        .btn-primary:hover { background: #7d4739; }
+
+        .program-details { display: none; margin-top: 20px; }
+        .program-details.show { display: block; }
+        .program-details details { margin: 8px 0; }
+        .program-details summary {
+            cursor: pointer; font-weight: 500;
+            background: rgba(184,160,124,0.08);
+            padding: 6px 12px; border-radius: 30px;
+            display: inline-block;
+        }
+        .program-details summary:hover { background: rgba(184,160,124,0.2); }
+
+        .alpha-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px; margin-top: 30px;
+        }
+        .alpha-card {
+            background: #fff; border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            padding: 20px; border: 1px solid #f0ece4;
+            text-align: center;
+        }
+        .alpha-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .alpha-card p { font-size: 0.85rem; color: #6a6a66; }
+        .alpha-audio { width: 100%; margin-top: 8px; border-radius: 40px; }
+        .alpha-badge {
+            background: #b8a07c20; color: #b8a07c;
+            font-size: 0.7rem; padding: 4px 12px;
+            border-radius: 30px; display: inline-block; margin-bottom: 12px;
+        }
+
+        /* Блок отзывов */
+        .testimonials {
+            background: #f8f4f0;
+            padding: 60px 0;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .testimonial-card {
+            background: #fff;
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #b8a07c;
+        }
+        .testimonial-card p { font-style: italic; color: #2c2c28; }
+        .testimonial-card .author {
+            margin-top: 16px;
+            font-weight: 600;
+            color: #9e5d4c;
+        }
+/* Плавное появление отзывов */
+#testimonialsContent {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out, margin 0.3s ease;
+    margin-top: 0;
+}
+#testimonialsContent.show {
+    max-height: 2500px; /* заведомо больше, чем высота контента */
+    opacity: 1;
+    margin-top: 20px;
+}
+/* Начальное скрытое состояние (используем класс hidden) */
+#testimonialsContent.hidden {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+}
+
+        /* Блок клиентов */
+        .clients {
+            background: #fff;
+            padding: 40px 0;
+            border-top: 1px solid #e6e6e0;
+            border-bottom: 1px solid #e6e6e0;
+        }
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .client-logos span {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #5e5e5a;
+            letter-spacing: 1px;
+        }
+
+        /* Футер */
         footer {
-            background-color: #f5f3ed;
+            background: #f5f3ed;
             padding: 48px 0 36px;
-            margin-top: 40px;
             border-top: 1px solid #e2dfd7;
         }
         .footer-content {
@@ -158,243 +330,63 @@
             flex-wrap: wrap;
             gap: 32px;
         }
-        .footer-info p {
-            margin: 8px 0;
-            font-size: 0.95rem;
-        }
+        .footer-info p { margin: 6px 0; font-size: 0.95rem; }
         .social-links a {
-            text-decoration: none;
-            color: #3a3a36;
+            text-decoration: none; color: #3a3a36;
             margin-right: 24px;
             border-bottom: 1px dotted #ccc;
         }
-        .social-links a:hover {
-            color: #b8a07c;
-            border-bottom-color: #b8a07c;
-        }
-        .music-grid {
+        .social-links a:hover { color: #b8a07c; border-bottom-color: #b8a07c; }
+
+        .newsletter-form {
             display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-top: 24px;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px;
         }
-        .music-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #fff;
-            border-radius: 20px;
-            padding: 16px 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        .newsletter-form input {
+            padding: 10px 16px;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            flex: 1 1 200px;
+            outline: none;
         }
-        .music-cover {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 12px;
+        .newsletter-form input:focus { border-color: #b8a07c; }
+        .newsletter-form button {
+            background: #b8a07c;
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        .music-card h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-        .music-button {
-            display: inline-block;
-            background-color: #b8a07c;
-            color: white;
-            padding: 6px 18px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-        .music-button:hover {
-            background-color: #9a8262;
-        }
+        .newsletter-form button:hover { background: #9a8262; }
+
         @media (max-width: 600px) {
             .music-card { flex-direction: column; text-align: center; }
             .music-cover { width: 100px; height: 100px; }
+            .header-inner { flex-wrap: wrap; }
         }
-        .program-details {
-            display: none;
-            margin-top: 20px;
-            background-color: #fff;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .program-details.show {
-            display: block;
-        }
-        .projects-offer {
-            padding: 40px 0 60px;
-            background-color: #fff;
-        }
-        .project-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .project-card {
-            background: #fff;
-            border-radius: 24px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-            padding: 28px 24px;
-            transition: transform 0.2s;
-            border: 1px solid #f0ece4;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-        .project-card p {
-            color: #5e5e5a;
-            margin-bottom: 24px;
-            flex-grow: 1;
-        }
-        .project-button {
-            background: linear-gradient(135deg, #b8a07c, #9a8262);
-            color: white;
-            border: none;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            cursor: pointer;
-            align-self: flex-start;
-            transition: all 0.3s;
-        }
-        .project-button:hover {
-            background: linear-gradient(135deg, #c9ad87, #b08f6e);
-            transform: scale(1.02);
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropbtn {
-            cursor: pointer;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 240px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-            border-radius: 20px;
-            padding: 12px 0;
-            z-index: 100;
-            top: 50px;
-            left: 0;
-            border: 1px solid #f0ece4;
-        }
-        .dropdown-content a {
-            color: #4a4a46;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
-            background: transparent;
-        }
-        .dropdown-content a:hover {
-            background-color: #faf8f3;
-            color: #b8a07c;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        @media (max-width: 768px) {
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                display: none;
-            }
-            .dropdown.open .dropdown-content { display: block; }
-        }
+
+        /* Стили для луны (сохранены) */
         .moon-sticky-container {
-            position: sticky;
-            top: 120px;
-            float: right;
-            width: 160px;
-            margin-right: 20px;
-            z-index: 10;
-            background: transparent;
-            pointer-events: none;
+            position: sticky; top: 120px; float: right;
+            width: 160px; margin-right: 20px; z-index: 10;
+            background: transparent; pointer-events: none;
         }
         @media (max-width: 768px) {
             .moon-sticky-container { float: right; width: 110px; margin: 0 0 15px 15px; top: auto; }
             .moon-sticky-container canvas { width: 80px; height: 80px; }
         }
-        .moon-sticky-container canvas {
-            pointer-events: auto;
-            cursor: pointer;
-        }
-        details {
-            margin-top: 12px;
-        }
-        details summary {
-            cursor: pointer;
-            font-weight: 500;
-            background: rgba(184,160,124,0.08);
-            padding: 6px 12px;
-            border-radius: 30px;
-            display: inline-block;
-        }
-        details summary:hover {
-            background: rgba(184,160,124,0.2);
-        }
-        .alpha-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .alpha-card {
-            background: #fff;
-            border-radius: 24px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-            padding: 20px;
-            border: 1px solid #f0ece4;
-            transition: transform 0.2s;
-            text-align: center;
-        }
-        .alpha-card:hover {
-            transform: translateY(-5px);
-        }
-        .alpha-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: #2c2c28;
-        }
-        .alpha-card p {
-            font-size: 0.85rem;
-            color: #6a6a66;
-            margin-bottom: 16px;
-        }
-        .alpha-audio {
-            width: 100%;
-            margin-top: 8px;
-            border-radius: 40px;
-        }
-        .alpha-badge {
-            background: #b8a07c20;
-            color: #b8a07c;
-            font-size: 0.7rem;
-            padding: 4px 12px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
+        .moon-sticky-container canvas { pointer-events: auto; cursor: pointer; }
     </style>
 </head>
 <body>
 
+<!-- ЛУНА (плавающий блок) -->
 <div class="moon-sticky-container">
     <div style="text-align: center;">
         <canvas id="realisticMoonCanvas" width="160" height="160"></canvas>
@@ -406,7 +398,766 @@
     </div>
 </div>
 
+<!-- ХЕДЕР -->
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>Маря Кошкина</h1>
+            <p>музыкант · артист · художник · поэт · реставратор · прораб · эклектическая нейро-ведьма</p>
+        </div>
+        <button class="burger" id="burgerBtn" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="#">Главная</a>
+            <a href="#musicology">Музыковеденье</a>
+            <a href="#photo">Фото</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Программы ▼</a>
+                <div class="dropdown-content">
+                    <a href="#lab-program-link">🔹 Лаборатория внутренних опор</a>
+                    <a href="#singing-program-link">🔸 Поющие круги рефлексии</a>
+                    <a href="#muza-program-link">🔸 Проект «Муза»</a>
+                    <a href="#neuro-program-link">🧠 Нейро-дыхательные практики</a>
+                    <a href="#neuro-aid-link">🧰 Нейро-аптечка</a>
+                    <a href="#neuro-games-link">🎮 Нейробиологические упражнения</a>
+                    <a href="#tech-link">🔹 Технологии и Муза 2.0</a>
+                </div>
+            </div>
+            <a href="#alpha-music">🎧 Альфа-музыка</a>
+            <a href="#animarya">АниМаря</a>
+            <a href="#paid">💎 Платные программы</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- РАЗДЕЛ "О СЕБЕ" -->
+    <section class="hero">
+        <div class="container">
+            <h2>О себе</h2>
+            <p><strong>Реставратор душ и звуков</strong></p>
+            <p>По первому образованию и опыту я реставратор, инженер, руководитель стройки. Я возвращала к жизни старые вещи и знаю: у каждой трещины есть история, а у каждой постройки — душа.</p>
+            <p>Десять лет назад я начала главную стройку — самой себя, и моим инструментом стала музыка.</p>
+            <p>Я ушла с головой в звук и обнаружила внутри целый оркестр. Теперь я пишу стихи, смыслы, мелодии, делаю аранжировки, записываю голос, снимаю видео — и перестала бояться быть слышимой.</p>
+            
+            <div id="aboutMore" style="display: none;">
+                <p>Я — мост между психологией и музыкой. Как реставратор, я знаю: из фрагментов рождается целое. Теперь я помогаю людям собирать себя — находить опоры, на которых можно устоять, и голос, которым можно петь свою жизнь свободно, осмысленно, с любовью.</p>
+                
+                <p><strong>Мои бесплатные проекты</strong> — это живые инструменты, которые я создала, пройдя этот путь сама:</p>
+                <ul style="list-style: none; padding: 0; margin: 10px 0;">
+                    <li>🔸 <strong>Лаборатория внутренних опор</strong> — строим ваш «внутренний дом» бережно, слой за слоем.</li>
+                    <li>🔸 <strong>Поющие круги рефлексии</strong> — песни как зеркало, в которое приятно смотреться и думать о добром.</li>
+                    <li>🔸 <strong>Муза</strong> — для тех, кто попал в творческий ступор.</li>
+                    <li>🔸 <strong>Нейро-дыхательные упражнения</strong> — дыхание на стыке нейронауки и музыки.</li>
+                    <li>🔸 <strong>Нейро-аптечка</strong> — быстрые практики для мозга, голоса и внутренней устойчивости.</li>
+                    <li>🔸 <strong>Нейробиологические упражнения</strong> — научные техники для тренировки мозга, слуха и голоса.</li>
+                </ul>
+                <p>Все эти практики — как жемчуг, который я собирала на своём пути и которым теперь делюсь с вами бесплатно.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e0d6cd;">
+
+                <p><strong>💎 А для тех, кто хочет пойти глубже, у меня есть платные программы:</strong></p>
+                <ul style="list-style: none; padding: 0; margin: 10px 0;">
+                    <li>🧠 <strong>Цифровой курс «Осознанный отказ»</strong> – 7‑дневная нейро‑практика для освобождения от алкогольной тяги без силы воли.</li>
+                    <li>🌿 <strong>Ретриты</strong> – выездные трансформации в Подмосковье и по РФ (женские «Шабаши», бизнес‑тимбилдинг, общие выезды).</li>
+                    <li>💼 <strong>Консьерж для ТОПов</strong> – годовой абонемент «личный советник» для владельцев бизнеса и топ‑менеджеров.</li>
+                </ul>
+                <p>Подробнее о каждой программе – в разделе <a href="#paid" style="color:#b8a07c; text-decoration: underline;">«Платные программы»</a>.</p>
+
+                <p>Я — <strong>Марианна Певроиюльская</strong>. Для тех, кто знает меня через музыку — <strong>Маря Кошкина</strong>.<br>
+                Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
+                
+                <!-- НОВАЯ КНОПКА В ТЕКСТЕ "О СЕБЕ" -->
+                <div style="margin-top: 24px;">
+                    <a href="#paid" class="project-button btn-primary" style="font-size: 1.1rem; padding: 14px 40px;">🔥 Выбрать свой путь</a>
+                </div>
+            </div>
+            
+            <button id="readMoreBtn" class="music-button" style="margin-top: 20px;">Читать далее →</button>
+        </div>
+    </section>
+
+    <!-- БЛОК ОТЗЫВОВ (СКРЫТ ПО УМОЛЧАНИЮ) -->
+<section class="testimonials" id="testimonialsSection">
+    <div class="container">
+        <!-- Кнопка-переключатель -->
+        <div style="text-align: center; margin-bottom: 10px;">
+            <button id="toggleTestimonialsBtn" class="project-button" style="background: #b8a07c; padding: 12px 30px; font-size: 1rem;">
+                📖 Показать отзывы участников
+            </button>
+        </div>
+        <!-- Скрываемый блок -->
+        <div id="testimonialsContent">
+            <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Что говорят участники</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>«После курса я перестала искать утешение в бокале. Марианна дала не просто техники, она дала новое понимание себя. Спасибо за свободу!»</p>
+                    <div class="author">— Елена, предприниматель</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>«Ретрит в Подмосковье перевернул мою жизнь. Я приехала с выгоранием, а уехала с песней внутри и чётким планом на год».</p>
+                    <div class="author">— Ольга, топ-менеджер</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>«Консьерж-услуга — это магия. Маря решила мои бизнес-задачи и заодно помогла справиться с тревогой. Бесценный опыт».</p>
+                    <div class="author">— Александр, владелец девелоперской компании</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>«Я боялась петь, но после «Поющих кругов» мой голос стал свободным. Теперь я провожу переговоры иначе — увереннее».</p>
+                    <div class="author">— Ирина, HR-директор</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- БЛОК КЛИЕНТОВ (НОВЫЙ) -->
+    <section class="clients">
+        <div class="container">
+            <h2 style="text-align: center; font-weight: 300; letter-spacing: 2px; font-size: 1.8rem;">Мне доверяют</h2>
+            <div class="client-logos">
+                <span>🏗️ Генподрядные организации</span>
+                <span>🏛️ Объекты культурного наследия</span>
+                <span>🧠 Институты развития личности</span>
+                <span>📈 Топ-менеджеры и собственники</span>
+            </div>
+            <!-- Здесь можно заменить текст на логотипы картинками, например:
+                 <img src="images/logo1.png" alt="..." style="height:40px;"> 
+            -->
+        </div>
+    </section>
+
+    <!-- РАЗДЕЛ "МОИ ПРОЕКТЫ" (бесплатные) -->
+    <section class="projects-offer" id="projects">
+        <div class="container">
+            <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Мои проекты</h2>
+            <div class="project-cards">
+                <!-- 1. Лаборатория внутренних опор -->
+                <div class="project-card" id="lab-program-link">
+                    <h3>🔹 Лаборатория внутренних опор</h3>
+                    <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы.</p>
+                    <button class="project-button" data-target="lab-details">Программы →</button>
+                    <div id="lab-details" class="program-details">
+                        <h4>Четыре урока устойчивости</h4>
+                        <details open><summary>🎁 Урок 1. Встреча с собой: знаю, кто я</summary>
+                            <div><p><em>«Я не то, что случилось со мной, я — то, чем я решил стать» — Карл Густав Юнг</em></p>
+                            <p><strong>Моё обращение</strong><br>Родная, этот урок — если ты устала быть удобной. Мы снимем слои чужих ожиданий и познакомимся с тобой подлинной.</p>
+                            <details><summary>📝 Тест «Персона и Тень»</summary><div><strong>Суть.</strong> Исследуй, какие качества предъявляешь миру, а какие прячешь.<br><strong>Обоснование.</strong> Юнг показал: Персона помогает адаптироваться, но чрезмерное отождествление с ней отнимает энергию. Тень управляет нами исподтишка.<br><strong>Как выполнять.</strong> Раздели лист на две колонки: «Какой меня знают другие» (10 качеств) и «Какую себя знаю только я» (те, что прячешь). Выбери одно теневое качество и безопасно прояви его на неделе.</div></details>
+                            <details><summary>🧠 Типы личности о встрече с собой</summary><div><strong>Фрейд:</strong> Разложи выбор на голоса Ид, Эго, Супер-Эго.<br><strong>Юнг:</strong> Представь Тень как персонажа и спроси, чему она хочет научить.<br><strong>Гаджиев:</strong> Понаблюдай, какое «я» сейчас активно.<br><strong>Древние греки:</strong> «Что я знаю о себе точно?»</div></details>
+                            <details><summary>✍️ Практики</summary><div><strong>Техника десяти вопросов:</strong> «Что меня сейчас волнует? Что я люблю, когда никто не смотрит?…»<br><strong>Диалог с будущей собой:</strong> Пустой стул, представь себя через 20 лет, спроси о важном, ответь от её лица.</div></details>
+                            <details><summary>🔄 EMDR/ДПДГ: «Безопасное место»</summary><div><strong>Суть.</strong> Создание внутреннего образа абсолютной безопасности. <strong>Как выполнять.</strong> Закрой глаза, вспомни безопасное место. Выполняй билатеральную стимуляцию («бабочка») 30–60 секунд, удерживая образ. Повтори 3–4 раза.</div></details>
+                            <details><summary>📜 Формула Мухоной «Целостность»</summary><div>«Я есмь та, кто я есмь. Я принимаю все свои части. Я разрешаю себе быть собой. Я — целостность. Я — достаточно». 21 день перед зеркалом.</div></details>
+                            <details><summary>🌑 Новолуние и задание из «Пути художника»</summary><div>Напиши письмо себе будущей — той, какой хочешь стать за этот месяц. Практикуй «Утренние страницы».</div></details>
+                            <p><em>Родная, ты — целый мир. Дай себе разрешение познакомиться с ним.</em></p></div>
+                        </details>
+                        <details><summary>📘 Урок 2. Тело как якорь: чувствую, значит, живу</summary>
+                            <div><p><strong>Моё обращение:</strong> Милая, если ты читаешь это с зажатыми плечами — остановись. Возвращаемся в тело, которое ждало.</p>
+                            <details><summary>📝 Тест «Телесный сканер»</summary><div><strong>Суть.</strong> Медленное сканирование тела для карты ощущений.<br><strong>Как выполнять.</strong> Ляг, закрой глаза, пройди вниманием от стоп до макушки. Отметь зоны напряжения.</div></details>
+                            <details><summary>🧠 Типы личности о теле</summary><div>Фрейд: спроси зажим, какое чувство он прячет. Юнг: опиши своё тело как ландшафт. Гаджиев: «Стоп-упражнение». Древние греки: «Куда едет моя колесница?»</div></details>
+                            <details><summary>✍️ Практики</summary><div><strong>Проприоцептивное заземление:</strong> стоя босиком, переноси вес на разные части стопы.<br><strong>Микродвижения:</strong> едва заметные движения в зоне зажима.<br><strong>Диалог с напряжением:</strong> спроси зажим, что он хочет сказать.</div></details>
+                            <details><summary>🔄 EMDR: работа с телесным триггером</summary><div>Вспомни ситуацию, вызывающую телесное напряжение, выполняй «бабочку» с образом напряжения, затем расслабления.</div></details>
+                            <details><summary>📜 Формула Мухоной «Я в теле»</summary><div>«Я здесь, в своём теле. Я чувствую опору под ногами. Каждая клетка моего тела — живая и мудрая.» 21 день.</div></details>
+                            <details><summary>🌒 Растущая Луна и задание</summary><div>Начни ежедневную 5-минутную прогулку босиком или контрастный душ.</div></details>
+                            <p><em>Твоё тело — самый верный друг. Пожалуйста, возвращайся в него почаще.</em></p></div>
+                        </details>
+                        <details><summary>🎨 Урок 3. Творчество как дыхание: создаю, значит, есть</summary>
+                            <div><p><strong>Моё обращение:</strong> Вспомни, как в детстве ты творила без оценки. Творчество — это не привилегия, это твой способ жить.</p>
+                            <details><summary>📝 Тест «Где живёт мой блок»</summary><div>Ответь письменно: «Что я хочу создать? Что останавливает меня? Чей это голос?» Нарисуй портрет своего блока.</div></details>
+                            <details><summary>🧠 Типы личности о творчестве</summary><div>Фрейд: сублимация. Юнг: активное воображение. Гаджиев: творчество из сущности. Древние греки: божественная мания и катарсис.</div></details>
+                            <details><summary>✍️ Практики</summary><div><strong>Поток сознания:</strong> 10 минут письма без остановки.<br><strong>Рисование неведущей рукой:</strong> абстракция своего состояния.<br><strong>Нейроигра «Абсурдные ассоциации»:</strong> соедини два далёких слова.</div></details>
+                            <details><summary>🔄 EMDR: переработка творческого блока</summary><div>Вспомни ситуацию, где твоё творчество обесценили. Билатеральная стимуляция с воспоминанием и позитивным образом свободного творчества.</div></details>
+                            <details><summary>📜 Формула Мухоной «Творческий поток»</summary><div>«Творчество — моя природа. Я открыта потоку идей и образов.» 21 день.</div></details>
+                            <details><summary>🌕 Полнолуние и задание</summary><div>Достань письмо из Новолуния, отметь, что проявилось. Устрой «творческий фейерверк».</div></details>
+                            <p><em>Родная, творец живёт в тебе. Просто начни.</em></p></div>
+                        </details>
+                        <details><summary>💖 Урок 4. Любовь к себе: принимаю, значит, исцеляюсь</summary>
+                            <div><p><strong>Моё обращение:</strong> Солнце моё, этот урок — самый нежный. Если ты умеешь любить других, но к себе безжалостна, — мы будем учиться любви к себе.</p>
+                            <details><summary>📝 Тест «Дом Самости»</summary><div>Нарисуй дом, в каждой комнате рассели части личности. Напиши письмо забытой части.</div></details>
+                            <details><summary>🧠 Типы личности о любви к себе</summary><div>Фрейд: здоровый остаток нарциссизма. Юнг: принятие Тени. Гаджиев: самовоспоминание. Аристотель: высшая филаутия.</div></details>
+                            <details><summary>✍️ Практики</summary><div><strong>Самосострадание через внутреннего ребёнка:</strong> письмо себе маленькой.<br><strong>Диалог с внутренним критиком:</strong> зафиксируй диалог.<br><strong>Аудио-медитация «Принятие»:</strong> запиши свой голос с текстом принятия.</div></details>
+                            <details><summary>🔄 EMDR: ресурсная инсталляция любви к себе</summary><div>Вспомни момент, когда ты чувствовала себя любимой, и билатеральной стимуляцией внедри убеждение «Я достойна любви».</div></details>
+                            <details><summary>📜 Формула Мухоной «Безусловная любовь»</summary><div>«Я — источник любви. Я принимаю себя целиком. Я достойна любви просто потому, что дышу.» 21 день.</div></details>
+                            <details><summary>🌘 Убывающая Луна и задание</summary><div>Напиши на листе всё, что хочешь отпустить, и сожги. Напиши «Письмо прощения» себе.</div></details>
+                            <p><em>Солнце моё, ты — та самая драгоценность, которую ты искала. Разреши себе любить.</em></p></div>
+                        </details>
+                        <p>📌 Все четыре урока полностью доступны на сайте. При регулярной практике они выстраивают устойчивую внутреннюю опору.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Поющие круги рефлексии -->
+                <div class="project-card" id="singing-program-link">
+                    <h3>🔸 Поющие круги рефлексии</h3>
+                    <p>Три направления: Голос, Танец, Слово. Выберите свой путь к себе.</p>
+                    <button class="project-button" data-target="singing-details">Программы →</button>
+                    <div id="singing-details" class="program-details">
+                        <h4>Три направления</h4>
+                        <details open><summary>🎤 Направление 1. «Голос» — песни как зеркало души</summary>
+                            <div>
+                                <details><summary>📝 Тест «Голосовой портрет»</summary><div><strong>Суть.</strong> Исследуйте свой голос как живое отражение текущего состояния.<br><strong>Как выполнять.</strong> Сядьте в тишине, закройте глаза, сделайте три глубоких вдоха. Мысленно спросите: «Мой голос, что ты хочешь мне сказать?» Начните мягко гудеть «м-м-м», позволяя звуку подниматься и опускаться без контроля высоты. Продолжайте 1 минуту, записывая на диктофон. Прослушайте запись, замечая ощущения: дрожь, силу, мягкость, сдавленность. Нарисуйте образ своего голоса: цвет, форму, текстуру, символ.</div></details>
+                                <details><summary>💡 Две опоры</summary><div><strong>1. Уязвимость — суперсила голоса.</strong> Подлинная сила звучания рождается из разрешения быть слышимой в своей несовершенной, живой интонации.<br><strong>2. Пой, даже когда нет настроения.</strong> Регулярность перестраивает нейронные цепи, снижая порог входа в поток.</div></details>
+                                <details><summary>🧠 Нейробиология: хоровой резонанс и окситоцин</summary><div><strong>Суть.</strong> Присоединение к хору для выработки окситоцина.<br><strong>Как выполнять.</strong> Включите запись хорового произведения. Закройте глаза, положите руку на грудь. Подпевайте, сливаясь с общим звучанием. Представьте, что ваш голос — одна нить в тёплом полотне звука. Пойте 5 минут, затем посидите в тишине.</div></details>
+                                <details><summary>🌬️ Дыхание 4-7-8 с озвучиванием</summary><div>Вдох носом на 4 счёта, задержка на 7, выдох ртом со звуком «о-о-о» на 8. Повторить 4 раза. Затем спойте простую фразу «Я есть, я здесь, я зву-чу».</div></details>
+                                <details><summary>🎧 Нейрозадание: диалог с песней</summary><div>Выберите песню, которая сейчас резонирует. Прослушайте её один раз молча, с закрытыми глазами. Второй раз подпевайте, будто каждое слово — часть разговора с вами. После пения запишите ответ на вопрос: «Что эта песня открыла мне сегодня обо мне?»</div></details>
+                                <details><summary>🎵 Разминка: пробуждение голоса</summary><div>1. Наклоны и повороты головы, подъём и бросание плеч. 2. Постукивание пальцами по груди, горлу, лицу. 3. Гудение «м-м-м», «н-н-н», «в-в-в», переход в открытые гласные «а-а-а», «о-о-о».</div></details>
+                                <details><summary>🦁 Асана Симхасана (поза Льва)</summary><div>Сядьте на колени. Вдохните носом. С выдохом широко откройте рот, высуньте язык и издайте мощный «ха-а-а» от живота. Повторите 3–5 раз.</div></details>
+                                <details><summary>💆 Массаж шиацу: шея и горло</summary><div>Тёплыми ладонями погладьте переднюю поверхность шеи сверху вниз 7 раз. Надавите на яремную ямку на 5 секунд, отпустите. Разомните боковые мышцы шеи круговыми движениями.</div></details>
+                                <details><summary>🌀 Стихия Эфир (Акаша)</summary><div>Представьте, что ваше тело — пустой глиняный кувшин, а дыхание — ветер, проходящий сквозь него. Пойте любую ноту или мелодию, сохраняя ощущение простора внутри.</div></details>
+                                <details><summary>💧 Ритуал с водой: поющая чаша</summary><div>Налейте чистую воду в прозрачную чашу. Пропойте одну долгую ноту, направляя звук в воду. Представляйте, как вода насыщается вашим истинным звучанием. Медленно выпейте воду.</div></details>
+                                <details><summary>🧵 Наузы: узел Певчего</summary><div>Завяжите на синей или серебристой нити 7 узелков с фразами: «Мой голос свободен», «Я пою от души», «Моё пение — это свет», «Я достойна быть услышанной», «Музыка течёт сквозь меня», «Каждая песня — мой дар», «Я есмь звук».</div></details>
+                                <details><summary>⚗️ Алхимия: звуковая трансмутация</summary><div>Спойте песню трижды: первый раз проживая тяжёлую эмоцию; второй раз отпуская; третий раз наполняя светом и благодарностью.</div></details>
+                                <details><summary>🪬 Амулет: Сигил Орфея</summary><div>Нарисуйте абстрактный символ своего свободного голоса. Пропойте над ним долгий звук, заряжая энергией. Храните как напоминание.</div></details>
+                                <details><summary>👁️ EMDR: освобождение от страха петь</summary><div>Вспомните ситуацию, где ваш голос критиковали. Выполняйте билатеральную стимуляцию («бабочка») 30 секунд с неприятным воспоминанием, затем 30 секунд с образом свободного пения. Повторяйте, пока дискомфорт не снизится.</div></details>
+                                <details><summary>📜 Формула Мухоной «Формула Голоса»</summary><div>«Мой голос — это моя сила. Я выражаю себя легко и свободно. Каждый звук, который я издаю, наполнен светом и любовью. Я достойна быть услышанной, я достойна петь свою песню миру.» Повторяйте 21 день перед зеркалом.</div></details>
+                                <details><summary>📖 Типы личности и пение</summary><div>Фрейд: сублимация. Юнг: архетипы. Гаджиев: самовоспоминание. Древние греки: катарсис.</div></details>
+                                <details><summary>✨ 5 практик рефлексивного пения</summary><div>1. Пение вопроса. 2. Дневник песен. 3. Парное эхо. 4. Пение стихий. 5. Тишина после пения.</div></details>
+                                <details><summary>💬 Аффирмации</summary><div>«Мой голос — это свет, которым я делюсь с миром». «Я пою свободно и радостно, без страха и осуждения». «Каждая песня, спетая мной, исцеляет меня и других». «Я имею право звучать — несовершенно, но искренне».</div></details>
+                                <details><summary>🌙 Астрологический гид</summary><div><strong>Дни недели:</strong> понедельник – глубокие песни; среда – импровизация; пятница – чувственная лирика; воскресенье – гимны.<br><strong>Фазы Луны:</strong> новолуние – тихое пение-намерение; растущая – разучивание; полнолуние – публичные выступления; убывающая – отпускание через пение.</div></details>
+                                <details><summary>🎲 Нейроигры для голоса и слуха</summary><div>1. Зеркальный звук. 2. Эмпатическая песня. 3. Звуковой сюрприз. 4. Аудиопейзаж. 5. Диалог голосов.</div></details>
+                                <details><summary>📝 Две практики</summary><div>1. Правило одного дубля (записывать пение с одной попытки). 2. Пой как говоришь (приближать мелодию к речевой интонации).</div></details>
+                                <details><summary>🎉 Творческое свидание с музыкой</summary><div>Раз в неделю час наедине с музыкой: концерт, альбом, тишина с микрофоном.</div></details>
+                                <details><summary>❤️ Мои слова</summary><div>Родная, твой голос — это не просто звук. Это отпечаток твоей души. Не важно, «правильно» ли ты поёшь. Важно, что твоё сердце хочет звучать. Приходи, споём вместе о самом светлом.</div></details>
+                            </div>
+                        </details>
+                        <details><summary>💃 Направление 2. «Танец» — движение как молитва</summary>
+                            <div>
+                                <details><summary>📝 Тест «Диалог с телом через движение»</summary><div>Включите спокойную инструментальную музыку. Закройте глаза и медленно пройдитесь, прислушиваясь, какая часть тела хочет двигаться первой. Позвольте этой части начать спонтанное движение и постепенно позвольте ему разрастись на всё тело. Двигайтесь без плана 3–5 минут. Затем остановитесь и запишите ответы: «Какое чувство жило в этом движении?», «О чём тело хотело рассказать?».</div></details>
+                                <details><summary>💡 Две опоры</summary><div><strong>Тело помнит путь к радости – дайте ему двигаться.</strong> Эмоции — это не только психические, но и физические события. Ритмичное движение активирует выработку эндорфинов и дофамина, снижая уровень кортизола.<br><strong>Спонтанность — навык аутентичности.</strong> Танец без хореографии учит доверять себе в моменте.</div></details>
+                                <details><summary>🧠 Нейробиология: танец и миндалина</summary><div>Интенсивная тряска и прыжки снижают активность центра страха и повышают эндорфины. Включите ритмичную музыку, тряситесь, прыгайте, машите руками 3 минуты, затем замрите.</div></details>
+                                <details><summary>🌬️ Нейрофизиология: танец и мозжечок</summary><div>Встаньте на одну ногу, медленно двигайте свободной ногой и руками, меняйте направления. Через 1–2 минуты смените ногу.</div></details>
+                                <details><summary>🎵 Разминка: пробуждение суставов</summary><div>Круговые движения суставами, «волна» позвоночником, тряска.</div></details>
+                                <details><summary>🦁 Асана: Уткатасана (поза Стула) с потоком рук</summary><div>Согните колени, как на стул, совершайте плавные движения руками.</div></details>
+                                <details><summary>💆 Массаж шиацу: поясница и крестец</summary><div>Круговое массирование, надавливание на точки.</div></details>
+                                <details><summary>🌀 Метафора: танец как поток реки</summary><div>Представьте руки водой, позвольте им течь.</div></details>
+                                <details><summary>💧 Ритуал с водой: смывание статики</summary><div>После танца встаньте под душ, представляя, как вода смывает чужую энергию.</div></details>
+                                <details><summary>🧵 Наузы: узел Танцора</summary><div>Оранжевая нить, 5 узелков с намерениями свободы движения.</div></details>
+                                <details><summary>⚗️ Алхимия: кинетическая трансмутация</summary><div>Танцуйте «тяжёлую» эмоцию до облегчения.</div></details>
+                                <details><summary>🪬 Амулет: подвеска «Спираль»</summary><div>Создайте спираль – символ движения и развития.</div></details>
+                                <details><summary>👁️ EMDR: переработка телесного запрета</summary><div>Вспомните, когда вас стыдили за танец, и переработайте билатеральной стимуляцией.</div></details>
+                                <details><summary>📜 Формула Мухоной «Свободное Движение»</summary><div>«Моё тело — источник мудрости и радости. Я позволяю себе двигаться легко и свободно.» 21 день.</div></details>
+                                <details><summary>✨ 5 практик танцевальной рефлексии</summary><div>Танец эмоции, парный танец с тенью, танец стихий, дневник движения, тихий танец.</div></details>
+                                <details><summary>💬 Аффирмации</summary><div>«Моё тело создано для радости движения», «Я танцую свою уникальную жизнь».</div></details>
+                                <details><summary>🌙 Астрологический гид</summary><div>Вторник – энергичные танцы, пятница – чувственные, суббота – медленная медитация. Фазы Луны: новолуние – внутренний танец-намерение, растущая – расширение, полнолуние – экстатический танец, убывающая – плавное отпускание.</div></details>
+                                <details><summary>🎲 Нейроигры для движения</summary><div>Зеркало, стоп-кадр, скульптор и глина, танцевальный алфавит, эмпатический танец.</div></details>
+                                <details><summary>📝 Две практики</summary><div>Движение без музыки, танец благодарности телу.</div></details>
+                                <details><summary>🎉 Творческое свидание с движением</summary><div>Прогулка с прыжками, кружением, замираниями.</div></details>
+                                <details><summary>❤️ Мои слова</summary><div>Милая, твоё тело помнит, как быть свободной. Разреши ему двигаться для радости.</div></details>
+                            </div>
+                        </details>
+                        <details><summary>✍️ Направление 3. «Слово» — письменная рефлексия</summary>
+                            <div>
+                                <details><summary>📝 Тест «Моя жизненная линия»</summary><div>Нарисуйте горизонтальную линию от рождения до сегодняшнего дня. Отметьте 5–7 ключевых событий. Выберите одно болезненное событие, напишите о нём, начиная с фразы «Тогда я не знала, что…» и заканчивая «Теперь я понимаю…».</div></details>
+                                <details><summary>💡 Две опоры</summary><div><strong>История, которую вы рассказываете себе, определяет реальность.</strong> Письменная рефлексия даёт возможность переписать внутренний сценарий.<br><strong>Уязвимость на бумаге – первый шаг к подлинности.</strong> Писать правду, даже если её никто не прочитает, – значит дать себе разрешение быть несовершенной.</div></details>
+                                <details><summary>🧠 Нейробиология: сторителлинг и зеркальные нейроны</summary><div>Напишите о себе от третьего лица, создавая дистанцию. Это снижает эмоциональный заряд и включает самосострадание.</div></details>
+                                <details><summary>🌬️ Нейрофизиология: почерк и ретикулярная формация</summary><div>Перепишите беспокоящую мысль от руки 3 раза, меняя формулировку в сторону ресурсной.</div></details>
+                                <details><summary>🎧 Нейрозадание: письмо из будущего</summary><div>Напишите письмо себе нынешней от лица себя через 10 лет – мудрой, спокойной, любящей.</div></details>
+                                <details><summary>🎵 Разминка: пальчиковая гимнастика</summary><div>Тряска кистями, сжатие-разжатие, круговые движения запястьями, самомассаж пальцев.</div></details>
+                                <details><summary>🦁 Асана: Баддха Конасана (поза Бабочки)</summary><div>Сидя, соедините стопы, покачивайте коленями.</div></details>
+                                <details><summary>💆 Массаж шиацу: височная область и скальп</summary><div>Надавливание на виски, массаж кожи головы, лёгкое потягивание волос.</div></details>
+                                <details><summary>🌀 Метафора: письмо как раскопки</summary><div>Описывайте воспоминание через сенсорные детали (запахи, звуки, цвета).</div></details>
+                                <details><summary>💧 Ритуал с водой: растворение чернил</summary><div>Напишите слово-символ того, от чего хотите освободиться, опустите бумагу в воду.</div></details>
+                                <details><summary>🧵 Наузы: узел Писателя</summary><div>Голубая нить, 7 узелков: «Слова текут легко», «Я пишу правду», «Мой голос важен», «Бумага — мой друг», «Критик молчит», «Я доверяю процессу», «Письмо исцеляет».</div></details>
+                                <details><summary>⚗️ Алхимия: трансформация через нарратив</summary><div>Перепишите старую историю с новым, ресурсным финалом.</div></details>
+                                <details><summary>🪬 Амулет: глиняная табличка со словом-талисманом</summary><div>Выдавите на глине ресурсное слово года.</div></details>
+                                <details><summary>👁️ EMDR: переработка травматичного текста</summary><div>Выберите фразу-триггер, выполняйте «бабочку» с ней и с позитивной заменой.</div></details>
+                                <details><summary>📜 Формула Мухоной «Свободное Перо»</summary><div>«Слова — мои союзники. Я пишу легко и свободно, без страха и оценки.» 21 день.</div></details>
+                                <details><summary>✨ 5 практик письменной рефлексии</summary><div>Поток сознания, письмо прощения, диалог с критиком, письмо благодарности себе, метафорический дневник.</div></details>
+                                <details><summary>💬 Аффирмации</summary><div>«Мои слова обладают силой исцеления», «Я пишу свободно, и мой голос крепнет».</div></details>
+                                <details><summary>🌙 Астрологический гид</summary><div>Среда – лёгкость формулировок, четверг – масштабные тексты, понедельник – эмоциональные дневники. Фазы Луны: новолуние – намерения, растущая – черновики, полнолуние – завершение глав, убывающая – редактирование.</div></details>
+                                <details><summary>🎲 Нейроигры для письма</summary><div>Письмо неведущей рукой, словарная мозаика, эмпатический рерайт, пятиминутный рассказ, зеркальное письмо.</div></details>
+                                <details><summary>📝 Две практики</summary><div>Одно предложение в день, письмо страху и ответ от страха.</div></details>
+                                <details><summary>🎉 Творческое свидание с письмом</summary><div>Час наедине с блокнотом в уютном месте.</div></details>
+                                <details><summary>❤️ Мои слова</summary><div>Родная, твои слова — след души на бумаге. Дай себе право быть услышанной хотя бы самой собой.</div></details>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- 3. Проект «Муза» -->
+                <div class="project-card" id="muza-program-link">
+                    <h3>🔸 Проект «Муза» — нейро-поэтический коучинг</h3>
+                    <p>Для тех, кто попал в творческий ступор. Учу находить музу в любой момент.</p>
+                    <button class="project-button" data-target="muza-details">Муза 1.0 →</button>
+                    <div id="muza-details" class="program-details">
+                        <h4>10 практик для вдохновения</h4>
+                        <details><summary>1. Утренние страницы</summary><div><strong>Суть.</strong> Сразу после пробуждения три страницы потока сознания.<br><strong>Почему это работает.</strong> Очищает канал, снижает активность DMN.<br><strong>Как выполнять.</strong> Пиши без остановки, не перечитывай.</div></details>
+                        <details><summary>2. Дофаминовое голодание наоборот</summary><div>1–2 часа только создавать, не потребляя контент. Мозг начинает генерировать идеи изнутри.</div></details>
+                        <details><summary>3. Правило трёх</summary><div>Каждый день три маленьких творческих действия. Маленький объём обманывает страх.</div></details>
+                        <details><summary>4. Техника десяти вопросов</summary><div>Десять вопросов от поверхности к глубине. Активирует поисковый режим.</div></details>
+                        <details><summary>5. Диалог с будущей собой</summary><div>Разговор с собой через 20 лет. Активирует дофаминовую систему мотивации.</div></details>
+                        <details><summary>6. Билатеральная стимуляция для разблокировки идей</summary><div>Попеременное постукивание с вопросом. Помогает обойти ментальные блоки.</div></details>
+                        <details><summary>7. Скука как топливо</summary><div>20 минут ничегонеделания в день. Активирует DMN для инсайтов.</div></details>
+                        <details><summary>8. Телесный якорь вдохновения</summary><div>Выбери жест, свяжи его с состоянием потока. Мозг будет вызывать вдохновение по жесту.</div></details>
+                        <details><summary>9. Ассоциативные карты через музыку</summary><div>Слушай незнакомый инструментал, записывай образы. Обходит вербальный контроль.</div></details>
+                        <details><summary>10. Письмо от Музы</summary><div>Напиши письмо от лица своей музы. Обнажает бессознательные блоки.</div></details>
+                        <h4>🧠 5 психологических приёмов для себя</h4>
+                        <details><summary>1. Переименование критика</summary><div>Дай критику смешное имя, отдели его от себя.</div></details>
+                        <details><summary>2. Правило 5 секунд</summary><div>Считай 5-4-3-2-1 и начинай действовать.</div></details>
+                        <details><summary>3. Эффект прогресса</summary><div>Отмечай каждый маленький шаг.</div></details>
+                        <details><summary>4. Мантра достаточности</summary><div>«Это не должно быть идеально. Это должно быть.»</div></details>
+                        <details><summary>5. Дыхание 4-7-8 перед творческим актом</summary><div>Вдох 4, задержка 7, выдох 8, повторить 4 раза. Снижает кортизол.</div></details>
+                        <h4>💫 10 эффективных аффирмаций</h4>
+                        <ul><li>«Творчество — моя природа, и я разрешаю ему течь легко и свободно.»</li><li>«Моя муза живёт внутри меня, и я слышу её голос всё яснее.»</li><li>«Я достойна создавать прекрасное — не для оценки, а по праву рождения.»</li><li>«Чем больше я творю, тем больше вдохновения приходит.»</li><li>«Я отпускаю страх ошибки и позволяю себе быть несовершенной.»</li><li>«Мои идеи ценны, и я доверяю своему творческому порыву.»</li><li>«С каждым днём я всё легче вхожу в состояние потока.»</li><li>«Я — проводник вдохновения, и мир щедро делится со мной образами.»</li><li>«Моё творчество приносит свет мне и другим, даже когда мне кажется иначе.»</li><li>«Я выбираю творить из любопытства и радости, а не из страха.»</li></ul>
+                        <h4>🌸 Массаж лица: пробуждение чувств и творческого начала</h4>
+                        <details><summary>Разогрев, лоб, глаза, скулы, челюсть, завершение</summary><div><strong>Разогрев:</strong> поглаживание от центра лба к вискам, от носа к ушам.<br><strong>Лоб:</strong> надавливание на точку третьего глаза.<br><strong>Глаза:</strong> нежное массирование век и висков.<br><strong>Скулы и щёки:</strong> надавливание под скуловыми костями.<br><strong>Челюсть:</strong> расслабление жевательных мышц.<br><strong>Завершение:</strong> тепло ладоней на лице.</div></details>
+                        <h4>🌙 Астрологический гид</h4>
+                        <details><summary>Дни недели и фазы Луны</summary><div><strong>Дни:</strong> понедельник – поэзия, среда – писательство, пятница – искусство, воскресенье – выступления.<br><strong>Фазы Луны:</strong> новолуние – намерения, растущая – развитие, полнолуние – кульминация, убывающая – завершение и отпускание.</div></details>
+                        <h4>🎲 5 нейроигр для воображения</h4>
+                        <details><summary>1. Образный перевод</summary><div>Событие дня переведи в метафору или сказку. Развивает правое полушарие.</div></details>
+                        <details><summary>2. Эмпатическое зеркало</summary><div>Представь внутренний мир незнакомца, напиши монолог. Тренирует эмпатию.</div></details>
+                        <details><summary>3. Абсурдные ассоциации</summary><div>Соедини два далёких слова 5–7 неожиданными связями. Разрывает шаблоны.</div></details>
+                        <details><summary>4. Звуковой пейзаж</summary><div>Слушай звуки вокруг как музыку, опиши или нарисуй. Обостряет восприятие.</div></details>
+                        <details><summary>5. Кубик историй</summary><div>За минуту сочини историю по трём случайным элементам. Тренирует вербальную беглость.</div></details>
+                        <p>📌 «Муза» — это не ожидание, а тренировка. Все материалы полностью доступны на сайте.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Нейро-дыхательные практики -->
+                <div class="project-card" id="neuro-program-link">
+                    <h3>🧠 Нейро-дыхательные практики</h3>
+                    <p>Простые 2–5‑минутные упражнения для снятия тревоги, заземления и активации голоса.</p>
+                    <div style="margin-top: 16px;">
+                        <details><summary>💨 1. Физиологический вздох</summary><div><strong>Суть.</strong> Двойной вдох носом и долгий медленный выдох ртом.<br><strong>Почему это работает.</strong> В лёгких есть миллионы микроскопических альвеол, которые при стрессе спадаются. Двойной вдох заставляет их раскрыться, а долгий выдох активирует блуждающий нерв.<br><strong>Как выполнять.</strong> Вдох носом, затем короткий довдох, медленный выдох ртом (длиннее вдохов). Повторить 3–5 раз.</div></details>
+                        <details><summary>🌬️ 2. Опора на выдох</summary><div><strong>Суть.</strong> Удлинённый выдох со звуком «ф-ф-ф».<br><strong>Как выполнять.</strong> Рука на животе, вдох носом, выдох со звуком «ф-ф-ф-ф». 5 выдохов.</div></details>
+                        <details><summary>🎵 3. Пение как нейрохакинг</summary><div><strong>Суть.</strong> Гудение и пение гласных для стимуляции блуждающего нерва.<br><strong>Как выполнять.</strong> Гудеть «м-м-м-м-м», затем «а-а-а-а-а». 3–4 раза.</div></details>
+                        <details><summary>❓ 4. Вопрос к себе</summary><div><strong>Суть.</strong> Рефлексивный вопрос после успокаивающего дыхания.<br><strong>Как выполнять.</strong> «Если бы я точно знал(а), что со мной всё в порядке, как бы я звучал(а)?»</div></details>
+                        <details><summary>⬜ 5. Квадратное дыхание с пением</summary><div><strong>Суть.</strong> Равные доли вдоха, задержки, выдоха со звуком и задержки.<br><strong>Как выполнять.</strong> 4 счёта вдох, 4 задержка, 4 выдох со звуком «о-о-о», 4 задержка. Повторить 4 раза, на пятый круг спеть ресурсную фразу.</div></details>
+                    </div>
+                </div>
+
+                <!-- 5. Нейро-аптечка -->
+                <div class="project-card" id="neuro-aid-link">
+                    <h3>🧰 Нейро-аптечка: 10 быстрых практик</h3>
+                    <p>10 упражнений для сброса тревоги, заземления, активации блуждающего нерва.</p>
+                    <div style="margin-top: 16px;">
+                        <details><summary>💧 1. Холодная вода на запястья и лицо</summary><div><strong>Суть.</strong> Нырятельный рефлекс млекопитающих.<br><strong>Как выполнять.</strong> Запястья под холодной водой 15–20 сек, умыть лицо 3–5 раз.</div></details>
+                        <details><summary>🦋 2. Тряска всем телом</summary><div><strong>Суть.</strong> Сброс адреналина после стресса.<br><strong>Как выполнять.</strong> Трясти кистями, локтями, плечами, подпрыгивать 1–2 мин, затем замереть.</div></details>
+                        <details><summary>👁️ 3. Боковое (панорамное) зрение</summary><div><strong>Суть.</strong> Расширение поля зрения для снижения тревоги.<br><strong>Как выполнять.</strong> Расслабленный взгляд, воспринимать периферию 3–5 мин.</div></details>
+                        <details><summary>🤗 4. Надавливание на грудную клетку</summary><div><strong>Суть.</strong> Самообъятие для выработки окситоцина.<br><strong>Как выполнять.</strong> Руки скрестить на груди, мягко надавить, постукивать 2–3 мин.</div></details>
+                        <details><summary>🌅 5. Прямой взгляд на горизонт</summary><div><strong>Суть.</strong> Ориентация в пространстве успокаивает миндалевидное тело.<br><strong>Как выполнять.</strong> Смотреть вдаль, дышать 5–7 раз (вдох 6–8 сек, выдох 6–8 сек).</div></details>
+                        <details><summary>🦶 6. Медленный подъём на носки</summary><div><strong>Суть.</strong> Заземление через стопы.<br><strong>Как выполнять.</strong> Медленно подниматься на носки на вдохе, опускаться на выдохе. 8–10 раз.</div></details>
+                        <details><summary>👂 7. Самомассаж ушей</summary><div><strong>Суть.</strong> Стимуляция блуждающего нерва через ушную раковину.<br><strong>Как выполнять.</strong> Потянуть мочки, размять уши, накрыть ладонями на 30 сек.</div></details>
+                        <details><summary>🏔️ 8. Поза «Гора»</summary><div><strong>Суть.</strong> Ощущение устойчивости и присутствия.<br><strong>Как выполнять.</strong> Стоять ровно, вес на стопах, 2–3 минуты.</div></details>
+                        <details><summary>🥁 9. Ритмичное постукивание по телу</summary><div><strong>Суть.</strong> Пробуждение тела и переключение внимания.<br><strong>Как выполнять.</strong> Постукивать кулаками по груди, животу, бёдрам 1–2 мин.</div></details>
+                        <details><summary>🕯️ 10. Дыхание через сжатые губы</summary><div><strong>Суть.</strong> Удлинённый выдох для активации парасимпатики.<br><strong>Как выполнять.</strong> Вдох 4, выдох через сжатые губы на 8–12. 5–7 раз.</div></details>
+                    </div>
+                </div>
+
+                <!-- 6. Нейробиологические упражнения -->
+                <div class="project-card" id="neuro-games-link">
+                    <h3>🎮 Нейробиологические упражнения</h3>
+                    <p>5 нейроигр для развития голоса и слуха.</p>
+                    <div style="margin-top: 16px;">
+                        <details><summary>🎤 1. Зеркальный звук</summary><div><strong>Суть.</strong> Пение вместе с записью, затем выключение звука и продолжение а капелла.<br><strong>Почему это работает.</strong> Тренирует аудиомоторную петлю и внутренний слуховой образ.<br><strong>Как выполнять.</strong> Включи песню, пой с исполнителем, на паузе продолжай, затем проверь попадание.</div></details>
+                        <details><summary>🧘 2. Гудение в разные части тела</summary><div><strong>Суть.</strong> Гудеть, перемещая внимание на вибрацию в теле.<br><strong>Почему это работает.</strong> Стимулирует блуждающий нерв и улучшает интероцепцию.<br><strong>Как выполнять.</strong> Гудеть «м-м-м», направляя вибрацию в разные зоны – губы, грудь, живот, ноги.</div></details>
+                        <details><summary>🥄 3. Ритмический диалог</summary><div><strong>Суть.</strong> Повторение и добавление ритмических рисунков.<br><strong>Как выполнять.</strong> Отстучать ритм, партнёр повторяет и добавляет свой. Чередовать, усложняя.</div></details>
+                        <details><summary>🎧 4. Пение с помехой</summary><div><strong>Суть.</strong> Петь под песню при включённом шуме.<br><strong>Как выполнять.</strong> Включи белый шум, пой вместе с песней, постепенно увеличивай громкость шума.</div></details>
+                        <details><summary>🎭 5. Эмоциональный вокал</summary><div><strong>Суть.</strong> Петь фразу с разными эмоциями.<br><strong>Как выполнять.</strong> Пропой фразу нейтрально, затем с радостью, грустью, гневом, нежностью. Запиши и сравни.</div></details>
+                    </div>
+                </div>
+
+                <!-- 7. Технологии и Муза 2.0 -->
+                <div class="project-card" id="tech-link">
+                    <h3>🔹 Технологии и Муза 2.0</h3>
+                    <p>Продвинутый уровень работы со звуком, нейроинтерфейсами и творческим программированием. Для тех, кто хочет соединить музыку, технологии и глубокую рефлексию.</p>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button class="project-button" data-target="tech-details">Кратко →</button>
+                        <a href="technologies.html" class="project-button" target="_blank" style="background: linear-gradient(135deg, #6a8e6a, #4a6e4a);">🔬 Полная версия (Технологии) →</a>
+                    </div>
+                    <div id="tech-details" class="program-details">
+                        <h4>Что входит в модуль «Технологии и Муза 2.0» (кратко)</h4>
+                        <details><summary>🎛️ Звуковой дизайн и цифровая обработка</summary><div>Основы работы в DAW, сэмплирование, создание собственных пресетов, пространственная обработка голоса.</div></details>
+                        <details><summary>🧠 Нейроинтерфейсы для творчества</summary><div>Использование доступных нейрогарнитур (Muse, NeuroMSC) для визуализации состояния потока и управления звуком через биосигналы.</div></details>
+                        <details><summary>🎹 Алгоритмическая композиция и генеративная музыка</summary><div>Создание музыки, которая меняется сама в зависимости от времени суток, пульса, дыхания или случайных алгоритмов.</div></details>
+                        <details><summary>📊 Рефлексия через данные</summary><div>Анализ творческого процесса с помощью трекеров настроения, дневников звука, визуализация прогресса.</div></details>
+                        <p style="margin-top: 12px;">✨ Полное описание с инженерной документацией, бюджетом и планами развития — на отдельной странице <a href="technologies.html" target="_blank">«Технологии»</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Поддержка -->
+                <div class="project-card" style="text-align: center;">
+                    <h3>📱 Поддержать проект</h3>
+                    <p>Если вам полезны эти практики, вы можете поддержать меня переводом по СБП.</p>
+                    <img src="https://quickchart.io/qr?text=https%3A%2F%2Fc2c.cbrpay.ru%2FBS1I006L0ELMFR2A94NRDOP5G97BV5NL&size=150&margin=0&ecLevel=L" alt="QR-код" style="width: 150px; height: 150px; margin: 0 auto; display: block; border-radius: 16px;">
+                    <p style="margin-top: 16px;"><a href="https://c2c.cbrpay.ru/BS1I006L0ELMFR2A94NRDOP5G97BV5NL" target="_blank" style="color:#b8a07c;">c2c.cbrpay.ru/...</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- РАЗДЕЛ "ПЛАТНЫЕ ПРОГРАММЫ" (ОБНОВЛЁННЫЙ) -->
+    <section id="paid" class="projects-offer" style="background-color: #f8f4f0; padding: 40px 0 60px;">
+        <div class="container">
+            <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">💎 Платные программы</h2>
+            <p style="color: #5e5e5a; max-width: 700px; margin-bottom: 30px;">Хотите пойти глубже? Вот мои авторские продукты — выберите свой уровень погружения.</p>
+
+            <div class="project-cards">
+                <!-- 1. Курс "Осознанный отказ" – с ценой и новой кнопкой -->
+                <div class="project-card">
+                    <h3>🧠 Цифровой курс «Осознанный отказ»</h3>
+                    <p><strong>7‑дневная нейро‑практика</strong> для освобождения от алкогольной тяги без силы воли. Внутри: аудио‑треки (Ableton), дыхательные техники, нейро‑упражнения и авторская методика замещения ритуала.</p>
+                    <ul style="font-size: 0.9rem; color: #4a4a46; margin: 10px 0; padding-left: 20px;">
+                        <li>✅ 7 модулей с видео и аудио</li>
+                        <li>✅ Ежедневные практики по 15–20 мин</li>
+                        <li>✅ Чат поддержки в Telegram</li>
+                    </ul>
+                    <div style="margin: 12px 0; font-size: 1.6rem; font-weight: 600; color: #9e5d4c;">2 900 ₽</div>
+                    <!-- Кнопка с явным призывом и ссылкой на course.html -->
+                    <a href="course.html" class="project-button btn-primary" style="display: inline-block; text-decoration: none; text-align: center; align-self: flex-start; font-size: 1.1rem; padding: 12px 36px;">Купить курс →</a>
+                    <p style="font-size: 0.8rem; color: #999; margin-top: 8px;">Доступ открывается сразу после оплаты</p>
+                </div>
+
+                <!-- 2. Ретриты -->
+                <div class="project-card">
+                    <h3>🌿 Ретриты (выездные)</h3>
+                    <p><strong>Живые трансформационные программы</strong> в Подмосковье и по РФ. Форматы:</p>
+                    <ul style="font-size: 0.9rem; color: #4a4a46; margin: 10px 0; padding-left: 20px;">
+                        <li>👩 Женские «Шабаши» (глубинная психология + пение + тело)</li>
+                        <li>🏢 Бизнес‑тимбилдинг (переговоры + нейро‑снятие стресса)</li>
+                        <li>🔥 Общие ретриты (музыка, природа, трансформация)</li>
+                    </ul>
+                    <a href="#" class="project-button" style="display: inline-block; text-decoration: none; text-align: center; align-self: flex-start;">Выбрать даты →</a>
+                    <p style="font-size: 0.8rem; color: #999; margin-top: 8px;">Ближайший выезд – май 2026</p>
+                </div>
+
+                <!-- 3. Консьерж для ТОПов -->
+                <div class="project-card">
+                    <h3>💼 Консьерж для ТОПов</h3>
+                    <p><strong>Годовой абонемент «Личный советник»</strong> – я решаю ваши бизнес‑задачи и вашу «голову» в одном флаконе. Для владельцев бизнеса и топ‑менеджеров.</p>
+                    <ul style="font-size: 0.9rem; color: #4a4a46; margin: 10px 0; padding-left: 20px;">
+                        <li>✅ Еженедельные стратегические сессии</li>
+                        <li>✅ Помощь в переговорах и кадровых вопросах</li>
+                        <li>✅ Нейро‑практики для устойчивости</li>
+                    </ul>
+                    <a href="#" class="project-button" style="display: inline-block; text-decoration: none; text-align: center; align-self: flex-start;">Запросить условия →</a>
+                    <p style="font-size: 0.8rem; color: #999; margin-top: 8px;">Индивидуальный подход</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #6a6a66;">
+                ⚡ Все программы – авторские, с опорой на нейрофизиологию, музыку и мой 10‑летний опыт управления и психологии.
+            </p>
+        </div>
+    </section>
+
+    <!-- МОИ ТРЕКИ -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2>Мои треки</h2>
+            <div class="music-grid">
+                <div class="music-card">
+                    <img src="images/temnie_zvezdi_img.jpg" alt="Маря Кошкина" class="music-cover">
+                    <h3>Маря Кошкина</h3>
+                    <p>Все мои проекты и соцсети в одном месте</p>
+                    <a href="https://band.link/marya_koshkina" class="music-button" target="_blank">Слушать →</a>
+                </div>
+                <div class="music-card">
+                    <img src="images/temnie_zvezdi_img.jpg" alt="Тёмные звёзды" class="music-cover">
+                    <h3>Тёмные звёзды</h3>
+                    <p>Новый сингл 2025</p>
+                    <a href="https://band.link/tyomniye_zvyzdy" class="music-button" target="_blank">Слушать →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- АЛЬФА-МУЗЫКА -->
+    <section id="alpha-music" class="gallery-section" style="background-color: #ffffff;">
+        <div class="container">
+            <h2>🎧 Альфа-музыка — Глубокая нейро-энтрейнерная стимуляция</h2>
+            <p style="margin-bottom: 30px; color: #5e5e5a; max-width: 800px;">Специальные аудиотреки для синхронизации с альфа-ритмом мозга. Помогают быстро войти в состояние глубокого расслабления, повысить креативность и восстановить нервную систему. Рекомендуется слушать в наушниках с закрытыми глазами.</p>
+            <div class="alpha-grid">
+                <div class="alpha-card">
+                    <div class="alpha-badge">🧠 Альфа-поток</div>
+                    <h3>Альфа-поток 1</h3>
+                    <p>Вхождение в альфа-состояние · 30 мин</p>
+                    <audio class="alpha-audio" controls preload="metadata">
+                        <source src="Альфа-поток 1.mp3" type="audio/mpeg">
+                        Ваш браузер не поддерживает аудио.
+                    </audio>
+                </div>
+                <div class="alpha-card">
+                    <div class="alpha-badge">🎵 Альфа-поток</div>
+                    <h3>Альфа поток 2</h3>
+                    <p>Углубление · 25 мин</p>
+                    <audio class="alpha-audio" controls preload="metadata">
+                        <source src="Альфа поток 2.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="alpha-card">
+                    <div class="alpha-badge">🌊 Альфа-поток</div>
+                    <h3>Альфа поток 3</h3>
+                    <p>Восстановление · 28 мин</p>
+                    <audio class="alpha-audio" controls preload="metadata">
+                        <source src="Альфа поток 3.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="alpha-card">
+                    <div class="alpha-badge">✨ Альфа-поток</div>
+                    <h3>Альфа поток 4</h3>
+                    <p>Интеграция · 32 мин</p>
+                    <audio class="alpha-audio" controls preload="metadata">
+                        <source src="Альфа поток 4.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+            <p style="margin-top: 30px; text-align: center; font-size: 0.85rem; color: #7f7f7a;">🎧 Для лучшего эффекта используйте качественные наушники и слушайте в спокойной обстановке. Не управляйте транспортными средствами во время прослушивания.</p>
+        </div>
+    </section>
+
+    <!-- ФОТО МАРИ -->
+    <section id="photo" class="gallery-section" style="background-color: #faf8f3;">
+        <div class="container">
+            <h2>Фото Мари</h2>
+            <div class="gallery-grid" id="photoGalleryGrid"></div>
+        </div>
+    </section>
+
+    <!-- МУЗЫКОВЕДЕНЬЕ -->
+    <section id="musicology" class="hero" style="padding: 60px 0; background-color: #faf8f3;">
+        <div class="container">
+            <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Музыковеденье с Марей</h2>
+            <p>Мои заметки и статьи о музыке из ВКонтакте:</p>
+            <script src="https://vk.com/js/api/openapi.js?173"></script>
+            <div id="vk_post_-235398281_417"></div><script>(function(){ VK.Widgets.Post("vk_post_-235398281_417", -235398281, 417, 'nqpJAkTFEh3d5yR59TNxMt7ijA'); })();</script>
+            <div id="vk_post_-235398281_411"></div><script>(function(){ VK.Widgets.Post("vk_post_-235398281_411", -235398281, 411, 'wbx-Wh1fktHZsQAAAa2gEdsF7g'); })();</script>
+            <a href="https://vk.com/marya_koshkina_muz" class="music-button" style="margin-top: 20px;">Все статьи в VK →</a>
+        </div>
+    </section>
+
+    <!-- АНИМАРЯ -->
+    <section id="animarya" class="gallery-section" style="background-color: #fff; padding: 60px 0;">
+        <div class="container">
+            <h2>АниМаря</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #5e5e5a;">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
+            <div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 60px;">
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip1.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 1</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip2.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 2</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip3.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 3</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip4.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 4</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip5.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 5</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip6.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 6</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip7.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 7</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+                <div class="project-card" style="text-align: center;">
+                    <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
+                        <source src="videos/clip8.mp4" type="video/mp4">
+                    </video>
+                    <h3>АниМаря</h3>
+                    <p>Клип 8</p>
+                    <a href="#" class="music-button">Смотреть →</a>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin: 40px 0 20px 0; border-left: 4px solid #b8a07c; padding-left: 20px;">✨ АниМаря Фото</h3>
+            <p style="margin-bottom: 30px; text-align: center; color: #5e5e5a;">Первые фото АниМари для сниппетов. Нажмите на любое фото, чтобы увеличить.</p>
+            <div class="gallery-grid" id="animaryaGalleryGrid"></div>
+            
+            <p style="text-align: center; margin-top: 40px;">Больше анимаций и фото в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank">ВКонтакте</a> и Telegram.</p>
+        </div>
+    </section>
+</main>
+
+<!-- ФУТЕР (с формой подписки и реальными ссылками) -->
+<footer id="contact">
+    <div class="container footer-content">
+        <div class="footer-info">
+            <p><strong>Маря Кошкина</strong></p>
+            <p>marya777koshkina@yandex.ru</p>
+            <p>+7 985 300 87 77</p>
+            <p>Москва / Россия</p>
+            <!-- Форма подписки -->
+            <div style="margin-top: 20px;">
+                <p style="font-weight: 500;">📩 Получите первый урок бесплатно</p>
+                <form class="newsletter-form" id="subscribeForm" onsubmit="return false;">
+                    <input type="email" placeholder="Ваш email" required id="subEmail">
+                    <button type="submit" id="subBtn">Подписаться</button>
+                </form>
+                <div id="subMessage" style="margin-top: 8px; font-size: 0.9rem; color: #9e5d4c;"></div>
+                <!-- Здесь можно вставить скрипт интеграции с сервисом рассылки (GetCourse, Mailchimp и т.п.) -->
+            </div>
+        </div>
+        <div class="social-links">
+            <p style="font-weight: 500;">Связаться со мной:</p>
+            <a href="https://t.me/maryakoshkina" target="_blank">Telegram</a>
+            <a href="https://instagram.com/marya_koshkina" target="_blank">Instagram</a>
+            <!-- Если есть YouTube, добавьте -->
+            <!-- <a href="https://youtube.com/..." target="_blank">YouTube</a> -->
+        </div>
+    </div>
+    <div class="container" style="margin-top: 32px; text-align: center; font-size: 0.8rem; color: #7f7f7a;">
+        © 2026 Маря Кошкина — все права защищены
+    </div>
+</footer>
+
+<!-- МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО -->
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<!-- ======= СКРИПТЫ ======= -->
 <script>
+    // ----- Мобильное меню (бургер) -----
+    const burger = document.getElementById('burgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (burger && navLinks) {
+        burger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        // Закрывать меню при клике на ссылку
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+        // Закрывать при клике вне меню
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !burger.contains(e.target)) {
+                burger.classList.remove('active');
+                navLinks.classList.remove('open');
+            }
+        });
+    }
+
+    // ----- Dropdown для мобильных -----
+    document.querySelectorAll('.dropdown .dropbtn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('open');
+            }
+        });
+    });
+
+    // ----- Кнопка "Читать далее" -----
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    const aboutMore = document.getElementById('aboutMore');
+    if (readMoreBtn && aboutMore) {
+        readMoreBtn.addEventListener('click', () => {
+            const isHidden = aboutMore.style.display === 'none';
+            aboutMore.style.display = isHidden ? 'block' : 'none';
+            readMoreBtn.textContent = isHidden ? 'Свернуть ↑' : 'Читать далее →';
+        });
+    }
+
+    // ----- Раскрытие программ в карточках проектов -----
+    document.querySelectorAll('.project-button[data-target]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const details = document.getElementById(targetId);
+            if (details) {
+                details.classList.toggle('show');
+                // Если открыли, скроллим к нему
+                if (details.classList.contains('show')) {
+                    details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+
+    // ----- Фото-галереи (модалка) -----
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.querySelector('.close-modal');
+    if (modal && modalImg) {
+        // Закрытие
+        closeModal?.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+        // Обработчики для фото Мари
+        document.querySelectorAll('#photoGalleryGrid img').forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+        // Обработчики для АниМаря фото
+        document.querySelectorAll('#animaryaGalleryGrid img').forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+    }
+
+    // ----- Форма подписки (простой демо-вариант) -----
+    const subForm = document.getElementById('subscribeForm');
+    const subEmail = document.getElementById('subEmail');
+    const subMessage = document.getElementById('subMessage');
+    if (subForm) {
+        subForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = subEmail.value.trim();
+            if (email) {
+                // Здесь можно отправить данные на ваш сервер или в сервис рассылки
+                // Например, через fetch к вашему бэкенду или через GetCourse API.
+                // Пока просто покажем сообщение:
+                subMessage.innerHTML = '✅ Спасибо! Проверьте почту – мы отправили вам первый урок.';
+                subEmail.value = '';
+                // Если хотите реально сохранять – добавьте AJAX-запрос.
+                // Пример: fetch('/subscribe', { method: 'POST', body: JSON.stringify({email}) })
+            }
+        });
+    }
+
+    // ----- Лунный календарь (оставляем как есть) -----
     (function() {
         const MOON_SETTINGS = {
             baseColor: "#FFF5E6", highlightColor: "#FFE4B5", shadowColor: "#8B7D6B",
@@ -474,692 +1225,386 @@
         updateMoon();
         setInterval(updateMoon, 3600000);
     })();
-</script>
 
-<header>
-    <div class="container header-inner">
-        <div class="logo">
-            <h1>Маря Кошкина</h1>
-            <p>музыкант · артист · художник · поэт · реставратор · прораб · эклектическая нейро-ведьма</p>
-        </div>
-        <nav>
-            <a href="#">Главная</a>
-            <a href="#musicology">Музыковеденье с Марей</a>
-            <a href="#photo">Фото Мари</a>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Программы ▼</a>
-                <div class="dropdown-content">
-                    <a href="#lab-program-link">🔹 Лаборатория внутренних опор</a>
-                    <a href="#singing-program-link">🔸 Поющие круги рефлексии</a>
-                    <a href="#muza-program-link">🔸 Проект «Муза»</a>
-                    <a href="#neuro-program-link">🧠 Нейро-дыхательные практики</a>
-                    <a href="#neuro-aid-link">🧰 Нейро-аптечка</a>
-                    <a href="#neuro-games-link">🎮 Нейробиологические упражнения</a>
-                    <a href="#tech-link">🔹 Технологии и Муза 2.0</a>
-                </div>
-            </div>
-            <a href="#alpha-music">🎧 Альфа-музыка</a>
-            <a href="#animarya">АниМаря</a>
-            <a href="#paid">💎 Платные программы</a>
-            <a href="#contact">Контакты</a>
-        </nav>
-    </div>
-</header>
-
-<main>
-<section class="hero">
-    <div class="container">
-        <h2></h2>
-        <p><strong>Реставратор душ и звуков</strong></p>
-        <p>По первому образованию и опыту я реставратор, инженер, руководитель стройки. Я возвращала к жизни старые вещи и знаю: у каждой трещины есть история, а у каждой постройки — душа.</p>
-        <p>Десять лет назад я начала главную стройку — самой себя, и моим инструментом стала музыка.</p>
-        <p>Я ушла с головой в звук и обнаружила внутри целый оркестр. Теперь я пишу стихи, смыслы, мелодии, делаю аранжировки, записываю голос, снимаю видео — и перестала бояться быть слышимой.</p>
-        
-<div id="aboutMore" style="display: none;">
-    <p>Я — мост между психологией и музыкой. Как реставратор, я знаю: из фрагментов рождается целое. Теперь я помогаю людям собирать себя — находить опоры, на которых можно устоять, и голос, которым можно петь свою жизнь свободно, осмысленно, с любовью.</p>
-    
-    <p><strong>Мои бесплатные проекты</strong> — это живые инструменты, которые я создала, пройдя этот путь сама:</p>
-    <ul style="list-style: none; padding: 0; margin: 10px 0;">
-        <li>🔸 <strong>Лаборатория внутренних опор</strong> — строим ваш «внутренний дом» бережно, слой за слоем.</li>
-        <li>🔸 <strong>Поющие круги рефлексии</strong> — песни как зеркало, в которое приятно смотреться и думать о добром.</li>
-        <li>🔸 <strong>Муза</strong> — для тех, кто попал в творческий ступор.</li>
-        <li>🔸 <strong>Нейро-дыхательные упражнения</strong> — дыхание на стыке нейронауки и музыки.</li>
-        <li>🔸 <strong>Нейро-аптечка</strong> — быстрые практики для мозга, голоса и внутренней устойчивости.</li>
-        <li>🔸 <strong>Нейробиологические упражнения</strong> — научные техники для тренировки мозга, слуха и голоса.</li>
-    </ul>
-    <p>Все эти практики — как жемчуг, который я собирала на своём пути и которым теперь делюсь с вами бесплатно.</p>
-
-    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e0d6cd;">
-
-    <p><strong>💎 А для тех, кто хочет пойти глубже, у меня есть платные программы:</strong></p>
-    <ul style="list-style: none; padding: 0; margin: 10px 0;">
-        <li>🧠 <strong>Цифровой курс «Осознанный отказ»</strong> – 7‑дневная нейро‑практика для освобождения от алкогольной тяги без силы воли.</li>
-        <li>🌿 <strong>Ретриты</strong> – выездные трансформации в Подмосковье и по РФ (женские «Шабаши», бизнес‑тимбилдинг, общие выезды).</li>
-        <li>💼 <strong>Консьерж для ТОПов</strong> – годовой абонемент «личный советник» для владельцев бизнеса и топ‑менеджеров.</li>
-    </ul>
-    <p>Подробнее о каждой программе – в разделе <a href="#paid" style="color:#b8a07c; text-decoration: underline;">«Платные программы»</a>.</p>
-
-    <p>Я — <strong>Марианна Певроиюльская</strong>. Для тех, кто знает меня через музыку — <strong>Маря Кошкина</strong>.<br>
-    Добро пожаловать в пространство, где можно звучать и быть устойчивым одновременно.</p>
-</div>
-        
-        <button id="readMoreBtn" class="music-button" style="margin-top: 20px;">Читать далее →</button>
-    </div>
-</section>
-
-<script>
-    const readMoreBtn = document.getElementById('readMoreBtn');
-    const aboutMore = document.getElementById('aboutMore');
-    if (readMoreBtn && aboutMore) {
-        readMoreBtn.addEventListener('click', () => {
-            const isHidden = aboutMore.style.display === 'none';
-            aboutMore.style.display = isHidden ? 'block' : 'none';
-            readMoreBtn.textContent = isHidden ? 'Свернуть ↑' : 'Читать далее →';
-        });
-    }
-</script>
-
-<!-- МОИ ПРОЕКТЫ (7 проектов + поддержка) -->
-<section class="projects-offer">
-    <div class="container">
-        <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Мои проекты</h2>
-        <div class="project-cards">
-
-            <!-- 1. Лаборатория внутренних опор -->
-            <div class="project-card" id="lab-program-link">
-                <h3>🔹 Лаборатория внутренних опор</h3>
-                <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы.</p>
-                <button class="project-button" data-target="lab-details">Программы →</button>
-                <div id="lab-details" class="program-details">
-                    <h4>Четыре урока устойчивости</h4>
-                    <details open><summary>🎁 Урок 1. Встреча с собой: знаю, кто я</summary>
-                        <div><p><em>«Я не то, что случилось со мной, я — то, чем я решил стать» — Карл Густав Юнг</em></p>
-                        <p><strong>Моё обращение</strong><br>Родная, этот урок — если ты устала быть удобной. Мы снимем слои чужих ожиданий и познакомимся с тобой подлинной.</p>
-                        <details><summary>📝 Тест «Персона и Тень»</summary><div><strong>Суть.</strong> Исследуй, какие качества предъявляешь миру, а какие прячешь.<br><strong>Обоснование.</strong> Юнг показал: Персона помогает адаптироваться, но чрезмерное отождествление с ней отнимает энергию. Тень управляет нами исподтишка.<br><strong>Как выполнять.</strong> Раздели лист на две колонки: «Какой меня знают другие» (10 качеств) и «Какую себя знаю только я» (те, что прячешь). Выбери одно теневое качество и безопасно прояви его на неделе.</div></details>
-                        <details><summary>🧠 Типы личности о встрече с собой</summary><div><strong>Фрейд:</strong> Разложи выбор на голоса Ид, Эго, Супер-Эго.<br><strong>Юнг:</strong> Представь Тень как персонажа и спроси, чему она хочет научить.<br><strong>Гаджиев:</strong> Понаблюдай, какое «я» сейчас активно.<br><strong>Древние греки:</strong> «Что я знаю о себе точно?»</div></details>
-                        <details><summary>✍️ Практики</summary><div><strong>Техника десяти вопросов:</strong> «Что меня сейчас волнует? Что я люблю, когда никто не смотрит?…»<br><strong>Диалог с будущей собой:</strong> Пустой стул, представь себя через 20 лет, спроси о важном, ответь от её лица.</div></details>
-                        <details><summary>🔄 EMDR/ДПДГ: «Безопасное место»</summary><div><strong>Суть.</strong> Создание внутреннего образа абсолютной безопасности. <strong>Как выполнять.</strong> Закрой глаза, вспомни безопасное место. Выполняй билатеральную стимуляцию («бабочка») 30–60 секунд, удерживая образ. Повтори 3–4 раза.</div></details>
-                        <details><summary>📜 Формула Мухоной «Целостность»</summary><div>«Я есмь та, кто я есмь. Я принимаю все свои части. Я разрешаю себе быть собой. Я — целостность. Я — достаточно». 21 день перед зеркалом.</div></details>
-                        <details><summary>🌑 Новолуние и задание из «Пути художника»</summary><div>Напиши письмо себе будущей — той, какой хочешь стать за этот месяц. Практикуй «Утренние страницы».</div></details>
-                        <p><em>Родная, ты — целый мир. Дай себе разрешение познакомиться с ним.</em></p></div>
-                    </details>
-                    <details><summary>📘 Урок 2. Тело как якорь: чувствую, значит, живу</summary>
-                        <div><p><strong>Моё обращение:</strong> Милая, если ты читаешь это с зажатыми плечами — остановись. Возвращаемся в тело, которое ждало.</p>
-                        <details><summary>📝 Тест «Телесный сканер»</summary><div><strong>Суть.</strong> Медленное сканирование тела для карты ощущений.<br><strong>Как выполнять.</strong> Ляг, закрой глаза, пройди вниманием от стоп до макушки. Отметь зоны напряжения.</div></details>
-                        <details><summary>🧠 Типы личности о теле</summary><div>Фрейд: спроси зажим, какое чувство он прячет. Юнг: опиши своё тело как ландшафт. Гаджиев: «Стоп-упражнение». Древние греки: «Куда едет моя колесница?»</div></details>
-                        <details><summary>✍️ Практики</summary><div><strong>Проприоцептивное заземление:</strong> стоя босиком, переноси вес на разные части стопы.<br><strong>Микродвижения:</strong> едва заметные движения в зоне зажима.<br><strong>Диалог с напряжением:</strong> спроси зажим, что он хочет сказать.</div></details>
-                        <details><summary>🔄 EMDR: работа с телесным триггером</summary><div>Вспомни ситуацию, вызывающую телесное напряжение, выполняй «бабочку» с образом напряжения, затем расслабления.</div></details>
-                        <details><summary>📜 Формула Мухоной «Я в теле»</summary><div>«Я здесь, в своём теле. Я чувствую опору под ногами. Каждая клетка моего тела — живая и мудрая.» 21 день.</div></details>
-                        <details><summary>🌒 Растущая Луна и задание</summary><div>Начни ежедневную 5-минутную прогулку босиком или контрастный душ.</div></details>
-                        <p><em>Твоё тело — самый верный друг. Пожалуйста, возвращайся в него почаще.</em></p></div>
-                    </details>
-                    <details><summary>🎨 Урок 3. Творчество как дыхание: создаю, значит, есть</summary>
-                        <div><p><strong>Моё обращение:</strong> Вспомни, как в детстве ты творила без оценки. Творчество — это не привилегия, это твой способ жить.</p>
-                        <details><summary>📝 Тест «Где живёт мой блок»</summary><div>Ответь письменно: «Что я хочу создать? Что останавливает меня? Чей это голос?» Нарисуй портрет своего блока.</div></details>
-                        <details><summary>🧠 Типы личности о творчестве</summary><div>Фрейд: сублимация. Юнг: активное воображение. Гаджиев: творчество из сущности. Древние греки: божественная мания и катарсис.</div></details>
-                        <details><summary>✍️ Практики</summary><div><strong>Поток сознания:</strong> 10 минут письма без остановки.<br><strong>Рисование неведущей рукой:</strong> абстракция своего состояния.<br><strong>Нейроигра «Абсурдные ассоциации»:</strong> соедини два далёких слова.</div></details>
-                        <details><summary>🔄 EMDR: переработка творческого блока</summary><div>Вспомни ситуацию, где твоё творчество обесценили. Билатеральная стимуляция с воспоминанием и позитивным образом свободного творчества.</div></details>
-                        <details><summary>📜 Формула Мухоной «Творческий поток»</summary><div>«Творчество — моя природа. Я открыта потоку идей и образов.» 21 день.</div></details>
-                        <details><summary>🌕 Полнолуние и задание</summary><div>Достань письмо из Новолуния, отметь, что проявилось. Устрой «творческий фейерверк».</div></details>
-                        <p><em>Родная, творец живёт в тебе. Просто начни.</em></p></div>
-                    </details>
-                    <details><summary>💖 Урок 4. Любовь к себе: принимаю, значит, исцеляюсь</summary>
-                        <div><p><strong>Моё обращение:</strong> Солнце моё, этот урок — самый нежный. Если ты умеешь любить других, но к себе безжалостна, — мы будем учиться любви к себе.</p>
-                        <details><summary>📝 Тест «Дом Самости»</summary><div>Нарисуй дом, в каждой комнате рассели части личности. Напиши письмо забытой части.</div></details>
-                        <details><summary>🧠 Типы личности о любви к себе</summary><div>Фрейд: здоровый остаток нарциссизма. Юнг: принятие Тени. Гаджиев: самовоспоминание. Аристотель: высшая филаутия.</div></details>
-                        <details><summary>✍️ Практики</summary><div><strong>Самосострадание через внутреннего ребёнка:</strong> письмо себе маленькой.<br><strong>Диалог с внутренним критиком:</strong> зафиксируй диалог.<br><strong>Аудио-медитация «Принятие»:</strong> запиши свой голос с текстом принятия.</div></details>
-                        <details><summary>🔄 EMDR: ресурсная инсталляция любви к себе</summary><div>Вспомни момент, когда ты чувствовала себя любимой, и билатеральной стимуляцией внедри убеждение «Я достойна любви».</div></details>
-                        <details><summary>📜 Формула Мухоной «Безусловная любовь»</summary><div>«Я — источник любви. Я принимаю себя целиком. Я достойна любви просто потому, что дышу.» 21 день.</div></details>
-                        <details><summary>🌘 Убывающая Луна и задание</summary><div>Напиши на листе всё, что хочешь отпустить, и сожги. Напиши «Письмо прощения» себе.</div></details>
-                        <p><em>Солнце моё, ты — та самая драгоценность, которую ты искала. Разреши себе любить.</em></p></div>
-                    </details>
-                    <p>📌 Все четыре урока полностью доступны на сайте. При регулярной практике они выстраивают устойчивую внутреннюю опору.</p>
-                </div>
-            </div>
-
-            <!-- 2. Поющие круги рефлексии (полное описание) -->
-            <div class="project-card" id="singing-program-link">
-                <h3>🔸 Поющие круги рефлексии</h3>
-                <p>Три направления: Голос, Танец, Слово. Выберите свой путь к себе.</p>
-                <button class="project-button" data-target="singing-details">Программы →</button>
-                <div id="singing-details" class="program-details">
-                    <h4>Три направления</h4>
-                    <details open>
-                        <summary>🎤 Направление 1. «Голос» — песни как зеркало души</summary>
-                        <div>
-                            <details><summary>📝 Тест «Голосовой портрет»</summary><div><strong>Суть.</strong> Исследуйте свой голос как живое отражение текущего состояния.<br><strong>Как выполнять.</strong> Сядьте в тишине, закройте глаза, сделайте три глубоких вдоха. Мысленно спросите: «Мой голос, что ты хочешь мне сказать?» Начните мягко гудеть «м-м-м», позволяя звуку подниматься и опускаться без контроля высоты. Продолжайте 1 минуту, записывая на диктофон. Прослушайте запись, замечая ощущения: дрожь, силу, мягкость, сдавленность. Нарисуйте образ своего голоса: цвет, форму, текстуру, символ.</div></details>
-                            <details><summary>💡 Две опоры</summary><div><strong>1. Уязвимость — суперсила голоса.</strong> Подлинная сила звучания рождается из разрешения быть слышимой в своей несовершенной, живой интонации.<br><strong>2. Пой, даже когда нет настроения.</strong> Регулярность перестраивает нейронные цепи, снижая порог входа в поток.</div></details>
-                            <details><summary>🧠 Нейробиология: хоровой резонанс и окситоцин</summary><div><strong>Суть.</strong> Присоединение к хору для выработки окситоцина.<br><strong>Как выполнять.</strong> Включите запись хорового произведения. Закройте глаза, положите руку на грудь. Подпевайте, сливаясь с общим звучанием. Представьте, что ваш голос — одна нить в тёплом полотне звука. Пойте 5 минут, затем посидите в тишине.</div></details>
-                            <details><summary>🌬️ Дыхание 4-7-8 с озвучиванием</summary><div>Вдох носом на 4 счёта, задержка на 7, выдох ртом со звуком «о-о-о» на 8. Повторить 4 раза. Затем спойте простую фразу «Я есть, я здесь, я зву-чу».</div></details>
-                            <details><summary>🎧 Нейрозадание: диалог с песней</summary><div>Выберите песню, которая сейчас резонирует. Прослушайте её один раз молча, с закрытыми глазами. Второй раз подпевайте, будто каждое слово — часть разговора с вами. После пения запишите ответ на вопрос: «Что эта песня открыла мне сегодня обо мне?»</div></details>
-                            <details><summary>🎵 Разминка: пробуждение голоса</summary><div>1. Наклоны и повороты головы, подъём и бросание плеч. 2. Постукивание пальцами по груди, горлу, лицу. 3. Гудение «м-м-м», «н-н-н», «в-в-в», переход в открытые гласные «а-а-а», «о-о-о».</div></details>
-                            <details><summary>🦁 Асана Симхасана (поза Льва)</summary><div>Сядьте на колени. Вдохните носом. С выдохом широко откройте рот, высуньте язык и издайте мощный «ха-а-а» от живота. Повторите 3–5 раз.</div></details>
-                            <details><summary>💆 Массаж шиацу: шея и горло</summary><div>Тёплыми ладонями погладьте переднюю поверхность шеи сверху вниз 7 раз. Надавите на яремную ямку на 5 секунд, отпустите. Разомните боковые мышцы шеи круговыми движениями.</div></details>
-                            <details><summary>🌀 Стихия Эфир (Акаша)</summary><div>Представьте, что ваше тело — пустой глиняный кувшин, а дыхание — ветер, проходящий сквозь него. Пойте любую ноту или мелодию, сохраняя ощущение простора внутри.</div></details>
-                            <details><summary>💧 Ритуал с водой: поющая чаша</summary><div>Налейте чистую воду в прозрачную чашу. Пропойте одну долгую ноту, направляя звук в воду. Представляйте, как вода насыщается вашим истинным звучанием. Медленно выпейте воду.</div></details>
-                            <details><summary>🧵 Наузы: узел Певчего</summary><div>Завяжите на синей или серебристой нити 7 узелков с фразами: «Мой голос свободен», «Я пою от души», «Моё пение — это свет», «Я достойна быть услышанной», «Музыка течёт сквозь меня», «Каждая песня — мой дар», «Я есмь звук».</div></details>
-                            <details><summary>⚗️ Алхимия: звуковая трансмутация</summary><div>Спойте песню трижды: первый раз проживая тяжёлую эмоцию; второй раз отпуская; третий раз наполняя светом и благодарностью.</div></details>
-                            <details><summary>🪬 Амулет: Сигил Орфея</summary><div>Нарисуйте абстрактный символ своего свободного голоса. Пропойте над ним долгий звук, заряжая энергией. Храните как напоминание.</div></details>
-                            <details><summary>👁️ EMDR: освобождение от страха петь</summary><div>Вспомните ситуацию, где ваш голос критиковали. Выполняйте билатеральную стимуляцию («бабочка») 30 секунд с неприятным воспоминанием, затем 30 секунд с образом свободного пения. Повторяйте, пока дискомфорт не снизится.</div></details>
-                            <details><summary>📜 Формула Мухоной «Формула Голоса»</summary><div>«Мой голос — это моя сила. Я выражаю себя легко и свободно. Каждый звук, который я издаю, наполнен светом и любовью. Я достойна быть услышанной, я достойна петь свою песню миру.» Повторяйте 21 день перед зеркалом.</div></details>
-                            <details><summary>📖 Типы личности и пение</summary><div>Фрейд: сублимация. Юнг: архетипы. Гаджиев: самовоспоминание. Древние греки: катарсис.</div></details>
-                            <details><summary>✨ 5 практик рефлексивного пения</summary><div>1. Пение вопроса. 2. Дневник песен. 3. Парное эхо. 4. Пение стихий. 5. Тишина после пения.</div></details>
-                            <details><summary>💬 Аффирмации</summary><div>«Мой голос — это свет, которым я делюсь с миром». «Я пою свободно и радостно, без страха и осуждения». «Каждая песня, спетая мной, исцеляет меня и других». «Я имею право звучать — несовершенно, но искренне».</div></details>
-                            <details><summary>🌙 Астрологический гид</summary><div><strong>Дни недели:</strong> понедельник – глубокие песни; среда – импровизация; пятница – чувственная лирика; воскресенье – гимны.<br><strong>Фазы Луны:</strong> новолуние – тихое пение-намерение; растущая – разучивание; полнолуние – публичные выступления; убывающая – отпускание через пение.</div></details>
-                            <details><summary>🎲 Нейроигры для голоса и слуха</summary><div>1. Зеркальный звук. 2. Эмпатическая песня. 3. Звуковой сюрприз. 4. Аудиопейзаж. 5. Диалог голосов.</div></details>
-                            <details><summary>📝 Две практики</summary><div>1. Правило одного дубля (записывать пение с одной попытки). 2. Пой как говоришь (приближать мелодию к речевой интонации).</div></details>
-                            <details><summary>🎉 Творческое свидание с музыкой</summary><div>Раз в неделю час наедине с музыкой: концерт, альбом, тишина с микрофоном.</div></details>
-                            <details><summary>❤️ Мои слова</summary><div>Родная, твой голос — это не просто звук. Это отпечаток твоей души. Не важно, «правильно» ли ты поёшь. Важно, что твоё сердце хочет звучать. Приходи, споём вместе о самом светлом.</div></details>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>💃 Направление 2. «Танец» — движение как молитва</summary>
-                        <div>
-                            <details><summary>📝 Тест «Диалог с телом через движение»</summary><div>Включите спокойную инструментальную музыку. Закройте глаза и медленно пройдитесь, прислушиваясь, какая часть тела хочет двигаться первой. Позвольте этой части начать спонтанное движение и постепенно позвольте ему разрастись на всё тело. Двигайтесь без плана 3–5 минут. Затем остановитесь и запишите ответы: «Какое чувство жило в этом движении?», «О чём тело хотело рассказать?».</div></details>
-                            <details><summary>💡 Две опоры</summary><div><strong>Тело помнит путь к радости – дайте ему двигаться.</strong> Эмоции — это не только психические, но и физические события. Ритмичное движение активирует выработку эндорфинов и дофамина, снижая уровень кортизола.<br><strong>Спонтанность — навык аутентичности.</strong> Танец без хореографии учит доверять себе в моменте.</div></details>
-                            <details><summary>🧠 Нейробиология: танец и миндалина</summary><div>Интенсивная тряска и прыжки снижают активность центра страха и повышают эндорфины. Включите ритмичную музыку, тряситесь, прыгайте, машите руками 3 минуты, затем замрите.</div></details>
-                            <details><summary>🌬️ Нейрофизиология: танец и мозжечок</summary><div>Встаньте на одну ногу, медленно двигайте свободной ногой и руками, меняйте направления. Через 1–2 минуты смените ногу.</div></details>
-                            <details><summary>🎵 Разминка: пробуждение суставов</summary><div>Круговые движения суставами, «волна» позвоночником, тряска.</div></details>
-                            <details><summary>🦁 Асана: Уткатасана (поза Стула) с потоком рук</summary><div>Согните колени, как на стул, совершайте плавные движения руками.</div></details>
-                            <details><summary>💆 Массаж шиацу: поясница и крестец</summary><div>Круговое массирование, надавливание на точки.</div></details>
-                            <details><summary>🌀 Метафора: танец как поток реки</summary><div>Представьте руки водой, позвольте им течь.</div></details>
-                            <details><summary>💧 Ритуал с водой: смывание статики</summary><div>После танца встаньте под душ, представляя, как вода смывает чужую энергию.</div></details>
-                            <details><summary>🧵 Наузы: узел Танцора</summary><div>Оранжевая нить, 5 узелков с намерениями свободы движения.</div></details>
-                            <details><summary>⚗️ Алхимия: кинетическая трансмутация</summary><div>Танцуйте «тяжёлую» эмоцию до облегчения.</div></details>
-                            <details><summary>🪬 Амулет: подвеска «Спираль»</summary><div>Создайте спираль – символ движения и развития.</div></details>
-                            <details><summary>👁️ EMDR: переработка телесного запрета</summary><div>Вспомните, когда вас стыдили за танец, и переработайте билатеральной стимуляцией.</div></details>
-                            <details><summary>📜 Формула Мухоной «Свободное Движение»</summary><div>«Моё тело — источник мудрости и радости. Я позволяю себе двигаться легко и свободно.» 21 день.</div></details>
-                            <details><summary>✨ 5 практик танцевальной рефлексии</summary><div>Танец эмоции, парный танец с тенью, танец стихий, дневник движения, тихий танец.</div></details>
-                            <details><summary>💬 Аффирмации</summary><div>«Моё тело создано для радости движения», «Я танцую свою уникальную жизнь».</div></details>
-                            <details><summary>🌙 Астрологический гид</summary><div>Вторник – энергичные танцы, пятница – чувственные, суббота – медленная медитация. Фазы Луны: новолуние – внутренний танец-намерение, растущая – расширение, полнолуние – экстатический танец, убывающая – плавное отпускание.</div></details>
-                            <details><summary>🎲 Нейроигры для движения</summary><div>Зеркало, стоп-кадр, скульптор и глина, танцевальный алфавит, эмпатический танец.</div></details>
-                            <details><summary>📝 Две практики</summary><div>Движение без музыки, танец благодарности телу.</div></details>
-                            <details><summary>🎉 Творческое свидание с движением</summary><div>Прогулка с прыжками, кружением, замираниями.</div></details>
-                            <details><summary>❤️ Мои слова</summary><div>Милая, твоё тело помнит, как быть свободной. Разреши ему двигаться для радости.</div></details>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>✍️ Направление 3. «Слово» — письменная рефлексия</summary>
-                        <div>
-                            <details><summary>📝 Тест «Моя жизненная линия»</summary><div>Нарисуйте горизонтальную линию от рождения до сегодняшнего дня. Отметьте 5–7 ключевых событий. Выберите одно болезненное событие, напишите о нём, начиная с фразы «Тогда я не знала, что…» и заканчивая «Теперь я понимаю…».</div></details>
-                            <details><summary>💡 Две опоры</summary><div><strong>История, которую вы рассказываете себе, определяет реальность.</strong> Письменная рефлексия даёт возможность переписать внутренний сценарий.<br><strong>Уязвимость на бумаге – первый шаг к подлинности.</strong> Писать правду, даже если её никто не прочитает, – значит дать себе разрешение быть несовершенной.</div></details>
-                            <details><summary>🧠 Нейробиология: сторителлинг и зеркальные нейроны</summary><div>Напишите о себе от третьего лица, создавая дистанцию. Это снижает эмоциональный заряд и включает самосострадание.</div></details>
-                            <details><summary>🌬️ Нейрофизиология: почерк и ретикулярная формация</summary><div>Перепишите беспокоящую мысль от руки 3 раза, меняя формулировку в сторону ресурсной.</div></details>
-                            <details><summary>🎧 Нейрозадание: письмо из будущего</summary><div>Напишите письмо себе нынешней от лица себя через 10 лет – мудрой, спокойной, любящей.</div></details>
-                            <details><summary>🎵 Разминка: пальчиковая гимнастика</summary><div>Тряска кистями, сжатие-разжатие, круговые движения запястьями, самомассаж пальцев.</div></details>
-                            <details><summary>🦁 Асана: Баддха Конасана (поза Бабочки)</summary><div>Сидя, соедините стопы, покачивайте коленями.</div></details>
-                            <details><summary>💆 Массаж шиацу: височная область и скальп</summary><div>Надавливание на виски, массаж кожи головы, лёгкое потягивание волос.</div></details>
-                            <details><summary>🌀 Метафора: письмо как раскопки</summary><div>Описывайте воспоминание через сенсорные детали (запахи, звуки, цвета).</div></details>
-                            <details><summary>💧 Ритуал с водой: растворение чернил</summary><div>Напишите слово-символ того, от чего хотите освободиться, опустите бумагу в воду.</div></details>
-                            <details><summary>🧵 Наузы: узел Писателя</summary><div>Голубая нить, 7 узелков: «Слова текут легко», «Я пишу правду», «Мой голос важен», «Бумага — мой друг», «Критик молчит», «Я доверяю процессу», «Письмо исцеляет».</div></details>
-                            <details><summary>⚗️ Алхимия: трансформация через нарратив</summary><div>Перепишите старую историю с новым, ресурсным финалом.</div></details>
-                            <details><summary>🪬 Амулет: глиняная табличка со словом-талисманом</summary><div>Выдавите на глине ресурсное слово года.</div></details>
-                            <details><summary>👁️ EMDR: переработка травматичного текста</summary><div>Выберите фразу-триггер, выполняйте «бабочку» с ней и с позитивной заменой.</div></details>
-                            <details><summary>📜 Формула Мухоной «Свободное Перо»</summary><div>«Слова — мои союзники. Я пишу легко и свободно, без страха и оценки.» 21 день.</div></details>
-                            <details><summary>✨ 5 практик письменной рефлексии</summary><div>Поток сознания, письмо прощения, диалог с критиком, письмо благодарности себе, метафорический дневник.</div></details>
-                            <details><summary>💬 Аффирмации</summary><div>«Мои слова обладают силой исцеления», «Я пишу свободно, и мой голос крепнет».</div></details>
-                            <details><summary>🌙 Астрологический гид</summary><div>Среда – лёгкость формулировок, четверг – масштабные тексты, понедельник – эмоциональные дневники. Фазы Луны: новолуние – намерения, растущая – черновики, полнолуние – завершение глав, убывающая – редактирование.</div></details>
-                            <details><summary>🎲 Нейроигры для письма</summary><div>Письмо неведущей рукой, словарная мозаика, эмпатический рерайт, пятиминутный рассказ, зеркальное письмо.</div></details>
-                            <details><summary>📝 Две практики</summary><div>Одно предложение в день, письмо страху и ответ от страха.</div></details>
-                            <details><summary>🎉 Творческое свидание с письмом</summary><div>Час наедине с блокнотом в уютном месте.</div></details>
-                            <details><summary>❤️ Мои слова</summary><div>Родная, твои слова — след души на бумаге. Дай себе право быть услышанной хотя бы самой собой.</div></details>
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- 3. Проект «Муза» -->
-            <div class="project-card" id="muza-program-link">
-                <h3>🔸 Проект «Муза» — нейро-поэтический коучинг</h3>
-                <p>Для тех, кто попал в творческий ступор. Учу находить музу в любой момент.</p>
-                <button class="project-button" data-target="muza-details">Муза 1.0 →</button>
-                <div id="muza-details" class="program-details">
-                    <h4>10 практик для вдохновения</h4>
-                    <details><summary>1. Утренние страницы</summary><div><strong>Суть.</strong> Сразу после пробуждения три страницы потока сознания.<br><strong>Почему это работает.</strong> Очищает канал, снижает активность DMN.<br><strong>Как выполнять.</strong> Пиши без остановки, не перечитывай.</div></details>
-                    <details><summary>2. Дофаминовое голодание наоборот</summary><div>1–2 часа только создавать, не потребляя контент. Мозг начинает генерировать идеи изнутри.</div></details>
-                    <details><summary>3. Правило трёх</summary><div>Каждый день три маленьких творческих действия. Маленький объём обманывает страх.</div></details>
-                    <details><summary>4. Техника десяти вопросов</summary><div>Десять вопросов от поверхности к глубине. Активирует поисковый режим.</div></details>
-                    <details><summary>5. Диалог с будущей собой</summary><div>Разговор с собой через 20 лет. Активирует дофаминовую систему мотивации.</div></details>
-                    <details><summary>6. Билатеральная стимуляция для разблокировки идей</summary><div>Попеременное постукивание с вопросом. Помогает обойти ментальные блоки.</div></details>
-                    <details><summary>7. Скука как топливо</summary><div>20 минут ничегонеделания в день. Активирует DMN для инсайтов.</div></details>
-                    <details><summary>8. Телесный якорь вдохновения</summary><div>Выбери жест, свяжи его с состоянием потока. Мозг будет вызывать вдохновение по жесту.</div></details>
-                    <details><summary>9. Ассоциативные карты через музыку</summary><div>Слушай незнакомый инструментал, записывай образы. Обходит вербальный контроль.</div></details>
-                    <details><summary>10. Письмо от Музы</summary><div>Напиши письмо от лица своей музы. Обнажает бессознательные блоки.</div></details>
-                    <h4>🧠 5 психологических приёмов для себя</h4>
-                    <details><summary>1. Переименование критика</summary><div>Дай критику смешное имя, отдели его от себя.</div></details>
-                    <details><summary>2. Правило 5 секунд</summary><div>Считай 5-4-3-2-1 и начинай действовать.</div></details>
-                    <details><summary>3. Эффект прогресса</summary><div>Отмечай каждый маленький шаг.</div></details>
-                    <details><summary>4. Мантра достаточности</summary><div>«Это не должно быть идеально. Это должно быть.»</div></details>
-                    <details><summary>5. Дыхание 4-7-8 перед творческим актом</summary><div>Вдох 4, задержка 7, выдох 8, повторить 4 раза. Снижает кортизол.</div></details>
-                    <h4>💫 10 эффективных аффирмаций</h4>
-                    <ul><li>«Творчество — моя природа, и я разрешаю ему течь легко и свободно.»</li><li>«Моя муза живёт внутри меня, и я слышу её голос всё яснее.»</li><li>«Я достойна создавать прекрасное — не для оценки, а по праву рождения.»</li><li>«Чем больше я творю, тем больше вдохновения приходит.»</li><li>«Я отпускаю страх ошибки и позволяю себе быть несовершенной.»</li><li>«Мои идеи ценны, и я доверяю своему творческому порыву.»</li><li>«С каждым днём я всё легче вхожу в состояние потока.»</li><li>«Я — проводник вдохновения, и мир щедро делится со мной образами.»</li><li>«Моё творчество приносит свет мне и другим, даже когда мне кажется иначе.»</li><li>«Я выбираю творить из любопытства и радости, а не из страха.»</li></ul>
-                    <h4>🌸 Массаж лица: пробуждение чувств и творческого начала</h4>
-                    <details><summary>Разогрев, лоб, глаза, скулы, челюсть, завершение</summary><div><strong>Разогрев:</strong> поглаживание от центра лба к вискам, от носа к ушам.<br><strong>Лоб:</strong> надавливание на точку третьего глаза.<br><strong>Глаза:</strong> нежное массирование век и висков.<br><strong>Скулы и щёки:</strong> надавливание под скуловыми костями.<br><strong>Челюсть:</strong> расслабление жевательных мышц.<br><strong>Завершение:</strong> тепло ладоней на лице.</div></details>
-                    <h4>🌙 Астрологический гид</h4>
-                    <details><summary>Дни недели и фазы Луны</summary><div><strong>Дни:</strong> понедельник – поэзия, среда – писательство, пятница – искусство, воскресенье – выступления.<br><strong>Фазы Луны:</strong> новолуние – намерения, растущая – развитие, полнолуние – кульминация, убывающая – завершение и отпускание.</div></details>
-                    <h4>🎲 5 нейроигр для воображения</h4>
-                    <details><summary>1. Образный перевод</summary><div>Событие дня переведи в метафору или сказку. Развивает правое полушарие.</div></details>
-                    <details><summary>2. Эмпатическое зеркало</summary><div>Представь внутренний мир незнакомца, напиши монолог. Тренирует эмпатию.</div></details>
-                    <details><summary>3. Абсурдные ассоциации</summary><div>Соедини два далёких слова 5–7 неожиданными связями. Разрывает шаблоны.</div></details>
-                    <details><summary>4. Звуковой пейзаж</summary><div>Слушай звуки вокруг как музыку, опиши или нарисуй. Обостряет восприятие.</div></details>
-                    <details><summary>5. Кубик историй</summary><div>За минуту сочини историю по трём случайным элементам. Тренирует вербальную беглость.</div></details>
-                    <p>📌 «Муза» — это не ожидание, а тренировка. Все материалы полностью доступны на сайте.</p>
-                </div>
-            </div>
-
-            <!-- 4. Нейро-дыхательные практики -->
-            <div class="project-card" id="neuro-program-link">
-                <h3>🧠 Нейро-дыхательные практики</h3>
-                <p>Простые 2–5‑минутные упражнения для снятия тревоги, заземления и активации голоса.</p>
-                <div style="margin-top: 16px;">
-                    <details><summary>💨 1. Физиологический вздох</summary><div><strong>Суть.</strong> Двойной вдох носом и долгий медленный выдох ртом.<br><strong>Почему это работает.</strong> В лёгких есть миллионы микроскопических альвеол, которые при стрессе спадаются. Двойной вдох заставляет их раскрыться, а долгий выдох активирует блуждающий нерв.<br><strong>Как выполнять.</strong> Вдох носом, затем короткий довдох, медленный выдох ртом (длиннее вдохов). Повторить 3–5 раз.</div></details>
-                    <details><summary>🌬️ 2. Опора на выдох</summary><div><strong>Суть.</strong> Удлинённый выдох со звуком «ф-ф-ф».<br><strong>Как выполнять.</strong> Рука на животе, вдох носом, выдох со звуком «ф-ф-ф-ф». 5 выдохов.</div></details>
-                    <details><summary>🎵 3. Пение как нейрохакинг</summary><div><strong>Суть.</strong> Гудение и пение гласных для стимуляции блуждающего нерва.<br><strong>Как выполнять.</strong> Гудеть «м-м-м-м-м», затем «а-а-а-а-а». 3–4 раза.</div></details>
-                    <details><summary>❓ 4. Вопрос к себе</summary><div><strong>Суть.</strong> Рефлексивный вопрос после успокаивающего дыхания.<br><strong>Как выполнять.</strong> «Если бы я точно знал(а), что со мной всё в порядке, как бы я звучал(а)?»</div></details>
-                    <details><summary>⬜ 5. Квадратное дыхание с пением</summary><div><strong>Суть.</strong> Равные доли вдоха, задержки, выдоха со звуком и задержки.<br><strong>Как выполнять.</strong> 4 счёта вдох, 4 задержка, 4 выдох со звуком «о-о-о», 4 задержка. Повторить 4 раза, на пятый круг спеть ресурсную фразу.</div></details>
-                </div>
-            </div>
-
-            <!-- 5. Нейро-аптечка -->
-            <div class="project-card" id="neuro-aid-link">
-                <h3>🧰 Нейро-аптечка: 10 быстрых практик</h3>
-                <p>10 упражнений для сброса тревоги, заземления, активации блуждающего нерва.</p>
-                <div style="margin-top: 16px;">
-                    <details><summary>💧 1. Холодная вода на запястья и лицо</summary><div><strong>Суть.</strong> Нырятельный рефлекс млекопитающих.<br><strong>Как выполнять.</strong> Запястья под холодной водой 15–20 сек, умыть лицо 3–5 раз.</div></details>
-                    <details><summary>🦋 2. Тряска всем телом</summary><div><strong>Суть.</strong> Сброс адреналина после стресса.<br><strong>Как выполнять.</strong> Трясти кистями, локтями, плечами, подпрыгивать 1–2 мин, затем замереть.</div></details>
-                    <details><summary>👁️ 3. Боковое (панорамное) зрение</summary><div><strong>Суть.</strong> Расширение поля зрения для снижения тревоги.<br><strong>Как выполнять.</strong> Расслабленный взгляд, воспринимать периферию 3–5 мин.</div></details>
-                    <details><summary>🤗 4. Надавливание на грудную клетку</summary><div><strong>Суть.</strong> Самообъятие для выработки окситоцина.<br><strong>Как выполнять.</strong> Руки скрестить на груди, мягко надавить, постукивать 2–3 мин.</div></details>
-                    <details><summary>🌅 5. Прямой взгляд на горизонт</summary><div><strong>Суть.</strong> Ориентация в пространстве успокаивает миндалевидное тело.<br><strong>Как выполнять.</strong> Смотреть вдаль, дышать 5–7 раз (вдох 6–8 сек, выдох 6–8 сек).</div></details>
-                    <details><summary>🦶 6. Медленный подъём на носки</summary><div><strong>Суть.</strong> Заземление через стопы.<br><strong>Как выполнять.</strong> Медленно подниматься на носки на вдохе, опускаться на выдохе. 8–10 раз.</div></details>
-                    <details><summary>👂 7. Самомассаж ушей</summary><div><strong>Суть.</strong> Стимуляция блуждающего нерва через ушную раковину.<br><strong>Как выполнять.</strong> Потянуть мочки, размять уши, накрыть ладонями на 30 сек.</div></details>
-                    <details><summary>🏔️ 8. Поза «Гора»</summary><div><strong>Суть.</strong> Ощущение устойчивости и присутствия.<br><strong>Как выполнять.</strong> Стоять ровно, вес на стопах, 2–3 минуты.</div></details>
-                    <details><summary>🥁 9. Ритмичное постукивание по телу</summary><div><strong>Суть.</strong> Пробуждение тела и переключение внимания.<br><strong>Как выполнять.</strong> Постукивать кулаками по груди, животу, бёдрам 1–2 мин.</div></details>
-                    <details><summary>🕯️ 10. Дыхание через сжатые губы</summary><div><strong>Суть.</strong> Удлинённый выдох для активации парасимпатики.<br><strong>Как выполнять.</strong> Вдох 4, выдох через сжатые губы на 8–12. 5–7 раз.</div></details>
-                </div>
-            </div>
-
-            <!-- 6. Нейробиологические упражнения -->
-            <div class="project-card" id="neuro-games-link">
-                <h3>🎮 Нейробиологические упражнения</h3>
-                <p>5 нейроигр для развития голоса и слуха.</p>
-                <div style="margin-top: 16px;">
-                    <details><summary>🎤 1. Зеркальный звук</summary><div><strong>Суть.</strong> Пение вместе с записью, затем выключение звука и продолжение а капелла.<br><strong>Почему это работает.</strong> Тренирует аудиомоторную петлю и внутренний слуховой образ.<br><strong>Как выполнять.</strong> Включи песню, пой с исполнителем, на паузе продолжай, затем проверь попадание.</div></details>
-                    <details><summary>🧘 2. Гудение в разные части тела</summary><div><strong>Суть.</strong> Гудеть, перемещая внимание на вибрацию в теле.<br><strong>Почему это работает.</strong> Стимулирует блуждающий нерв и улучшает интероцепцию.<br><strong>Как выполнять.</strong> Гудеть «м-м-м», направляя вибрацию в разные зоны – губы, грудь, живот, ноги.</div></details>
-                    <details><summary>🥄 3. Ритмический диалог</summary><div><strong>Суть.</strong> Повторение и добавление ритмических рисунков.<br><strong>Как выполнять.</strong> Отстучать ритм, партнёр повторяет и добавляет свой. Чередовать, усложняя.</div></details>
-                    <details><summary>🎧 4. Пение с помехой</summary><div><strong>Суть.</strong> Петь под песню при включённом шуме.<br><strong>Как выполнять.</strong> Включи белый шум, пой вместе с песней, постепенно увеличивай громкость шума.</div></details>
-                    <details><summary>🎭 5. Эмоциональный вокал</summary><div><strong>Суть.</strong> Петь фразу с разными эмоциями.<br><strong>Как выполнять.</strong> Пропой фразу нейтрально, затем с радостью, грустью, гневом, нежностью. Запиши и сравни.</div></details>
-                </div>
-            </div>
-
-            <!-- 7. Технологии и Муза 2.0 (с ссылкой на отдельную страницу) -->
-            <div class="project-card" id="tech-link">
-                <h3>🔹 Технологии и Муза 2.0</h3>
-                <p>Продвинутый уровень работы со звуком, нейроинтерфейсами и творческим программированием. Для тех, кто хочет соединить музыку, технологии и глубокую рефлексию.</p>
-                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                    <button class="project-button" data-target="tech-details">Кратко →</button>
-                    <a href="technologies.html" class="project-button" target="_blank" style="background: linear-gradient(135deg, #6a8e6a, #4a6e4a);">🔬 Полная версия (Технологии) →</a>
-                </div>
-                <div id="tech-details" class="program-details">
-                    <h4>Что входит в модуль «Технологии и Муза 2.0» (кратко)</h4>
-                    <details><summary>🎛️ Звуковой дизайн и цифровая обработка</summary><div>Основы работы в DAW, сэмплирование, создание собственных пресетов, пространственная обработка голоса.</div></details>
-                    <details><summary>🧠 Нейроинтерфейсы для творчества</summary><div>Использование доступных нейрогарнитур (Muse, NeuroMSC) для визуализации состояния потока и управления звуком через биосигналы.</div></details>
-                    <details><summary>🎹 Алгоритмическая композиция и генеративная музыка</summary><div>Создание музыки, которая меняется сама в зависимости от времени суток, пульса, дыхания или случайных алгоритмов.</div></details>
-                    <details><summary>📊 Рефлексия через данные</summary><div>Анализ творческого процесса с помощью трекеров настроения, дневников звука, визуализация прогресса.</div></details>
-                    <p style="margin-top: 12px;">✨ Полное описание с инженерной документацией, бюджетом и планами развития — на отдельной странице <a href="technologies.html" target="_blank">«Технологии»</a>.</p>
-                </div>
-            </div>
-
-            <!-- Поддержка -->
-            <div class="project-card" style="text-align: center;">
-                <h3>📱 Поддержать проект</h3>
-                <p>Если вам полезны эти практики, вы можете поддержать меня переводом по СБП.</p>
-                <img src="https://quickchart.io/qr?text=https%3A%2F%2Fc2c.cbrpay.ru%2FBS1I006L0ELMFR2A94NRDOP5G97BV5NL&size=150&margin=0&ecLevel=L" alt="QR-код" style="width: 150px; height: 150px; margin: 0 auto; display: block; border-radius: 16px;">
-                <p style="margin-top: 16px;"><a href="https://c2c.cbrpay.ru/BS1I006L0ELMFR2A94NRDOP5G97BV5NL" target="_blank" style="color:#b8a07c;">c2c.cbrpay.ru/...</a></p>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!-- НОВЫЙ РАЗДЕЛ: ПЛАТНЫЕ ПРОГРАММЫ -->
-<section id="paid" class="projects-offer" style="background-color: #f8f4f0; padding: 40px 0 60px;">
-    <div class="container">
-        <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">💎 Платные программы</h2>
-        <p style="color: #5e5e5a; max-width: 700px; margin-bottom: 30px;">Хотите пойти глубже? Вот мои авторские продукты — выберите свой уровень погружения.</p>
-
-        <div class="project-cards">
-            <!-- 1. Курс "Осознанный отказ" – ссылка исправлена -->
-            <div class="project-card">
-                <h3>🧠 Цифровой курс «Осознанный отказ»</h3>
-                <p><strong>7‑дневная нейро‑практика</strong> для освобождения от алкогольной тяги без силы воли. Внутри: аудио‑треки (Ableton), дыхательные техники, нейро‑упражнения и авторская методика замещения ритуала.</p>
-                <ul style="font-size: 0.9rem; color: #4a4a46; margin: 10px 0; padding-left: 20px;">
-                    <li>✅ 7 модулей с видео и аудио</li>
-                    <li>✅ Ежедневные практики по 15–20 мин</li>
-                    <li>✅ Чат поддержки в Telegram</li>
-                </ul>
-                <!-- ССЫЛКА ТЕПЕРЬ ВЕДЁТ НА course.html -->
-                <a href="course.html" class="project-button" style="display: inline-block; text-decoration: none; text-align: center; align-self: flex-start;">Узнать программу →</a>
-                <p style="font-size: 0.8rem; color: #999; margin-top: 8px;">Цена и детали на странице заказа</p>
-            </div>
-
-            <!-- 2. Ретриты (ссылка пока #, замените позже) -->
-            <div class="project-card">
-                <h3>🌿 Ретриты (выездные)</h3>
-                <p><strong>Живые трансформационные программы</strong> в Подмосковье и по РФ. Форматы:</p>
-                <ul style="font-size: 0.9rem; color: #4a4a46; margin: 10px 0; padding-left: 20px;">
-                    <li>👩 Женские «Шабаши» (глубинная психология + пение + тело)</li>
-                    <li>🏢 Бизнес‑тимбилдинг (переговоры + нейро‑снятие стресса)</li>
-                    <li>🔥 Общие ретриты (музыка, природа, трансформация)</li>
-                </ul>
-                <a href="#" class="project-button" style="display: inline-block; text-decoration: none; text-align: center; align-self: flex-start;">Выбрать даты →</a>
-                <p style="font-size: 0.8rem; color: #999; margin-top: 8px;">Ближайший выезд – май 2026</p>
-            </div>
-
-            <!-- 3. Консьерж для ТОПов (ссылка пока #) -->
-            <div class="project-card">
-                <h3>💼 Консьерж для ТОПов</h3>
-                <p><strong>Годовой абонемент «Личный советник»</strong> – я решаю ваши бизнес‑задачи и вашу «голову» в одном флаконе. Для владельцев бизнеса и топ‑менеджеров.</p>
-                <ul style="font-size: 0.9rem; color: #4a4a46; margin: 10px 0; padding-left: 20px;">
-                    <li>✅ Еженедельные стратегические сессии</li>
-                    <li>✅ Помощь в переговорах и кадровых вопросах</li>
-                    <li>✅ Нейро‑практики для устойчивости</li>
-                </ul>
-                <a href="#" class="project-button" style="display: inline-block; text-decoration: none; text-align: center; align-self: flex-start;">Запросить условия →</a>
-                <p style="font-size: 0.8rem; color: #999; margin-top: 8px;">Индивидуальный подход</p>
-            </div>
-        </div>
-        <p style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #6a6a66;">
-            ⚡ Все программы – авторские, с опорой на нейрофизиологию, музыку и мой 10‑летний опыт управления и психологии.
-        </p>
-    </div>
-</section>
-
-<!-- Мои треки -->
-<section id="gallery" class="gallery-section">
-    <div class="container">
-        <h2>Мои треки</h2>
-        <div class="music-grid">
-            <div class="music-card">
-                <img src="images/temnie_zvezdi_img.jpg" alt="Маря Кошкина" class="music-cover">
-                <h3>Маря Кошкина</h3>
-                <p>Все мои проекты и соцсети в одном месте</p>
-                <a href="https://band.link/marya_koshkina" class="music-button" target="_blank">Слушать →</a>
-            </div>
-            <div class="music-card">
-                <img src="images/temnie_zvezdi_img.jpg" alt="Тёмные звёзды" class="music-cover">
-                <h3>Тёмные звёзды</h3>
-                <p>Новый сингл 2025</p>
-                <a href="https://band.link/tyomniye_zvyzdy" class="music-button" target="_blank">Слушать →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Альфа-музыка -->
-<section id="alpha-music" class="gallery-section" style="background-color: #ffffff;">
-    <div class="container">
-        <h2>🎧 Альфа-музыка — Глубокая нейро-энтрейнерная стимуляция</h2>
-        <p style="margin-bottom: 30px; color: #5e5e5a; max-width: 800px;">Специальные аудиотреки для синхронизации с альфа-ритмом мозга. Помогают быстро войти в состояние глубокого расслабления, повысить креативность и восстановить нервную систему. Рекомендуется слушать в наушниках с закрытыми глазами.</p>
-        <div class="alpha-grid">
-            <div class="alpha-card">
-                <div class="alpha-badge">🧠 Альфа-поток</div>
-                <h3>Альфа-поток 1</h3>
-                <p>Вхождение в альфа-состояние · 30 мин</p>
-                <audio class="alpha-audio" controls preload="metadata">
-                    <source src="Альфа-поток 1.mp3" type="audio/mpeg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-            <div class="alpha-card">
-                <div class="alpha-badge">🎵 Альфа-поток</div>
-                <h3>Альфа поток 2</h3>
-                <p>Углубление · 25 мин</p>
-                <audio class="alpha-audio" controls preload="metadata">
-                    <source src="Альфа поток 2.mp3" type="audio/mpeg">
-                </audio>
-            </div>
-            <div class="alpha-card">
-                <div class="alpha-badge">🌊 Альфа-поток</div>
-                <h3>Альфа поток 3</h3>
-                <p>Восстановление · 28 мин</p>
-                <audio class="alpha-audio" controls preload="metadata">
-                    <source src="Альфа поток 3.mp3" type="audio/mpeg">
-                </audio>
-            </div>
-            <div class="alpha-card">
-                <div class="alpha-badge">✨ Альфа-поток</div>
-                <h3>Альфа поток 4</h3>
-                <p>Интеграция · 32 мин</p>
-                <audio class="alpha-audio" controls preload="metadata">
-                    <source src="Альфа поток 4.mp3" type="audio/mpeg">
-                </audio>
-            </div>
-        </div>
-        <p style="margin-top: 30px; text-align: center; font-size: 0.85rem; color: #7f7f7a;">🎧 Для лучшего эффекта используйте качественные наушники и слушайте в спокойной обстановке. Не управляйте транспортными средствами во время прослушивания.</p>
-    </div>
-</section>
-
-<!-- Фото Мари -->
-<section id="photo" class="gallery-section" style="background-color: #faf8f3;">
-    <div class="container">
-        <h2>Фото Мари</h2>
-        <div class="gallery-grid" id="photoGalleryGrid"></div>
-    </div>
-</section>
-
-<script>
-    (function() {
-        const photoNames = ['mari1.jpg', 'mari2.jpg', 'mari3.jpg', 'mari4.jpg', 'mari5.jpg', 'mari6.jpg'];
-        const galleryContainer = document.getElementById('photoGalleryGrid');
-        if (!galleryContainer) return;
-        galleryContainer.innerHTML = '';
-        photoNames.forEach(photo => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.innerHTML = `<img src="foto_mari/${photo}" alt="Фото Мари" loading="lazy">`;
-            item.querySelector('img').addEventListener('click', (e) => {
-                e.stopPropagation();
-                const modal = document.getElementById('imageModal');
-                const modalImg = document.getElementById('modalImg');
-                if (modal && modalImg) {
-                    modal.style.display = 'flex';
-                    modalImg.src = `foto_mari/${photo}`;
-                    modalImg.alt = 'Фото Мари';
-                }
-            });
-            galleryContainer.appendChild(item);
-        });
-    })();
-</script>
-
-<!-- Музыковеденье -->
-<section id="musicology" class="hero" style="padding: 60px 0; background-color: #faf8f3;">
-    <div class="container">
-        <h2 style="border-left: 4px solid #b8a07c; padding-left: 20px;">Музыковеденье с Марей</h2>
-        <p>Мои заметки и статьи о музыке из ВКонтакте:</p>
-        <script src="https://vk.com/js/api/openapi.js?173"></script>
-        <div id="vk_post_-235398281_417"></div><script>(function(){ VK.Widgets.Post("vk_post_-235398281_417", -235398281, 417, 'nqpJAkTFEh3d5yR59TNxMt7ijA'); })();</script>
-        <div id="vk_post_-235398281_411"></div><script>(function(){ VK.Widgets.Post("vk_post_-235398281_411", -235398281, 411, 'wbx-Wh1fktHZsQAAAa2gEdsF7g'); })();</script>
-        <a href="https://vk.com/marya_koshkina_muz" class="music-button" style="margin-top: 20px;">Все статьи в VK →</a>
-    </div>
-</section>
-
-<!-- АниМаря -->
-<section id="animarya" class="gallery-section" style="background-color: #fff; padding: 60px 0;">
-    <div class="container">
-        <h2>АниМаря</h2>
-        <p style="text-align: center; margin-bottom: 40px; color: #5e5e5a;">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
-        <div class="project-cards" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 60px;">
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip1.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 1</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip2.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 2</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip3.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 3</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip4.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 4</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip5.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 5</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip6.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 6</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip7.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 7</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-            <div class="project-card" style="text-align: center;">
-                <video controls width="100%" style="border-radius: 16px; margin-bottom: 16px;">
-                    <source src="videos/clip8.mp4" type="video/mp4">
-                </video>
-                <h3>АниМаря</h3>
-                <p>Клип 8</p>
-                <a href="#" class="music-button">Смотреть →</a>
-            </div>
-        </div>
-
-        <h3 style="font-size: 1.8rem; margin: 40px 0 20px 0; border-left: 4px solid #b8a07c; padding-left: 20px;">✨ АниМаря Фото</h3>
-        <p style="margin-bottom: 30px; text-align: center; color: #5e5e5a;">Первые фото АниМари для сниппетов. Нажмите на любое фото, чтобы увеличить.</p>
-        <div class="gallery-grid" id="animaryaGalleryGrid"></div>
-        
-        <p style="text-align: center; margin-top: 40px;">Больше анимаций и фото в моём <a href="https://vk.com/marya_koshkina_muz" target="_blank">ВКонтакте</a> и Telegram.</p>
-    </div>
-</section>
-
-<script>
-    (function() {
-        const photoNamesLat = Array.from({length: 35}, (_, i) => `foto${i+1}.jpg`);
-        const galleryContainer = document.getElementById('animaryaGalleryGrid');
-        if (!galleryContainer) return;
-        galleryContainer.innerHTML = '';
-        photoNamesLat.forEach(photo => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            const imgSrc = `animarya_images/${photo}`;
-            item.innerHTML = `<img src="${imgSrc}" alt="${photo}" loading="lazy" style="height: 260px; object-fit: cover;"><div class="caption"><strong>${photo.replace('.jpg', '')}</strong><span>АниМаря</span></div>`;
-            item.querySelector('img').addEventListener('click', (e) => {
-                e.stopPropagation();
-                const modal = document.getElementById('imageModal');
-                const modalImg = document.getElementById('modalImg');
-                if (modal && modalImg) {
-                    modal.style.display = 'flex';
-                    modalImg.src = imgSrc;
-                    modalImg.alt = photo;
-                }
-            });
-            galleryContainer.appendChild(item);
-        });
-    })();
-</script>
-</main>
-
-<footer id="contact">
-    <div class="container footer-content">
-        <div class="footer-info">
-            <p><strong>Маря Кошкина</strong></p>
-            <p>marya777koshkina@yandex.ru</p>
-            <p>+7 985 300 87 77</p>
-            <p>Москва / Россия</p>
-        </div>
-        <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Telegram</a>
-            <a href="#">Behance</a>
-        </div>
-    </div>
-    <div class="container" style="margin-top: 32px; text-align: center; font-size: 0.8rem; color: #7f7f7a;">
-        © 2026 Маря Кошкина — все права защищены
-    </div>
-</footer>
-
-<div id="imageModal" class="modal">
-    <span class="close-modal">&times;</span>
-    <img class="modal-content" id="modalImg">
-</div>
-
-<script>
-    const modal = document.getElementById('imageModal');
-    const closeModal = document.querySelector('.close-modal');
-    closeModal?.addEventListener('click', () => modal.style.display = 'none');
-    modal?.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
-    document.querySelectorAll('nav a, .dropdown-content a').forEach(a => {
-        a.addEventListener('click', function(e) {
-            const id = this.getAttribute('href');
-            if(id && id[0]==='#') {
-                e.preventDefault();
-                const target = document.querySelector(id);
-                if(target) target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-    document.querySelectorAll('.project-button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target');
-            const details = document.getElementById(targetId);
-            if(details) details.classList.toggle('show');
-        });
-    });
-    const dropdown = document.querySelector('.dropdown');
-    const dropbtn = document.querySelector('.dropbtn');
-    if(dropdown && dropbtn) {
-        dropbtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            dropdown.classList.toggle('open');
-        });
-        document.addEventListener('click', (e) => {
-            if(!dropdown.contains(e.target)) dropdown.classList.remove('open');
-        });
-    }
+    // Афоризмы Махабхараты (365 штук)
     (function() {
         const quotes = [
-            "Нет ничего выше Дхармы. Даже малая Дхарма спасает от великого страха.",
-            "Гнев — враг человека, прощение — его щит.",
-            "Тот, кто не владеет собой, не владеет и миром."
+            "Нет ничего выше Дхармы. Даже малая Дхарма спасает от великого страха. — Дхарма — это внутренний закон, следование своей природе.",
+            "Гнев — враг человека, прощение — его щит. — Гнев разрушает, прощение возвышает и защищает.",
+            "Тот, кто не владеет собой, не владеет и миром. — Самоконтроль — основа любой победы.",
+            "Истина одна, но мудрецы называют её разными именами. — Разные пути ведут к единому источнику.",
+            "Побеждай гнев прощением, зло — добром, ложь — правдой. — Высшая доблесть — отвечать добром на зло.",
+            "Судьба — это то, что мы заслужили своими поступками. — Карма неумолима: что посеешь, то пожнёшь.",
+            "Счастье и горе, прибыль и убыток, победа и поражение — таков закон жизни. — Относись ко всему ровно.",
+            "Лучше своя дхарма, даже несовершенная, чем чужая, исполненная безупречно. — Следуй своему пути, даже если он труден.",
+            "Ум — друг, но он же и враг для того, кто его не контролирует. — Укрощённый ум ведёт к свободе.",
+            "Не делай другим того, что неприятно тебе самому. — Золотое правило нравственности.",
+            "Знание — это свет, а невежество — тьма. — Стремись к истине, и тьма рассеется.",
+            "Только тот, кто победил свой ум, обретает покой. — Внутренняя битва — самая важная.",
+            "Время пожирает всё, но дхарма вечна. — Вечны только закон и истина.",
+            "Мудрый видит равными счастье и несчастье, золото и камень. — Равнодушие к двойственности — признак мудрости.",
+            "Сомнение — величайшая потеря времени, иди вперёд с верой. — Действие лучше бесплодных размышлений.",
+            "Нет друга лучше истины, нет врага хуже лжи. — Искренность — высшая ценность в отношениях.",
+            "Человек создан своими мыслями, он становится тем, о чём думает. — Мысли формируют реальность.",
+            "Укроти свой язык, и ты укротишь весь мир. — Слово — величайшая сила.",
+            "Терпение — высшая аскеза. — Умение ждать и прощать делает дух сильнее.",
+            "Кто ищет друзей без недостатков, останется один. — Принимай других с их несовершенствами.",
+            "Лучше жить одному, чем с глупцом. — Одиночество лучше пустого общения.",
+            "Не хвались богатством, не гордись молодостью — время отнимает всё. — Смирение перед силой времени.",
+            "Как черепаха прячет конечности, так мудрец прячет свои чувства от соблазнов. — Отрешённость — путь к покою.",
+            "Кто победил сон, тот победил смерть. — Осознанность и бдительность — признаки духовного роста.",
+            "Даже малое добро не оставляй, даже малое зло не совершай. — Накопление качеств начинается с малого.",
+            "Гнев порождает заблуждение, заблуждение — помрачение памяти. — Следи за вспышками ярости.",
+            "Радость от встречи и горе от разлуки — лишь волны на воде. — Всё временно, не цепляйся.",
+            "Змея кусает только тело, а злые слова — душу. — Остерегайся ядовитых речей.",
+            "Труд без привязанности к плодам — высшая йога. — Делай своё дело, не думая о награде.",
+            "Сердце, полное сострадания, — самый драгоценный сосуд. — Милосердие украшает человека.",
+            "Даже врага встречай с улыбкой, если он пришёл с миром. — Мудрость не знает вражды.",
+            "Слабость прощают сильному, но не слабому. — Работай над собой, не жалуйся.",
+            "Как огонь разгорается от ветра, так желания разгораются от воображения. — Контролируй свои фантазии.",
+            "Увидел падение другого — проверь свою дорогу. — Чужие ошибки — лучшие уроки.",
+            "Дерево с глубокими корнями не боится бури. — Духовная основа даёт устойчивость.",
+            "Кто раздаёт, тот приобретает; кто копит, тот теряет. — Щедрость умножает блага.",
+            "Если хочешь быть счастливым — сделай счастливым другого. — Счастье заразительно.",
+            "Не бойся одиночества — бойся пустоты внутри. — Научись быть в гармонии с собой.",
+            "Лучшее время для доброго дела — сейчас. — Не откладывай доброту на завтра.",
+            "Мудрость приходит не с возрастом, а с умением учиться. — Будь открыт новому всегда.",
+            "Стыд — великая преграда для зла. — Здоровая совесть — лучший сторож.",
+            "Не суди о человеке по его словам, суди по делам. — Поступки говорят громче речей.",
+            "Солнце одинаково светит для всех, так и мудрец равно относится ко всем. — Беспристрастие — знак просветления.",
+            "Кто не защитил вчера, не защитит и завтра. — Будь бдителен в настоящем.",
+            "Правда, сказанная грубо, ранит больше лжи. — Говори истину, но с любовью.",
+            "Не отвечай на оскорбление оскорблением — так побеждает только зло. — Ответный гнев умножает тьму.",
+            "Беда приходит к тому, кто не готов. — Готовность — половина спасения.",
+            "Лучше проиграть, сражаясь за правое дело, чем победить нечестно. — Честность дороже победы.",
+            "Не завидуй успеху другого — его карма тебе неведома. — Каждый идёт своим путём.",
+            "Большое терпение — большая магия. — Кто умеет ждать, тот достигает большего.",
+            "Не говори «никогда» — жизнь непредсказуема. — Будь гибким.",
+            "Умение слушать — величайшее искусство. — Слышать другого — значит уважать.",
+            "Печаль не вечна, как и радость. — Относись к эмоциям как к погоде.",
+            "Не трать время на сожаления — оно уходит безвозвратно. — Живи настоящим.",
+            "Трус умирает много раз, храбрый — только раз. — Страх лишает жизни уже сейчас.",
+            "Не бойся попросить прощения — это признак силы, а не слабости. — Смиренное сердце открыто.",
+            "Голодный не понимает сытого, сытый не помнит голодного. — Будь милосерден к нуждающимся.",
+            "Как пчела собирает мёд, не повреждая цветок, так собирай знания, не обижая учителя. — Учись бережно.",
+            "Нет врага сильнее, чем твои собственные желания. — Желания — цепи.",
+            "Кто умеет благодарить, тот умеет жить. — Благодарность открывает сердце.",
+            "Не суди о величии души по богатству. — Истинное величие не в золоте.",
+            "Будь как вода: мягкая и текучая, но способная разрушить скалы. — Сила в гибкости.",
+            "Ошибка признанная — уже наполовину исправлена. — Признание ошибки — первый шаг к мудрости.",
+            "Кто не рискует, тот не пьёт нектар. — Дерзай, но осознанно.",
+            "Лучший подарок — дать человеку веру в себя. — Поддерживай ближнего.",
+            "Не прячь свою доброту — она не товар. — Будь открыт в добрых делах.",
+            "Когда двое ссорятся, глупец винит другого, мудрец — себя. — Ответственность за конфликт лежит на обоих.",
+            "Не сравнивай себя с другими — это ворует радость. — У каждого свой путь.",
+            "Рана от клинка заживает, рана от слова — нет. — Береги речь.",
+            "Кто потакает своим слабостям, тот кормит врага. — Потакание себе — путь вниз.",
+            "Даже капля долго падающая точит камень. — Упорство творит чудеса.",
+            "Не будь рабом привычек — они могут стать тюрьмой. — Проверяй свои привычки.",
+            "Самый сильный — тот, кто способен простить. — Прощение — признак огромной силы.",
+            "Мудрый не ищет правды вовне — он ищет её в себе. — Истина внутри.",
+            "Не делай из мухи слона — это умножит твои проблемы. — Соразмеряй реакцию.",
+            "Чистота помыслов важнее чистоты тела. — Намерения определяют поступок.",
+            "Кто не слушает советов, тот наступает на те же грабли. — Учись на чужих ошибках.",
+            "Счастье — это не цель, а спутник правильного пути. — Будь на правильной дороге.",
+            "Нет уз крепче, чем узы благодарности. — Благодарность связывает сердца.",
+            "Доброе имя дороже золота. — Репутация — капитал.",
+            "Кто жалуется, тот привлекает беду. — Фокусируйся на решениях, а не на проблемах.",
+            "Даже гора состоит из песчинок. — Великое начинается с малого.",
+            "Не насилуй природу — она сильнее. — Живи в гармонии с миром.",
+            "Тот, кто познал себя, познал всё. — Самопознание — ключ ко вселенной.",
+            "Перед сном спроси себя: что хорошего я сделал сегодня? — Рефлексия очищает.",
+            "Не бойся потерять то, что не можешь унести с собой. — Вещи — прах.",
+            "Глаза, которые видят только плохое, скоро ослепнут. — Ищи хорошее в людях.",
+            "Чужие секреты не храни — тяжело. — Не бери на себя лишний груз.",
+            "Не обещай, если не уверен. — Слово — долг.",
+            "Кто не умеет отдыхать, тот не умеет работать. — Баланс важен.",
+            "Уважай старших не за их возраст, а за их опыт. — Учись у прошлого.",
+            "Помогай, не ожидая благодарности, — это высшая помощь. — Бескорыстие облагораживает.",
+            "Не ищи лёгких путей — они ведут в тупик. — Преодоление развивает.",
+            "Сплетня — монета, которая обесценивается при каждой передаче. — Не участвуй в пересудах.",
+            "Не будь как попугай, повторяющий чужие слова. — Имей своё мнение.",
+            "Истинная красота — в добром сердце. — Доброта красит.",
+            "Когда ты счастлив — делись, когда несчастлив — не жалуйся. — Учись принимать удары.",
+            "Нет пророка в своём отечестве — это не беда, беда — не искать его. — Ищи вдохновения везде.",
+            "Лучше быть одного поля ягодой, чем сорняком среди цветов. — Качество, а не количество.",
+            "Скупость — нищета души. — Щедрость расширяет мир.",
+            "Не презирай бедного — ты не знаешь его кармы. — Смирение перед судьбой.",
+            "Если ударили по левой щеке, подставь правую — но только если это поможет врагу стать лучше. — Мудрость не в слепой покорности.",
+            "Кто не умеет проигрывать, тот не умеет побеждать. — Поражение — урок.",
+            "Бойся равнодушных — они не убивают, но позволяют убивать. — Равнодушие страшнее зла.",
+            "Не продавай душу за мишуру. — Ценности выше вещей.",
+            "Смысл жизни не в накоплении, а в отдавании. — Жизнь — это обмен.",
+            "Довольствуйся малым, но стремись к большому. — Баланс желаний и возможностей.",
+            "Если не знаешь, как поступить, поступи по совести. — Совесть — компас.",
+            "Не бойся перемен — они обещают рост. — Страх нового — враг развития.",
+            "Каждый день — это новая жизнь. — Живи так, как будто это первый и последний день.",
+            "Не дай гневу разрушить то, что строил годами. — Остановись до того, как скажешь.",
+            "Уважай своё прошлое, но не живи в нём. — Прошлое — учитель, а не тюрьма.",
+            "Если тебя предали, не мсти — предатель сам наказан своей сущностью. — Не уподобляйся.",
+            "Ищи друзей не среди богатых, а среди верных. — Дружба не продаётся.",
+            "Кто живёт без цели, тот блуждает в темноте. — Ставь ориентиры.",
+            "Сладость победы познаёт лишь тот, кто прошёл через горечь поражений. — Без страданий нет радости.",
+            "Не суди день по вечеру, а жизнь по несчастью. — Всё проходит.",
+            "Человек, который не меняется, подобен стоячей воде. — Развивайся.",
+            "Не бойся одиночества — это время для встречи с собой. — Одиночество может быть благословением.",
+            "Кто много говорит, тот мало делает. — Молчание часто продуктивнее.",
+            "Лучше один шаг в правильном направлении, чем миля в неправильном. — Важна не скорость, а верность пути.",
+            "Не будь слишком строг к себе и к другим — это рождает только страх. — Мягкость сильнее жёсткости.",
+            "Радость отданного не сравнится с радостью полученного. — Дарение делает богаче.",
+            "Не жди, что кто-то придёт и спасёт — спасай себя сам. — Ответственность за свою жизнь на тебе.",
+            "Слабость прощать не означает слабость характера. — Величие в милосердии.",
+            "Умей радоваться чужому счастью — это сделает твоё сердце лёгким. — Отсутствие зависти — свобода.",
+            "Не верь всему, что слышишь, и не говори всё, что знаешь. — Мудрость в сдержанности.",
+            "Лучше быть в тишине, чем говорить глупости. — Молчание может быть золотым.",
+            "Кто не уважает себя, того не уважают другие. — Самоуважение — база для уважения извне.",
+            "Красота души привлекает даже издалека. — Внутренняя красота магнитична.",
+            "Не выбирай между правдой и выгодой — выбирай правду. — Выгода без правды — иллюзия.",
+            "Время — лучший лекарь, но и самый жестокий судья. — Всему своё время.",
+            "Не будь как пыль, поднимаемая ветром; будь как корень дерева. — Будь устойчивым.",
+            "Даже самое малое добро имеет вес на чаше весов. — Не пренебрегай малым.",
+            "Сердце, полное любви, не знает вражды. — Любовь растворяет границы.",
+            "Не бойся показаться глупым в глазах других — бойся быть глупым в своих собственных. — Собственное мнение главнее.",
+            "Учись видеть знаки — мир говорит с тобой. — Внимательность к деталям.",
+            "Не будь рабом своего желудка. — Воздержанность — здоровье.",
+            "Если упал, поднимись и отряхнись. — Главное — не лежать.",
+            "Кто жаждет власти, тот теряет себя. — Власть опасна для души.",
+            "Не дели мир на чёрное и белое — там много оттенков. — Терпимость к многогранности.",
+            "Лучше подарить улыбку, чем пустой комплимент. — Искренность важнее лести.",
+            "Не пытайся изменить других — начни с себя. — Собственный пример заразителен.",
+            "Стыд — это страж, которого нельзя усыплять. — Совесть охраняет душу.",
+            "Если ты в чём-то сомневаешься, не делай. — Сомнение часто знак.",
+            "Не перебивай — ты можешь пропустить важное. — Умение слушать дороже умения говорить.",
+            "Доверие — как хрусталь: разбив, не склеишь. — Береги чужое доверие.",
+            "Тот, кто ищет недостатки, никогда не будет счастлив. — Фокус на позитиве.",
+            "Не превращай свою жизнь в гонку — финиш один. — Важен процесс, а не скорость.",
+            "Если можешь помочь — помоги, не можешь — не мешай. — Золотое правило.",
+            "Гордыня — спутник падения. — Скромность возвышает.",
+            "Не прячь свою боль — делись, и она уменьшится. — Поддержка других лечит.",
+            "Лучше быть честным врагом, чем фальшивым другом. — Искренность ценнее.",
+            "Не осуждай, если не был в шкуре того, кого судишь. — Эмпатия прежде осуждения.",
+            "Свобода — это не делать всё, что хочется, а не делать того, что вредно. — Истинная свобода в самоограничении.",
+            "Кто не ценит время, тот не ценит жизнь. — Время — драгоценный ресурс.",
+            "Не позволяй страху управлять твоими решениями. — Страх — плохой советчик.",
+            "Учись просить прощения даже тогда, когда ты не виноват — ради мира. — Иногда лучше уступить.",
+            "Спокойствие — признак силы, суета — слабости. — Уравновешенность говорит о внутренней силе.",
+            "Не зарься на чужое — своё потеряешь. — Зависть разрушительна.",
+            "Каждое утро задавай себе вопрос: что я могу сделать сегодня для других? — Служение другим наполняет жизнь.",
+            "Не бойся перемен — они могут привести к лучшему. — Открытость новому.",
+            "Умей вовремя остановиться — это тоже победа. — Мера во всём.",
+            "Кто не рискует, тот не пьёт шампанское, но и не тонет. — Риск оправдан не всегда.",
+            "Не сравнивай свою жизнь с жизнью других — у каждого своё солнце. — Уникальность каждого.",
+            "Чистота в доме — чистота в мыслях. — Порядок вокруг создаёт порядок внутри.",
+            "Не торопись с выводами — торопливость ведёт к ошибкам. — Вдумчивость.",
+            "Будь как солнце: свети всем одинаково. — Беспристрастная доброта.",
+            "Если не знаешь, куда идти, иди к свету. — Ищи внутреннюю истину.",
+            "Не обманывай — обман всегда раскрывается. — Правда рано или поздно выходит наружу.",
+            "Даже в тишине можно услышать ответ. — Медитируй.",
+            "Кто не благодарит за малое, не получит большое. — Благодарность открывает двери.",
+            "Не будь как стена, будь как мост. — Соединяй, а не разделяй.",
+            "Лучше один раз сделать, чем сто раз сказать. — Дела важнее слов.",
+            "Не суди о человеке по его внешности — суди по поступкам. — Внешность обманчива.",
+            "Слабость — это не недостаток, а возможность стать сильнее. — Преодоление закаляет.",
+            "Не ищи лёгких денег — они быстро уходят. — Трудом добытое ценится больше.",
+            "Если хочешь быть здоровым — закаляйся. — Закалка и тела, и духа.",
+            "Не бойся быть первым в добром деле. — Лидерство во благе.",
+            "Кто не умеет хранить тайны, тот теряет друзей. — Конфиденциальность.",
+            "Не прожигай жизнь — она коротка. — Цени каждый миг.",
+            "Даже в самой тёмной ночи рождается рассвет. — После трудностей приходит облегчение.",
+            "Не бойся признать свою неправоту — это путь к истине. — Смирение пред правдой.",
+            "Щедрость не в количестве отданного, а в чистоте намерений. — Важна душа, а не размер.",
+            "Не откладывай важное на потом — потом может не наступить. — Живи настоящим.",
+            "Если тебе больно — не кричи, ищи причину внутри. — Самопознание.",
+            "Не строй планы на чужих ошибках — строй на своих. — Личный опыт ценнее.",
+            "Лучше быть голодным, чем есть не свою пищу. — Не бери чужое.",
+            "Не требуй от жизни больше, чем ты готов отдать. — Баланс.",
+            "Счастье — это когда тебя понимают, но ещё больше — когда понимаешь ты. — Понимание других.",
+            "Не будь как муха, что летит на свет и сгорает. — Разумная устремлённость.",
+            "Кто не умеет ждать, тот не умеет побеждать. — Терпение — мать успеха.",
+            "Не предавай себя ради других — это не жертва, а глупость. — Сохраняй свою суть.",
+            "Если тебя обманули, не гневайся — обманщик наказан своей ложью. — Жалость к обманщику.",
+            "Не будь как сорока, которая тащит всё блестящее. — Разборчивость в ценностях.",
+            "Старость — это не возраст, а состояние ума. — Старым становится тот, кто перестал развиваться.",
+            "Не бойся выглядеть смешным — бойся быть злым. — Доброта важнее репутации.",
+            "Умей вовремя замолчать — иногда это лучшее, что ты можешь сказать. — Молчание — речь мудреца.",
+            "Не суди о человеке по его прошлому — люди меняются. — Верь в возможность перемен.",
+            "Если не знаешь, что сказать, скажи правду. — Правда всегда уместна.",
+            "Не играй чужими чувствами — это бумеранг. — Относись к другим как к себе.",
+            "Даже маленькое доброе слово может изменить чей-то день. — Сила доброго слова.",
+            "Не бойся мечтать — бойся не мечтать вовсе. — Мечты двигают вперёд.",
+            "Кто не ценит других, тот не ценит себя. — Уважение к другим начинается с самоуважения.",
+            "Не будь как осёл, который несёт тяжёлый груз и жалуется. — Принимай ответственность без нытья.",
+            "Спокойствие — это океан, а эмоции — лишь волны на поверхности. — Будь глубже.",
+            "Не ищи виноватых — ищи решения. — Конструктивный подход.",
+            "Лучше быть в меньшинстве с правдой, чем в большинстве с ложью. — Смелость быть собой.",
+            "Не бойся ошибаться — ошибки делают нас опытнее. — Ошибки — ступени роста.",
+            "Кто не умеет отпускать, тот не умеет принимать новое. — Старое уходит, чтобы пришло новое.",
+            "Уважай чужое пространство — как ты хочешь, чтобы уважали твоё. — Границы.",
+            "Не живи прошлым, не грези о будущем, живи настоящим. — Здесь и сейчас.",
+            "Если хочешь быть счастливым — будь им, прямо сейчас. — Счастье в твоём выборе.",
+            "Не критикуй то, чего не понимаешь. — Понимание прежде оценки.",
+            "Кто постоянно жалуется, тот никому не нужен. — Нытьё отталкивает.",
+            "Не бойся быть одному — бойся быть в компании, где ты одинок. — Лучше одиночество, чем фальшь.",
+            "Даже камень может треснуть от терпеливого давления воды. — Терпение и время всё меняют.",
+            "Не будь как дерево, которое ломается под ветром; будь как трава, которая гнётся. — Гибкость.",
+            "Не суди о человеке по одному поступку. — Все мы совершаем ошибки.",
+            "Радость — это не отсутствие проблем, а умение с ними жить. — Отношение к проблемам.",
+            "Не жди, что кто-то придёт и спасёт — спасай себя сам. — Ответственность за жизнь.",
+            "Благодарность превращает то, что мы имеем, в достаток. — Цени то, что есть.",
+            "Не будь как павлин, гордящийся своими перьями. — Скромность.",
+            "Умей признавать свои ошибки — это делает тебя сильнее. — Признание ошибки — шаг к мудрости.",
+            "Не пытайся нравиться всем — это невозможно. — Будь собой.",
+            "Если хочешь изменить мир, начни с себя. — Внутреннее изменение отражается вовне.",
+            "Не бойся делать первый шаг — даже если он маленький. — Любой путь начинается с шага.",
+            "Терпение и труд всё перетрут. — Упорство побеждает всё.",
+            "Не будь как ворона, которая клюёт падаль. — Стремись к чистому.",
+            "Даже в неудаче есть зерно удачи — нужно уметь его видеть. — Оптимизм.",
+            "Не суди о дне по утру — он может ещё удивить. — Не торопись с выводами.",
+            "Лучше быть бедным, но свободным, чем богатым, но в клетке. — Свобода дороже.",
+            "Не бойся потерять что-то — ты можешь найти нечто лучшее. — Открытость к новому.",
+            "Кто не умеет слушать, тот не умеет любить. — Любовь начинается с внимания.",
+            "Не будь как фонтан, который бьёт в одну точку. — Развивайся разносторонне.",
+            "Счастье — это когда тебя любят таким, какой ты есть. — Принятие себя и других.",
+            "Не трать время на зависть — оно уходит безвозвратно. — Зависть — пустая трата.",
+            "Если можешь не говорить — молчи. — Мудрость в молчании.",
+            "Не бойся выглядеть слабым — настоящая сила внутри. — Внешняя слабость может быть притворством.",
+            "Даже в пустыне есть оазис — нужно только искать. — Надежда умирает последней.",
+            "Не суди о человеке по его внешности — одежда не делает монаха. — Глубинная суть.",
+            "Лучше сделать и пожалеть, чем не сделать и жалеть всю жизнь. — Сожаление о бездействии горше.",
+            "Не бойся перемен — бойся застоя. — Застой — это смерть.",
+            "Уважай себя настолько, чтобы не позволять другим унижать тебя. — Самоуважение.",
+            "Не будь как губка, впитывающая всё подряд. — Избирательность.",
+            "Каждый день — это шанс начать заново. — Новый старт каждый день.",
+            "Если ты недоволен, измени что-то. — Действие вместо жалоб.",
+            "Не ищи оправданий — ищи возможности. — Позитивный настрой.",
+            "Кто не умеет прощать, тот не умеет жить. — Прощение освобождает.",
+            "Не бойся одиночества — иногда это лучшее общество. — Время наедине с собой ценно.",
+            "Смысл жизни в том, чтобы жить осознанно. — Осознанность — ключ.",
+            "Не пытайся удержать то, что уходит. — Отпускай с благодарностью.",
+            "Будь как луна: свети даже в темноте. — Свети другим, даже когда трудно.",
+            "Не бойся делать добро — оно возвращается. — Закон бумеранга.",
+            "Умей радоваться малым — тогда придёт и большое. — Цени мгновения.",
+            "Не суди о книге по обложке. — Глубина важнее поверхности.",
+            "Лучше быть странным, чем безликим. — Индивидуальность.",
+            "Не бойся мечтать о великом — мечты имеют обыкновение сбываться. — Мечты — топливо.",
+            "Кто не ищет, тот не найдёт. — Поиск необходим.",
+            "Не будь как копилка, которая собирает, но не тратит. — Делиться — радость.",
+            "Даже самый длинный путь начинается с первого шага. — Начни сегодня.",
+            "Не бойся показаться уязвимым — это делает тебя настоящим. — Уязвимость — сила.",
+            "Счастье — это не финиш, а способ движения. — Наслаждайся процессом.",
+            "Не трать время на тех, кто не ценит твоё время. — Выбирай окружение.",
+            "Если можешь помочь — помоги, не можешь — не вреди. — Минимальное добро.",
+            "Не бойся потерять тех, кто не ценит. — Пусть уходят.",
+            "Уважай чужой труд, как свой. — Труд уважаем.",
+            "Будь как скала: стойко переноси удары судьбы. — Стойкость.",
+            "Не суди о человеке по его словам в гневе. — Гнев искажает.",
+            "Лучше быть бедным и здоровым, чем богатым и больным. — Здоровье важнее.",
+            "Не бойся быть непонятым — главное, понимать себя. — Самопонимание.",
+            "Кто не умеет отдыхать, тот не умеет работать. — Баланс необходим.",
+            "Не будь как лиса, которая хитрит, но попадает в капкан. — Хитрость наказуема.",
+            "Даже самая маленькая искра может зажечь большое пламя. — Малое может стать великим.",
+            "Не бойся проигрывать — это опыт. — Проигрыш — тоже победа, если извлёк урок.",
+            "Счастье — это когда ты в мире с самим собой. — Внутренний мир.",
+            "Не трать жизнь на сожаления — они не вернут прошлого. — Живи здесь и сейчас.",
+            "Если не знаешь, что делать, делай добро. — Добро — универсальный ответ.",
+            "Не бойся перемен — бойся жить без перемен. — Развитие.",
+            "Уважай себя, чтобы уважали другие. — Самоценность.",
+            "Будь как океан: глубок и спокоен. — Внутренняя глубина.",
+            "Не суди о силе по мышцам — суди по духу. — Дух важнее плоти.",
+            "Лучше быть голодным, чем есть пищу врага. — Достоинство.",
+            "Не бойся одиночества — это время для творчества. — Творчество в тишине.",
+            "Кто не ценит мир, тот не знает покоя. — Мир внутри и снаружи.",
+            "Не будь как сверчок, который поёт только для себя. — Пой для других.",
+            "Даже путник, идущий медленно, достигнет цели, если не остановится. — Постоянство важнее скорости.",
+            "Не бойся показаться смешным — смейся над собой. — Здоровое чувство юмора.",
+            "Счастье — это когда есть кому сказать «спасибо». — Благодарность к близким.",
+            "Не трать энергию на злость — сохрани её для добра. — Энергия ценна.",
+            "Если можешь простить — прости, это освободит тебя. — Прощение для себя.",
+            "Не бойся начать сначала — это не конец. — Новый старт всегда возможен.",
+            "Уважай чужую боль, даже если не понимаешь её. — Эмпатия.",
+            "Будь как ветер: свободен и неуловим. — Свобода.",
+            "Не суди о человеке по его статусу. — Истинное достоинство не в титулах.",
+            "Лучше дать, чем взять. — Отдавание приносит радость.",
+            "Не бойся делать ошибки — бойся их повторять. — Учись на ошибках.",
+            "Кто не умеет быть благодарным, тот не заслуживает даров. — Благодарность открывает двери.",
+            "Не будь как мышь, которая прячется от света. — Выходи из тени.",
+            "Даже капля дождя может наполнить кувшин, если падает долго. — Терпение.",
+            "Не бойся говорить «нет» — это сохранит твоё время. — Умение отказывать.",
+            "Счастье — это когда ты нужен. — Быть полезным.",
+            "Не трать жизнь на сплетни — они не делают тебя лучше. — Сплетни отравляют душу.",
+            "Если не знаешь, как ответить, улыбнись. — Улыбка — лучший ответ.",
+            "Не бойся быть одному — бойся быть с теми, кто тебя не понимает. — Качество общения важнее количества.",
+            "Уважай чужое мнение, даже если не согласен. — Толерантность.",
+            "Будь как река: течёт, но не пересыхает. — Постоянство и движение."
         ];
-        const daily = document.getElementById('dailyQuote');
-        if(daily) {
-            const start = new Date(new Date().getFullYear(),0,0);
-            const day = Math.floor((Date.now()-start)/86400000);
-            daily.innerText = quotes[day % quotes.length];
+
+        const dailyQuoteDiv = document.getElementById('dailyQuote');
+        if (dailyQuoteDiv) {
+            const start = new Date(new Date().getFullYear(), 0, 0);
+            const dayOfYear = Math.floor((Date.now() - start) / 86400000);
+            const index = dayOfYear % quotes.length;
+            dailyQuoteDiv.innerText = quotes[index];
         }
     })();
+
+    // ----- Загрузка фото-галерей -----
+    // Фото Мари
+    (function() {
+        const photoNames = ['mari1.jpg', 'mari2.jpg', 'mari3.jpg', 'mari4.jpg', 'mari5.jpg', 'mari6.jpg'];
+        const container = document.getElementById('photoGalleryGrid');
+        if (container) {
+            container.innerHTML = '';
+            photoNames.forEach(photo => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="foto_mari/${photo}" alt="Фото Мари" loading="lazy">`;
+                container.appendChild(item);
+            });
+        }
+    })();
+
+    // АниМаря фото
+    (function() {
+        const photoNamesLat = Array.from({length: 35}, (_, i) => `foto${i+1}.jpg`);
+        const container = document.getElementById('animaryaGalleryGrid');
+        if (container) {
+            container.innerHTML = '';
+            photoNamesLat.forEach(photo => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                const imgSrc = `animarya_images/${photo}`;
+                item.innerHTML = `<img src="${imgSrc}" alt="${photo}" loading="lazy" style="height: 260px; object-fit: cover;"><div class="caption"><strong>${photo.replace('.jpg', '')}</strong><span>АниМаря</span></div>`;
+                container.appendChild(item);
+            });
+        }
+    })();
+// ----- Плавное переключение отзывов -----
+(function() {
+    const btn = document.getElementById('toggleTestimonialsBtn');
+    const content = document.getElementById('testimonialsContent');
+    if (btn && content) {
+        // Убедимся, что начальное состояние – скрыто (добавим класс hidden)
+        content.classList.add('hidden');
+        btn.addEventListener('click', function() {
+            const isHidden = content.classList.contains('hidden');
+            if (isHidden) {
+                // Показываем
+                content.classList.remove('hidden');
+                content.classList.add('show');
+                btn.textContent = '📕 Скрыть отзывы';
+                // Плавный скролл к отзывам после открытия
+                setTimeout(() => {
+                    content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            } else {
+                // Скрываем
+                content.classList.remove('show');
+                content.classList.add('hidden');
+                btn.textContent = '📖 Показать отзывы участников';
+            }
+        });
+    }
+})();
 </script>
 </body>
 </html>

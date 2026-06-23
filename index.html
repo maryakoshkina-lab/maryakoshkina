@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Маря Кошкина — Музыкант, Аранжировщик, Персональный нейро-коуч</title>
     <style>
-        /* ========== ROOT ПЕРЕМЕННЫЕ ========== */
+        /* ===== ROOT ===== */
         :root {
             --color-primary: #b8a07c;
             --color-primary-dark: #9a8262;
@@ -20,15 +20,9 @@
             --font: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
         }
 
-        /* ========== RESET ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
             background-color: var(--color-bg);
@@ -36,43 +30,27 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-        /* ========== АНИМИРОВАННЫЙ ФОН (УЛУЧШЕН) ========== */
+        /* ===== АНИМИРОВАННЫЙ ФОН ===== */
         .animated-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             z-index: -2;
             background: linear-gradient(145deg, #faf8f3 0%, #f0ece4 40%, #e8e0d5 70%, #f5f0e8 100%);
             background-size: 400% 400%;
             animation: gradientShift 25s ease-in-out infinite alternate;
         }
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* ========== ЧАСТИЦЫ (УЛУЧШЕНЫ) ========== */
+        /* ===== ЧАСТИЦЫ ===== */
         .particles {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
@@ -84,105 +62,24 @@
             animation: floatParticle 12s infinite alternate ease-in-out;
             will-change: transform, opacity;
         }
-        .particle:nth-child(1) {
-            left: 10%;
-            top: 20%;
-            animation-duration: 14s;
-            width: 8px;
-            height: 8px;
-        }
-        .particle:nth-child(2) {
-            left: 80%;
-            top: 70%;
-            animation-duration: 16s;
-            animation-delay: 2s;
-            width: 12px;
-            height: 12px;
-        }
-        .particle:nth-child(3) {
-            left: 30%;
-            top: 80%;
-            animation-duration: 18s;
-            animation-delay: 4s;
-            width: 10px;
-            height: 10px;
-        }
-        .particle:nth-child(4) {
-            left: 60%;
-            top: 10%;
-            animation-duration: 20s;
-            animation-delay: 1s;
-            width: 14px;
-            height: 14px;
-        }
-        .particle:nth-child(5) {
-            left: 90%;
-            top: 40%;
-            animation-duration: 22s;
-            animation-delay: 3s;
-            width: 7px;
-            height: 7px;
-        }
-        .particle:nth-child(6) {
-            left: 5%;
-            top: 90%;
-            animation-duration: 24s;
-            animation-delay: 5s;
-            width: 9px;
-            height: 9px;
-        }
-        .particle:nth-child(7) {
-            left: 50%;
-            top: 50%;
-            animation-duration: 26s;
-            animation-delay: 0.5s;
-            width: 11px;
-            height: 11px;
-        }
-        .particle:nth-child(8) {
-            left: 70%;
-            top: 85%;
-            animation-duration: 28s;
-            animation-delay: 6s;
-            width: 13px;
-            height: 13px;
-        }
-        .particle:nth-child(9) {
-            left: 45%;
-            top: 15%;
-            animation-duration: 30s;
-            animation-delay: 2.5s;
-            width: 6px;
-            height: 6px;
-        }
-        .particle:nth-child(10) {
-            left: 20%;
-            top: 60%;
-            animation-duration: 32s;
-            animation-delay: 1.5s;
-            width: 15px;
-            height: 15px;
-        }
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-duration: 14s; width: 8px; height: 8px; }
+        .particle:nth-child(2) { left: 80%; top: 70%; animation-duration: 16s; animation-delay: 2s; width: 12px; height: 12px; }
+        .particle:nth-child(3) { left: 30%; top: 80%; animation-duration: 18s; animation-delay: 4s; width: 10px; height: 10px; }
+        .particle:nth-child(4) { left: 60%; top: 10%; animation-duration: 20s; animation-delay: 1s; width: 14px; height: 14px; }
+        .particle:nth-child(5) { left: 90%; top: 40%; animation-duration: 22s; animation-delay: 3s; width: 7px; height: 7px; }
+        .particle:nth-child(6) { left: 5%; top: 90%; animation-duration: 24s; animation-delay: 5s; width: 9px; height: 9px; }
+        .particle:nth-child(7) { left: 50%; top: 50%; animation-duration: 26s; animation-delay: 0.5s; width: 11px; height: 11px; }
+        .particle:nth-child(8) { left: 70%; top: 85%; animation-duration: 28s; animation-delay: 6s; width: 13px; height: 13px; }
+        .particle:nth-child(9) { left: 45%; top: 15%; animation-duration: 30s; animation-delay: 2.5s; width: 6px; height: 6px; }
+        .particle:nth-child(10) { left: 20%; top: 60%; animation-duration: 32s; animation-delay: 1.5s; width: 15px; height: 15px; }
         @keyframes floatParticle {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.3;
-            }
-            33% {
-                transform: translate(30px, -40px) scale(1.3);
-                opacity: 0.7;
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-                opacity: 0.5;
-            }
-            100% {
-                transform: translate(10px, -10px) scale(1.1);
-                opacity: 0.8;
-            }
+            0% { transform: translate(0,0) scale(1); opacity: 0.3; }
+            33% { transform: translate(30px,-40px) scale(1.3); opacity: 0.7; }
+            66% { transform: translate(-20px,20px) scale(0.9); opacity: 0.5; }
+            100% { transform: translate(10px,-10px) scale(1.1); opacity: 0.8; }
         }
 
-        /* ========== СТИКИ-ЛУНА ========== */
+        /* ===== ЛУНА ===== */
         .moon-sticky-container {
             position: sticky;
             top: 120px;
@@ -193,20 +90,16 @@
             pointer-events: none;
             transition: transform 0.3s ease;
         }
-        .moon-sticky-container>* {
-            pointer-events: auto;
-        }
+        .moon-sticky-container>* { pointer-events: auto; }
         .moon-sticky-container canvas {
             cursor: pointer;
-            filter: drop-shadow(0 0 12px rgba(184, 160, 124, 0.3));
+            filter: drop-shadow(0 0 12px rgba(184,160,124,0.3));
             transition: transform 0.4s;
         }
-        .moon-sticky-container canvas:hover {
-            transform: scale(1.05) rotate(4deg);
-        }
+        .moon-sticky-container canvas:hover { transform: scale(1.05) rotate(4deg); }
         #moonPhaseInfo {
             font-size: 0.7rem;
-            background: rgba(184, 160, 124, 0.15);
+            background: rgba(184,160,124,0.15);
             padding: 4px 12px;
             border-radius: 40px;
             text-align: center;
@@ -217,7 +110,7 @@
         #mahabharataWisdom {
             margin-top: 16px;
             padding: 14px 12px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255,255,255,0.6);
             backdrop-filter: blur(8px);
             border-radius: var(--radius);
             font-size: 0.7rem;
@@ -226,32 +119,20 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
-        #mahabharataWisdom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-        }
+        #mahabharataWisdom:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); }
         @media (max-width: 768px) {
-            .moon-sticky-container {
-                float: right;
-                width: 120px;
-                margin: 0 0 15px 15px;
-                top: auto;
-            }
-            .moon-sticky-container canvas {
-                width: 90px;
-                height: 90px;
-            }
+            .moon-sticky-container { float: right; width: 120px; margin: 0 0 15px 15px; top: auto; }
+            .moon-sticky-container canvas { width: 90px; height: 90px; }
         }
 
-        /* ========== ХЕДЕР ========== */
+        /* ===== ХЕДЕР ===== */
         header {
             padding: 12px 0;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(184, 160, 124, 0.2);
+            border-bottom: 1px solid rgba(184,160,124,0.2);
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 0; z-index: 100;
             transition: var(--transition);
         }
         .header-inner {
@@ -301,33 +182,26 @@
             transform: translateX(-50%);
             border-radius: 4px;
         }
-        .nav-links a:hover {
-            background: rgba(184, 160, 124, 0.1);
-            color: var(--color-text);
-        }
-        .nav-links a:hover::after {
-            width: 60%;
-        }
+        .nav-links a:hover { background: rgba(184,160,124,0.1); color: var(--color-text); }
+        .nav-links a:hover::after { width: 60%; }
         .nav-links .dropdown {
             position: relative;
             display: inline-block;
         }
-        .nav-links .dropbtn {
-            cursor: pointer;
-        }
+        .nav-links .dropbtn { cursor: pointer; }
         .dropdown-content {
             display: none;
             position: absolute;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(12px);
             min-width: 220px;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
             border-radius: 16px;
             padding: 8px 0;
             z-index: 200;
             top: 40px;
             left: 0;
-            border: 1px solid rgba(184, 160, 124, 0.2);
+            border: 1px solid rgba(184,160,124,0.2);
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.3s, transform 0.3s;
@@ -347,13 +221,8 @@
             border-radius: 0;
             font-weight: 400;
         }
-        .dropdown-content a:hover {
-            background: rgba(184, 160, 124, 0.08);
-            color: var(--color-primary);
-        }
-        .dropdown-content a::after {
-            display: none;
-        }
+        .dropdown-content a:hover { background: rgba(184,160,124,0.08); color: var(--color-primary); }
+        .dropdown-content a::after { display: none; }
         .burger {
             display: none;
             flex-direction: column;
@@ -371,39 +240,25 @@
             border-radius: 4px;
             transition: var(--transition);
         }
-        .burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+        .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .burger.active span:nth-child(2) { opacity: 0; }
+        .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
         @media (max-width: 768px) {
-            .burger {
-                display: flex;
-            }
+            .burger { display: flex; }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background: rgba(255, 255, 255, 0.98);
+                background: rgba(255,255,255,0.98);
                 backdrop-filter: blur(12px);
                 padding: 16px 0;
-                border-top: 1px solid rgba(184, 160, 124, 0.15);
+                border-top: 1px solid rgba(184,160,124,0.15);
                 margin-top: 12px;
                 max-height: 70vh;
                 overflow-y: auto;
             }
-            .nav-links.open {
-                display: flex;
-            }
-            .nav-links a {
-                width: 100%;
-                text-align: center;
-                padding: 10px;
-            }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; text-align: center; padding: 10px; }
             .dropdown-content {
                 position: static;
                 box-shadow: none;
@@ -416,15 +271,11 @@
                 pointer-events: auto;
                 display: none;
             }
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-            .dropdown.open .dropdown-content {
-                display: block;
-            }
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.open .dropdown-content { display: block; }
         }
 
-        /* ========== ГЕРОЙ (УЛУЧШЕН) ========== */
+        /* ===== ГЕРОЙ ===== */
         .hero {
             padding: 80px 0 50px;
             text-align: center;
@@ -434,21 +285,15 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(184, 160, 124, 0.08) 0%, transparent 60%);
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(184,160,124,0.08) 0%, transparent 60%);
             animation: heroGlow 25s ease-in-out infinite alternate;
             pointer-events: none;
         }
         @keyframes heroGlow {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(10%, -10%);
-            }
+            0% { transform: translate(0,0); }
+            100% { transform: translate(10%,-10%); }
         }
         .hero h2 {
             font-size: 2.8rem;
@@ -464,12 +309,8 @@
             animation: gradientText 6s ease-in-out infinite alternate;
         }
         @keyframes gradientText {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
         .hero h2::after {
             content: '✨';
@@ -481,15 +322,8 @@
             animation: sparkle 3s ease-in-out infinite;
         }
         @keyframes sparkle {
-            0%,
-            100% {
-                transform: scale(1) rotate(0);
-                opacity: 0.6;
-            }
-            50% {
-                transform: scale(1.2) rotate(20deg);
-                opacity: 1;
-            }
+            0%, 100% { transform: scale(1) rotate(0); opacity: 0.6; }
+            50% { transform: scale(1.2) rotate(20deg); opacity: 1; }
         }
         .hero p {
             max-width: 700px;
@@ -509,7 +343,7 @@
             z-index: 1;
         }
 
-        /* ========== КНОПКИ (УЛУЧШЕНЫ) ========== */
+        /* ===== КНОПКИ ===== */
         .btn {
             display: inline-block;
             padding: 12px 32px;
@@ -526,73 +360,54 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
             color: #fff;
-            box-shadow: 0 4px 20px rgba(184, 160, 124, 0.35);
+            box-shadow: 0 4px 20px rgba(184,160,124,0.35);
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(184, 160, 124, 0.45);
-        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(184,160,124,0.45); }
         .btn-primary::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
             opacity: 0;
             transition: var(--transition);
             transform: scale(0.8);
         }
-        .btn-primary:hover::after {
-            opacity: 1;
-            transform: scale(1);
-        }
+        .btn-primary:hover::after { opacity: 1; transform: scale(1); }
         .btn-secondary {
-            background: rgba(184, 160, 124, 0.12);
+            background: rgba(184,160,124,0.12);
             color: var(--color-text);
-            border: 1px solid rgba(184, 160, 124, 0.25);
+            border: 1px solid rgba(184,160,124,0.25);
         }
-        .btn-secondary:hover {
-            background: rgba(184, 160, 124, 0.2);
-            transform: translateY(-3px);
-        }
+        .btn-secondary:hover { background: rgba(184,160,124,0.2); transform: translateY(-3px); }
         .btn-accent {
             background: linear-gradient(135deg, var(--color-accent), #7d4739);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(158, 93, 76, 0.35);
+            box-shadow: 0 4px 20px rgba(158,93,76,0.35);
             transition: var(--transition);
         }
-        .btn-accent:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(158, 93, 76, 0.45);
-        }
+        .btn-accent:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(158,93,76,0.45); }
         .btn-accent::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 60%);
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 60%);
             opacity: 0;
             transition: var(--transition);
             transform: scale(0.8);
         }
-        .btn-accent:hover::after {
-            opacity: 1;
-            transform: scale(1);
-        }
+        .btn-accent:hover::after { opacity: 1; transform: scale(1); }
 
-        /* ========== РАЗДЕЛИТЕЛИ ========== */
+        /* ===== РАЗДЕЛИТЕЛИ ===== */
         .section-divider {
             margin: 50px 0;
             border: 0;
             height: 1px;
-            background: linear-gradient(to right, transparent, rgba(184, 160, 124, 0.3), transparent);
+            background: linear-gradient(to right, transparent, rgba(184,160,124,0.3), transparent);
         }
 
-        /* ========== ЗАГОЛОВКИ ========== */
+        /* ===== ЗАГОЛОВКИ ===== */
         .section-title {
             font-size: 2rem;
             font-weight: 600;
@@ -605,14 +420,13 @@
             content: '';
             position: absolute;
             left: -5px;
-            top: 0;
-            bottom: 0;
+            top: 0; bottom: 0;
             width: 5px;
             background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
             border-radius: 4px;
         }
 
-        /* ========== КАРТОЧКИ ПРОЕКТОВ (УЛУЧШЕНЫ) ========== */
+        /* ===== КАРТОЧКИ ПРОЕКТОВ ===== */
         .project-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -624,7 +438,7 @@
             backdrop-filter: blur(8px);
             border-radius: var(--radius);
             padding: 28px 24px;
-            border: 1px solid rgba(184, 160, 124, 0.15);
+            border: 1px solid rgba(184,160,124,0.15);
             box-shadow: var(--shadow);
             transition: var(--transition);
             display: flex;
@@ -636,24 +450,18 @@
         .project-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            top: 0; left: -100%;
+            width: 200%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transform: skewX(-25deg);
             transition: 0.8s;
             pointer-events: none;
         }
-        .project-card:hover::before {
-            left: 100%;
-        }
+        .project-card:hover::before { left: 100%; }
         .project-card::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(to right, var(--color-primary), var(--color-accent));
             opacity: 0;
@@ -661,12 +469,10 @@
         }
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
-            border-color: rgba(184, 160, 124, 0.3);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+            border-color: rgba(184,160,124,0.3);
         }
-        .project-card:hover::after {
-            opacity: 1;
-        }
+        .project-card:hover::after { opacity: 1; }
         .project-card h3 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -678,42 +484,31 @@
             flex-grow: 1;
             margin-bottom: 16px;
         }
-        .project-card .btn {
-            align-self: flex-start;
-            margin-top: 4px;
-        }
+        .project-card .btn { align-self: flex-start; margin-top: 4px; }
 
-        /* ========== ПРОГРАММЫ (РАСКРЫВАШКИ) ========== */
+        /* ===== ПРОГРАММЫ (РАСКРЫВАШКИ) ===== */
         .program-details {
             display: none;
             margin-top: 20px;
             padding-top: 16px;
-            border-top: 1px solid rgba(184, 160, 124, 0.15);
+            border-top: 1px solid rgba(184,160,124,0.15);
         }
         .program-details.show {
             display: block;
             animation: fadeSlide 0.5s ease;
         }
         @keyframes fadeSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(-12px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(-12px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         .program-details details {
             margin: 6px 0;
-            background: rgba(184, 160, 124, 0.04);
+            background: rgba(184,160,124,0.04);
             border-radius: 12px;
             padding: 4px 8px;
             transition: var(--transition);
         }
-        .program-details details:hover {
-            background: rgba(184, 160, 124, 0.08);
-        }
+        .program-details details:hover { background: rgba(184,160,124,0.08); }
         .program-details summary {
             cursor: pointer;
             font-weight: 600;
@@ -723,14 +518,10 @@
             display: inline-block;
             color: var(--color-primary-dark);
         }
-        .program-details summary:hover {
-            background: rgba(184, 160, 124, 0.12);
-        }
-        .program-details details[open] summary {
-            color: var(--color-accent);
-        }
+        .program-details summary:hover { background: rgba(184,160,124,0.12); }
+        .program-details details[open] summary { color: var(--color-accent); }
 
-        /* ========== ГАЛЕРЕЯ ========== */
+        /* ===== ГАЛЕРЕЯ ===== */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -747,7 +538,7 @@
         }
         .gallery-item:hover {
             transform: scale(1.02);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
         }
         .gallery-item img {
             width: 100%;
@@ -756,20 +547,18 @@
             display: block;
             transition: var(--transition);
         }
-        .gallery-item:hover img {
-            transform: scale(1.04);
-        }
+        .gallery-item:hover img { transform: scale(1.04); }
         .gallery-item .caption {
             padding: 14px 16px;
             text-align: center;
-            border-top: 1px solid rgba(184, 160, 124, 0.1);
+            border-top: 1px solid rgba(184,160,124,0.1);
             font-weight: 500;
             color: var(--color-text-light);
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255,255,255,0.6);
             backdrop-filter: blur(4px);
         }
 
-        /* ========== МУЗЫКАЛЬНЫЕ КАРТОЧКИ ========== */
+        /* ===== МУЗЫКАЛЬНЫЕ КАРТОЧКИ ===== */
         .music-grid {
             display: flex;
             flex-direction: column;
@@ -787,47 +576,29 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             flex-wrap: wrap;
-            border: 1px solid rgba(184, 160, 124, 0.08);
+            border: 1px solid rgba(184,160,124,0.08);
         }
         .music-card:hover {
             transform: translateX(6px);
-            border-color: rgba(184, 160, 124, 0.2);
+            border-color: rgba(184,160,124,0.2);
         }
         .music-cover {
             width: 60px;
             height: 60px;
             object-fit: cover;
             border-radius: 14px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
-        .music-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            flex: 1;
-        }
-        .music-card p {
-            color: var(--color-text-light);
-            font-size: 0.9rem;
-            flex: 2;
-        }
-        .music-card .btn {
-            flex-shrink: 0;
-        }
+        .music-card h3 { font-size: 1.1rem; font-weight: 600; flex: 1; }
+        .music-card p { color: var(--color-text-light); font-size: 0.9rem; flex: 2; }
+        .music-card .btn { flex-shrink: 0; }
         @media (max-width: 600px) {
-            .music-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            .music-cover {
-                width: 80px;
-                height: 80px;
-            }
-            .music-card .btn {
-                align-self: center;
-            }
+            .music-card { flex-direction: column; text-align: center; }
+            .music-cover { width: 80px; height: 80px; }
+            .music-card .btn { align-self: center; }
         }
 
-        /* ========== АЛЬФА-МУЗЫКА ========== */
+        /* ===== АЛЬФА-МУЗЫКА ===== */
         .alpha-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -839,25 +610,19 @@
             backdrop-filter: blur(4px);
             border-radius: var(--radius);
             padding: 20px;
-            border: 1px solid rgba(184, 160, 124, 0.1);
+            border: 1px solid rgba(184,160,124,0.1);
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
         }
         .alpha-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
         }
-        .alpha-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-        .alpha-card p {
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-        }
+        .alpha-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .alpha-card p { font-size: 0.85rem; color: var(--color-text-light); }
         .alpha-badge {
-            background: rgba(184, 160, 124, 0.12);
+            background: rgba(184,160,124,0.12);
             color: var(--color-primary-dark);
             font-size: 0.7rem;
             padding: 4px 14px;
@@ -866,13 +631,9 @@
             margin-bottom: 10px;
             font-weight: 600;
         }
-        .alpha-audio {
-            width: 100%;
-            margin-top: 10px;
-            border-radius: 40px;
-        }
+        .alpha-audio { width: 100%; margin-top: 10px; border-radius: 40px; }
 
-        /* ========== ОТЗЫВЫ ========== */
+        /* ===== ОТЗЫВЫ ===== */
         .testimonials {
             background: #f8f4f0;
             padding: 60px 0;
@@ -892,17 +653,10 @@
         }
         .testimonial-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
         }
-        .testimonial-card p {
-            font-style: italic;
-            color: #2c2c28;
-        }
-        .testimonial-card .author {
-            margin-top: 14px;
-            font-weight: 600;
-            color: var(--color-accent);
-        }
+        .testimonial-card p { font-style: italic; color: #2c2c28; }
+        .testimonial-card .author { margin-top: 14px; font-weight: 600; color: var(--color-accent); }
         #testimonialsContent {
             overflow: hidden;
             max-height: 0;
@@ -910,23 +664,15 @@
             transition: max-height 0.6s ease, opacity 0.6s ease, margin 0.3s ease;
             margin-top: 0;
         }
-        #testimonialsContent.show {
-            max-height: 3000px;
-            opacity: 1;
-            margin-top: 20px;
-        }
-        #testimonialsContent.hidden {
-            max-height: 0;
-            opacity: 0;
-            margin-top: 0;
-        }
+        #testimonialsContent.show { max-height: 3000px; opacity: 1; margin-top: 20px; }
+        #testimonialsContent.hidden { max-height: 0; opacity: 0; margin-top: 0; }
 
-        /* ========== КЛИЕНТЫ ========== */
+        /* ===== КЛИЕНТЫ ===== */
         .clients {
             background: #fff;
             padding: 50px 0;
-            border-top: 1px solid rgba(184, 160, 124, 0.1);
-            border-bottom: 1px solid rgba(184, 160, 124, 0.1);
+            border-top: 1px solid rgba(184,160,124,0.1);
+            border-bottom: 1px solid rgba(184,160,124,0.1);
         }
         .client-logos {
             display: flex;
@@ -941,16 +687,16 @@
             color: var(--color-text-light);
             letter-spacing: 0.5px;
             padding: 8px 20px;
-            background: rgba(184, 160, 124, 0.05);
+            background: rgba(184,160,124,0.05);
             border-radius: 40px;
             transition: var(--transition);
         }
         .client-logos span:hover {
-            background: rgba(184, 160, 124, 0.12);
+            background: rgba(184,160,124,0.12);
             transform: translateY(-2px);
         }
 
-        /* ========== БЛОК БЕСПЛАТНЫХ УРОКОВ ========== */
+        /* ===== БЕСПЛАТНЫЕ УРОКИ ===== */
         .lessons-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -962,32 +708,24 @@
             backdrop-filter: blur(8px);
             border-radius: var(--radius);
             padding: 28px 24px;
-            border: 1px solid rgba(184, 160, 124, 0.15);
+            border: 1px solid rgba(184,160,124,0.15);
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
         }
         .lesson-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-            border-color: rgba(184, 160, 124, 0.3);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+            border-color: rgba(184,160,124,0.3);
         }
-        .lesson-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .lesson-card p {
-            color: var(--color-text-light);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
+        .lesson-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; }
+        .lesson-card p { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 16px; }
 
-        /* ========== ФУТЕР ========== */
+        /* ===== ФУТЕР ===== */
         footer {
             background: #f5f3ed;
             padding: 48px 0 32px;
-            border-top: 1px solid rgba(184, 160, 124, 0.15);
+            border-top: 1px solid rgba(184,160,124,0.15);
         }
         .footer-content {
             display: grid;
@@ -995,19 +733,10 @@
             gap: 40px;
         }
         @media (max-width: 600px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+            .footer-content { grid-template-columns: 1fr; gap: 24px; }
         }
-        .footer-info p {
-            margin: 4px 0;
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-        }
-        .footer-info strong {
-            color: var(--color-text);
-        }
+        .footer-info p { margin: 4px 0; font-size: 0.95rem; color: var(--color-text-light); }
+        .footer-info strong { color: var(--color-text); }
         .social-links a {
             text-decoration: none;
             color: var(--color-text-light);
@@ -1028,7 +757,7 @@
         }
         .newsletter-form input {
             padding: 10px 18px;
-            border: 1px solid rgba(184, 160, 124, 0.2);
+            border: 1px solid rgba(184,160,124,0.2);
             border-radius: 60px;
             font-size: 0.95rem;
             flex: 1 1 200px;
@@ -1038,22 +767,18 @@
         }
         .newsletter-form input:focus {
             border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(184, 160, 124, 0.15);
+            box-shadow: 0 0 0 3px rgba(184,160,124,0.15);
         }
-        .newsletter-form .btn {
-            padding: 10px 28px;
-        }
+        .newsletter-form .btn { padding: 10px 28px; }
 
-        /* ========== МОДАЛЬНОЕ ОКНО ========== */
+        /* ===== МОДАЛЬНОЕ ОКНО ===== */
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -1063,18 +788,12 @@
             max-width: 90vw;
             max-height: 85vh;
             border-radius: 16px;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 24px 64px rgba(0,0,0,0.4);
             animation: modalIn 0.4s ease;
         }
         @keyframes modalIn {
-            0% {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
         .close-modal {
             position: absolute;
@@ -1091,58 +810,32 @@
             transform: rotate(90deg);
         }
 
-        /* ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ========== */
+        /* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* ========== МЕЛКИЕ ПРАВКИ ========== */
-        .text-center {
-            text-align: center;
-        }
-        .mt-20 {
-            margin-top: 20px;
-        }
-        .mt-30 {
-            margin-top: 30px;
-        }
-        .mb-20 {
-            margin-bottom: 20px;
-        }
-        .flex-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-        }
-        .gap-8 {
-            gap: 8px;
-        }
-        .gap-16 {
-            gap: 16px;
-        }
+        /* ===== ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ ===== */
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mt-30 { margin-top: 30px; }
+        .mb-20 { margin-bottom: 20px; }
+        .flex-wrap { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+        .gap-8 { gap: 8px; }
+        .gap-16 { gap: 16px; }
     </style>
 </head>
 <body>
 
-    <!-- ====== АНИМИРОВАННЫЙ ФОН ====== -->
+    <!-- ====== ФОН И ЧАСТИЦЫ ====== -->
     <div class="animated-bg"></div>
     <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
         <div class="particle"></div>
     </div>
 
@@ -1250,22 +943,10 @@
                 <div id="testimonialsContent" class="hidden">
                     <h2 class="section-title">Что говорят участники</h2>
                     <div class="testimonial-grid">
-                        <div class="testimonial-card">
-                            <p>«После курса я перестала искать утешение в бокале. Марианна дала не просто техники, она дала новое понимание себя. Спасибо за свободу!»</p>
-                            <div class="author">— Елена, предприниматель</div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p>«Ретрит в Подмосковье перевернул мою жизнь. Я приехала с выгоранием, а уехала с песней внутри и чётким планом на год».</p>
-                            <div class="author">— Ольга, топ-менеджер</div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p>«Консьерж-услуга — это магия. Маря решила мои бизнес-задачи и заодно помогла справиться с тревогой. Бесценный опыт».</p>
-                            <div class="author">— Александр, владелец девелоперской компании</div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p>«Я боялась петь, но после «Поющих кругов» мой голос стал свободным. Теперь я провожу переговоры иначе — увереннее».</p>
-                            <div class="author">— Ирина, HR-директор</div>
-                        </div>
+                        <div class="testimonial-card"><p>«После курса я перестала искать утешение в бокале. Марианна дала не просто техники, она дала новое понимание себя. Спасибо за свободу!»</p><div class="author">— Елена, предприниматель</div></div>
+                        <div class="testimonial-card"><p>«Ретрит в Подмосковье перевернул мою жизнь. Я приехала с выгоранием, а уехала с песней внутри и чётким планом на год».</p><div class="author">— Ольга, топ-менеджер</div></div>
+                        <div class="testimonial-card"><p>«Консьерж-услуга — это магия. Маря решила мои бизнес-задачи и заодно помогла справиться с тревогой. Бесценный опыт».</p><div class="author">— Александр, владелец девелоперской компании</div></div>
+                        <div class="testimonial-card"><p>«Я боялась петь, но после «Поющих кругов» мой голос стал свободным. Теперь я провожу переговоры иначе — увереннее».</p><div class="author">— Ирина, HR-директор</div></div>
                     </div>
                 </div>
             </div>
@@ -1288,7 +969,7 @@
 
         <hr class="section-divider">
 
-        <!-- ===== МОИ ПРОЕКТЫ (БЕСПЛАТНЫЕ) — ВСЕ КАРТОЧКИ ПРИВЕДЕНЫ К ОДНОМУ СТИЛЮ ===== -->
+        <!-- ===== МОИ ПРОЕКТЫ (ВСЕ 7 КАРТОЧЕК С ПОЛНЫМИ ОПИСАНИЯМИ) ===== -->
         <section class="projects-offer" id="projects" style="padding:50px 0 60px;">
             <div class="container">
                 <h2 class="section-title">Мои проекты</h2>
@@ -1473,7 +1154,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. Нейро-дыхательные практики (приведены к общему виду) -->
+                    <!-- 4. Нейро-дыхательные практики -->
                     <div class="project-card fade-in" id="neuro-program-link">
                         <h3>🧠 Нейро-дыхательные практики</h3>
                         <p>Простые 2–5‑минутные упражнения для снятия тревоги, заземления и активации голоса.</p>
@@ -1488,7 +1169,7 @@
                         </div>
                     </div>
 
-                    <!-- 5. Нейро-аптечка (приведена к общему виду) -->
+                    <!-- 5. Нейро-аптечка -->
                     <div class="project-card fade-in" id="neuro-aid-link">
                         <h3>🧰 Нейро-аптечка: 10 быстрых практик</h3>
                         <p>10 упражнений для сброса тревоги, заземления, активации блуждающего нерва.</p>
@@ -1508,7 +1189,7 @@
                         </div>
                     </div>
 
-                    <!-- 6. Нейробиологические упражнения (приведены к общему виду) -->
+                    <!-- 6. Нейробиологические упражнения -->
                     <div class="project-card fade-in" id="neuro-games-link">
                         <h3>🎮 Нейробиологические упражнения</h3>
                         <p>5 нейроигр для развития голоса и слуха.</p>
@@ -1523,7 +1204,7 @@
                         </div>
                     </div>
 
-                    <!-- 7. Технологии (уже в правильном формате) -->
+                    <!-- 7. Технологии -->
                     <div class="project-card fade-in" id="tech-link">
                         <h3>🔹 Технологии и Муза 2.0</h3>
                         <p>Продвинутый уровень работы со звуком, нейроинтерфейсами и творческим программированием. Для тех, кто хочет соединить музыку, технологии и глубокую рефлексию.</p>
@@ -1549,13 +1230,13 @@
                         <p style="margin-top:12px;"><a href="https://c2c.cbrpay.ru/BS1I006L0ELMFR2A94NRDOP5G97BV5NL" target="_blank" style="color:var(--color-primary);">c2c.cbrpay.ru/...</a></p>
                     </div>
 
-                </div><!-- /.project-cards -->
+                </div>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ===== НОВЫЙ БЛОК: БЕСПЛАТНЫЕ УРОКИ ===== -->
+        <!-- ===== БЕСПЛАТНЫЕ УРОКИ ===== -->
         <section style="padding:50px 0 60px; background:#faf8f3;">
             <div class="container">
                 <h2 class="section-title">📖 Бесплатные уроки</h2>
@@ -1588,42 +1269,25 @@
                 <h2 class="section-title">💎 Платные программы</h2>
                 <p style="color:var(--color-text-light); max-width:700px; margin-bottom:30px;">Хотите пойти глубже? Вот мои авторские продукты — выберите свой уровень погружения.</p>
                 <div class="project-cards">
-                    <!-- 1. Осознанный отказ -->
                     <div class="project-card fade-in">
                         <h3>🧠 Цифровой курс «Осознанный отказ»</h3>
                         <p><strong>7‑дневная нейро‑практика</strong> для освобождения от алкогольной тяги без силы воли. Внутри: аудио‑треки (Ableton), дыхательные техники, нейро‑упражнения и авторская методика замещения ритуала.</p>
-                        <ul style="font-size:0.9rem; color:var(--color-text-light); margin:10px 0; padding-left:20px;">
-                            <li>✅ 7 модулей с видео и аудио</li>
-                            <li>✅ Ежедневные практики по 15–20 мин</li>
-                            <li>✅ Чат поддержки в Telegram</li>
-                        </ul>
+                        <ul><li>✅ 7 модулей с видео и аудио</li><li>✅ Ежедневные практики по 15–20 мин</li><li>✅ Чат поддержки в Telegram</li></ul>
                         <div style="margin:12px 0; font-size:1.8rem; font-weight:700; color:var(--color-accent);">2 900 ₽</div>
                         <a href="course.html" class="btn btn-accent" style="align-self:flex-start; font-size:1.1rem; padding:12px 36px;">Купить курс →</a>
                         <p style="font-size:0.8rem; color:#999; margin-top:8px;">Доступ открывается сразу после оплаты</p>
                     </div>
-
-                    <!-- 2. Ретриты -->
                     <div class="project-card fade-in">
                         <h3>🌿 Ретриты (выездные)</h3>
                         <p><strong>Живые трансформационные программы</strong> в Подмосковье и по РФ. Форматы:</p>
-                        <ul style="font-size:0.9rem; color:var(--color-text-light); margin:10px 0; padding-left:20px;">
-                            <li>👩 Женские «Шабаши» (глубинная психология + пение + тело)</li>
-                            <li>🏢 Бизнес‑тимбилдинг (переговоры + нейро‑снятие стресса)</li>
-                            <li>🔥 Общие ретриты (музыка, природа, трансформация)</li>
-                        </ul>
+                        <ul><li>👩 Женские «Шабаши» (глубинная психология + пение + тело)</li><li>🏢 Бизнес‑тимбилдинг (переговоры + нейро‑снятие стресса)</li><li>🔥 Общие ретриты (музыка, природа, трансформация)</li></ul>
                         <a href="retreat-form.html" class="btn btn-primary" style="align-self:flex-start;">Выбрать даты →</a>
                         <p style="font-size:0.8rem; color:#999; margin-top:8px;">Ближайший выезд – май 2026</p>
                     </div>
-
-                    <!-- 3. Консьерж -->
                     <div class="project-card fade-in">
                         <h3>💼 Консьерж для ТОПов</h3>
                         <p><strong>Годовой абонемент «Личный советник»</strong> – я решаю ваши бизнес‑задачи и вашу «голову» в одном флаконе. Для владельцев бизнеса и топ‑менеджеров.</p>
-                        <ul style="font-size:0.9rem; color:var(--color-text-light); margin:10px 0; padding-left:20px;">
-                            <li>✅ Еженедельные стратегические сессии</li>
-                            <li>✅ Помощь в переговорах и кадровых вопросах</li>
-                            <li>✅ Нейро‑практики для устойчивости</li>
-                        </ul>
+                        <ul><li>✅ Еженедельные стратегические сессии</li><li>✅ Помощь в переговорах и кадровых вопросах</li><li>✅ Нейро‑практики для устойчивости</li></ul>
                         <a href="concierge-form.html" class="btn btn-primary" style="align-self:flex-start;">Запросить условия →</a>
                         <p style="font-size:0.8rem; color:#999; margin-top:8px;">Индивидуальный подход</p>
                     </div>
@@ -1665,39 +1329,10 @@
                 <h2 class="section-title">🎧 Альфа-музыка — Глубокая нейро-энтрейнерная стимуляция</h2>
                 <p style="margin-bottom:30px; color:var(--color-text-light); max-width:800px;">Специальные аудиотреки для синхронизации с альфа-ритмом мозга. Помогают быстро войти в состояние глубокого расслабления, повысить креативность и восстановить нервную систему. Рекомендуется слушать в наушниках с закрытыми глазами.</p>
                 <div class="alpha-grid">
-                    <div class="alpha-card fade-in">
-                        <div class="alpha-badge">🧠 Альфа-поток</div>
-                        <h3>Альфа-поток 1</h3>
-                        <p>Вхождение в альфа-состояние · 30 мин</p>
-                        <audio class="alpha-audio" controls preload="metadata">
-                            <source src="Альфа-поток 1.mp3" type="audio/mpeg">
-                            Ваш браузер не поддерживает аудио.
-                        </audio>
-                    </div>
-                    <div class="alpha-card fade-in">
-                        <div class="alpha-badge">🎵 Альфа-поток</div>
-                        <h3>Альфа поток 2</h3>
-                        <p>Углубление · 25 мин</p>
-                        <audio class="alpha-audio" controls preload="metadata">
-                            <source src="Альфа поток 2.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-                    <div class="alpha-card fade-in">
-                        <div class="alpha-badge">🌊 Альфа-поток</div>
-                        <h3>Альфа поток 3</h3>
-                        <p>Восстановление · 28 мин</p>
-                        <audio class="alpha-audio" controls preload="metadata">
-                            <source src="Альфа поток 3.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-                    <div class="alpha-card fade-in">
-                        <div class="alpha-badge">✨ Альфа-поток</div>
-                        <h3>Альфа поток 4</h3>
-                        <p>Интеграция · 32 мин</p>
-                        <audio class="alpha-audio" controls preload="metadata">
-                            <source src="Альфа поток 4.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
+                    <div class="alpha-card fade-in"><div class="alpha-badge">🧠 Альфа-поток</div><h3>Альфа-поток 1</h3><p>Вхождение в альфа-состояние · 30 мин</p><audio class="alpha-audio" controls preload="metadata"><source src="Альфа-поток 1.mp3" type="audio/mpeg">Ваш браузер не поддерживает аудио.</audio></div>
+                    <div class="alpha-card fade-in"><div class="alpha-badge">🎵 Альфа-поток</div><h3>Альфа поток 2</h3><p>Углубление · 25 мин</p><audio class="alpha-audio" controls preload="metadata"><source src="Альфа поток 2.mp3" type="audio/mpeg"></audio></div>
+                    <div class="alpha-card fade-in"><div class="alpha-badge">🌊 Альфа-поток</div><h3>Альфа поток 3</h3><p>Восстановление · 28 мин</p><audio class="alpha-audio" controls preload="metadata"><source src="Альфа поток 3.mp3" type="audio/mpeg"></audio></div>
+                    <div class="alpha-card fade-in"><div class="alpha-badge">✨ Альфа-поток</div><h3>Альфа поток 4</h3><p>Интеграция · 32 мин</p><audio class="alpha-audio" controls preload="metadata"><source src="Альфа поток 4.mp3" type="audio/mpeg"></audio></div>
                 </div>
                 <p style="margin-top:30px; text-align:center; font-size:0.85rem; color:#7f7f7a;">🎧 Для лучшего эффекта используйте качественные наушники и слушайте в спокойной обстановке. Не управляйте транспортными средствами во время прослушивания.</p>
             </div>
@@ -1736,75 +1371,16 @@
             <div class="container">
                 <h2 class="section-title">АниМаря</h2>
                 <p style="text-align:center; margin-bottom:40px; color:var(--color-text-light);">Анимационные работы, визуальные этюды и арты. Здесь поселяется движение.</p>
-
                 <div class="project-cards" style="grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); margin-bottom:60px;">
-                    <!-- Видео 1-8 (сокращено для экономии места, но в исходнике они есть) -->
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip1.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 1</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip2.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 2</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip3.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 3</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip4.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 4</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip5.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 5</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip6.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 6</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip7.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 7</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
-                    <div class="project-card fade-in" style="text-align:center;">
-                        <video controls width="100%" style="border-radius:16px; margin-bottom:16px;">
-                            <source src="videos/clip8.mp4" type="video/mp4">
-                        </video>
-                        <h3>АниМаря</h3>
-                        <p>Клип 8</p>
-                        <a href="#" class="btn btn-secondary">Смотреть →</a>
-                    </div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip1.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 1</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip2.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 2</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip3.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 3</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip4.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 4</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip5.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 5</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip6.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 6</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip7.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 7</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
+                    <div class="project-card fade-in" style="text-align:center;"><video controls width="100%" style="border-radius:16px; margin-bottom:16px;"><source src="videos/clip8.mp4" type="video/mp4"></video><h3>АниМаря</h3><p>Клип 8</p><a href="#" class="btn btn-secondary">Смотреть →</a></div>
                 </div>
-
                 <h3 style="font-size:1.8rem; margin:40px 0 20px; border-left:5px solid var(--color-primary); padding-left:20px;">✨ АниМаря Фото</h3>
                 <p style="margin-bottom:30px; text-align:center; color:var(--color-text-light);">Первые фото АниМари для сниппетов. Нажмите на любое фото, чтобы увеличить.</p>
                 <div class="gallery-grid" id="animaryaGalleryGrid"></div>
@@ -1919,7 +1495,6 @@
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) modal.style.display = 'none';
             });
-            // Фото Мари
             document.querySelectorAll('#photoGalleryGrid img').forEach(img => {
                 img.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -1928,7 +1503,6 @@
                     modalImg.alt = this.alt;
                 });
             });
-            // АниМаря фото
             document.querySelectorAll('#animaryaGalleryGrid img').forEach(img => {
                 img.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -2024,7 +1598,7 @@
             setInterval(updateMoon, 3600000);
         })();
 
-        // ----- АФОРИЗМЫ МАХАБХАРАТЫ (короткая версия для примера) -----
+        // ----- АФОРИЗМЫ МАХАБХАРАТЫ (короткая версия) -----
         (function() {
             const quotes = [
                 "Нет ничего выше Дхармы. Даже малая Дхарма спасает от великого страха.",
@@ -2047,7 +1621,11 @@
                 "Укроти свой язык, и ты укротишь весь мир.",
                 "Терпение — высшая аскеза.",
                 "Кто ищет друзей без недостатков, останется один.",
-                "Лучше жить одному, чем с глупцом."
+                "Лучше жить одному, чем с глупцом.",
+                "Не хвались богатством, не гордись молодостью — время отнимает всё.",
+                "Как черепаха прячет конечности, так мудрец прячет свои чувства от соблазнов.",
+                "Кто победил сон, тот победил смерть.",
+                "Даже малое добро не оставляй, даже малое зло не совершай."
             ];
             const dailyQuoteDiv = document.getElementById('dailyQuote');
             if (dailyQuoteDiv) {
@@ -2060,4 +1638,71 @@
 
         // ----- ЗАГРУЗКА ГАЛЕРЕЙ -----
         (function() {
-            const photoNames = ['mari1.jpg', 'mari2.jpg', 'm
+            const photoNames = ['mari1.jpg', 'mari2.jpg', 'mari3.jpg', 'mari4.jpg', 'mari5.jpg', 'mari6.jpg'];
+            const container = document.getElementById('photoGalleryGrid');
+            if (container) {
+                container.innerHTML = '';
+                photoNames.forEach(photo => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    item.innerHTML = `<img src="foto_mari/${photo}" alt="Фото Мари" loading="lazy">`;
+                    container.appendChild(item);
+                });
+            }
+        })();
+
+        (function() {
+            const photoNamesLat = Array.from({ length: 35 }, (_, i) => `foto${i+1}.jpg`);
+            const container = document.getElementById('animaryaGalleryGrid');
+            if (container) {
+                container.innerHTML = '';
+                photoNamesLat.forEach(photo => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    const imgSrc = `animarya_images/${photo}`;
+                    item.innerHTML =
+                        `<img src="${imgSrc}" alt="${photo}" loading="lazy" style="height:260px; object-fit:cover;"><div class="caption"><strong>${photo.replace('.jpg','')}</strong><span>АниМаря</span></div>`;
+                    container.appendChild(item);
+                });
+            }
+        })();
+
+        // ----- ПЕРЕКЛЮЧЕНИЕ ОТЗЫВОВ -----
+        (function() {
+            const btn = document.getElementById('toggleTestimonialsBtn');
+            const content = document.getElementById('testimonialsContent');
+            if (btn && content) {
+                content.classList.add('hidden');
+                btn.addEventListener('click', function() {
+                    const isHidden = content.classList.contains('hidden');
+                    if (isHidden) {
+                        content.classList.remove('hidden');
+                        content.classList.add('show');
+                        btn.textContent = '📕 Скрыть отзывы';
+                        setTimeout(() => {
+                            content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 300);
+                    } else {
+                        content.classList.remove('show');
+                        content.classList.add('hidden');
+                        btn.textContent = '📖 Показать отзывы участников';
+                    }
+                });
+            }
+        })();
+
+        // ----- АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (Intersection Observer) -----
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

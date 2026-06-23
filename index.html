@@ -42,6 +42,146 @@
             padding: 0 24px;
         }
 
+        /* ========== АНИМИРОВАННЫЙ ФОН (УЛУЧШЕН) ========== */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            background: linear-gradient(145deg, #faf8f3 0%, #f0ece4 40%, #e8e0d5 70%, #f5f0e8 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease-in-out infinite alternate;
+        }
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ========== ЧАСТИЦЫ (УЛУЧШЕНЫ) ========== */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 160, 124, 0.4), transparent);
+            animation: floatParticle 12s infinite alternate ease-in-out;
+            will-change: transform, opacity;
+        }
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 20%;
+            animation-duration: 14s;
+            width: 8px;
+            height: 8px;
+        }
+        .particle:nth-child(2) {
+            left: 80%;
+            top: 70%;
+            animation-duration: 16s;
+            animation-delay: 2s;
+            width: 12px;
+            height: 12px;
+        }
+        .particle:nth-child(3) {
+            left: 30%;
+            top: 80%;
+            animation-duration: 18s;
+            animation-delay: 4s;
+            width: 10px;
+            height: 10px;
+        }
+        .particle:nth-child(4) {
+            left: 60%;
+            top: 10%;
+            animation-duration: 20s;
+            animation-delay: 1s;
+            width: 14px;
+            height: 14px;
+        }
+        .particle:nth-child(5) {
+            left: 90%;
+            top: 40%;
+            animation-duration: 22s;
+            animation-delay: 3s;
+            width: 7px;
+            height: 7px;
+        }
+        .particle:nth-child(6) {
+            left: 5%;
+            top: 90%;
+            animation-duration: 24s;
+            animation-delay: 5s;
+            width: 9px;
+            height: 9px;
+        }
+        .particle:nth-child(7) {
+            left: 50%;
+            top: 50%;
+            animation-duration: 26s;
+            animation-delay: 0.5s;
+            width: 11px;
+            height: 11px;
+        }
+        .particle:nth-child(8) {
+            left: 70%;
+            top: 85%;
+            animation-duration: 28s;
+            animation-delay: 6s;
+            width: 13px;
+            height: 13px;
+        }
+        .particle:nth-child(9) {
+            left: 45%;
+            top: 15%;
+            animation-duration: 30s;
+            animation-delay: 2.5s;
+            width: 6px;
+            height: 6px;
+        }
+        .particle:nth-child(10) {
+            left: 20%;
+            top: 60%;
+            animation-duration: 32s;
+            animation-delay: 1.5s;
+            width: 15px;
+            height: 15px;
+        }
+        @keyframes floatParticle {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+            33% {
+                transform: translate(30px, -40px) scale(1.3);
+                opacity: 0.7;
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(10px, -10px) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
         /* ========== СТИКИ-ЛУНА ========== */
         .moon-sticky-container {
             position: sticky;
@@ -51,6 +191,7 @@
             margin-right: 20px;
             z-index: 10;
             pointer-events: none;
+            transition: transform 0.3s ease;
         }
         .moon-sticky-container>* {
             pointer-events: auto;
@@ -283,13 +424,12 @@
             }
         }
 
-        /* ========== ГЕРОЙ ========== */
+        /* ========== ГЕРОЙ (УЛУЧШЕН) ========== */
         .hero {
             padding: 80px 0 50px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(165deg, #faf8f3 0%, #f0ece4 100%);
         }
         .hero::before {
             content: '';
@@ -298,8 +438,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(184, 160, 124, 0.06) 0%, transparent 60%);
-            animation: heroGlow 20s ease-in-out infinite alternate;
+            background: radial-gradient(circle at 30% 40%, rgba(184, 160, 124, 0.08) 0%, transparent 60%);
+            animation: heroGlow 25s ease-in-out infinite alternate;
             pointer-events: none;
         }
         @keyframes heroGlow {
@@ -314,12 +454,22 @@
             font-size: 2.8rem;
             font-weight: 600;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, #2c2c28, var(--color-primary-dark));
+            background: linear-gradient(135deg, #2c2c28, var(--color-primary-dark), var(--color-accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             position: relative;
             display: inline-block;
+            background-size: 300% 300%;
+            animation: gradientText 6s ease-in-out infinite alternate;
+        }
+        @keyframes gradientText {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
         .hero h2::after {
             content: '✨';
@@ -359,7 +509,7 @@
             z-index: 1;
         }
 
-        /* ========== КНОПКИ ========== */
+        /* ========== КНОПКИ (УЛУЧШЕНЫ) ========== */
         .btn {
             display: inline-block;
             padding: 12px 32px;
@@ -411,10 +561,27 @@
             background: linear-gradient(135deg, var(--color-accent), #7d4739);
             color: #fff;
             box-shadow: 0 4px 20px rgba(158, 93, 76, 0.35);
+            transition: var(--transition);
         }
         .btn-accent:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 32px rgba(158, 93, 76, 0.45);
+        }
+        .btn-accent::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 60%);
+            opacity: 0;
+            transition: var(--transition);
+            transform: scale(0.8);
+        }
+        .btn-accent:hover::after {
+            opacity: 1;
+            transform: scale(1);
         }
 
         /* ========== РАЗДЕЛИТЕЛИ ========== */
@@ -445,7 +612,7 @@
             border-radius: 4px;
         }
 
-        /* ========== КАРТОЧКИ ПРОЕКТОВ ========== */
+        /* ========== КАРТОЧКИ ПРОЕКТОВ (УЛУЧШЕНЫ) ========== */
         .project-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -464,8 +631,24 @@
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            will-change: transform, box-shadow;
         }
         .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-25deg);
+            transition: 0.8s;
+            pointer-events: none;
+        }
+        .project-card:hover::before {
+            left: 100%;
+        }
+        .project-card::after {
             content: '';
             position: absolute;
             top: 0;
@@ -481,7 +664,7 @@
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
             border-color: rgba(184, 160, 124, 0.3);
         }
-        .project-card:hover::before {
+        .project-card:hover::after {
             opacity: 1;
         }
         .project-card h3 {
@@ -500,7 +683,7 @@
             margin-top: 4px;
         }
 
-        /* ========== ПРОГРАММЫ ========== */
+        /* ========== ПРОГРАММЫ (РАСКРЫВАШКИ) ========== */
         .program-details {
             display: none;
             margin-top: 20px;
@@ -908,32 +1091,15 @@
             transform: rotate(90deg);
         }
 
-        /* ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ========== */
+        /* ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ========== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeUp 0.8s ease forwards;
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .fade-in:nth-child(2) {
-            animation-delay: 0.1s;
-        }
-        .fade-in:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-        .fade-in:nth-child(4) {
-            animation-delay: 0.3s;
-        }
-        .fade-in:nth-child(5) {
-            animation-delay: 0.4s;
-        }
-        .fade-in:nth-child(6) {
-            animation-delay: 0.5s;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* ========== МЕЛКИЕ ПРАВКИ ========== */
@@ -964,6 +1130,21 @@
     </style>
 </head>
 <body>
+
+    <!-- ====== АНИМИРОВАННЫЙ ФОН ====== -->
+    <div class="animated-bg"></div>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
     <!-- ====== ЛУНА ====== -->
     <div class="moon-sticky-container">
@@ -1107,13 +1288,13 @@
 
         <hr class="section-divider">
 
-        <!-- ===== МОИ ПРОЕКТЫ (БЕСПЛАТНЫЕ) — ПОЛНЫЕ ОПИСАНИЯ ===== -->
+        <!-- ===== МОИ ПРОЕКТЫ (БЕСПЛАТНЫЕ) — ВСЕ КАРТОЧКИ ПРИВЕДЕНЫ К ОДНОМУ СТИЛЮ ===== -->
         <section class="projects-offer" id="projects" style="padding:50px 0 60px;">
             <div class="container">
                 <h2 class="section-title">Мои проекты</h2>
                 <div class="project-cards">
 
-                    <!-- 1. Лаборатория внутренних опор — ПОЛНОЕ ОПИСАНИЕ -->
+                    <!-- 1. Лаборатория внутренних опор -->
                     <div class="project-card fade-in" id="lab-program-link">
                         <h3>🔹 Лаборатория внутренних опор</h3>
                         <p>Строим ваш «внутренний дом»: бережно, слой за слоем, как реставраторы.</p>
@@ -1165,7 +1346,7 @@
                         </div>
                     </div>
 
-                    <!-- 2. Поющие круги рефлексии — ПОЛНОЕ ОПИСАНИЕ -->
+                    <!-- 2. Поющие круги рефлексии -->
                     <div class="project-card fade-in" id="singing-program-link">
                         <h3>🔸 Поющие круги рефлексии</h3>
                         <p>Три направления: Голос, Танец, Слово. Выберите свой путь к себе.</p>
@@ -1253,7 +1434,7 @@
                         </div>
                     </div>
 
-                    <!-- 3. Муза — ПОЛНОЕ ОПИСАНИЕ -->
+                    <!-- 3. Муза -->
                     <div class="project-card fade-in" id="muza-program-link">
                         <h3>🔸 Проект «Муза» — нейро-поэтический коучинг</h3>
                         <p>Для тех, кто попал в творческий ступор. Учу находить музу в любой момент.</p>
@@ -1292,11 +1473,13 @@
                         </div>
                     </div>
 
-                    <!-- 4. Нейро-дыхательные практики (полные) -->
+                    <!-- 4. Нейро-дыхательные практики (приведены к общему виду) -->
                     <div class="project-card fade-in" id="neuro-program-link">
                         <h3>🧠 Нейро-дыхательные практики</h3>
                         <p>Простые 2–5‑минутные упражнения для снятия тревоги, заземления и активации голоса.</p>
-                        <div style="margin-top:16px;">
+                        <button class="btn btn-secondary" data-target="neuro-details">Программы →</button>
+                        <div id="neuro-details" class="program-details">
+                            <h4>5 быстрых техник</h4>
                             <details><summary>💨 1. Физиологический вздох</summary><div><strong>Суть.</strong> Двойной вдох носом и долгий медленный выдох ртом.<br><strong>Почему это работает.</strong> В лёгких есть миллионы микроскопических альвеол, которые при стрессе спадаются. Двойной вдох заставляет их раскрыться, а долгий выдох активирует блуждающий нерв.<br><strong>Как выполнять.</strong> Вдох носом, затем короткий довдох, медленный выдох ртом (длиннее вдохов). Повторить 3–5 раз.</div></details>
                             <details><summary>🌬️ 2. Опора на выдох</summary><div><strong>Суть.</strong> Удлинённый выдох со звуком «ф-ф-ф».<br><strong>Как выполнять.</strong> Рука на животе, вдох носом, выдох со звуком «ф-ф-ф-ф». 5 выдохов.</div></details>
                             <details><summary>🎵 3. Пение как нейрохакинг</summary><div><strong>Суть.</strong> Гудение и пение гласных для стимуляции блуждающего нерва.<br><strong>Как выполнять.</strong> Гудеть «м-м-м-м-м», затем «а-а-а-а-а». 3–4 раза.</div></details>
@@ -1305,11 +1488,13 @@
                         </div>
                     </div>
 
-                    <!-- 5. Нейро-аптечка (полные) -->
+                    <!-- 5. Нейро-аптечка (приведена к общему виду) -->
                     <div class="project-card fade-in" id="neuro-aid-link">
                         <h3>🧰 Нейро-аптечка: 10 быстрых практик</h3>
                         <p>10 упражнений для сброса тревоги, заземления, активации блуждающего нерва.</p>
-                        <div style="margin-top:16px;">
+                        <button class="btn btn-secondary" data-target="neuro-aid-details">Программы →</button>
+                        <div id="neuro-aid-details" class="program-details">
+                            <h4>10 упражнений</h4>
                             <details><summary>💧 1. Холодная вода на запястья и лицо</summary><div><strong>Суть.</strong> Нырятельный рефлекс млекопитающих.<br><strong>Как выполнять.</strong> Запястья под холодной водой 15–20 сек, умыть лицо 3–5 раз.</div></details>
                             <details><summary>🦋 2. Тряска всем телом</summary><div><strong>Суть.</strong> Сброс адреналина после стресса.<br><strong>Как выполнять.</strong> Трясти кистями, локтями, плечами, подпрыгивать 1–2 мин, затем замереть.</div></details>
                             <details><summary>👁️ 3. Боковое (панорамное) зрение</summary><div><strong>Суть.</strong> Расширение поля зрения для снижения тревоги.<br><strong>Как выполнять.</strong> Расслабленный взгляд, воспринимать периферию 3–5 мин.</div></details>
@@ -1323,11 +1508,13 @@
                         </div>
                     </div>
 
-                    <!-- 6. Нейробиологические упражнения (полные) -->
+                    <!-- 6. Нейробиологические упражнения (приведены к общему виду) -->
                     <div class="project-card fade-in" id="neuro-games-link">
                         <h3>🎮 Нейробиологические упражнения</h3>
                         <p>5 нейроигр для развития голоса и слуха.</p>
-                        <div style="margin-top:16px;">
+                        <button class="btn btn-secondary" data-target="neuro-games-details">Программы →</button>
+                        <div id="neuro-games-details" class="program-details">
+                            <h4>5 нейроигр</h4>
                             <details><summary>🎤 1. Зеркальный звук</summary><div><strong>Суть.</strong> Пение вместе с записью, затем выключение звука и продолжение а капелла.<br><strong>Почему это работает.</strong> Тренирует аудиомоторную петлю и внутренний слуховой образ.<br><strong>Как выполнять.</strong> Включи песню, пой с исполнителем, на паузе продолжай, затем проверь попадание.</div></details>
                             <details><summary>🧘 2. Гудение в разные части тела</summary><div><strong>Суть.</strong> Гудеть, перемещая внимание на вибрацию в теле.<br><strong>Почему это работает.</strong> Стимулирует блуждающий нерв и улучшает интероцепцию.<br><strong>Как выполнять.</strong> Гудеть «м-м-м», направляя вибрацию в разные зоны – губы, грудь, живот, ноги.</div></details>
                             <details><summary>🥄 3. Ритмический диалог</summary><div><strong>Суть.</strong> Повторение и добавление ритмических рисунков.<br><strong>Как выполнять.</strong> Отстучать ритм, партнёр повторяет и добавляет свой. Чередовать, усложняя.</div></details>
@@ -1336,7 +1523,7 @@
                         </div>
                     </div>
 
-                    <!-- 7. Технологии (полные) -->
+                    <!-- 7. Технологии (уже в правильном формате) -->
                     <div class="project-card fade-in" id="tech-link">
                         <h3>🔹 Технологии и Муза 2.0</h3>
                         <p>Продвинутый уровень работы со звуком, нейроинтерфейсами и творческим программированием. Для тех, кто хочет соединить музыку, технологии и глубокую рефлексию.</p>
@@ -1837,21 +2024,31 @@
             setInterval(updateMoon, 3600000);
         })();
 
-        // ----- АФОРИЗМЫ МАХАБХАРАТЫ -----
+        // ----- АФОРИЗМЫ МАХАБХАРАТЫ (короткая версия для примера) -----
         (function() {
             const quotes = [
                 "Нет ничего выше Дхармы. Даже малая Дхарма спасает от великого страха.",
                 "Гнев — враг человека, прощение — его щит.",
-                // ... (полный список из 365 цитат, для краткости оставлены основные; в реальном файле они все есть)
-                "Счастье — это когда ты нужен.",
-                "Не трать жизнь на сплетни — они не делают тебя лучше.",
-                "Если не знаешь, как ответить, улыбнись.",
-                "Не бойся быть одному — бойся быть с теми, кто тебя не понимает.",
-                "Уважай чужое мнение, даже если не согласен.",
-                "Будь как река: течёт, но не пересыхает."
+                "Тот, кто не владеет собой, не владеет и миром.",
+                "Истина одна, но мудрецы называют её разными именами.",
+                "Побеждай гнев прощением, зло — добром, ложь — правдой.",
+                "Судьба — это то, что мы заслужили своими поступками.",
+                "Счастье и горе, прибыль и убыток, победа и поражение — таков закон жизни.",
+                "Лучше своя дхарма, даже несовершенная, чем чужая, исполненная безупречно.",
+                "Ум — друг, но он же и враг для того, кто его не контролирует.",
+                "Не делай другим того, что неприятно тебе самому.",
+                "Знание — это свет, а невежество — тьма.",
+                "Только тот, кто победил свой ум, обретает покой.",
+                "Время пожирает всё, но дхарма вечна.",
+                "Мудрый видит равными счастье и несчастье, золото и камень.",
+                "Сомнение — величайшая потеря времени, иди вперёд с верой.",
+                "Нет друга лучше истины, нет врага хуже лжи.",
+                "Человек создан своими мыслями, он становится тем, о чём думает.",
+                "Укроти свой язык, и ты укротишь весь мир.",
+                "Терпение — высшая аскеза.",
+                "Кто ищет друзей без недостатков, останется один.",
+                "Лучше жить одному, чем с глупцом."
             ];
-            // В оригинале их 365, здесь для примера короткий список.
-            // Для полной версии скопируйте полный массив из первого файла.
             const dailyQuoteDiv = document.getElementById('dailyQuote');
             if (dailyQuoteDiv) {
                 const start = new Date(new Date().getFullYear(), 0, 0);
@@ -1863,58 +2060,4 @@
 
         // ----- ЗАГРУЗКА ГАЛЕРЕЙ -----
         (function() {
-            const photoNames = ['mari1.jpg', 'mari2.jpg', 'mari3.jpg', 'mari4.jpg', 'mari5.jpg', 'mari6.jpg'];
-            const container = document.getElementById('photoGalleryGrid');
-            if (container) {
-                container.innerHTML = '';
-                photoNames.forEach(photo => {
-                    const item = document.createElement('div');
-                    item.className = 'gallery-item';
-                    item.innerHTML = `<img src="foto_mari/${photo}" alt="Фото Мари" loading="lazy">`;
-                    container.appendChild(item);
-                });
-            }
-        })();
-
-        (function() {
-            const photoNamesLat = Array.from({ length: 35 }, (_, i) => `foto${i+1}.jpg`);
-            const container = document.getElementById('animaryaGalleryGrid');
-            if (container) {
-                container.innerHTML = '';
-                photoNamesLat.forEach(photo => {
-                    const item = document.createElement('div');
-                    item.className = 'gallery-item';
-                    const imgSrc = `animarya_images/${photo}`;
-                    item.innerHTML =
-                        `<img src="${imgSrc}" alt="${photo}" loading="lazy" style="height:260px; object-fit:cover;"><div class="caption"><strong>${photo.replace('.jpg','')}</strong><span>АниМаря</span></div>`;
-                    container.appendChild(item);
-                });
-            }
-        })();
-
-        // ----- ПЕРЕКЛЮЧЕНИЕ ОТЗЫВОВ -----
-        (function() {
-            const btn = document.getElementById('toggleTestimonialsBtn');
-            const content = document.getElementById('testimonialsContent');
-            if (btn && content) {
-                content.classList.add('hidden');
-                btn.addEventListener('click', function() {
-                    const isHidden = content.classList.contains('hidden');
-                    if (isHidden) {
-                        content.classList.remove('hidden');
-                        content.classList.add('show');
-                        btn.textContent = '📕 Скрыть отзывы';
-                        setTimeout(() => {
-                            content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }, 300);
-                    } else {
-                        content.classList.remove('show');
-                        content.classList.add('hidden');
-                        btn.textContent = '📖 Показать отзывы участников';
-                    }
-                });
-            }
-        })();
-    </script>
-</body>
-</html>
+            const photoNames = ['mari1.jpg', 'mari2.jpg', 'm

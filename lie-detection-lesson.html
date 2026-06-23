@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Искусство читать людей — Бесплатный урок</title>
+    <style>
+        /* ========== ROOT ПЕРЕМЕННЫЕ (скопированы с index.html) ========== */
+        :root {
+            --color-primary: #b8a07c;
+            --color-primary-dark: #9a8262;
+            --color-accent: #9e5d4c;
+            --color-bg: #fefef7;
+            --color-text: #1f1e1e;
+            --color-text-light: #5e5e5a;
+            --color-card: rgba(255, 255, 255, 0.75);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --radius: 24px;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        /* ========== RESET ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== СТИКИ-ЛУНА ========== */
+        .moon-sticky-container {
+            position: sticky;
+            top: 120px;
+            float: right;
+            width: 170px;
+            margin-right: 20px;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .moon-sticky-container>* {
+            pointer-events: auto;
+        }
+        .moon-sticky-container canvas {
+            cursor: pointer;
+            filter: drop-shadow(0 0 12px rgba(184, 160, 124, 0.3));
+            transition: transform 0.4s;
+        }
+        .moon-sticky-container canvas:hover {
+            transform: scale(1.05) rotate(4deg);
+        }
+        #moonPhaseInfo {
+            font-size: 0.7rem;
+            background: rgba(184, 160, 124, 0.15);
+            padding: 4px 12px;
+            border-radius: 40px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+        #mahabharataWisdom {
+            margin-top: 16px;
+            padding: 14px 12px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius);
+            font-size: 0.7rem;
+            text-align: center;
+            border-left: 3px solid var(--color-primary);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        #mahabharataWisdom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .moon-sticky-container {
+                float: right;
+                width: 120px;
+                margin: 0 0 15px 15px;
+                top: auto;
+            }
+            .moon-sticky-container canvas {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        /* ========== ХЕДЕР ========== */
+        header {
+            padding: 12px 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 160, 124, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo p {
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+            letter-spacing: 0.3px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            transition: var(--transition);
+            position: relative;
+            font-weight: 500;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: var(--transition);
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            background: rgba(184, 160, 124, 0.1);
+            color: var(--color-text);
+        }
+        .nav-links a:hover::after {
+            width: 60%;
+        }
+        .nav-links .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-links .dropbtn {
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            min-width: 220px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+            border-radius: 16px;
+            padding: 8px 0;
+            z-index: 200;
+            top: 40px;
+            left: 0;
+            border: 1px solid rgba(184, 160, 124, 0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 8px 20px;
+            color: var(--color-text-light);
+            background: transparent;
+            border-radius: 0;
+            font-weight: 400;
+        }
+        .dropdown-content a:hover {
+            background: rgba(184, 160, 124, 0.08);
+            color: var(--color-primary);
+        }
+        .dropdown-content a::after {
+            display: none;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px;
+            z-index: 101;
+        }
+        .burger span {
+            width: 28px;
+            height: 3px;
+            background: var(--color-text);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        @media (max-width: 768px) {
+            .burger {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                padding: 16px 0;
+                border-top: 1px solid rgba(184, 160, 124, 0.15);
+                margin-top: 12px;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+            }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding-left: 20px;
+                background: transparent;
+                backdrop-filter: none;
+                opacity: 1;
+                transform: none;
+                pointer-events: auto;
+                display: none;
+            }
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+            .dropdown.open .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* ========== КНОПКИ ========== */
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(184, 160, 124, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(184, 160, 124, 0.45);
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+            opacity: 0;
+            transition: var(--transition);
+            transform: scale(0.8);
+        }
+        .btn-primary:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ========== СТАТЬЯ ========== */
+        .article-section {
+            padding: 40px 0 60px;
+        }
+        .article-content {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--color-card);
+            backdrop-filter: blur(4px);
+            padding: 48px 56px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(184, 160, 124, 0.12);
+            box-shadow: var(--shadow);
+        }
+        .article-content h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #2c2c28, var(--color-primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        .article-content .subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(184, 160, 124, 0.15);
+            padding-bottom: 20px;
+        }
+        .article-content h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--color-text);
+            border-left: 4px solid var(--color-primary);
+            padding-left: 16px;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: var(--color-primary-dark);
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            color: var(--color-text-light);
+        }
+        .article-content strong {
+            color: var(--color-text);
+            font-weight: 700;
+        }
+        .article-content ul,
+        .article-content ol {
+            margin: 12px 0 20px 24px;
+            color: var(--color-text-light);
+        }
+        .article-content li {
+            margin-bottom: 6px;
+        }
+        .article-content .highlight-box {
+            background: rgba(184, 160, 124, 0.08);
+            border-left: 4px solid var(--color-primary);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+        .article-content table th {
+            background: var(--color-primary);
+            color: #fff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .article-content table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(184, 160, 124, 0.15);
+            color: var(--color-text-light);
+        }
+        .article-content table tr:last-child td {
+            border-bottom: none;
+        }
+        .article-content table tr:hover td {
+            background: rgba(184, 160, 124, 0.04);
+        }
+        .article-content blockquote {
+            margin: 24px 0;
+            padding: 16px 24px;
+            background: rgba(184, 160, 124, 0.06);
+            border-radius: 12px;
+            border-left: 4px solid var(--color-accent);
+            font-style: italic;
+            color: var(--color-text);
+        }
+        .article-content blockquote p {
+            margin-bottom: 0;
+        }
+        .article-content .back-link {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(184, 160, 124, 0.15);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 28px 20px;
+            }
+            .article-content h1 {
+                font-size: 1.8rem;
+            }
+            .article-content h2 {
+                font-size: 1.3rem;
+            }
+            .article-content table {
+                font-size: 0.8rem;
+            }
+            .article-content table th,
+            .article-content table td {
+                padding: 8px 10px;
+            }
+        }
+
+        /* ========== ФУТЕР ========== */
+        footer {
+            background: #f5f3ed;
+            padding: 48px 0 32px;
+            border-top: 1px solid rgba(184, 160, 124, 0.15);
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 600px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+        .footer-info p {
+            margin: 4px 0;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+        .footer-info strong {
+            color: var(--color-text);
+        }
+        .social-links a {
+            text-decoration: none;
+            color: var(--color-text-light);
+            margin-right: 24px;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 1px dotted transparent;
+        }
+        .social-links a:hover {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== ЛУНА ====== -->
+    <div class="moon-sticky-container">
+        <div style="text-align:center;">
+            <canvas id="realisticMoonCanvas" width="160" height="160"></canvas>
+            <div id="moonPhaseInfo">Загрузка...</div>
+        </div>
+        <div id="mahabharataWisdom">
+            <div style="font-size:0.65rem; color:var(--color-primary-dark); font-weight:600;">📜 Мудрость дня</div>
+            <div id="dailyQuote">Загрузка...</div>
+        </div>
+    </div>
+
+    <!-- ====== ХЕДЕР ====== -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <h1>Маря Кошкина</h1>
+                <p>музыкант · артист · художник · поэт · реставратор · прораб · эклектическая нейро-ведьма</p>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Главная</a>
+                <a href="index.html#musicology">Музыковеденье</a>
+                <a href="index.html#photo">Фото</a>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Программы ▼</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#lab-program-link">🔹 Лаборатория внутренних опор</a>
+                        <a href="index.html#singing-program-link">🔸 Поющие круги рефлексии</a>
+                        <a href="index.html#muza-program-link">🔸 Проект «Муза»</a>
+                        <a href="index.html#neuro-program-link">🧠 Нейро-дыхательные практики</a>
+                        <a href="index.html#neuro-aid-link">🧰 Нейро-аптечка</a>
+                        <a href="index.html#neuro-games-link">🎮 Нейробиологические упражнения</a>
+                        <a href="index.html#tech-link">🔹 Технологии и Муза 2.0</a>
+                    </div>
+                </div>
+                <a href="index.html#alpha-music">🎧 Альфа-музыка</a>
+                <a href="index.html#animarya">АниМаря</a>
+                <a href="fat-burning-lesson.html">📖 Бесплатный урок Тело</a>
+                <a href="voice-lesson.html">📖 Бесплатный урок Голос</a>
+                <a href="lie-detection-lesson.html">📖 Бесплатный урок Ложь</a>
+                <a href="index.html#paid">💎 Платные программы</a>
+                <a href="profile.html">👤 Личный кабинет</a>
+                <a href="index.html#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ====== ОСНОВНОЙ КОНТЕНТ ====== -->
+    <main>
+        <section class="article-section">
+            <div class="container">
+                <div class="article-content">
+
+                    <h1>🎤 Искусство читать людей: как выявляют ложь</h1>
+                    <div class="subtitle">
+                        Что если бы вы могли заглянуть в сознание собеседника ещё до того, как он произнёс хоть слово? Опытные агенты спецслужб, посвятившие десятилетия допросам и наблюдениям, разработали уникальные техники, позволяющие распознавать обман. Объединяя их опыт, мы собрали подробное руководство по выявлению лжи — не как теоретическую спекуляцию, а как набор конкретных, проверенных в полевых условиях инструментов.
+                    </div>
+
+                    <!-- Введение -->
+                    <h2>🧠 Почему мы вообще можем выявлять ложь?</h2>
+                    <p>В основе всех техник лежит один принцип: <strong>человеческий мозг не приспособлен ко лжи</strong>. В состоянии стресса или обмана активируется древняя, лимбическая система — та часть мозга, которая отвечает за выживание. Она «захватывает» управление телом, и именно эти непроизвольные реакции становятся нашими главными подсказками.</p>
+                    <div class="highlight-box">
+                        <p><strong>⚠️ Важнейшее предостережение:</strong> не существует единого жеста, который гарантированно доказывает ложь. Обман — это всегда комплекс сигналов, а не один «волшебный» признак. Агенты, допросившие тысячи людей, настаивают: решающее значение имеет сочетание нескольких невербальных сигналов в связке с произнесённым словом.</p>
+                    </div>
+
+                    <!-- Техника 1 -->
+                    <h2>🕵️ Техника №1. «Секретный код» шеи</h2>
+                    <p><strong>Суть техники:</strong> В моменты стресса, тревоги или внутреннего напряжения люди инстинктивно защищают <strong>яремную ямку</strong> — маленькое углубление у основания шеи. Это древний защитный рефлекс, призванный обезопасить уязвимую область с жизненно важными структурами.</p>
+                    <h3>Как делать:</h3>
+                    <ul>
+                        <li>Обращайте внимание на прикосновения к шее:
+                            <ul>
+                                <li>Мужчины часто поправляют воротник рубашки.</li>
+                                <li>Женщины часто касаются ожерелья или массируют шею.</li>
+                            </ul>
+                        </li>
+                        <li>Массаж или поглаживание затылка также сигнализирует о дискомфорте.</li>
+                    </ul>
+                    <p><strong>Что даёт:</strong> Эти жесты — мощный индикатор <strong>внутренней неуверенности или попытки обмана</strong>, особенно когда они противоречат сказанным словам. В переговорах касание шеи — самая большая ошибка, выдающая вашу уязвимость.</p>
+
+                    <!-- Техника 2 -->
+                    <h2>🔍 Техника №2. «Дрожь и сжатие» — физиологические сигналы стресса</h2>
+                    <p><strong>Суть техники:</strong> Ещё до того, как человек начинает говорить, опытные специалисты могут определить его состояние по внешним признакам. В стрессовой ситуации срабатывает реакция «бей или беги», и тело готовится к действию.</p>
+                    <h3>Как делать:</h3>
+                    <ul>
+                        <li>Ищите признаки <strong>микро-движений</strong>: дрожащие пальцы, сжатые в кулаки кисти.</li>
+                        <li>Обратите внимание на <strong>дыхание</strong> — оно становится поверхностным и частым.</li>
+                        <li>Наблюдайте за <strong>глазами</strong>: хотя моргание само по себе не является прямым признаком лжи, его резкое ускорение может указывать на стресс.</li>
+                    </ul>
+                    <p><strong>Что даёт:</strong> Эти физические сигналы позволяют «прочитать» состояние человека <strong>до того, как он скажет хоть слово</strong>, и понять, чувствует ли он вину или страх.</p>
+
+                    <!-- Техника 3 -->
+                    <h2>🎭 Техника №3. Парадокс «идеального» лжеца</h2>
+                    <p><strong>Суть техники:</strong> Вопреки стереотипам, лучшие лжецы не выглядят нервными. Вместо этого они используют три ключевые уловки.</p>
+                    <h3>Как делать:</h3>
+                    <ul>
+                        <li><strong>Сидят неподвижно.</strong> Они контролируют каждое движение, чтобы не выдать себя лишними жестами.</li>
+                        <li><strong>Задают вопросы.</strong> Вместо того чтобы оправдываться, они перехватывают инициативу и начинают допрашивать вас.</li>
+                        <li><strong>Говорят кратко.</strong> Хороший лжец не перегружает историю деталями. Именно <strong>усложнение истории</strong> (добавление лишних деталей) — признак неподготовленной лжи.</li>
+                        <li><strong>Зеркалят.</strong> Они копируют вашу позу, жесты и тон, чтобы подсознательно вызвать доверие.</li>
+                    </ul>
+                    <p><strong>Что даёт:</strong> Понимание этих паттернов позволяет перевернуть ситуацию. Если ваш собеседник неестественно спокоен, задаёт больше вопросов, чем отвечает, и говорит подозрительно кратко — это повод насторожиться.</p>
+
+                    <!-- Техника 4 -->
+                    <h2>📖 Техника №4. Слова-«экстремумы» как красный флаг</h2>
+                    <p><strong>Суть техники:</strong> Лжецы часто используют слова, которые выдают их попытку казаться убедительными.</p>
+                    <h3>Как делать:</h3>
+                    <ul>
+                        <li>Обращайте внимание на <strong>слова-абсолютисты</strong>: «никогда», «всегда», «абсолютно», «точно».</li>
+                        <li>Лжец, пытаясь казаться искренним, часто прибегает к крайним формулировкам, которых в обычной речи быть не должно.</li>
+                    </ul>
+                    <p><strong>Что даёт:</strong> Это простой, но эффективный <strong>вербальный маркер</strong>, который можно отслеживать в дополнение к языку тела.</p>
+
+                    <!-- Техника 5 -->
+                    <h2>🧬 Техника №5. Истина в деталях: история с букетом цветов</h2>
+                    <p><strong>Суть техники:</strong> Однажды опытный агент вычислил иностранного шпиона, просто наблюдая за тем, как тот держит букет цветов. Обычный человек, получив цветы, скорее всего, поставил бы их в вазу или отдал спутнице. Подозреваемый же держал их неестественно, как предмет, с которым не знает, что делать.</p>
+                    <h3>Как делать:</h3>
+                    <ul>
+                        <li>Обращайте внимание на <strong>неестественные, неконгруэнтные действия</strong> — когда поведение человека не соответствует ситуации или его статусу.</li>
+                        <li>Любое действие, которое выглядит «выученным» или неестественным, может быть сигналом.</li>
+                    </ul>
+                    <p><strong>Что даёт:</strong> Это развивает <strong>наблюдательность</strong> и учит замечать несоответствия там, где их быть не должно.</p>
+
+                    <!-- Техника 6 -->
+                    <h2>⚖️ Техника №6. R.I.C.E. — формула влияния и уязвимости</h2>
+                    <p><strong>Суть техники:</strong> Это инструмент для понимания мотивов человека и его потенциальной уязвимости к манипуляции. Зная эти рычаги, вы можете определить, на что способен пойти собеседник, включая ложь.</p>
+                    <h3>Как делать и что даёт:</h3>
+                    <ul>
+                        <li><strong>Reward (Награда):</strong> что этот человек хочет получить? Жажда награды может толкнуть на обман.</li>
+                        <li><strong>Ideology (Идеология):</strong> во что он верит? Фанатичная приверженность идее оправдывает любую ложь.</li>
+                        <li><strong>Coercion (Принуждение):</strong> чего он боится? Страх — мощный двигатель лжи.</li>
+                        <li><strong>Ego (Эго):</strong> как он хочет, чтобы его воспринимали? Желание сохранить лицо может заставить врать.</li>
+                    </ul>
+
+                    <!-- Техника 7 -->
+                    <h2>🏛️ Техника №7. Правда о технологиях и детекторах лжи</h2>
+                    <p><strong>Суть техники:</strong> В мире разведки <strong>ничто не является секретным</strong>. Спецслужбы могут получать доступ к вашим данным через метаданные, которые вы сами оставляете в интернете. Это важный контекст: иногда ложь выявляется не через психологию, а через цифровой след.</p>
+                    <p><strong>Как делать:</strong> Осознавайте, что технологии делают нас уязвимыми. Если вы подозреваете обман, ищите несоответствия не только в поведении, но и в фактах, которые можно проверить через открытые источники.</p>
+
+                    <!-- Ежедневный план -->
+                    <h2>📋 Ежедневный план практики «Как стать наблюдателем»</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Время</th>
+                                <th>Действие</th>
+                                <th>Цель</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Утро</strong></td>
+                                <td>В течение 5 минут наблюдайте за людьми в очереди или транспорте. Отмечайте, кто и как касается шеи или поправляет воротник.</td>
+                                <td>Тренировка фокуса на «яремной ямке» — ключевом индикаторе стресса.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>День</strong></td>
+                                <td>В разговоре с коллегой или другом задайте неожиданный вопрос. Обратите внимание на его дыхание и микродвижения.</td>
+                                <td>Развитие навыка замечать физиологические реакции на стресс.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Вечер</strong></td>
+                                <td>Просмотрите интервью политика или знаменитости. Найдите момент, когда он использует слова «никогда» или «всегда».</td>
+                                <td>Тренировка распознавания вербальных маркеров лжи.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Перед сном</strong></td>
+                                <td>Мысленно прокрутите свой день. Был ли момент, когда вы почувствовали несоответствие между словами и телом собеседника?</td>
+                                <td>Закрепление навыка рефлексии и осознанности.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Заключение -->
+                    <h2>💎 Главный урок: наблюдательность как путь к правде</h2>
+                    <blockquote>
+                        <p>«Смотри не на уста, а на дела».</p>
+                    </blockquote>
+                    <p>В Махабхарате говорится, что мудрый видит истину не в словах, а в поступках и малейших движениях тела. Новый Завет учит: <strong>«По плодам их узнаете их»</strong>. Эти техники — не просто набор трюков. Это приглашение стать более внимательным к людям, развить в себе наблюдательность и, в конечном счёте, научиться слышать <strong>невысказанное</strong>.</p>
+                    <p>Помните: путь к истине начинается с умения слушать не только ушами, но и глазами. Каждый человек — это открытая книга, и язык тела — один из самых честных её переводчиков.</p>
+                    <div class="highlight-box">
+                        <p>💫 Если вы хотите углубиться в какую-то конкретную технику или получить дополнительные упражнения для отработки навыка, я всегда рядом. Просто напишите!</p>
+                    </div>
+
+                    <!-- Ссылка назад -->
+                    <div class="back-link">
+                        <a href="index.html" class="btn btn-primary">🏠 Вернуться на главную</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====== ФУТЕР ====== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p><strong>Маря Кошкина</strong></p>
+                    <p>marya777koshkina@yandex.ru</p>
+                    <p>+7 985 300 87 77</p>
+                    <p>Москва / Россия</p>
+                    <div style="margin-top:20px;">
+                        <p style="font-weight:500;">📩 Бесплатные уроки:</p>
+                        <div class="flex-wrap">
+                            <a href="fat-burning-lesson.html" class="btn btn-primary" style="padding:8px 18px; font-size:0.85rem;">🏃‍♀️ Тело</a>
+                            <a href="voice-lesson.html" class="btn btn-primary" style="padding:8px 18px; font-size:0.85rem;">🎤 Голос</a>
+                            <a href="lie-detection-lesson.html" class="btn btn-primary" style="padding:8px 18px; font-size:0.85rem;">🕵️ Ложь</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <p style="font-weight:500;">Связаться со мной:</p>
+                    <a href="https://t.me/maryakoshkina" target="_blank">Telegram</a>
+                    <a href="https://instagram.com/marya_koshkina" target="_blank">Instagram</a>
+                </div>
+            </div>
+            <div style="margin-top:32px; text-align:center; font-size:0.8rem; color:#7f7f7a; border-top:1px solid rgba(184,160,124,0.15); padding-top:24px;">
+                © 2026 Маря Кошкина — все права защищены
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== СКРИПТЫ ====== -->
+    <script>
+        // ----- БУРГЕР -----
+        const burger = document.getElementById('burgerBtn');
+        const navLinks = document.getElementById('navLinks');
+        if (burger && navLinks) {
+            burger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                navLinks.classList.toggle('open');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    burger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                });
+            });
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !burger.contains(e.target)) {
+                    burger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                }
+            });
+        }
+
+        // ----- DROPDOWN для мобильных -----
+        document.querySelectorAll('.dropdown .dropbtn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('open');
+                }
+            });
+        });
+
+        // ----- ЛУННЫЙ КАЛЕНДАРЬ -----
+        (function() {
+            const MOON_SETTINGS = {
+                baseColor: "#FFF5E6",
+                highlightColor: "#FFE4B5",
+                shadowColor: "#8B7D6B",
+                craterColor: "rgba(0,0,0,0.15)",
+                craterHighlight: "rgba(255,255,245,0.3)"
+            };
+
+            function getMoonPhase(date) {
+                const UNIX_EPOCH_JD = 2440587.5,
+                    MS_PER_DAY = 86400000,
+                    REF_NEW_MOON_JD = 2451550.1,
+                    SYN_MONTH = 29.530588853;
+                const jd = date.getTime() / MS_PER_DAY + UNIX_EPOCH_JD;
+                let phase = ((jd - REF_NEW_MOON_JD) / SYN_MONTH) % 1;
+                if (phase < 0) phase += 1;
+                return phase;
+            }
+
+            function getPhaseInfo(phase) {
+                const names = ["🌑 Новолуние", "🌒 Молодая Луна", "🌓 Первая четверть", "🌔 Прибывающая Луна", "🌕 Полнолуние",
+                    "🌖 Убывающая Луна", "🌗 Последняя четверть", "🌘 Старая Луна"
+                ];
+                const idx = Math.round(phase * 8) % 8;
+                const illumination = Math.round(0.5 * (1 - Math.cos(2 * Math.PI * phase)) * 100);
+                return { name: names[idx], illuminationPercent: illumination };
+            }
+
+            function drawMoon(ctx, cx, cy, r, phase) {
+                ctx.beginPath();
+                ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+                ctx.fillStyle = MOON_SETTINGS.shadowColor;
+                ctx.fill();
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+                ctx.clip();
+                const grad = ctx.createRadialGradient(cx - r * 0.2, cy - r * 0.2, r * 0.1, cx, cy, r);
+                grad.addColorStop(0, MOON_SETTINGS.highlightColor);
+                grad.addColorStop(1, MOON_SETTINGS.baseColor);
+                let litW = r * Math.sin(Math.PI * phase);
+                let litX = cx + (phase < 0.5 ? -litW : litW);
+                ctx.beginPath();
+                ctx.ellipse(litX, cy, Math.abs(litW), r, 0, 0, 2 * Math.PI);
+                ctx.fillStyle = grad;
+                ctx.fill();
+                ctx.restore();
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+                ctx.clip();
+                for (let i = 0; i < 80; i++) {
+                    let a = Math.random() * 2 * Math.PI,
+                        rad = Math.sqrt(Math.random()) * r;
+                    let x = cx + rad * Math.cos(a),
+                        y = cy + rad * Math.sin(a),
+                        s = 1 + Math.random() * 3;
+                    ctx.beginPath();
+                    ctx.ellipse(x, y, s, s * 0.8, 0, 0, 2 * Math.PI);
+                    ctx.fillStyle = MOON_SETTINGS.craterColor;
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+
+            function updateMoon() {
+                const canvas = document.getElementById('realisticMoonCanvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                const now = new Date();
+                const phase = getMoonPhase(now);
+                const { name, illuminationPercent } = getPhaseInfo(phase);
+                const w = canvas.width,
+                    h = canvas.height;
+                ctx.clearRect(0, 0, w, h);
+                drawMoon(ctx, w / 2, h / 2, w / 2 - 6, phase);
+                const infoDiv = document.getElementById('moonPhaseInfo');
+                if (infoDiv) infoDiv.innerHTML = `${name} · ${illuminationPercent}%`;
+            }
+            updateMoon();
+            setInterval(updateMoon, 3600000);
+        })();
+
+        // ----- АФОРИЗМЫ МАХАБХАРАТЫ (короткая версия для примера) -----
+        (function() {
+            const quotes = [
+                "Нет ничего выше Дхармы. Даже малая Дхарма спасает от великого страха.",
+                "Гнев — враг человека, прощение — его щит.",
+                "Тот, кто не владеет собой, не владеет и миром.",
+                "Истина одна, но мудрецы называют её разными именами.",
+                "Побеждай гнев прощением, зло — добром, ложь — правдой.",
+                "Судьба — это то, что мы заслужили своими поступками.",
+                "Счастье и горе, прибыль и убыток, победа и поражение — таков закон жизни.",
+                "Лучше своя дхарма, даже несовершенная, чем чужая, исполненная безупречно.",
+                "Ум — друг, но он же и враг для того, кто его не контролирует.",
+                "Не делай другим того, что неприятно тебе самому.",
+                "Знание — это свет, а невежество — тьма.",
+                "Только тот, кто победил свой ум, обретает покой.",
+                "Время пожирает всё, но дхарма вечна.",
+                "Мудрый видит равными счастье и несчастье, золото и камень.",
+                "Сомнение — величайшая потеря времени, иди вперёд с верой.",
+                "Нет друга лучше истины, нет врага хуже лжи.",
+                "Человек создан своими мыслями, он становится тем, о чём думает.",
+                "Укроти свой язык, и ты укротишь весь мир.",
+                "Терпение — высшая аскеза.",
+                "Кто ищет друзей без недостатков, останется один.",
+                "Лучше жить одному, чем с глупцом.",
+                "Не хвались богатством, не гордись молодостью — время отнимает всё.",
+                "Как черепаха прячет конечности, так мудрец прячет свои чувства от соблазнов.",
+                "Кто победил сон, тот победил смерть.",
+                "Даже малое добро не оставляй, даже малое зло не совершай."
+            ];
+            const dailyQuoteDiv = document.getElementById('dailyQuote');
+            if (dailyQuoteDiv) {
+                const start = new Date(new Date().getFullYear(), 0, 0);
+                const dayOfYear = Math.floor((Date.now() - start) / 86400000);
+                const index = dayOfYear % quotes.length;
+                dailyQuoteDiv.innerText = quotes[index];
+            }
+        })();
+    </script>
+</body>
+</html>

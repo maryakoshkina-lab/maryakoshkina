@@ -789,6 +789,122 @@
             }
         }
 
+        /* ===== МОДАЛЬНОЕ ОКНО ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-window {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border-radius: 32px;
+            max-width: 560px;
+            width: 100%;
+            padding: 40px 36px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(184, 160, 124, 0.15);
+            animation: modalSlide 0.4s ease forwards;
+            position: relative;
+        }
+        @keyframes modalSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .modal-window .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text-light);
+            transition: var(--transition);
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+        .modal-window .close-btn:hover {
+            color: var(--color-accent);
+            transform: rotate(90deg);
+        }
+        .modal-window h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #2c2c28, var(--color-primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .modal-window p {
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+        .modal-window .form-group {
+            margin-bottom: 18px;
+        }
+        .modal-window label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--color-text);
+        }
+        .modal-window input {
+            width: 100%;
+            padding: 12px 18px;
+            border: 1px solid rgba(184, 160, 124, 0.25);
+            border-radius: 60px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+            outline: none;
+        }
+        .modal-window input:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(184, 160, 124, 0.12);
+        }
+        .modal-window .btn-submit {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+        .modal-window .success-msg {
+            display: none;
+            text-align: center;
+            padding: 16px 0;
+            color: var(--color-accent);
+            font-size: 1.1rem;
+        }
+        .modal-window .success-msg.show {
+            display: block;
+        }
+        .modal-window .form-fields {
+            display: block;
+        }
+        .modal-window .form-fields.hidden {
+            display: none;
+        }
+
         /* ===== ФУТЕР ===== */
         footer {
             background: rgba(245, 243, 237, 0.8);
@@ -829,7 +945,6 @@
             border-bottom-color: var(--color-primary);
         }
 
-        /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
             .course-hero h1 {
                 font-size: 2rem;
@@ -840,19 +955,11 @@
             .price-tag {
                 font-size: 2rem;
             }
-            .locked-content {
-                padding: 24px 16px;
+            .modal-window {
+                padding: 28px 20px;
             }
-            .locked-content input {
-                width: 100%;
-                margin-bottom: 12px;
-            }
-            .locked-content .btn-unlock {
-                margin-left: 0;
-                width: 100%;
-            }
-            .day-block h3 {
-                font-size: 1.1rem;
+            .modal-window h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -931,10 +1038,10 @@
                 <h1>Курс <span>«Осознанный отказ»</span></h1>
                 <p class="subtitle">7‑дневная нейро‑практика, которая поможет вам <strong>перепрограммировать мозг</strong> и освободиться от алкогольной тяги без силы воли.</p>
                 <div class="price-tag">2 900 ₽</div>
-                <a href="#" class="btn btn-accent btn-buy">
+                <button class="btn btn-accent btn-buy open-modal-btn">
                     Купить курс →
                     <span class="small">После оплаты вы получите пароль для доступа</span>
-                </a>
+                </button>
             </div>
         </section>
 
@@ -996,9 +1103,9 @@
             <div class="container" style="text-align: center;">
                 <h2 class="section-title" style="border-left: none; padding-left: 0; text-align: center;">Получите полный доступ</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 20px; color: var(--color-text-light);">Купите курс и получите пароль для просмотра всех 7 дней с аудио-материалами.</p>
-                <a href="#" class="btn btn-accent btn-buy" style="font-size:1.2rem; padding:18px 50px;">
+                <button class="btn btn-accent btn-buy open-modal-btn" style="font-size:1.2rem; padding:18px 50px;">
                     Купить за 2 900 ₽ →
-                </a>
+                </button>
             </div>
         </section>
 
@@ -1141,6 +1248,41 @@
 
     </main>
 
+    <!-- ====== МОДАЛЬНОЕ ОКНО ДЛЯ ПОКУПКИ ====== -->
+    <div class="modal-overlay" id="purchaseModal">
+        <div class="modal-window">
+            <button class="close-btn" id="closeModalBtn">&times;</button>
+            <h2>🌟 Спасибо за ваш выбор!</h2>
+            <p>
+                Мы ценим ваше устойчивое желание овладеть практиками и инструментами для себя.<br><br>
+                Сейчас оплата на сайте недоступна, но мы можем отправить вам <strong>QR‑код / счёт для оплаты</strong>
+                и <strong>код доступа к курсу</strong>.<br><br>
+                Просто оставьте свои контактные данные, и мы свяжемся с вами в ближайшее время.
+            </p>
+
+            <form id="purchaseForm" action="https://formsubmit.co/marya777koshkina@yandex.ru" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Запрос на покупку курса Осознанный отказ">
+                <input type="hidden" name="_next" value="https://maryakoshkina-lab.github.io/maryakoshkina/thanks.html">
+
+                <div class="form-fields" id="formFields">
+                    <div class="form-group">
+                        <label for="modalName">Ваше имя</label>
+                        <input type="text" id="modalName" name="Имя" placeholder="Имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalContact">Контакт (email или телефон)</label>
+                        <input type="text" id="modalContact" name="Контакт" placeholder="Email или номер телефона" required>
+                    </div>
+                    <button type="submit" class="btn btn-accent btn-submit">Отправить запрос</button>
+                </div>
+                <div class="success-msg" id="successMsg">
+                    ✅ Спасибо! Мы свяжемся с вами в ближайшее время.
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- ====== ФУТЕР ====== -->
     <footer>
         <div class="container">
@@ -1195,6 +1337,76 @@
                     e.preventDefault();
                     this.parentElement.classList.toggle('open');
                 }
+            });
+        });
+
+        // ----- МОДАЛЬНОЕ ОКНО -----
+        const modal = document.getElementById('purchaseModal');
+        const openBtns = document.querySelectorAll('.open-modal-btn');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ----- ОТПРАВКА ФОРМЫ (без перезагрузки, показываем успех) -----
+        const form = document.getElementById('purchaseForm');
+        const formFields = document.getElementById('formFields');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Простая валидация
+            const name = document.getElementById('modalName').value.trim();
+            const contact = document.getElementById('modalContact').value.trim();
+            if (!name || !contact) {
+                alert('Пожалуйста, заполните оба поля.');
+                return;
+            }
+
+            // Отправляем через FormSubmit (скрытая отправка)
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Показываем успех
+                    formFields.classList.add('hidden');
+                    successMsg.classList.add('show');
+                    // Через 3 секунды закрываем модалку
+                    setTimeout(() => {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                        // Сбрасываем форму для следующего открытия
+                        formFields.classList.remove('hidden');
+                        successMsg.classList.remove('show');
+                        form.reset();
+                    }, 3000);
+                } else {
+                    alert('Произошла ошибка. Пожалуйста, попробуйте ещё раз или напишите нам на почту.');
+                }
+            })
+            .catch(() => {
+                alert('Произошла ошибка. Пожалуйста, попробуйте ещё раз или напишите нам на почту.');
             });
         });
 

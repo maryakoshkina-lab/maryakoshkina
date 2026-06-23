@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -80,7 +79,7 @@
             100% { transform: translate(10px,-10px) scale(1.1); opacity: 0.8; }
         }
 
-        /* ===== ЛУНА ===== */
+        /* ===== ЛУНА (десктоп) ===== */
         .moon-sticky-container {
             position: sticky;
             top: 120px;
@@ -121,9 +120,37 @@
             transition: var(--transition);
         }
         #mahabharataWisdom:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); }
-        @media (max-width: 768px) {
-            .moon-sticky-container { float: right; width: 120px; margin: 0 0 15px 15px; top: auto; }
-            .moon-sticky-container canvas { width: 90px; height: 90px; }
+
+        /* ===== ЛУНА (мобильная) ===== */
+        @media (max-width: 600px) {
+            .moon-sticky-container {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                float: none;
+                width: 70px;
+                margin: 0;
+                z-index: 50;
+                background: rgba(255,255,255,0.7);
+                backdrop-filter: blur(6px);
+                border-radius: 16px;
+                padding: 6px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            }
+            .moon-sticky-container canvas {
+                width: 60px;
+                height: 60px;
+                display: block;
+                margin: 0 auto;
+            }
+            #moonPhaseInfo {
+                font-size: 0.55rem;
+                padding: 2px 6px;
+                margin-top: 2px;
+            }
+            #mahabharataWisdom {
+                display: none; /* скрываем мудрость дня на совсем маленьких экранах */
+            }
         }
 
         /* ===== ХЕДЕР ===== */
@@ -333,6 +360,7 @@
             font-size: 1.05rem;
             position: relative;
             z-index: 1;
+            word-wrap: break-word;
         }
         .hero .btn-group {
             margin-top: 28px;
@@ -342,6 +370,14 @@
             flex-wrap: wrap;
             position: relative;
             z-index: 1;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 60px 0 30px; }
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 0.95rem; }
+            .hero .btn-group { gap: 10px; }
+            .hero .btn { padding: 10px 20px; font-size: 0.85rem; }
         }
 
         /* ===== КНОПКИ ===== */
@@ -1224,7 +1260,7 @@
                         </div>
                     </div>
 
-                    <!-- 8. НОВАЯ ПРОГРАММА: Жизнь с алкоголиком -->
+                    <!-- 8. Жизнь с алкоголиком -->
                     <div class="project-card fade-in" id="alcoholics-life-link">
                         <h3>🌿 Жизнь с алкоголиком</h3>
                         <p>Путь от осознания к действию: руководство для близких зависимых.</p>
@@ -1762,7 +1798,7 @@
             setInterval(updateMoon, 3600000);
         })();
 
-        // ----- АФОРИЗМЫ МАХАБХАРАТЫ (короткая версия) -----
+        // ----- АФОРИЗМЫ МАХАБХАРАТЫ -----
         (function() {
             const quotes = [
                 "Нет ничего выше Дхармы. Даже малая Дхарма спасает от великого страха.",
@@ -1855,7 +1891,7 @@
             }
         })();
 
-        // ----- АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (Intersection Observer) -----
+        // ----- АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ -----
         document.addEventListener('DOMContentLoaded', function() {
             const fadeElements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries) => {
@@ -1870,4 +1906,3 @@
     </script>
 </body>
 </html>
-```

@@ -1386,7 +1386,7 @@
             }
         });
 
-        // ----- ОТПРАВКА ФОРМЫ ЧЕРЕЗ fetch (ИСПРАВЛЕНО) -----
+        // ----- ОТПРАВКА ФОРМЫ ЧЕРЕЗ fetch -----
         const form = document.getElementById('purchaseForm');
         const submitBtn = document.getElementById('submitBtn');
         const formFields = document.getElementById('formFields');
@@ -1414,16 +1414,12 @@
                 body: formData,
             })
             .then(response => {
-                // FormSubmit всегда возвращает HTML-страницу при успехе (статус 200-299)
-                // Даже если это не JSON, мы считаем успехом любой ответ 2xx
                 if (response.ok) {
-                    // Успех
                     formFields.classList.add('hidden');
                     successMsg.classList.add('show');
                     setTimeout(() => {
                         modal.classList.remove('active');
                         document.body.style.overflow = '';
-                        // Сбрасываем для следующего открытия
                         formFields.classList.remove('hidden');
                         successMsg.classList.remove('show');
                         form.reset();

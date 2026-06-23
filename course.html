@@ -57,15 +57,9 @@
             animation: gradientShift 18s ease-in-out infinite alternate;
         }
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* ========== ЧАСТИЦЫ ========== */
@@ -85,86 +79,19 @@
             background: radial-gradient(circle, rgba(184, 160, 124, 0.4), transparent);
             animation: float 12s infinite alternate ease-in-out;
         }
-        .particle:nth-child(1) {
-            left: 10%;
-            top: 20%;
-            animation-duration: 14s;
-            width: 8px;
-            height: 8px;
-        }
-        .particle:nth-child(2) {
-            left: 80%;
-            top: 70%;
-            animation-duration: 16s;
-            animation-delay: 2s;
-            width: 12px;
-            height: 12px;
-        }
-        .particle:nth-child(3) {
-            left: 30%;
-            top: 80%;
-            animation-duration: 18s;
-            animation-delay: 4s;
-            width: 10px;
-            height: 10px;
-        }
-        .particle:nth-child(4) {
-            left: 60%;
-            top: 10%;
-            animation-duration: 20s;
-            animation-delay: 1s;
-            width: 14px;
-            height: 14px;
-        }
-        .particle:nth-child(5) {
-            left: 90%;
-            top: 40%;
-            animation-duration: 22s;
-            animation-delay: 3s;
-            width: 7px;
-            height: 7px;
-        }
-        .particle:nth-child(6) {
-            left: 5%;
-            top: 90%;
-            animation-duration: 24s;
-            animation-delay: 5s;
-            width: 9px;
-            height: 9px;
-        }
-        .particle:nth-child(7) {
-            left: 50%;
-            top: 50%;
-            animation-duration: 26s;
-            animation-delay: 0.5s;
-            width: 11px;
-            height: 11px;
-        }
-        .particle:nth-child(8) {
-            left: 70%;
-            top: 85%;
-            animation-duration: 28s;
-            animation-delay: 6s;
-            width: 13px;
-            height: 13px;
-        }
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-duration: 14s; width: 8px; height: 8px; }
+        .particle:nth-child(2) { left: 80%; top: 70%; animation-duration: 16s; animation-delay: 2s; width: 12px; height: 12px; }
+        .particle:nth-child(3) { left: 30%; top: 80%; animation-duration: 18s; animation-delay: 4s; width: 10px; height: 10px; }
+        .particle:nth-child(4) { left: 60%; top: 10%; animation-duration: 20s; animation-delay: 1s; width: 14px; height: 14px; }
+        .particle:nth-child(5) { left: 90%; top: 40%; animation-duration: 22s; animation-delay: 3s; width: 7px; height: 7px; }
+        .particle:nth-child(6) { left: 5%; top: 90%; animation-duration: 24s; animation-delay: 5s; width: 9px; height: 9px; }
+        .particle:nth-child(7) { left: 50%; top: 50%; animation-duration: 26s; animation-delay: 0.5s; width: 11px; height: 11px; }
+        .particle:nth-child(8) { left: 70%; top: 85%; animation-duration: 28s; animation-delay: 6s; width: 13px; height: 13px; }
         @keyframes float {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.3;
-            }
-            33% {
-                transform: translate(30px, -40px) scale(1.3);
-                opacity: 0.7;
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-                opacity: 0.5;
-            }
-            100% {
-                transform: translate(10px, -10px) scale(1.1);
-                opacity: 0.8;
-            }
+            0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            33% { transform: translate(30px, -40px) scale(1.3); opacity: 0.7; }
+            66% { transform: translate(-20px, 20px) scale(0.9); opacity: 0.5; }
+            100% { transform: translate(10px, -10px) scale(1.1); opacity: 0.8; }
         }
 
         /* ========== ЛУНА ========== */
@@ -177,17 +104,13 @@
             z-index: 10;
             pointer-events: none;
         }
-        .moon-sticky-container>* {
-            pointer-events: auto;
-        }
+        .moon-sticky-container>* { pointer-events: auto; }
         .moon-sticky-container canvas {
             cursor: pointer;
             filter: drop-shadow(0 0 12px rgba(184, 160, 124, 0.3));
             transition: transform 0.4s;
         }
-        .moon-sticky-container canvas:hover {
-            transform: scale(1.05) rotate(4deg);
-        }
+        .moon-sticky-container canvas:hover { transform: scale(1.05) rotate(4deg); }
         #moonPhaseInfo {
             font-size: 0.7rem;
             background: rgba(184, 160, 124, 0.15);
@@ -210,21 +133,10 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
-        #mahabharataWisdom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-        }
+        #mahabharataWisdom:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1); }
         @media (max-width: 768px) {
-            .moon-sticky-container {
-                float: right;
-                width: 120px;
-                margin: 0 0 15px 15px;
-                top: auto;
-            }
-            .moon-sticky-container canvas {
-                width: 90px;
-                height: 90px;
-            }
+            .moon-sticky-container { float: right; width: 120px; margin: 0 0 15px 15px; top: auto; }
+            .moon-sticky-container canvas { width: 90px; height: 90px; }
         }
 
         /* ========== ХЕДЕР ========== */
@@ -285,20 +197,13 @@
             transform: translateX(-50%);
             border-radius: 4px;
         }
-        .nav-links a:hover {
-            background: rgba(184, 160, 124, 0.1);
-            color: var(--color-text);
-        }
-        .nav-links a:hover::after {
-            width: 60%;
-        }
+        .nav-links a:hover { background: rgba(184, 160, 124, 0.1); color: var(--color-text); }
+        .nav-links a:hover::after { width: 60%; }
         .nav-links .dropdown {
             position: relative;
             display: inline-block;
         }
-        .nav-links .dropbtn {
-            cursor: pointer;
-        }
+        .nav-links .dropbtn { cursor: pointer; }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -331,13 +236,8 @@
             border-radius: 0;
             font-weight: 400;
         }
-        .dropdown-content a:hover {
-            background: rgba(184, 160, 124, 0.08);
-            color: var(--color-primary);
-        }
-        .dropdown-content a::after {
-            display: none;
-        }
+        .dropdown-content a:hover { background: rgba(184, 160, 124, 0.08); color: var(--color-primary); }
+        .dropdown-content a::after { display: none; }
         .burger {
             display: none;
             flex-direction: column;
@@ -355,19 +255,11 @@
             border-radius: 4px;
             transition: var(--transition);
         }
-        .burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+        .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger.active span:nth-child(2) { opacity: 0; }
+        .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
         @media (max-width: 768px) {
-            .burger {
-                display: flex;
-            }
+            .burger { display: flex; }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -380,14 +272,8 @@
                 max-height: 70vh;
                 overflow-y: auto;
             }
-            .nav-links.open {
-                display: flex;
-            }
-            .nav-links a {
-                width: 100%;
-                text-align: center;
-                padding: 10px;
-            }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; text-align: center; padding: 10px; }
             .dropdown-content {
                 position: static;
                 box-shadow: none;
@@ -400,12 +286,8 @@
                 pointer-events: auto;
                 display: none;
             }
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-            .dropdown.open .dropdown-content {
-                display: block;
-            }
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.open .dropdown-content { display: block; }
         }
 
         /* ========== КНОПКИ ========== */
@@ -427,26 +309,18 @@
             color: #fff;
             box-shadow: 0 4px 20px rgba(184, 160, 124, 0.35);
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(184, 160, 124, 0.45);
-        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(184, 160, 124, 0.45); }
         .btn-primary::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
             opacity: 0;
             transition: var(--transition);
             transform: scale(0.8);
         }
-        .btn-primary:hover::after {
-            opacity: 1;
-            transform: scale(1);
-        }
+        .btn-primary:hover::after { opacity: 1; transform: scale(1); }
         .btn-accent {
             background: linear-gradient(135deg, var(--color-accent), #7d4739);
             color: #fff;
@@ -454,34 +328,21 @@
             animation: pulse 2s ease-in-out infinite;
         }
         @keyframes pulse {
-            0%,
-            100% {
-                box-shadow: 0 4px 20px rgba(158, 93, 76, 0.35);
-            }
-            50% {
-                box-shadow: 0 8px 40px rgba(158, 93, 76, 0.6);
-            }
+            0%, 100% { box-shadow: 0 4px 20px rgba(158, 93, 76, 0.35); }
+            50% { box-shadow: 0 8px 40px rgba(158, 93, 76, 0.6); }
         }
-        .btn-accent:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 48px rgba(158, 93, 76, 0.5);
-        }
+        .btn-accent:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 48px rgba(158, 93, 76, 0.5); }
         .btn-accent::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 60%);
             opacity: 0;
             transition: var(--transition);
             transform: scale(0.8);
         }
-        .btn-accent:hover::after {
-            opacity: 1;
-            transform: scale(1);
-        }
+        .btn-accent:hover::after { opacity: 1; transform: scale(1); }
 
         /* ========== ОСНОВНОЙ КОНТЕНТ ========== */
         .course-hero {
@@ -500,15 +361,8 @@
             pointer-events: none;
         }
         @keyframes sparkle {
-            0%,
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 0.2;
-            }
-            50% {
-                transform: scale(1.4) rotate(30deg);
-                opacity: 0.6;
-            }
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.2; }
+            50% { transform: scale(1.4) rotate(30deg); opacity: 0.6; }
         }
         .course-hero h1 {
             font-size: 2.8rem;
@@ -522,12 +376,8 @@
             line-height: 1.2;
         }
         @keyframes gradientText {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
         .course-hero h1 span {
             font-weight: 700;
@@ -613,22 +463,10 @@
             transform: skewX(-25deg);
             transition: 0.8s;
         }
-        .card:hover::before {
-            left: 100%;
-        }
-        .card:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-        }
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: var(--color-text);
-        }
-        .card p {
-            color: var(--color-text-light);
-            font-size: 0.95rem;
-        }
+        .card:hover::before { left: 100%; }
+        .card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--color-text); }
+        .card p { color: var(--color-text-light); font-size: 0.95rem; }
 
         /* ===== ДНИ КУРСА ===== */
         .program-days {
@@ -659,13 +497,8 @@
             opacity: 0;
             transition: var(--transition);
         }
-        .day-block:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-        }
-        .day-block:hover::before {
-            opacity: 1;
-        }
+        .day-block:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08); }
+        .day-block:hover::before { opacity: 1; }
         .day-block h3 {
             font-size: 1.4rem;
             color: var(--color-accent);
@@ -674,17 +507,9 @@
             align-items: center;
             gap: 10px;
         }
-        .day-block h3 .icon {
-            font-size: 1.6rem;
-        }
-        .day-block p,
-        .day-block li {
-            color: var(--color-text-light);
-        }
-        .day-block ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
+        .day-block h3 .icon { font-size: 1.6rem; }
+        .day-block p, .day-block li { color: var(--color-text-light); }
+        .day-block ul { padding-left: 20px; margin: 10px 0; }
         .day-block .audio-icon {
             display: inline-block;
             background: rgba(184, 160, 124, 0.12);
@@ -721,22 +546,11 @@
             pointer-events: none;
         }
         @keyframes heroGlow {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(10%, -10%);
-            }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10%, -10%); }
         }
-        .locked-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-            color: var(--color-text);
-        }
-        .locked-content p {
-            color: var(--color-text-light);
-            margin-bottom: 20px;
-        }
+        .locked-content h3 { font-size: 1.8rem; margin-bottom: 12px; color: var(--color-text); }
+        .locked-content p { color: var(--color-text-light); margin-bottom: 20px; }
         .locked-content input {
             padding: 14px 20px;
             font-size: 1rem;
@@ -765,26 +579,15 @@
             transition: var(--transition);
             margin-left: 12px;
         }
-        .locked-content .btn-unlock:hover {
-            background: #7d4739;
-            transform: scale(1.04);
-        }
-        .locked-content .btn-unlock:active {
-            transform: scale(0.96);
-        }
+        .locked-content .btn-unlock:hover { background: #7d4739; transform: scale(1.04); }
+        .locked-content .btn-unlock:active { transform: scale(0.96); }
         .hidden-content {
             display: none;
             animation: fadeSlide 0.8s ease;
         }
         @keyframes fadeSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* ===== МОДАЛЬНОЕ ОКНО ===== */
@@ -802,9 +605,7 @@
             align-items: center;
             padding: 20px;
         }
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
         .modal-window {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(16px);
@@ -818,14 +619,8 @@
             position: relative;
         }
         @keyframes modalSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         .modal-window .close-btn {
             position: absolute;
@@ -839,10 +634,7 @@
             border: none;
             line-height: 1;
         }
-        .modal-window .close-btn:hover {
-            color: var(--color-accent);
-            transform: rotate(90deg);
-        }
+        .modal-window .close-btn:hover { color: var(--color-accent); transform: rotate(90deg); }
         .modal-window h2 {
             font-size: 1.8rem;
             font-weight: 700;
@@ -852,20 +644,9 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .modal-window p {
-            color: var(--color-text-light);
-            margin-bottom: 24px;
-            font-size: 1.05rem;
-        }
-        .modal-window .form-group {
-            margin-bottom: 18px;
-        }
-        .modal-window label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 4px;
-            color: var(--color-text);
-        }
+        .modal-window p { color: var(--color-text-light); margin-bottom: 24px; font-size: 1.05rem; }
+        .modal-window .form-group { margin-bottom: 18px; }
+        .modal-window label { display: block; font-weight: 500; margin-bottom: 4px; color: var(--color-text); }
         .modal-window input {
             width: 100%;
             padding: 12px 18px;
@@ -898,15 +679,9 @@
             color: var(--color-accent);
             font-size: 1.1rem;
         }
-        .modal-window .success-msg.show {
-            display: block;
-        }
-        .modal-window .form-fields {
-            display: block;
-        }
-        .modal-window .form-fields.hidden {
-            display: none;
-        }
+        .modal-window .success-msg.show { display: block; }
+        .modal-window .form-fields { display: block; }
+        .modal-window .form-fields.hidden { display: none; }
         .modal-window .error-msg {
             display: none;
             text-align: center;
@@ -914,9 +689,7 @@
             color: #c0392b;
             font-size: 0.95rem;
         }
-        .modal-window .error-msg.show {
-            display: block;
-        }
+        .modal-window .error-msg.show { display: block; }
 
         /* ===== ФУТЕР ===== */
         footer {
@@ -932,19 +705,10 @@
             gap: 40px;
         }
         @media (max-width: 600px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+            .footer-content { grid-template-columns: 1fr; gap: 24px; }
         }
-        .footer-info p {
-            margin: 4px 0;
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-        }
-        .footer-info strong {
-            color: var(--color-text);
-        }
+        .footer-info p { margin: 4px 0; font-size: 0.95rem; color: var(--color-text-light); }
+        .footer-info strong { color: var(--color-text); }
         .social-links a {
             text-decoration: none;
             color: var(--color-text-light);
@@ -953,27 +717,14 @@
             transition: var(--transition);
             border-bottom: 1px dotted transparent;
         }
-        .social-links a:hover {
-            color: var(--color-primary);
-            border-bottom-color: var(--color-primary);
-        }
+        .social-links a:hover { color: var(--color-primary); border-bottom-color: var(--color-primary); }
 
         @media (max-width: 768px) {
-            .course-hero h1 {
-                font-size: 2rem;
-            }
-            .course-hero .subtitle {
-                font-size: 1rem;
-            }
-            .price-tag {
-                font-size: 2rem;
-            }
-            .modal-window {
-                padding: 28px 20px;
-            }
-            .modal-window h2 {
-                font-size: 1.5rem;
-            }
+            .course-hero h1 { font-size: 2rem; }
+            .course-hero .subtitle { font-size: 1rem; }
+            .price-tag { font-size: 2rem; }
+            .modal-window { padding: 28px 20px; }
+            .modal-window h2 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -1063,50 +814,20 @@
             <div class="container">
                 <h2 class="section-title">Что вас ждёт</h2>
                 <div class="grid-3">
-                    <div class="card">
-                        <h3>🧠 Нейронаука</h3>
-                        <p>Поймёте, как работает дофаминовая система, и перестанете винить себя за «слабость».</p>
-                    </div>
-                    <div class="card">
-                        <h3>🎵 Аудио-якоря</h3>
-                        <p>Специальные треки (Ableton) для замены ритуала и входа в ресурсное состояние.</p>
-                    </div>
-                    <div class="card">
-                        <h3>🛠️ Техники</h3>
-                        <p>Дыхание, телесные практики, контрастный душ, работа с триггерами – всё сразу.</p>
-                    </div>
+                    <div class="card"><h3>🧠 Нейронаука</h3><p>Поймёте, как работает дофаминовая система, и перестанете винить себя за «слабость».</p></div>
+                    <div class="card"><h3>🎵 Аудио-якоря</h3><p>Специальные треки (Ableton) для замены ритуала и входа в ресурсное состояние.</p></div>
+                    <div class="card"><h3>🛠️ Техники</h3><p>Дыхание, телесные практики, контрастный душ, работа с триггерами – всё сразу.</p></div>
                 </div>
 
                 <h2 class="section-title" style="margin-top: 40px;">Программа по дням</h2>
                 <div class="program-days">
-                    <div class="day-block">
-                        <h3><span class="icon">🌅</span> День 1. Пробуждение – осознание и намерение</h3>
-                        <p>Карта триггеров, аффирмации, дыхание 4-7-8. Вы поймёте, какие ситуации провоцируют желание выпить.</p>
-                    </div>
-                    <div class="day-block">
-                        <h3><span class="icon">⚡</span> День 2. Перезагрузка дофамина – баланс с болью</h3>
-                        <p>Контрастный душ, интервальная нагрузка, замещение ритуала. Учимся получать здоровый дофамин.</p>
-                    </div>
-                    <div class="day-block">
-                        <h3><span class="icon">🌬️</span> День 3. Дыхание как якорь – управление импульсами</h3>
-                        <p>Квадратное дыхание, осознанное наблюдение за тягой, Судхаршан Крия. Возвращаем контроль.</p>
-                    </div>
-                    <div class="day-block">
-                        <h3><span class="icon">🔄</span> День 4. Замена привычки – перепрограммирование ритуалов</h3>
-                        <p>«Трезвый бар», практика 4D, новые сценарии поведения. Создаём новые нейронные пути.</p>
-                    </div>
-                    <div class="day-block">
-                        <h3><span class="icon">💔</span> День 5. Генетика, травма и самопрощение – корни зависимости</h3>
-                        <p>Письмо себе-ребёнку, ритуал прощения, радикальная честность. Исцеляем глубинные причины.</p>
-                    </div>
-                    <div class="day-block">
-                        <h3><span class="icon">🧘</span> День 6. Тело как союзник – восстановление нейрохимии</h3>
-                        <p>Физическая активность, йога, подготовка ко сну. Восстанавливаем мозг через тело.</p>
-                    </div>
-                    <div class="day-block">
-                        <h3><span class="icon">🌟</span> День 7. Интеграция и стратегия на будущее</h3>
-                        <p>Карта будущего, визуализация «Я через год», финальный ритуал. Закрепляем результат.</p>
-                    </div>
+                    <div class="day-block"><h3><span class="icon">🌅</span> День 1. Пробуждение – осознание и намерение</h3><p>Карта триггеров, аффирмации, дыхание 4-7-8. Вы поймёте, какие ситуации провоцируют желание выпить.</p></div>
+                    <div class="day-block"><h3><span class="icon">⚡</span> День 2. Перезагрузка дофамина – баланс с болью</h3><p>Контрастный душ, интервальная нагрузка, замещение ритуала. Учимся получать здоровый дофамин.</p></div>
+                    <div class="day-block"><h3><span class="icon">🌬️</span> День 3. Дыхание как якорь – управление импульсами</h3><p>Квадратное дыхание, осознанное наблюдение за тягой, Судхаршан Крия. Возвращаем контроль.</p></div>
+                    <div class="day-block"><h3><span class="icon">🔄</span> День 4. Замена привычки – перепрограммирование ритуалов</h3><p>«Трезвый бар», практика 4D, новые сценарии поведения. Создаём новые нейронные пути.</p></div>
+                    <div class="day-block"><h3><span class="icon">💔</span> День 5. Генетика, травма и самопрощение – корни зависимости</h3><p>Письмо себе-ребёнку, ритуал прощения, радикальная честность. Исцеляем глубинные причины.</p></div>
+                    <div class="day-block"><h3><span class="icon">🧘</span> День 6. Тело как союзник – восстановление нейрохимии</h3><p>Физическая активность, йога, подготовка ко сну. Восстанавливаем мозг через тело.</p></div>
+                    <div class="day-block"><h3><span class="icon">🌟</span> День 7. Интеграция и стратегия на будущее</h3><p>Карта будущего, визуализация «Я через год», финальный ритуал. Закрепляем результат.</p></div>
                 </div>
             </div>
         </section>
@@ -1141,8 +862,7 @@
                     <!-- День 1 -->
                     <div class="day-block">
                         <h3><span class="icon">🌅</span> ДЕНЬ 1: ПРОБУЖДЕНИЕ – ОСОЗНАНИЕ И НАМЕРЕНИЕ</h3>
-                        <p><strong>Нейробиологическая основа дня</strong><br>
-                        Мозг человека эволюционировал в условиях дефицита, а не изобилия. Сегодня доступ к любым веществам, активирующим систему вознаграждения, стал безграничным. Наш мозг не приспособлен к гиперстимуляции – это создаёт уникальный стресс. В основе зависимости лежит дофаминовая система – молекула мотивации и обучения. Алкоголь даёт массивный выброс дофамина, и мозг записывает это как критически важное для выживания.</p>
+                        <p><strong>Нейробиологическая основа дня</strong><br>Мозг человека эволюционировал в условиях дефицита, а не изобилия. Сегодня доступ к любым веществам, активирующим систему вознаграждения, стал безграничным. Наш мозг не приспособлен к гиперстимуляции – это создаёт уникальный стресс. В основе зависимости лежит дофаминовая система – молекула мотивации и обучения. Алкоголь даёт массивный выброс дофамина, и мозг записывает это как критически важное для выживания.</p>
                         <p><strong>Ключевое понятие:</strong> мозг, адаптированный к дефициту, сталкивается с изобилием.</p>
                         <p><strong>Практики:</strong></p>
                         <ul>
@@ -1364,7 +1084,6 @@
                 e.preventDefault();
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                // Сбрасываем форму при открытии
                 document.getElementById('purchaseForm').reset();
                 document.getElementById('formFields').classList.remove('hidden');
                 document.getElementById('successMsg').classList.remove('show');
@@ -1386,7 +1105,7 @@
             }
         });
 
-        // ----- ОТПРАВКА ФОРМЫ ЧЕРЕЗ fetch -----
+        // ----- ОТПРАВКА ФОРМЫ -----
         const form = document.getElementById('purchaseForm');
         const submitBtn = document.getElementById('submitBtn');
         const formFields = document.getElementById('formFields');
